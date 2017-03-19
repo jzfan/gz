@@ -26,4 +26,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function manager()
+    {
+        return $this->hasOne(Manager::class);
+    }
+
+    public function worker()
+    {
+        return $this->hasOne(Worker::class);
+    }
+
+    public function isEditor()
+    {
+        $role = \Auth::user()->role;
+        return $role == 'editor' or $role == 'admin';
+    }
 }

@@ -9,6 +9,7 @@ class PageController extends Controller
 {
     public function dashboard()
     {
-    	return view('backend.dashboard');
+    	$customers_count = \My\User\User::whereRole('customer')->count();
+    	return view('backend.dashboard', compact('customers_count'));
     }
 }

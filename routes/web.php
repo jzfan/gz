@@ -12,16 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('backend.welcome');
+    return 'my web';
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['namespace'=>'Backend'], function () {
+Route::group(['namespace'=>'Backend', 'middleware'=>['auth', 'editor']], function () {
 	Route::get('dashboard', 'PageController@dashboard');
-});
-Route::group(['namespace'=>'Frontend'], function () {
-	Route::get('file', 'FileController@index');
+	Route::get('admins', 'AdminController@index');
+	Route::get('editors', 'EditorController@index');
+	Route::get('managers', 'ManagerController@index');
+	Route::get('workers', 'WorkerController@index');
+	Route::get('customers', 'CustomerController@index');
 });

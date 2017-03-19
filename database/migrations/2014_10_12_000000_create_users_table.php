@@ -18,7 +18,13 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('phone')->unique();
             $table->string('email')->unique();
+            $table->string('qq')->nullable();
+            $table->string('avatar')->nullable();
             $table->string('password');
+            $table->enum('role', ['admin', 'editor', 'manager', 'worker', 'customer'])->default('customer');
+            $table->string('api_token', 60)->nullable();
+            $table->string('qq_id', 60)->nullable();
+            $table->string('wx_id', 60)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

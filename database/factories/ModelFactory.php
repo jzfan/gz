@@ -23,3 +23,28 @@ $factory->define(My\User\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(My\User\Manager::class, function (Faker\Generator $faker) {
+    return [
+        'WO' => mt_rand(0, 22),
+        'rank' => mt_rand(1, 5),
+        'points' => mt_rand(0, 1000),
+        'quality' => mt_rand(60, 99),
+        'working_age' => mt_rand(1, 20),
+        'work_area' => $faker->city,
+        'ex_company' => $faker->company,
+        'from' => $faker->state,
+        'fans' => mt_rand(0, 200),
+        'deposit' => mt_rand(100, 500) * 100
+    ];
+});
+
+$factory->define(My\User\Worker::class, function (Faker\Generator $faker) {
+    return [
+        'craft' => mt_rand(1, 5),
+        'area' => mt_rand(1, 3),
+        'birthday' => $faker->datetime(),
+        'daily_wage' => mt_rand(20, 100)*10,
+        'evaluate' => $faker->paragraph
+    ];
+});
