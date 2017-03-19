@@ -18,7 +18,6 @@ class CreateProjectsTable extends Migration
             $table->unsignedInteger('decoration_id');
             $table->string('title', 60);
             $table->string('type', 60);
-            $table->unsignedInteger('detail_id');
             $table->timestamps();
         });
     }

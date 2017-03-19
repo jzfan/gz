@@ -22,8 +22,9 @@ Route::get('/home', 'HomeController@index');
 Route::group(['namespace'=>'Backend', 'middleware'=>['auth', 'editor']], function () {
 	Route::get('dashboard', 'PageController@dashboard');
 	Route::get('admins', 'AdminController@index');
-	Route::get('editors', 'EditorController@index');
-	Route::get('managers', 'ManagerController@index');
-	Route::get('workers', 'WorkerController@index');
-	Route::get('customers', 'CustomerController@index');
+	// Route::get('editors', 'EditorController@index');
+	Route::get('backend/managers', 'ManagerController@index');
+	Route::get('backend/workers', 'WorkerController@index');
+	Route::get('backend/customers', 'CustomerController@index');
+	Route::get('backend/projects', 'ProjectController@index');
 });

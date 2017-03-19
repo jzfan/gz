@@ -8,18 +8,29 @@
                           <span>Dashboard</span>
                       </a>
                   </li>
+                  <li class="">
+                      <a class="" href="/admins">
+                          <i class="icon-key"></i>
+                          <span>后台</span>
+                      </a>
+                  </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
-                          <i class="icon-book"></i>
+                          <i class="icon-user"></i>
                           <span>用户</span>
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="/editors">编辑</a></li>
-                          <li><a class="" href="/managers">工头</a></li>
-                          <li><a class="" href="/workers">工人</a></li>
-                          <li><a class="" href="/customers">业主</a></li>
+                          <li><a class="" href="/backend/managers">工头</a></li>
+                          <li><a class="" href="/backend/workers">工人</a></li>
+                          <li><a class="" href="/backend/customers">业主</a></li>
                       </ul>
+                  </li>
+                  <li class="">
+                      <a class="" href="/backend/projects">
+                          <i class="icon-anchor"></i>
+                          <span>项目</span>
+                      </a>
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">

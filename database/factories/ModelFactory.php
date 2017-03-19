@@ -48,3 +48,27 @@ $factory->define(My\User\Worker::class, function (Faker\Generator $faker) {
         'evaluate' => $faker->paragraph
     ];
 });
+
+$factory->define(My\Project\Decoration::class, function (Faker\Generator $faker) {
+    return [
+        'block' => $faker->streetName,
+        'square' => mt_rand(50, 200),
+        'plan' => mt_rand(1, 3),
+        'budget' => mt_rand(2, 20),
+        'status' => mt_rand(1, 4)
+    ];
+});
+
+$factory->define(My\Project\Material::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+        'brand' => $faker->company
+    ];
+});
+
+$factory->define(My\Project\Project::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence,
+        'type' => $faker->sentence
+    ];
+});

@@ -2,14 +2,22 @@
 
 namespace App\Http\Controllers\Backend;
 
+use My\User\Repo\UserRepo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class EditorController extends Controller
 {
-	public function index()
+	private $user;
+
+	public function __construct(UserRepo $user)
 	{
-	    $editors = \My\User\User::whereRole('editor')->get();
-	    return view('backend.user.editor', compact('editors'));
+		$this->user = $user;
 	}
+
+    public function index()
+    {
+        $users = $this->user->roleByPage('editor');
+        return view('backend.user.editor', compact('users'));
+    }
 }

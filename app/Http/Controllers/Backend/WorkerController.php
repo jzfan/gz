@@ -2,14 +2,22 @@
 
 namespace App\Http\Controllers\Backend;
 
+use My\User\Repo\UserRepo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class WorkerController extends Controller
 {
+	private $user;
+
+	public function __construct(UserRepo $user)
+	{
+		$this->user = $user;
+	}
+
     public function index()
     {
-        $workers = \My\User\User::whereRole('worker')->OrderBy('id', 'desc')->paginate(10);
-        return view('backend.user.worker', compact('workers'));
+        $users = $this->user->roleByPage('worker');
+        return view('backend.user.worker', compact('users'));
     }
 }

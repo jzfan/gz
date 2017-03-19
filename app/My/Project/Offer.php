@@ -1,10 +1,10 @@
 <?php
 
-namespace App\My\Decoration;
+namespace My\Project;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Material extends Model
+class Offer extends Model
 {
     //
 }

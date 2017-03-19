@@ -1,6 +1,6 @@
 <?php
 
-namespace My\Decoration;
+namespace My\Project;
 
 use Illuminate\Database\Eloquent\Model;
 

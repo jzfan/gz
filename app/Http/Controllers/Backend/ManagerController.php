@@ -2,14 +2,22 @@
 
 namespace App\Http\Controllers\Backend;
 
+use My\User\Repo\UserRepo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class ManagerController extends Controller
 {
+	private $user;
+
+	public function __construct(UserRepo $user)
+	{
+		$this->user = $user;
+	}
+
     public function index()
     {
-        $managers = \My\User\User::whereRole('manager')->with('manager')->paginate(10);
-        return view('backend.user.manager', compact('managers'));
+        $users = $this->user->roleByPage('manager');
+        return view('backend.user.manager', compact('users'));
     }
 }

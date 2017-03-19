@@ -2,6 +2,7 @@
 
 namespace My\User;
 
+use My\Project\Decoration;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -37,9 +38,24 @@ class User extends Authenticatable
         return $this->hasOne(Worker::class);
     }
 
+    public function decorations()
+    {
+        return $this->hasMany(Decoration::class, 'customer_id', 'id');
+    }
+
+    public function projecter()
+    {
+        return $this->hasMany(Decoration::class, 'manager_id', 'id');
+    }
+
     public function isEditor()
     {
         $role = \Auth::user()->role;
         return $role == 'editor' or $role == 'admin';
+    }
+
+    public function scopeOfRole($q, $role)
+    {
+        return $q->whereRole($role)->OrderBy('id', 'desc');
     }
 }

@@ -3,17 +3,17 @@
 @section('content')
 
 <div class="row">
-@foreach ($editors as $editor)
+@foreach ($users as $user)
       <div class="col-lg-4">
         <!--widget start-->
-        <aside class="profile-nav alt green-border">
+        <aside class="profile-nav alt white-border">
           <section class="panel">
-            <div class="user-heading alt green-bg">
+            <div class="user-heading alt white-bg">
               <a href="#">
                 <img alt="" src="/flatlab/img/profile-avatar.jpg">
           </a>
-          <h1>{{ $editor->name }}</h1>
-          <p>电话： {{ $editor->phone }}</p>
+          <h1>{{ $user->name }}</h1>
+          <p>电话： {{ $user->phone }}</p>
     </div>
 
     <ul class="nav nav-pills nav-stacked">

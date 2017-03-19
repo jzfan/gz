@@ -2,28 +2,32 @@
 
 @section('content')
 
-<div class="row mt">
-@foreach ($admins as $admin)
-      <div class="col-lg-4 col-md-4 col-sm-4 mb">
-            <!-- WHITE PANEL - TOP USER -->
-            <div class="white-panel pn">
-                  <div class="white-header">
-                        <h5>管理员 No:{{ $admin->id }}</h5>
-                  </div>
-                  <p><img src="/Theme/assets/img/ui-zac.jpg" class="img-circle" width="50"></p>
-                  <p><b>{{ $admin->name }}</b></p>
-                  <div class="row">
-                        <div class="col-md-6">
-                              <p class="small mt">注册时间</p>
-                              <p>{{ $admin->created_at->format('Y-m-d') }}</p>
-                        </div>
-                        <div class="col-md-6">
-                              <p class="small mt">电话</p>
-                              <p>{{ $admin->phone }}</p>
-                        </div>
-                  </div>
-            </div>
-      </div><!-- /col-md-4 -->
+<div class="row">
+@foreach ($users as $user)
+      <div class="col-lg-4">
+        <!--widget start-->
+        <aside class="profile-nav alt white-border">
+          <section class="panel">
+            <div class="user-heading alt white-bg">
+              <a href="#">
+                <img alt="" src="/flatlab/img/profile-avatar.jpg">
+          </a>
+          <h1>{{ $user->name }}</h1>
+          <p>电话： {{ $user->phone }}</p>
+          <p>角色： {{ $user->role }}</p>
+    </div>
+
+    <ul class="nav nav-pills nav-stacked">
+        <li><a href="javascript:;"> <i class="icon-time"></i> Mail Inbox <span class="label label-primary pull-right r-activity">19</span></a></li>
+        <li><a href="javascript:;"> <i class="icon-calendar"></i> Recent Activity <span class="label label-info pull-right r-activity">11</span></a></li>
+        <li><a href="javascript:;"> <i class="icon-bell-alt"></i> Notification <span class="label label-warning pull-right r-activity">03</span></a></li>
+        <li><a href="javascript:;"> <i class="icon-envelope-alt"></i> Message <span class="label label-success pull-right r-activity">10</span></a></li>
+  </ul>
+
+</section>
+</aside>
+<!--widget end-->
+</div>
 @endforeach
 </div>
 @stop
