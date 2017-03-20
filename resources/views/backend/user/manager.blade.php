@@ -34,6 +34,6 @@
 <!--widget end-->
 </div>
 @endforeach
-{!! $users->links() !!}
 </div>
+{!! $users->links() !!}
 @stop

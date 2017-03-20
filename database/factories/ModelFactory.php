@@ -72,3 +72,18 @@ $factory->define(My\Project\Project::class, function (Faker\Generator $faker) {
         'type' => $faker->sentence
     ];
 });
+
+$factory->define(My\Article\Tag::class, function (Faker\Generator $faker) {
+    return [
+        'tag' => $faker->word . str_random(mt_rand(0,4))
+    ];
+});
+
+$factory->define(My\Article\Article::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence,
+        'content' => join(PHP_EOL, $faker->paragraphs),
+        'page_image' => '/images/'.mt_rand(1,5).'.jpg',
+        'published_at' => \Carbon\Carbon::now()
+    ];
+});

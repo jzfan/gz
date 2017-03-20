@@ -1,8 +1,10 @@
 <?php
 
 use My\User\User;
+use My\Article\Tag;
 use My\User\Worker;
 use My\User\Manager;
+use My\Article\Article;
 use My\Project\Material;
 use My\Project\Decoration;
 use Illuminate\Database\Seeder;
@@ -49,6 +51,14 @@ class DatabaseSeeder extends Seeder
             $ids = Material::inRandomOrder()->take(5, 7)->get()->pluck('id');
             $decoration->materials()->sync($ids);
         }
+
+        Article::truncate();
+        Tag::truncate();
+        factory(Tag::class, 22)->create();
+        factory(Article::class, 11)->create(['editor_id'=>1])->each( function ($a) {
+            $ids = Tag::inRandomOrder()->take(mt_rand(1,4))->get()->pluck('id');
+            $a->tags()->sync($ids);
+        });
 
     }
 }

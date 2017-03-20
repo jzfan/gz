@@ -29,7 +29,6 @@
 <!--widget end-->
 </div>
 @endforeach
-
 </div>
 {!! $users->links() !!}
 @stop

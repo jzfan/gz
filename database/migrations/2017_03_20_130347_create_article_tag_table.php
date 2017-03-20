@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDecrationMaterialTable extends Migration
+class CreateArticleTagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateDecrationMaterialTable extends Migration
      */
     public function up()
     {
-        Schema::create('decoration_material', function (Blueprint $table) {
-            $table->unsignedInteger('decoration_id');
-            $table->unsignedInteger('material_id');
+        Schema::create('article_tag', function (Blueprint $table) {
+            $table->unsignedInteger('article_id');
+            $table->unsignedInteger('tag_id');
         });
     }
 
@@ -26,6 +26,6 @@ class CreateDecrationMaterialTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('decoration_material');
+        Schema::dropIfExists('article_tag');
     }
 }

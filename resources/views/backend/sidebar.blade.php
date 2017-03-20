@@ -32,6 +32,12 @@
                           <span>项目</span>
                       </a>
                   </li>
+                  <li class="">
+                      <a class="" href="/backend/articles">
+                          <i class="icon-file-text-alt"></i>
+                          <span>文章</span>
+                      </a>
+                  </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon-cogs"></i>
