@@ -12,7 +12,8 @@
 */
 Route::group(['namespace'=>'Frontend'], function () {
 
-	Route::get('/', 'ArticleController@index');
+	Route::get('/', 'PageController@index');
+	Route::get('articles', 'ArticleController@index');
 	Route::get('articles/{id}', 'ArticleController@show');
 
 });

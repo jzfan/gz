@@ -19,20 +19,21 @@ class ArticleController extends Controller
     public function index(Request $request)
     {
     	$page = $request->page ?? 1;
-    	$limit = 3;
+    	$limit = 6;
     	$pageData = $this->article->byPage($page, $limit);
     	$articles = new LengthAwarePaginator(
     			$pageData->items,
     			$pageData->total,
     			$limit,
-    			$page
+    			$page,
+                ['path'=>'articles']
     		);
-        return view('frontend.index', compact('articles'));
+        return view('frontend.article.index', compact('articles'));
     }
 
     public function show($id)
     {
         $article = $this->article->byId($id);
-        return view('frontend.article_show', compact('article'));
+        return view('frontend.article.show', compact('article'));
     }
 }
