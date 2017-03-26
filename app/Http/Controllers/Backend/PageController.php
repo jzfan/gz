@@ -3,13 +3,21 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
+use My\User\Repo\CustomerRepo;
 use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
+	private $customer;
+
+	public function __construct(CustomerRepo $customer)
+	{
+		$this->customer = $customer;
+	}
+
     public function dashboard()
     {
-    	$customers_count = \My\User\User::whereRole('customer')->count();
+    	$customers_count = $this->customer->count();
     	return view('backend.dashboard', compact('customers_count'));
     }
 }

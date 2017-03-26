@@ -21,7 +21,7 @@
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="/backend/managers">工头</a></li>
+                          <li><a class="" href="/backend/leaders">工头</a></li>
                           <li><a class="" href="/backend/workers">工人</a></li>
                           <li><a class="" href="/backend/customers">业主</a></li>
                       </ul>

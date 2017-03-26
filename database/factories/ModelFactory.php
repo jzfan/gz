@@ -18,13 +18,26 @@ $factory->define(My\User\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
+        'avatar' => '/images/avatar/no.svg',
         'phone' => (string) mt_rand(13000000000, 18999999999),
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
 });
 
-$factory->define(My\User\Manager::class, function (Faker\Generator $faker) {
+$factory->define(My\User\Admin::class, function (Faker\Generator $faker) {
+    return [];
+});
+
+$factory->define(My\User\Editor::class, function (Faker\Generator $faker) {
+    return [];
+});
+
+$factory->define(My\User\Customer::class, function (Faker\Generator $faker) {
+    return [];
+});
+
+$factory->define(My\User\Leader::class, function (Faker\Generator $faker) {
     return [
         'WO' => mt_rand(0, 22),
         'rank' => mt_rand(1, 5),
@@ -59,6 +72,12 @@ $factory->define(My\Project\Decoration::class, function (Faker\Generator $faker)
     ];
 });
 
+$factory->define(My\Project\Offer::class, function (Faker\Generator $faker) {
+    return [
+        'amount' => mt_rand(10000, 200000)
+    ];
+});
+
 $factory->define(My\Project\Material::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word,
@@ -75,7 +94,7 @@ $factory->define(My\Project\Project::class, function (Faker\Generator $faker) {
 
 $factory->define(My\Article\Tag::class, function (Faker\Generator $faker) {
     return [
-        'tag' => $faker->word . str_random(mt_rand(0,4))
+        'tag' => join('_', $faker->words)
     ];
 });
 
@@ -85,5 +104,21 @@ $factory->define(My\Article\Article::class, function (Faker\Generator $faker) {
         'content' => join(PHP_EOL, $faker->paragraphs),
         'page_image' => '/images/'.mt_rand(1,5).'.jpg',
         'published_at' => \Carbon\Carbon::now()
+    ];
+});
+
+$factory->define(My\Article\Comment::class, function (Faker\Generator $faker) {
+    return [
+        'content' => join(PHP_EOL, $faker->paragraphs)
+    ];
+});
+
+$factory->define(My\File\Image::class, function (Faker\Generator $faker) {
+    $arr = ['工地', '工头', '工人'];
+    return [
+        'title' => $faker->sentence,
+        'path' => '/images/'.mt_rand(1,5).'.jpg',
+        'group' => $arr[array_rand($arr)],
+        'description' => $faker->paragraph
     ];
 });

@@ -17,8 +17,8 @@ class ArticleController extends Controller
 
     public function index()
     {
-        $articles = $this->article->byPage(1, 10);
-        dd($articles);
+        $articles = $this->article->byPage(10);
+        return view('frontend.article.index', compact('articles'));
     }
 
     public function byTag($tag)

@@ -18,16 +18,7 @@ class ArticleController extends Controller
 
     public function index(Request $request)
     {
-    	$page = $request->page ?? 1;
-    	$limit = 6;
-    	$pageData = $this->article->byPage($page, $limit);
-    	$articles = new LengthAwarePaginator(
-    			$pageData->items,
-    			$pageData->total,
-    			$limit,
-    			$page,
-                ['path'=>'articles']
-    		);
+    	$articles = $this->article->byPage(4);
         return view('frontend.article.index', compact('articles'));
     }
 

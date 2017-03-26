@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers\Backend;
 
-use My\User\Repo\UserRepo;
 use Illuminate\Http\Request;
+use My\User\Repo\CustomerRepo;
 use App\Http\Controllers\Controller;
 
 class CustomerController extends Controller
 {
-	private $user;
+	private $customer;
 
-	public function __construct(UserRepo $user)
+	public function __construct(CustomerRepo $customer)
 	{
-		$this->user = $user;
+		$this->customer = $customer;
 	}
+
 
     public function index()
     {
-        $users = $this->user->roleByPage('customer');
-        return view('backend.user.customer', compact('users'));
+        $customers = $this->customer->byPage(6);
+        return view('backend.user.customers', compact('customers'));
     }   
 }

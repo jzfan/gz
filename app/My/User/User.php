@@ -10,52 +10,21 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'name', 'email', 'password',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    public function manager()
+    public function role()
     {
-        return $this->hasOne(Manager::class);
+        return $this->morphTo();
     }
 
-    public function worker()
+    public function isAdmin()
     {
-        return $this->hasOne(Worker::class);
-    }
-
-    public function decorations()
-    {
-        return $this->hasMany(Decoration::class, 'customer_id', 'id');
-    }
-
-    public function projecter()
-    {
-        return $this->hasMany(Decoration::class, 'manager_id', 'id');
-    }
-
-    public function isEditor()
-    {
-        $role = \Auth::user()->role;
-        return $role == 'editor' or $role == 'admin';
-    }
-
-    public function scopeOfRole($q, $role)
-    {
-        return $q->whereRole($role)->OrderBy('id', 'desc');
+        return $this->role_type == 'My\User\Admin';
     }
 }

@@ -2,24 +2,23 @@
 
 namespace App\Http\Controllers\Backend;
 
-use My\User\Repo\UserRepo;
+use My\User\Repo\AdminRepo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
-	private $user;
+    private $admin;
 
-	public function __construct(UserRepo $user)
-	{
-		$this->user = $user;
-	}
+    public function __construct(AdminRepo $admin)
+    {
+        $this->admin = $admin;
+    }
+
 
     public function index()
     {
-        $admins = $this->user->roleByPage('admin');
-        $editors = $this->user->roleByPage('editor');
-        $users = $admins->merge($editors);
-        return view('backend.user.admin', compact('users'));
+        $admins = $this->admin->all();
+        return view('backend.user.admins', compact('admins'));
     }
 }

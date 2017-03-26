@@ -16,7 +16,7 @@ class CreateOffersTable extends Migration
         Schema::create('offers', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('decoration_id');
-            $table->unsignedInteger('manager_id');
+            $table->unsignedInteger('leader_id');
             $table->unsignedInteger('amount');
             $table->timestamps();
         });

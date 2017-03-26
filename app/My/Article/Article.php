@@ -2,7 +2,7 @@
 
 namespace My\Article;
 
-use My\User\User;
+use My\User\Editor;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
@@ -23,6 +23,6 @@ class Article extends Model
 
     public function editor()
     {
-        return $this->belongsTo(User::class, 'editor_id', 'id');
+        return $this->belongsTo(Editor::class, 'editor_id', 'id');
     }
 }

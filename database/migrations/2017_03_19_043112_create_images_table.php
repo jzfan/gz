@@ -18,8 +18,9 @@ class CreateImagesTable extends Migration
             $table->unsignedInteger('imageable_id');
             $table->string('imageable_type', 100);
             $table->string('group', 20);
+            $table->string('path');
             $table->string('title', 100);
-            $table->string('description')->default('');
+            $table->text('description');
             $table->string('link')->default('');
             $table->timestamps();
         });

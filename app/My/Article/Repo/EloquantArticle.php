@@ -15,18 +15,12 @@ class EloquantArticle implements ArticleInterface
 		$this->tag = $tag;
 	}
 
-	public function byPage($page=1, $limit=10)
+	public function byPage($n)
 	{
-	    $data = new \StdClass;
-	    $data->items = $this->article->published()
-	    						->with('tags', 'editor')
-	    						->OrderBy('published_at', 'desc')
-	    						->skip( $limit * ($page-1) )
-	    						->take($limit)
-	    						->get()->all();
-	    $data->total = $this->totalArticles();
-
-	    return $data;
+		return $this->article->published()
+    						->with('tags', 'editor')
+    						->OrderBy('published_at', 'desc')
+    						->paginate($n);
 	}
 
 	public function byTag($tag, $page=1, $limit=10)
@@ -60,5 +54,10 @@ class EloquantArticle implements ArticleInterface
 	{
 		$tag = $this->tag->whereTag($tag)->first();
 		return $tag->articles()->published()->count();
+	}
+
+	public function newList($n)
+	{
+	    return $this->article->with('editor.user')->orderBy('published_at', 'desc')->take($n)->get();
 	}
 }

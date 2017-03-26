@@ -4,7 +4,7 @@ namespace My\Article\Repo;
 
 interface ArticleInterface
 {
-	public function byPage($page=1, $limit=10);
+	public function byPage($n);
 
 	public function byId($id);
 

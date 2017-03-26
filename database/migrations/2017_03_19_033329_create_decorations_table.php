@@ -16,7 +16,8 @@ class CreateDecorationsTable extends Migration
         Schema::create('decorations', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('customer_id');
-            $table->unsignedInteger('manager_id')->nullable();
+            $table->unsignedInteger('leader_id')->nullable();
+            $table->unsignedInteger('project_id')->nullable();
             $table->string('block');
             $table->smallInteger('square')->unsigned();
             $table->enum('plan', ['全装修', '半装修', '待定']);
