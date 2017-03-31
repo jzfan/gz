@@ -22,19 +22,8 @@ $factory->define(My\User\User::class, function (Faker\Generator $faker) {
         'phone' => (string) mt_rand(13000000000, 18999999999),
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+        'role' => 'customer'
     ];
-});
-
-$factory->define(My\User\Admin::class, function (Faker\Generator $faker) {
-    return [];
-});
-
-$factory->define(My\User\Editor::class, function (Faker\Generator $faker) {
-    return [];
-});
-
-$factory->define(My\User\Customer::class, function (Faker\Generator $faker) {
-    return [];
 });
 
 $factory->define(My\User\Leader::class, function (Faker\Generator $faker) {
@@ -68,7 +57,7 @@ $factory->define(My\Project\Decoration::class, function (Faker\Generator $faker)
         'square' => mt_rand(50, 200),
         'plan' => mt_rand(1, 3),
         'budget' => mt_rand(2, 20),
-        'status' => mt_rand(1, 4)
+        'status' => mt_rand(1, 5)
     ];
 });
 
@@ -101,6 +90,7 @@ $factory->define(My\Article\Tag::class, function (Faker\Generator $faker) {
 $factory->define(My\Article\Article::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence,
+        'description' => join(PHP_EOL, $faker->sentences),
         'content' => join(PHP_EOL, $faker->paragraphs),
         'page_image' => '/images/'.mt_rand(1,5).'.jpg',
         'published_at' => \Carbon\Carbon::now()

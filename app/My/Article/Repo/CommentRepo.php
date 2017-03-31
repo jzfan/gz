@@ -15,11 +15,11 @@ class CommentRepo
 
 	public function newList($n)
 	{
-	    return $this->comment->with('customer.user')->orderBy('id', 'desc')->take($n)->get();
+	    return $this->comment->with('user')->orderBy('id', 'desc')->take($n)->get();
 	}
 
 	public function byPage($n=10)
 	{
-	    return $this->comment->with('customer.user')->orderBy('id', 'desc')->paginate($n);
+	    return $this->comment->with('user')->orderBy('id', 'desc')->paginate($n);
 	}
 }

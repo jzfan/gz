@@ -21,12 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('qq')->nullable();
             $table->string('avatar')->nullable();
             $table->string('password');
-            // $table->enum('role', ['admin', 'editor', 'manager', 'worker', 'customer'])->default('customer');
-            $table->unsignedInteger('role_id');
-            $table->string('role_type');
+            $table->enum('role', ['admin', 'editor', 'leader', 'worker', 'customer'])->default('customer');
             $table->string('api_token', 60)->nullable();
-            $table->string('qq_id', 60)->nullable();
-            $table->string('wx_id', 60)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

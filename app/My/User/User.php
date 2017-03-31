@@ -10,6 +10,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'users';
+
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -18,13 +20,33 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function role()
+    public function leader()
     {
-        return $this->morphTo();
+        return $this->hasOne(Leader::class);
+    }
+
+    public function worker()
+    {
+        return $this->hasOne(Worker::class);
+    }
+
+    public function customerDecorations()
+    {
+        return $this->hasMany(Decoration::class, 'customer_id', 'id');
+    }
+
+    public function leaderDecorations()
+    {
+        return $this->hasMany(Decoration::class, 'leader_id', 'id');
+    }
+
+    public function articles()
+    {
+        return $this->user()->hasMany(Article::class);
     }
 
     public function isAdmin()
     {
-        return $this->role_type == 'My\User\Admin';
+        return $this->role == 'admin';
     }
 }

@@ -10,7 +10,7 @@
           <section class="panel">
             <div class="user-heading alt green-bg">
               <a href="#">
-                <img alt="" src="/flatlab/img/profile-avatar.jpg">
+                <img alt="" src="{{ $leader->user->avatar }}">
           </a>
           <h1>{{ $leader->user->name }}</h1>
           <p>电话： {{ $leader->user->phone }}</p>

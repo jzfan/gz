@@ -22,7 +22,7 @@ class CreateDecorationsTable extends Migration
             $table->smallInteger('square')->unsigned();
             $table->enum('plan', ['全装修', '半装修', '待定']);
             $table->smallInteger('budget')->unsigned();
-            $table->enum('status', ['预约', '报价', '施工', '完工']);
+            $table->enum('status', ['申请', '报价', '审核', '施工', '完工']);
             $table->timestamps();
         });
     }

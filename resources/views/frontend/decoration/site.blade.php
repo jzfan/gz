@@ -8,7 +8,7 @@
               <div class="panel-heading">小区：{{ $site->block }}</div>
               <div class="panel-body">
                 <p>装修计划：{{ $site->plan }}</p>
-                <p>工头：{{ $site->leader->user->name }}</p>
+                <p>工头：{{ $site->leader->name }}</p>
                 <p>价格：{{ $site->project->amount }}</p>
                 @foreach ($site->images as $image)
                     <div class="col-md-6">

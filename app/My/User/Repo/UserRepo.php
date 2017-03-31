@@ -6,7 +6,7 @@ use My\User\User;
 
 class UserRepo
 {
-	private $user;
+	protected $user;
 
 	public function __construct(User $user)
 	{

@@ -15,7 +15,7 @@ class CreateWorkersTable extends Migration
     {
         Schema::create('workers', function (Blueprint $table) {
             $table->increments('id');
-            // $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id');
             $table->enum('craft', ['泥工', '木工', '油漆工', '水电工', '其他']);
             $table->enum('area', ['汉口', '汉阳', '武昌']);
             $table->timestamp('birthday');

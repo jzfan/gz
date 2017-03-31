@@ -10,8 +10,8 @@
                 <p>小区：{{ $offer->decoration->block }}</p>
                 <p>报价：{{ $offer->amount }}</p>
                 <p>时间：{{ $offer->created_at->format('Y-m-d H:i') }}</p>
-                <p>工头：{{ $offer->leader->user->name }}</p>
-                <p>电话：{{ $offer->leader->user->phone }}</p>
+                <p>工头：{{ $offer->user->name }}</p>
+                <p>电话：{{ $offer->user->phone }}</p>
               </div>
             </div>
         </div>

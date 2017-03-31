@@ -4,7 +4,7 @@ namespace My\Project;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class DecorationItem extends Model
 {
     protected $fillable = ['docoration_id', 'title', 'type', 'detail_id'];
 

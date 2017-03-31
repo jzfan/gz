@@ -15,11 +15,11 @@ class OfferRepo
 
 	public function newList($n)
 	{
-	    return $this->offer->with('leader', 'decoration')->orderBy('id', 'desc')->take($n)->get();
+	    return $this->offer->with('user', 'decoration')->orderBy('id', 'desc')->take($n)->get();
 	}
 
 	public function byPage($n)
 	{
-	    return $this->offer->with('leader', 'decoration')->orderBy('id', 'desc')->take($n)->paginate($n);
+	    return $this->offer->with('user', 'decoration')->orderBy('id', 'desc')->take($n)->paginate($n);
 	}
 }

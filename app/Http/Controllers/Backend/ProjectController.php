@@ -15,10 +15,16 @@ class ProjectController extends Controller
 		$this->decoration = $decoration;
 	}
 
-    public function index()
+    public function pageByStatus($status)
     {
-        $decorations = $this->decoration->byPage();
-        // dd($decorations->all());
+        $arr = [
+            'applies' => '申请',
+            'offers' => '报价',
+            'pending' => '审核',
+            'working' => '施工',
+            'done' => '完工',
+        ];
+        $decorations = $this->decoration->pageByStatus($arr[$status]);
         return view('backend.project.decoration', compact('decorations'));
     }
 }

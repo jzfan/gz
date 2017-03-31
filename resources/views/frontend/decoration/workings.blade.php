@@ -12,8 +12,8 @@
                 <p>价格：{{ number_format($working->project->amount) }} 元</p>
                 <p>方案：{{ $working->plan }}</p>
                 <p>开工时间：{{ $working->updated_at->format('Y-m-d H:i') }}</p>
-                <p>工头：{{ $working->leader->user->name }}</p>
-                <p>电话：{{ $working->leader->user->phone }}</p>
+                <p>工头：{{ $working->leader->name }}</p>
+                <p>电话：{{ $working->leader->phone }}</p>
               </div>
               @if ($working->images->all() != [])
                 <img src="{{ $working->images->first()->path }}" width="100%">

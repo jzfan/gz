@@ -38,6 +38,8 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
+@includeWhen(session()->has('success'), 'backend.notice.success')
+@includeWhen(session()->has('errors'), 'backend.notice.errors')
               <!-- page start-->
 @yield('content')
               <!-- page end-->
@@ -55,15 +57,15 @@
 
     <!--common script for all pages-->
     <script src="/flatlab/js/common-scripts.js"></script>
-
+    <script type="text/javascript" src="/flatlab/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript">
   var uri = window.location.pathname;
-  console.log(uri);
   var li = $('[href="'+uri+'"]').closest('li').addClass('active');
   var ul = li.closest('ul');
   if (ul.attr('class') == 'sub') {
       ul.closest('li').addClass('active');
   }
 </script>
+@yield('js')
   </body>
 </html>

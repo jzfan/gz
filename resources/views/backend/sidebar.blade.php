@@ -9,7 +9,7 @@
                       </a>
                   </li>
                   <li class="">
-                      <a class="" href="/admins">
+                      <a class="" href="/backend-users">
                           <i class="icon-key"></i>
                           <span>后台</span>
                       </a>
@@ -26,11 +26,19 @@
                           <li><a class="" href="/backend/customers">业主</a></li>
                       </ul>
                   </li>
-                  <li class="">
-                      <a class="" href="/backend/projects">
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
                           <i class="icon-anchor"></i>
                           <span>项目</span>
+                          <span class="arrow"></span>
                       </a>
+                      <ul class="sub">
+                          <li><a class="" href="/backend/projects/applies">申请</a></li>
+                          <li><a class="" href="/backend/projects/offers">报价</a></li>
+                          <li><a class="" href="/backend/projects/pending">审核</a></li>
+                          <li><a class="" href="/backend/projects/working">施工</a></li>
+                          <li><a class="" href="/backend/projects/done">完工</a></li>
+                      </ul>
                   </li>
                   <li class="">
                       <a class="" href="/backend/articles">

@@ -2,15 +2,15 @@
 
 namespace My\Article;
 
-use My\User\Customer;
+use My\User\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
     protected $fillable = ['customer_id', 'decoration_id', 'content'];
 
-    public function customer()
+    public function user()
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(User::class);
     }
 }

@@ -2,8 +2,8 @@
 
 namespace My\Project;
 
+use My\User\User;
 use My\File\Image;
-use My\User\Leader;
 use My\Project\Offer;
 use My\Article\Comment;
 use My\File\Traits\ImageAbleTrait;
@@ -32,7 +32,12 @@ class Decoration extends Model
 
     public function leader()
     {
-        return $this->belongsTo(Leader::class);
+        return $this->belongsTo(User::class, 'leader_id', 'id');
+    }
+
+    public function customer()
+    {
+        return $this->belongsTo(User::class, 'customer_id', 'id');
     }
 
     public function project()

@@ -19,15 +19,18 @@ Route::group(['namespace'=>'Frontend'], function () {
 
 Route::group(['namespace'=>'Backend', 'middleware'=>['auth', 'admin']], function () {
 	Route::get('dashboard', 'PageController@dashboard');
-	Route::get('admins', 'AdminController@index');
+	Route::get('backend-users', 'AdminController@backendUsers');
+	Route::post('roles', 'AdminController@setRole');
 	// Route::get('editors', 'EditorController@index');
 	Route::group(['prefix'=>'backend'], function () {
 
 		Route::get('leaders', 'LeaderController@index');
 		Route::get('workers', 'WorkerController@index');
 		Route::get('customers', 'CustomerController@index');
-		Route::get('projects', 'ProjectController@index');
+		Route::get('projects/{status}', 'ProjectController@pageByStatus');
 
+		Route::resource('articles/prev', 'ArticleController@prev');
+		Route::resource('articles/next', 'ArticleController@next');
 		Route::resource('articles', 'ArticleController');
 		Route::get('articles/tags/{tag}', 'ArticleController@byTag');
 	});

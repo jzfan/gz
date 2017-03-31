@@ -2,23 +2,34 @@
 
 namespace App\Http\Controllers\Backend;
 
+use My\User\Repo\UserRepo;
 use My\User\Repo\AdminRepo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
-    private $admin;
+    private $user;
 
-    public function __construct(AdminRepo $admin)
+    public function __construct(AdminRepo $user)
     {
-        $this->admin = $admin;
+        $this->user = $user;
     }
 
-
-    public function index()
+    public function backendUsers()
     {
-        $admins = $this->admin->all();
-        return view('backend.user.admins', compact('admins'));
+        $backendUsers = $this->user->backendUsers();
+        return view('backend.user.backend-users', compact('backendUsers'));
+    }
+
+    public function setRole()
+    {
+        $this->validate(request(), [
+                'phone' => 'required|integer|between:13000000000,18999999999|exists:users,phone,role,customer',
+                'role' => 'required|in:editor,admin'
+            ]);
+        dd(11);
+        $this->user->setRole(request('phone'), request('role'));
+        return redirect()->back();
     }
 }

@@ -2,7 +2,7 @@
 
 namespace My\Project;
 
-use My\User\Leader;
+use My\User\User;
 use My\Project\Decoration;
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,9 +10,9 @@ class Offer extends Model
 {
     protected $fillable = ['amount', 'decoration_id', 'leader_id'];
 
-    public function leader()
+    public function user()
     {
-        return $this->belongsTo(Leader::class);
+        return $this->belongsTo(User::class);
     }
 
     public function decoration()

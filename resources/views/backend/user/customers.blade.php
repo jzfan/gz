@@ -10,12 +10,12 @@
           <section class="panel">
             <div class="user-heading alt red-bg">
               <a href="#">
-                <img alt="" src="/flatlab/img/profile-avatar.jpg">
+                <img alt="" src="{{ $customer->avatar }}">
           </a>
-          <h1>{{ $customer->user->name }}</h1>
-          <p>电话： {{ $customer->user->phone }}</p>
+          <h1>{{ $customer->name }}</h1>
+          <p>电话： {{ $customer->phone }}</p>
     </div>
-@foreach ($customer->decorations as $decoration)
+@foreach ($customer->customerDecorations as $decoration)
     <ul class="nav nav-pills nav-stacked">
         <li><a href="javascript:;"> <i class="icon-time"></i> 小区 <span class="label label-primary pull-right r-activity">{{ $decoration->block }}</span></a></li>
         <li><a href="javascript:;"> <i class="icon-star"></i> 面积 <span class="label label-info pull-right r-activity">{{ $decoration->square }} 平方米</span></a></li>

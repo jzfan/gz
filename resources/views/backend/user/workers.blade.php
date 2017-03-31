@@ -10,10 +10,10 @@
           <section class="panel">
             <div class="user-heading alt red-bg">
               <a href="#">
-                <img alt="" src="/flatlab/img/profile-avatar.jpg">
+                <img alt="" src="{{ $worker->user->avatar }}">
           </a>
-          <h1>{{ $worker->name }}</h1>
-          <p>电话： {{ $worker->phone }}</p>
+          <h1>{{ $worker->user->name }}</h1>
+          <p>电话： {{ $worker->user->phone }}</p>
     </div>
 
     <ul class="nav nav-pills nav-stacked">

@@ -13,9 +13,8 @@ class WorkerRepo
 		$this->worker = $worker;
 	}
 
-
 	public function byPage($n=10)
 	{
-	    return $this->worker->with('user')->orderBy('id', 'desc')->paginate($n);
+	    return $this->worker->with('user')->latest()->paginate($n);
 	}
 }

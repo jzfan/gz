@@ -15,7 +15,7 @@ class CreateLeadersTable extends Migration
     {
         Schema::create('leaders', function (Blueprint $table) {
             $table->increments('id');
-            // $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id');
             $table->smallInteger('WO')->unsigned()->default(0);
             $table->tinyInteger('rank')->unsigned()->default(1);
             $table->smallInteger('points')->unsigned();

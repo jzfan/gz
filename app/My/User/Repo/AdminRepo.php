@@ -4,17 +4,15 @@ namespace My\User\Repo;
 
 use My\User\Admin;
 
-class AdminRepo
+class AdminRepo extends UserRepo
 {
-	private $admin;
-
-	public function __construct(Admin $admin)
+	public function setRole($phone, $role)
 	{
-		$this->admin = $admin;
+	    return $this->user->where('phone', $phone)->update(['role' => $role]);
 	}
 
-	public function all()
+	public function backendUsers()
 	{
-	    return $this->admin->all();
+	    return $this->user->whereIn('role', ['admin', 'editor'])->get();
 	}
 }

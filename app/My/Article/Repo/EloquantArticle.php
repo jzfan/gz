@@ -18,7 +18,7 @@ class EloquantArticle implements ArticleInterface
 	public function byPage($n)
 	{
 		return $this->article->published()
-    						->with('tags', 'editor')
+    						->with('tags', 'user')
     						->OrderBy('published_at', 'desc')
     						->paginate($n);
 	}
@@ -40,9 +40,18 @@ class EloquantArticle implements ArticleInterface
 	    return $data;
 	}
 
+	public function withNeibough($id)
+	{
+	    $article = $this->byId($id);
+	    $article->prev = $this->article->published()->where('id', '<', $id)->orderBy('id', 'desc')->first()->id ?? null;
+	    $article->next = $this->article->published()->where('id', '>', $id)->orderBy('id', 'asc')->first()->id ?? null;
+	    return $article;
+	}
+
 	public function byId($id)
 	{
 	    return $this->article->published()->find($id);
+
 	}
 
 	protected function totalArticles()
@@ -58,6 +67,16 @@ class EloquantArticle implements ArticleInterface
 
 	public function newList($n)
 	{
-	    return $this->article->with('editor.user')->orderBy('published_at', 'desc')->take($n)->get();
+	    return $this->article->with('user')->orderBy('published_at', 'desc')->take($n)->get();
+	}
+
+	public function updateBy($id, $input)
+	{
+	    return $this->byId($id)->update($input);
+	}
+
+	public function deleteBy($id)
+	{
+	    return $this->byId($id)->delete();
 	}
 }
