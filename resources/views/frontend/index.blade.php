@@ -7,7 +7,7 @@
             <h3>最新报价</h3>
             <div class="list-group">
                 @foreach ($offers as $offer)
-                <a href="#" class="list-group-item">{{ $offer->decoration->block }} <span class="pull-right">{{ number_format($offer->amount) }} 元</span></a>
+                <a href="#" class="list-group-item">{{ $offer->apply->block }} <span class="pull-right">{{ number_format($offer->amount) }} 元</span></a>
                 @endforeach
             </div>
         </div>

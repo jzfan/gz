@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Backend;
 
-use My\User\Repo\UserRepo;
 use My\User\Repo\AdminRepo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -28,7 +27,6 @@ class AdminController extends Controller
                 'phone' => 'required|integer|between:13000000000,18999999999|exists:users,phone,role,customer',
                 'role' => 'required|in:editor,admin'
             ]);
-        dd(11);
         $this->user->setRole(request('phone'), request('role'));
         return redirect()->back();
     }

@@ -31,6 +31,7 @@ class PageController extends Controller
     {
     	$offers = $this->offer->newList(10);
     	$leaders = $this->leader->rankList(10);
+    	// dd($leaders->first()->leaderUser);
     	$comments = $this->comment->newList(10);
     	$images = $this->image->newList(4);
     	$articles = $this->article->newList(10);

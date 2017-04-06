@@ -3,11 +3,12 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu">
                   <li class="">
-                      <a class="" href="/dashboard">
+                      <a class="" href="/{{ Auth::user()->role }}-console">
                           <i class="icon-dashboard"></i>
-                          <span>Dashboard</span>
+                          <span>Console</span>
                       </a>
                   </li>
+          @if (Auth::user()->isAdmin())
                   <li class="">
                       <a class="" href="/backend-users">
                           <i class="icon-key"></i>
@@ -40,6 +41,7 @@
                           <li><a class="" href="/backend/projects/done">完工</a></li>
                       </ul>
                   </li>
+                  @endif
                   <li class="">
                       <a class="" href="/backend/articles">
                           <i class="icon-file-text-alt"></i>

@@ -8,7 +8,7 @@ use My\User\Worker;
 use My\Article\Article;
 use My\Article\Comment;
 use My\Project\Material;
-use My\Project\Decoration;
+use My\Project\Apply;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -54,51 +54,64 @@ class DatabaseSeeder extends Seeder
 
         Material::truncate();
         factory(Material::class, 11)->create();
-        Decoration::truncate();
+        Apply::truncate();
         foreach ($users as $c) {
-            factory(Decoration::class)->create(['customer_id' => $c->id]);
+            factory(Apply::class)->create(['customer_id' => $c->id]);
         }
 
-        $offered_decorations = Decoration::where('status', '<>', '申请')->get();
-        foreach ($offered_decorations as  $offered) {
+        $offered_applys = Apply::where('status', '<>', '申请')->get();
+        foreach ($offered_applys as  $offered) {
             $ids = Material::inRandomOrder()->take(5, 7)->get()->pluck('id');
-            $offered->materials()->sync($ids);
 
             $offered->offers()->create([
                     'user_id' => $leaders->random(1)->first()->id,
-                    'amount' => mt_rand(10000, 88888)
+                    'amount' => mt_rand(10000, 88888),
+                    'data' => json_encode(['materials' => $ids])
                 ]);
         }
 
-        $working_decorations = Decoration::whereIn('status', ['施工', '完工'])->get();
-        foreach ($working_decorations as $working) {
+        $this->createWorkingOffers();
+
+        $this->createArticles();
+
+        $this->createComments($users, $offered_applys);
+
+    }
+
+    protected function createWorkingOffers()
+    {
+        $working_applys = Apply::whereIn('status', ['施工', '完工'])->get();
+        foreach ($working_applys as $working) {
             $accepted_offer = $working->offers()->inRandomOrder()->first();
             $working->update([
                     'leader_id'=>$accepted_offer->user_id,
-                    'project_id' => $accepted_offer->id
+                    'offer_id' => $accepted_offer->id
                 ]);
         }
+    }
+
+    protected function createArticles()
+    {
         Article::truncate();
         Tag::truncate();
-        Comment::truncate();
         factory(Tag::class, 22)->create();
         factory(Article::class, 11)->create(['user_id'=>User::where('role', 'editor')->inRandomOrder()->first()->id])->each( function ($a) {
             $ids = Tag::inRandomOrder()->take(mt_rand(1,4))->get()->pluck('id');
             $a->tags()->sync($ids);
         });
+    }
 
-        foreach ($offered_decorations as $decoration) {
+    protected function createComments($users, $offered_applys)
+    {
+        Comment::truncate();
+        foreach ($offered_applys as $apply) {
             $customer = $users->random(1)->first();
 
-            factory(Comment::class, mt_rand(1,5))->create([
+            factory(Comment::class, mt_rand(1,2))->create([
                 'user_id'=>$customer->id,
-                'decoration_id'=>$decoration->id,
                 ]);
 
-            $decoration->images()->saveMany(factory(Image::class, mt_rand(1, 5))->make());
+            $apply->images()->saveMany(factory(Image::class, mt_rand(1, 5))->make());
         }
-
-
-
     }
 }

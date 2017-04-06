@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDecorationsTable extends Migration
+class CreateAppliesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateDecorationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('decorations', function (Blueprint $table) {
+        Schema::create('applies', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('customer_id');
             $table->unsignedInteger('leader_id')->nullable();
-            $table->unsignedInteger('project_id')->nullable();
+            $table->unsignedInteger('offer_id')->nullable();
             $table->string('block');
             $table->smallInteger('square')->unsigned();
             $table->enum('plan', ['全装修', '半装修', '待定']);
@@ -34,6 +34,6 @@ class CreateDecorationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('decorations');
+        Schema::dropIfExists('applies');
     }
 }

@@ -51,7 +51,7 @@ $factory->define(My\User\Worker::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(My\Project\Decoration::class, function (Faker\Generator $faker) {
+$factory->define(My\Project\Apply::class, function (Faker\Generator $faker) {
     return [
         'block' => $faker->streetName,
         'square' => mt_rand(50, 200),

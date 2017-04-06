@@ -2,9 +2,7 @@
 
 namespace My\User;
 
-use My\File\Image;
-use My\User\Traits\RoleTrait;
-use My\File\Traits\ImageAbleTrait;
+use My\User\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Leader extends Model
@@ -14,11 +12,6 @@ class Leader extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function offers()
-    {
-        return $this->hasMany(\My\Project\Offer::class);
     }
 
 }

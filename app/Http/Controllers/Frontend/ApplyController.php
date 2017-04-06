@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
-use My\Project\Repo\DecorationRepo;
+use My\Project\Repo\ApplyRepo;
 use App\Http\Controllers\Controller;
 
-class DecorationController extends Controller
+class ApplyController extends Controller
 {
-	private $decoration;
+	private $apply;
 
-	public function __construct(DecorationRepo $decoration)
+	public function __construct(ApplyRepo $apply)
 	{
-		$this->decoration = $decoration;
+		$this->decoration = $apply;
 	}
   
     public function sites()

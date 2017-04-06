@@ -15,7 +15,7 @@ class CreateDetailsTable extends Migration
     {
         Schema::create('details', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('project_id');
+            $table->unsignedInteger('offer_id');
             $table->string('title');
             $table->text('description');
             $table->enum('unit', ['平方米', '项']);

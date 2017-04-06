@@ -23,18 +23,18 @@
           </tr>
         </thead>
         <tbody>
-        @foreach ($decorations as $d)
+        @foreach ($applies as $apply)
           <tr>
-            <th>{{ $d->id }}</th>
-            <td>{{ $d->block }}</td>
-            <td> {{ $d->square }} </td>
-            <td><span class="label label-warning label-mini">{{ $d->plan }}</span></td>
-            <td><i class="icon-yen"></i> {{ $d->budget }} 万 </td>
-            <td> {{ $d->status }} </td>
-            <td> {{ $d->created_at->format('Y-m-d') }} </td>
-            <td> {{ $d->updated_at->format('Y-m-d') }} </td>
+            <th>{{ $apply->id }}</th>
+            <td>{{ $apply->block }}</td>
+            <td> {{ $apply->square }} </td>
+            <td><span class="label label-warning label-mini">{{ $apply->plan }}</span></td>
+            <td><i class="icon-yen"></i> {{ $apply->budget }} 万 </td>
+            <td> {{ $apply->status }} </td>
+            <td> {{ $apply->created_at->format('Y-m-d') }} </td>
+            <td> {{ $apply->updated_at->format('Y-m-d') }} </td>
             <td>
-              <button class="btn btn-info btn-xs"><i class="icon-eye-open"></i></button>
+              <a class="btn btn-info btn-xs" href='/applies/{{ $apply->id }}'><i class="icon-eye-open"></i></a>
             </td>
           </tr>
           @endforeach

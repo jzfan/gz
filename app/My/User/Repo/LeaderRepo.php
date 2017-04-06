@@ -2,15 +2,18 @@
 
 namespace My\User\Repo;
 
+use My\User\User;
 use My\User\Leader;
 
 class LeaderRepo
 {
 	private $leader;
+	private $user;
 
-	public function __construct(Leader $leader)
+	public function __construct(Leader $leader, User $user)
 	{
 		$this->leader = $leader;
+		$this->user = $user;
 	}
 
 	public function rankList($n=10)
@@ -18,11 +21,12 @@ class LeaderRepo
 	    return $this->leader->with('user')->orderBy('rank', 'desc')->take($n)->get();
 	}
 
-	public function offerFor($decoration_id, $amount)
+	public function offerFor($apply_id, $amount)
 	{
-	    return $this->leader->offers()->create([
+	    return $this->user->offers()->create([
 	    		'amount' => $amount,
-	    		'decoration_id' => $decoration_id
+	    		'apply_id' => $apply_id,
+	    		'data' => []
 	    	]);
 	}
 

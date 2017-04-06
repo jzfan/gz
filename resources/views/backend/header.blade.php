@@ -3,7 +3,7 @@
               <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
           </div>
           <!--logo start-->
-          <a href="/flatlab/#" class="logo" >Flat<span>lab</span></a>
+          <a href="/" class="logo" >Gong<span>Zhang</span></a>
           <!--logo end-->
           <div class="nav notify-row" id="top_menu">
             <!--  notification start -->
@@ -219,8 +219,8 @@
                   <!-- user login dropdown start-->
                   <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" href="/flatlab/#">
-                          <img alt="" src="/flatlab/img/avatar1_small.jpg">
-                          <span class="username">Jhon Doue</span>
+                          <img alt="" src="{{ Auth::user()->avatar }}" height="29">
+                          <span class="username">{{ Auth::user()->name }}</span>
                           <b class="caret"></b>
                       </a>
                       <ul class="dropdown-menu extended logout">

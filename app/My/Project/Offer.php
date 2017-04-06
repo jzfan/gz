@@ -3,20 +3,22 @@
 namespace My\Project;
 
 use My\User\User;
-use My\Project\Decoration;
+use My\Project\Apply;
 use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model
 {
-    protected $fillable = ['amount', 'decoration_id', 'leader_id'];
+    protected $fillable = ['amount', 'apply_id', 'leader_id', 'data'];
+
+    protected $casts = ['data' => 'array'];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function decoration()
+    public function apply()
     {
-        return $this->belongsTo(Decoration::class);
+        return $this->belongsTo(Apply::class);
     }
 }

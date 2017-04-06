@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
-use My\Project\Repo\DecorationRepo;
+use My\Project\Repo\ApplyRepo;
 use App\Http\Controllers\Controller;
 
 class ProjectController extends Controller
 {
-	private $decoration;
+	private $apply;
 
-	public function __construct(DecorationRepo $decoration)
+	public function __construct(ApplyRepo $apply)
 	{
-		$this->decoration = $decoration;
+		$this->apply = $apply;
 	}
 
     public function pageByStatus($status)
@@ -24,7 +24,7 @@ class ProjectController extends Controller
             'working' => '施工',
             'done' => '完工',
         ];
-        $decorations = $this->decoration->pageByStatus($arr[$status]);
-        return view('backend.project.decoration', compact('decorations'));
+        $applies = $this->apply->pageByStatus($arr[$status]);
+        return view('backend.apply.index', compact('applies'));
     }
 }

@@ -2,7 +2,8 @@
 
 namespace My\User;
 
-use My\Project\Decoration;
+use My\Project\Offer;
+use My\Project\Apply;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -30,23 +31,45 @@ class User extends Authenticatable
         return $this->hasOne(Worker::class);
     }
 
-    public function customerDecorations()
+    public function offers()
     {
-        return $this->hasMany(Decoration::class, 'customer_id', 'id');
+        return $this->hasMany(Offer::class);
     }
 
-    public function leaderDecorations()
+    public function customerApplies()
     {
-        return $this->hasMany(Decoration::class, 'leader_id', 'id');
+        return $this->hasMany(Apply::class, 'customer_id', 'id');
     }
 
     public function articles()
     {
-        return $this->user()->hasMany(Article::class);
+        return $this->hasMany(Article::class);
     }
 
     public function isAdmin()
     {
         return $this->role == 'admin';
     }
+
+    public function isCustomer()
+    {
+        return $this->role == 'customer';
+    }
+
+    public function isLeader()
+    {
+        return $this->role == 'leader';
+    }
+
+    public function isWorker()
+    {
+        return $this->role == 'worker';
+    }
+
+    public function isEditor()
+    {
+        return $this->role == 'editor';
+    }
+
+
 }

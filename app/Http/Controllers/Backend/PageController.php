@@ -18,6 +18,12 @@ class PageController extends Controller
     public function dashboard()
     {
     	$customers_count = $this->customer->count();
-    	return view('backend.dashboard', compact('customers_count'));
+    	return view('backend.console.dashboard', compact('customers_count'));
+    }
+
+    public function editorConsole()
+    {
+    	$customers_count = $this->customer->count();
+    	return view('backend.console.editor', compact('customers_count'));
     }
 }

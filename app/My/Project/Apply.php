@@ -9,11 +9,11 @@ use My\Article\Comment;
 use My\File\Traits\ImageAbleTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Decoration extends Model
+class Apply extends Model
 {
 	use ImageAbleTrait;
 
-    protected $fillable = ['customer_id', 'manager_id', 'block', 'square', 'plan', 'budget', 'status'];
+    protected $fillable = ['customer_id', 'manager_id', 'block', 'square', 'plan', 'budget', 'status', 'leader_id'];
 
     public function materials()
     {
