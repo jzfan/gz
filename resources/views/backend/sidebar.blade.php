@@ -8,6 +8,12 @@
                           <span>Console</span>
                       </a>
                   </li>
+                  <li class="">
+                      <a class="" href="/materials">
+                          <i class="icon-cogs"></i>
+                          <span>辅材</span>
+                      </a>
+                  </li>
           @if (Auth::user()->isAdmin())
                   <li class="">
                       <a class="" href="/backend-users">

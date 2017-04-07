@@ -13,4 +13,9 @@ class UserRepo
 		$this->user = $user;
 	}
 
+	public function create($data)
+	{
+	    return $this->user->create($data);
+	}
+
 }

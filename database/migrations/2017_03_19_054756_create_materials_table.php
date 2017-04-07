@@ -15,8 +15,10 @@ class CreateMaterialsTable extends Migration
     {
         Schema::create('materials', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 20);
-            $table->string('brand');
+            $table->string('name', 60);
+            $table->string('brand', 60);
+            $table->string('unit', 60);
+            $table->decimal('price', 10, 2);
             $table->timestamps();
         });
     }

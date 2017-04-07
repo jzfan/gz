@@ -3,7 +3,9 @@
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 
-Route::group(['namespace'=>'Frontend'], function () {
+
+Route::namespace('Frontend')->group( function () {
+	Route::post('customers', 'CustomerController@store');
 
 	Route::get('/', 'PageController@index');
 	Route::get('articles', 'ArticleController@index');
@@ -12,6 +14,7 @@ Route::group(['namespace'=>'Frontend'], function () {
 	Route::get('sites', 'ApplyController@sites');
 	Route::get('sites/{id}', 'ApplyController@show');
 	Route::get('comments', 'CommentController@index');
+	Route::post('appointments', 'AppointmentController@store');
 
 });
 
@@ -19,6 +22,8 @@ Route::group(['namespace'=>'Frontend'], function () {
 Route::namespace('Backend')->middleware('auth')->group( function () {
 	Route::middleware('editor')->group( function () {
 		Route::get('editor-console', 'PageController@editorConsole');
+		Route::get('materials', 'MaterialController@index');
+		Route::post('materials', 'MaterialController@store');
 	});
 	Route::middleware('admin')->group( function () {
 		Route::get('admin-console', 'PageController@dashboard');
@@ -34,8 +39,6 @@ Route::namespace('Backend')->middleware('auth')->group( function () {
 			Route::get('customers', 'CustomerController@index');
 			Route::get('projects/{status}', 'ProjectController@pageByStatus');
 
-			Route::resource('articles/prev', 'ArticleController@prev');
-			Route::resource('articles/next', 'ArticleController@next');
 			Route::resource('articles', 'ArticleController');
 			Route::get('articles/tags/{tag}', 'ArticleController@byTag');
 		});

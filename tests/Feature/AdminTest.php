@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\backend;
+namespace Tests\Feature;
 
 use My\User\User;
 use My\User\Leader;
@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class AdminActionTest extends TestCase
+class AdminTest extends TestCase
 {
     use WithoutMiddleware, DatabaseTransactions;
 

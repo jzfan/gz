@@ -70,7 +70,9 @@ $factory->define(My\Project\Offer::class, function (Faker\Generator $faker) {
 $factory->define(My\Project\Material::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word,
-        'brand' => $faker->company
+        'brand' => $faker->company,
+        'unit' => 'm2',
+        'price' => mt_rand(100, 10000)/100
     ];
 });
 

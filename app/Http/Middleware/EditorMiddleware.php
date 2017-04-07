@@ -15,7 +15,7 @@ class EditorMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (\Auth::user()->isEditor()) {
+        if (\Auth::user()->isEditor() || \Auth::user()->isAdmin()) {
             return $next($request);
         }
         return redirect()->back();

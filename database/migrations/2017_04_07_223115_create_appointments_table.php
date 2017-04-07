@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDetailsTable extends Migration
+class CreateAppointmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('details', function (Blueprint $table) {
+        Schema::create('appointments', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('apply_item_id');
-            $table->string('title');
-            $table->text('description');
-            $table->enum('unit', ['平方米', '项']);
-            $table->smallInteger('price')->unsigned();
+            $table->string('name', 60);
+            $table->string('phone', 11);
+            $table->string('block', 60);
+            $table->enum('plan', ['全装修', '半装修', '待定']);
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('details');
+        Schema::dropIfExists('appointments');
     }
 }

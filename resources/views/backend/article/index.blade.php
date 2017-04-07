@@ -5,7 +5,7 @@
   <div class="col-lg-12">
     <section class="panel">
       <header class="panel-heading">
-        Advanced Table
+        文章列表 <a href="/backend/articles/create" class="btn btn-primary">新增</a>
       </header>
       <table class="table table-striped table-advance table-hover">
         <thead>

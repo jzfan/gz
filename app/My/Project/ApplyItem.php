@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ApplyItem extends Model
 {
-    protected $fillable = ['docoration_id', 'title', 'type', 'detail_id'];
+    protected $fillable = ['offer_id', 'type', 'detail_id', 'quantity'];
 
     public function details()
     {

@@ -41,7 +41,7 @@
                 <div class="form-group">
                     <div class="text-center">
                         <button type="submit" class="btn btn-danger">提交</button>
-                        <a href="javacript:history.go(-1)" type="button" class="btn btn-default">返回</a>
+                        <a onclick="javacript:history.go(-1)" class="btn btn-default">返回</a>
                     </div>
                 </div>
 

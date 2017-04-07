@@ -52,4 +52,9 @@ class ArticleController extends Controller
         session()->flash('success', '删除成功！');
         return redirect()->back();
     }
+
+    public function create()
+    {
+        return view('backend.article.create');
+    }
 }

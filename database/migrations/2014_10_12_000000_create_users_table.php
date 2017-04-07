@@ -17,10 +17,10 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('phone')->unique();
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->string('qq')->nullable();
             $table->string('avatar')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->enum('role', ['admin', 'editor', 'leader', 'worker', 'customer'])->default('customer');
             $table->string('api_token', 60)->nullable();
             $table->rememberToken();

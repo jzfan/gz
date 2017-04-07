@@ -8,10 +8,12 @@ use My\Project\Apply;
 class ApplyRepo
 {
 	private $apply;
+	private $user;
 
-	public function __construct(Apply $apply)
+	public function __construct(Apply $apply, User $user)
 	{
 		$this->apply = $apply;
+		$this->user = $user;
 	}
 
 	public function pageByStatus($status, $n=10)
@@ -34,7 +36,7 @@ class ApplyRepo
 
 	public function giveLeader($id, $leader_id)
 	{
-		User::findOrFail($leader_id);
+		$this->user->findOrFail($leader_id);
 	    return $this->apply->findOrFail($id)->update(['leader_id' => $leader_id]);
 	}
 

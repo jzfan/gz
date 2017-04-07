@@ -12,18 +12,19 @@ class ApplyController extends Controller
 
 	public function __construct(ApplyRepo $apply)
 	{
-		$this->decoration = $apply;
+		$this->apply = $apply;
 	}
   
     public function sites()
     {
-        $workings = $this->decoration->workingPage(10);
-        return view('frontend.decoration.workings', compact('workings'));
+        $workings = $this->apply->workingPage(10);
+        return view('frontend.apply.workings', compact('workings'));
     }
 
     public function show($id)
     {
-        $site = $this->decoration->byId($id);
-        return view('frontend.decoration.site', compact('site'));
+        $site = $this->apply->byId($id);
+        return view('frontend.apply.site', compact('site'));
     }
+     
 }
