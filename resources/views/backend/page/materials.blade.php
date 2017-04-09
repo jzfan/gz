@@ -61,7 +61,7 @@
             <th> 单位</th>
             <th> 价格</th>
             <th> 创建时间</th>
-            <th> 查看</th>
+            <th> 删除</th>
           </tr>
         </thead>
         <tbody>
@@ -74,7 +74,8 @@
             <td><i class="icon-yen"></i> {{ $material->price }} 元 </td>
             <td> {{ $material->created_at->format('Y-m-d') }} </td>
             <td>
-              <a class="btn btn-info btn-xs" href='/applies/{{ $material->id }}'><i class="icon-eye-open"></i></a>
+              <a class="btn btn-danger btn-xs" data-id='{{ $material->id }}'><i class="icon-trash"></i></a>
+                          
             </td>
           </tr>
           @endforeach
@@ -84,4 +85,22 @@
   </div>
 </div>
 
+<form id='delete-form' action='/materials/' method="POST">
+  <input type="hidden" name="_method" value='DELETE'>
+  {!! csrf_field() !!}
+</form>
+@stop
+
+@section('js')
+<script type="text/javascript">
+  $('td .btn-danger').click( function (e) {
+    e.preventDefault();
+    if ( confirm('真的要删除吗？') ) {
+      var form = $('#delete-form');
+      var url = form.attr('action') + $(this).attr('data-id');
+      form.attr('action', url);
+      form.submit();
+    }
+  });
+</script>
 @stop

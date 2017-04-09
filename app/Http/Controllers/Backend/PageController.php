@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
-use My\User\Repo\CustomerRepo;
+use Gz\User\Repo\CustomerRepo;
 use App\Http\Controllers\Controller;
 
 class PageController extends Controller

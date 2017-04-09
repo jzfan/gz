@@ -15,6 +15,8 @@
     <link href="/flatlab/css/bootstrap-reset.css" rel="stylesheet">
     <!--external css-->
     <link href="/flatlab/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/flatlab/assets/quill/quill.snow.css" rel="stylesheet" />
+    <link href="/flatlab/assets/summernote/summernote.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
     <link href="/flatlab/css/style.css" rel="stylesheet">
     <link href="/flatlab/css/style-responsive.css" rel="stylesheet" />
@@ -53,6 +55,10 @@
     <script src="/flatlab/js/bootstrap.min.js"></script>
     <script src="/flatlab/js/jquery.scrollTo.min.js"></script>
     <script src="/flatlab/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="/flatlab/assets/quill/quill.js"></script>
+    <script src="/flatlab/assets/summernote/summernote.js"></script>
+    <script src="/flatlab/assets/summernote/summernote.js"></script>
+    <script src="/flatlab/assets/summernote/lang/summernote-zh-CN.min.js"></script>
 
 
     <!--common script for all pages-->

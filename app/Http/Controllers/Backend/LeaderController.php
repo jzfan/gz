@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
-use My\User\Repo\LeaderRepo;
+use Gz\User\Repo\LeaderRepo;
 use App\Http\Controllers\Controller;
 
 class LeaderController extends Controller

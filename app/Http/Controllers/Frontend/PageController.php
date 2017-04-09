@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use My\File\Repo\ImageRepo;
+use Gz\File\Repo\ImageRepo;
 use Illuminate\Http\Request;
-use My\User\Repo\LeaderRepo;
-use My\Project\Repo\OfferRepo;
-use My\Article\Repo\CommentRepo;
+use Gz\User\Repo\LeaderRepo;
+use Gz\Project\Repo\OfferRepo;
+use Gz\Article\Repo\CommentRepo;
 use App\Http\Controllers\Controller;
-use My\Article\Repo\ArticleInterface;
+use Gz\Article\Repo\ArticleInterface;
 
 class PageController extends Controller
 {

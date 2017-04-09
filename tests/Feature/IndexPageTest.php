@@ -2,14 +2,14 @@
 
 namespace Tests\Feature;
 
-use My\User\User;
-use My\File\Image;
-use My\User\Leader;
+use Gz\User\User;
+use Gz\File\Image;
+use Gz\User\Leader;
 use Tests\TestCase;
-use My\Project\Offer;
-use My\Article\Comment;
-use My\Project\Apply;
-use My\User\Repo\LeaderRepo;
+use Gz\Project\Offer;
+use Gz\Article\Comment;
+use Gz\Project\Apply;
+use Gz\User\Repo\LeaderRepo;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;

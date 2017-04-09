@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
-use My\User\Repo\AdminRepo;
+use Gz\User\Repo\AdminRepo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

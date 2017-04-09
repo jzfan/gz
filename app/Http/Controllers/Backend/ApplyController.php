@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
-use My\Project\Repo\ApplyRepo;
+use Gz\Project\Repo\ApplyRepo;
 use App\Http\Controllers\Controller;
 
 class ApplyController extends Controller
@@ -24,7 +24,7 @@ class ApplyController extends Controller
     public function show($id)
     {
         $apply = $this->apply->byId($id);
-        $leaders = \My\User\User::where('role', 'leader')->select('id', 'name')->get();
+        $leaders = \Gz\User\User::where('role', 'leader')->select('id', 'name')->get();
         return view('backend.apply.show', compact('apply', 'leaders'));
     }
 }

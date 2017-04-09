@@ -3,37 +3,55 @@
 @section('content')
 
 <div class="row">
-@foreach ($leaders as $leader)
-      <div class="col-lg-4">
-        <!--widget start-->
-        <aside class="profile-nav alt green-border">
-          <section class="panel">
-            <div class="user-heading alt green-bg">
-              <a href="#">
-                <img alt="" src="{{ $leader->user->avatar }}">
-          </a>
-          <h1>{{ $leader->user->name }}</h1>
-          <p>电话： {{ $leader->user->phone }}</p>
-    </div>
+  <div class="col-lg-12">
+    <section class="panel">
+      <header class="panel-heading">
+        工头列表
+      </header>
 
-    <ul class="nav nav-pills nav-stacked">
-        <li><a href="javascript:;"> <i class="icon-time"></i> 签单 <span class="label label-primary pull-right r-activity">{{ $leader->WO }}</span></a></li>
-        <li><a href="javascript:;"> <i class="icon-star"></i> 星级 <span class="label label-info pull-right r-activity">{{ $leader->rank }}</span></a></li>
-        <li><a href="javascript:;"> <i class="icon-bell-alt"></i> 积分 <span class="label label-warning pull-right r-activity">{{ $leader->points }}</span></a></li>
-        <li><a href="javascript:;"> <i class="icon-legal"></i> 施工质量 <span class="label label-success pull-right r-activity">{{ $leader->quality }}</span></a></li>
-        <li><a href="javascript:;"> <i class="icon-thumbs-up-alt"></i> 从业 <span class="label label-success pull-right r-activity">{{ $leader->working_age }}年</span></a></li>
-        <li><a href="javascript:;"> <i class="icon-briefcase"></i> 曾任职 <span class="label label-success pull-right r-activity">{{ $leader->ex_company }}</span></a></li>
-        <li><a href="javascript:;"> <i class="icon-phone"></i> 座机 <span class="label label-success pull-right r-activity">{{ $leader->tel or '' }}</span></a></li>
-        <li><a href="javascript:;"> <i class="icon-leaf"></i> 籍贯 <span class="label label-success pull-right r-activity">{{ $leader->from }}</span></a></li>
-        <li><a href="javascript:;"> <i class="icon-eye-open"></i> 关注人数 <span class="label label-success pull-right r-activity">{{ $leader->fans }}</span></a></li>
-        <li><a href="javascript:;"> <i class="icon-yen"></i> 保证金 <span class="label label-success pull-right r-activity">{{ $leader->deposit }}</span></a></li>
-  </ul>
-
-</section>
-</aside>
-<!--widget end-->
+      <table class="table table-striped table-advance table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th> 姓名</th>
+            <th> 签单</th>
+            <th> 星级</th>
+            <th> 积分</th>
+            <th> 施工质量</th>
+            <th> 从业</th>
+            <th> 曾任职</th>
+            <th> 座机</th>
+            <th> 籍贯</th>
+            <th> 关注人数</th>
+            <th> 保证金</th>
+            <th> 注册时间</th>
+          </tr>
+        </thead>
+        <tbody>
+        @foreach ($leaders as $leader)
+          <tr>
+            <th>{{ $leader->id }}</th>
+            <td><img src="{{ $leader->user->avatar }}">{{ $leader->user->name }}</td>
+            <td> {{ $leader->WO }} </td>
+            <td>{{ $leader->rank }}</td>
+            <td>{{ $leader->points }}</td>
+            <td>{{ $leader->quality }}</td>
+            <td>{{ $leader->working_age }}</td>
+            <td>{{ $leader->ex_company }}</td>
+            <td>{{ $leader->tel }}</td>
+            <td>{{ $leader->from }}</td>
+            <td>{{ $leader->fans }}</td>
+            <td>{{ $leader->deposit }}</td>
+            <td> {{ $leader->created_at->format('Y-m-d') }} </td>
+            <td>
+              <a class="btn btn-info btn-xs" data-toggle="modal" href="#myModal2" data-id={{ $leader->id }}><i class="icon-share"></i></a>
+            </td>
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+      {!! $leaders->links() !!}
+    </section>
+  </div>
 </div>
-@endforeach
-</div>
-{!! $leaders->links() !!}
 @stop

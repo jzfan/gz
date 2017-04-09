@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
-use My\User\User;
+use Gz\User\User;
 use Tests\TestCase;
-use My\Project\Material;
+use Gz\Project\Material;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;

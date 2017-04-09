@@ -177,7 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        My\Article\Repo\ArticleServiceProvider::class,
+        Gz\Article\Repo\ArticleServiceProvider::class,
 
     ],
 

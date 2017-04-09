@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
-use My\Project\Repo\ApplyRepo;
+use Gz\Project\Repo\ApplyRepo;
 use App\Http\Controllers\Controller;
 
 class ProjectController extends Controller

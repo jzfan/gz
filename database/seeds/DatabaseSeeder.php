@@ -1,14 +1,14 @@
 <?php
 
-use My\User\User;
-use My\File\Image;
-use My\Article\Tag;
-use My\User\Leader;
-use My\User\Worker;
-use My\Article\Article;
-use My\Article\Comment;
-use My\Project\Material;
-use My\Project\Apply;
+use Gz\User\User;
+use Gz\File\Image;
+use Gz\Article\Tag;
+use Gz\User\Leader;
+use Gz\User\Worker;
+use Gz\Article\Article;
+use Gz\Article\Comment;
+use Gz\Item\Material;
+use Gz\Project\Apply;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+        $this->call(AppointmentSeeder::class);
+        $this->call(ItemSeeder::class);
         User::truncate();
         Leader::truncate();
         Worker::truncate();

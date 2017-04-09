@@ -9,9 +9,9 @@
                       </a>
                   </li>
                   <li class="">
-                      <a class="" href="/materials">
-                          <i class="icon-cogs"></i>
-                          <span>辅材</span>
+                      <a class="" href="/backend/articles">
+                          <i class="icon-file-text-alt"></i>
+                          <span>文章</span>
                       </a>
                   </li>
           @if (Auth::user()->isAdmin())
@@ -19,6 +19,12 @@
                       <a class="" href="/backend-users">
                           <i class="icon-key"></i>
                           <span>后台</span>
+                      </a>
+                  </li>
+                  <li class="">
+                      <a class="" href="/appointments">
+                          <i class="icon-bell"></i>
+                          <span>预约</span>
                       </a>
                   </li>
                   <li class="sub-menu">
@@ -33,10 +39,22 @@
                           <li><a class="" href="/backend/customers">业主</a></li>
                       </ul>
                   </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
+                  <li class="">
+                      <a class="" href="/materials">
+                          <i class="icon-cogs"></i>
+                          <span>辅材</span>
+                      </a>
+                  </li>
+                  <li class="">
+                      <a class="" href="/items">
                           <i class="icon-anchor"></i>
                           <span>项目</span>
+                      </a>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon-legal"></i>
+                          <span>工程</span>
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
@@ -48,12 +66,6 @@
                       </ul>
                   </li>
                   @endif
-                  <li class="">
-                      <a class="" href="/backend/articles">
-                          <i class="icon-file-text-alt"></i>
-                          <span>文章</span>
-                      </a>
-                  </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon-cogs"></i>

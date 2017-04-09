@@ -2,32 +2,25 @@
 
 @section('content')
 <div class="row">
-  <div class="col-lg-12">
-    <section class="panel">
-      
-    <!-- Create the editor container -->
-    <div id="editor">
-      <p>Hello World!</p>
-      <p>Some initial <strong>bold</strong> text</p>
-      <p><br></p>
-    </div>
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                             Form Elements
+                          </header>
+                          <div class="panel-body">
+                              <form class="form-horizontal tasi-form" method="post" action='/backend/articles'>
+                              @include('backend.article.form')
 
-    <!-- Include the Quill library -->
-    <script src="/js/quill.js"></script>
+                              </form>
 
-    <!-- Initialize Quill editor -->
-    <script>
-      var quill = new Quill('#editor', {
-        theme: 'snow'
-      });
-    </script>
+                          </div>
+                      </section>
 
-    </section>
-  </div>
-</div>
+                  </div>
+              </div>
 
 @stop
 
 @section('js')
-
+@include('backend.article.form-js')
 @stop

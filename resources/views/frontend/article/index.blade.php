@@ -8,11 +8,10 @@
         <div class="panel panel-default">
           <div class="panel-heading"><a href="/articles/{{ $article->id }}">{{ $article->title }}</a></div>
           <div class="panel-body">
-            <img src="{{ $article->page_image }}" width="100%">
-            {{ str_limit($article->content, 100) }}
+            {{ $article->intro }}
           </div>
-          <div class="panel-footer">
-              <span class="pull-right">{{ $article->user->name }} 发表于 {{ $article->created_at->diffForHumans() }}</span>
+          <div class="panel-footer text-right">
+              <span>{{ $article->user->name }} 发表于 {{ $article->published_at->diffForHumans() }}</span>
           </div>
         </div>
         </div>

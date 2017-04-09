@@ -1,33 +1,43 @@
 @extends('backend.main')
 
 @section('content')
-
 <div class="row">
-@foreach ($workers as $worker)
-      <div class="col-lg-4">
-        <!--widget start-->
-        <aside class="profile-nav alt red-border">
-          <section class="panel">
-            <div class="user-heading alt red-bg">
-              <a href="#">
-                <img alt="" src="{{ $worker->user->avatar }}">
-          </a>
-          <h1>{{ $worker->user->name }}</h1>
-          <p>电话： {{ $worker->user->phone }}</p>
-    </div>
+  <div class="col-lg-12">
+    <section class="panel">
+      <header class="panel-heading">
+        业主列表
+      </header>
 
-    <ul class="nav nav-pills nav-stacked">
-        <li><a href="javascript:;"> <i class="icon-time"></i> 工种 <span class="label label-primary pull-right r-activity">{{ $worker->craft }}</span></a></li>
-        <li><a href="javascript:;"> <i class="icon-star"></i> 工作区域 <span class="label label-info pull-right r-activity">{{ $worker->area }}</span></a></li>
-        <li><a href="javascript:;"> <i class="icon-bell-alt"></i> 年龄 <span class="label label-warning pull-right r-activity">{{ $worker->birthday }}</span></a></li>
-        <li><a href="javascript:;"> <i class="icon-yen"></i> 日薪 <span class="label label-success pull-right r-activity">{{ $worker->daily_wage }} <i class="icon-cny"></i></span></a></li>
-  </ul>
-
-</section>
-</aside>
-<!--widget end-->
+      <table class="table table-striped table-advance table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th> 姓名</th>
+            <th> 年龄</th>
+            <th> 电话</th>
+            <th> 工种</th>
+            <th> 工作区域</th>
+            <th> 日薪</th>
+            <th> 注册时间</th>
+          </tr>
+        </thead>
+        <tbody>
+        @foreach ($workers as $worker)
+            <tr>
+              <th>{{ $worker->id }}</th>
+              <td><img src="{{ $worker->user->avatar }}">{{ $worker->user->name }}</td>
+              <th>{{ date('Y') - $worker->birthday->format('Y') }} 岁</th>
+              <th>{{ $worker->user->phone }}</th>
+              <th>{{ $worker->craft }}</th>
+              <th>{{ $worker->area }}</th>
+              <th>{{ $worker->daily_wage }} 元</th>
+              <td> {{ $worker->created_at->format('Y-m-d') }} </td>
+            </tr>
+          @endforeach
+        </tbody>
+      </table>
+      {!! $workers->links() !!}
+    </section>
+  </div>
 </div>
-@endforeach
-</div>
-{!! $workers->links() !!}
 @stop

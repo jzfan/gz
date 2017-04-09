@@ -12,7 +12,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(My\User\User::class, function (Faker\Generator $faker) {
+$factory->define(Gz\User\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -26,7 +26,7 @@ $factory->define(My\User\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(My\User\Leader::class, function (Faker\Generator $faker) {
+$factory->define(Gz\User\Leader::class, function (Faker\Generator $faker) {
     return [
         'WO' => mt_rand(0, 22),
         'rank' => mt_rand(1, 5),
@@ -41,7 +41,7 @@ $factory->define(My\User\Leader::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(My\User\Worker::class, function (Faker\Generator $faker) {
+$factory->define(Gz\User\Worker::class, function (Faker\Generator $faker) {
     return [
         'craft' => mt_rand(1, 5),
         'area' => mt_rand(1, 3),
@@ -51,7 +51,7 @@ $factory->define(My\User\Worker::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(My\Project\Apply::class, function (Faker\Generator $faker) {
+$factory->define(Gz\Project\Apply::class, function (Faker\Generator $faker) {
     return [
         'block' => $faker->streetName,
         'square' => mt_rand(50, 200),
@@ -61,13 +61,13 @@ $factory->define(My\Project\Apply::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(My\Project\Offer::class, function (Faker\Generator $faker) {
+$factory->define(Gz\Project\Offer::class, function (Faker\Generator $faker) {
     return [
         'amount' => mt_rand(10000, 200000)
     ];
 });
 
-$factory->define(My\Project\Material::class, function (Faker\Generator $faker) {
+$factory->define(Gz\Item\Material::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word,
         'brand' => $faker->company,
@@ -76,41 +76,66 @@ $factory->define(My\Project\Material::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(My\Project\Project::class, function (Faker\Generator $faker) {
+$factory->define(Gz\Project\Project::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence,
         'type' => $faker->sentence
     ];
 });
 
-$factory->define(My\Article\Tag::class, function (Faker\Generator $faker) {
+$factory->define(Gz\Project\Appointment::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'phone' => mt_rand(1300000000, 19000000000),
+        'block' => $faker->streetName,
+        'plan' => array_rand(array_flip(['全装修', '半装修', '待定']))
+    ];
+});
+
+$factory->define(Gz\Article\Tag::class, function (Faker\Generator $faker) {
     return [
         'tag' => join('_', $faker->words)
     ];
 });
 
-$factory->define(My\Article\Article::class, function (Faker\Generator $faker) {
+$factory->define(Gz\Article\Article::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence,
-        'description' => join(PHP_EOL, $faker->sentences),
-        'content' => join(PHP_EOL, $faker->paragraphs),
-        'page_image' => '/images/'.mt_rand(1,5).'.jpg',
-        'published_at' => \Carbon\Carbon::now()
+        'intro' => join(', ', $faker->sentences),
+        'text' => '<p>'.join('</p><p>', $faker->paragraphs).'</p>',
+        // 'page_image' => '/images/'.mt_rand(1,5).'.jpg',
+        'published_at' => \Carbon\Carbon::now()->subHours(mt_rand(1, 1000))
     ];
 });
 
-$factory->define(My\Article\Comment::class, function (Faker\Generator $faker) {
+$factory->define(Gz\Article\Comment::class, function (Faker\Generator $faker) {
     return [
         'content' => join(PHP_EOL, $faker->paragraphs)
     ];
 });
 
-$factory->define(My\File\Image::class, function (Faker\Generator $faker) {
+$factory->define(Gz\File\Image::class, function (Faker\Generator $faker) {
     $arr = ['工地', '工头', '工人'];
     return [
         'title' => $faker->sentence,
         'path' => '/images/'.mt_rand(1,5).'.jpg',
         'group' => $arr[array_rand($arr)],
         'description' => $faker->paragraph
+    ];
+});
+
+$factory->define(Gz\Item\Item::class, function (Faker\Generator $faker) {
+    return [
+        'name' => join(' ', $faker->words),
+        'single' => mt_rand(0, 1)
+    ];
+});
+
+$factory->define(Gz\Item\ItemOption::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence,
+        'description' => $faker->sentences,
+        'unit' => 'm2',
+        'price' => mt_rand(100, 1000)/100
     ];
 });

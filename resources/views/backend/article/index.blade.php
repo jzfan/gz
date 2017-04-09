@@ -13,6 +13,7 @@
             <th>ID</th>
             <th> 标题</th>
             <th> 作者</th>
+            <th> 发布时间</th>
             <th> 创建时间</th>
             <th> 查看</th>
           </tr>
@@ -23,6 +24,7 @@
             <th>{{ $article->id }}</th>
             <td>{{ $article->title }}</td>
             <td> {{ $article->user->name }} </td>
+            <td> {{ $article->published_at->format('Y-m-d') }} </td>
             <td> {{ $article->created_at->format('Y-m-d') }} </td>
             <td>
               <a class="btn btn-info btn-xs" href="/backend/articles/{{ $article->id }}"><i class="icon-eye-open"></i></a>

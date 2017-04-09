@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
-use My\Project\Repo\OfferRepo;
+use Gz\Project\Repo\OfferRepo;
 use Illuminate\Routing\Controller;
 
 class OfferController extends Controller

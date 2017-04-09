@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use My\Article\Repo\ArticleInterface;
+use Gz\Article\Repo\ArticleInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class ArticleController extends Controller

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use My\Article\Repo\ArticleInterface;
+use Gz\Article\Repo\ArticleInterface;
 
 class ArticleController extends Controller
 {
@@ -29,7 +29,7 @@ class ArticleController extends Controller
 
     public function show($id)
     {
-        $article = $this->article->withNeibough($id);
+        $article = $this->article->AllWithNeibough($id);
         return view('backend.article.show', compact('article'));
     }
 
@@ -56,5 +56,17 @@ class ArticleController extends Controller
     public function create()
     {
         return view('backend.article.create');
+    }
+
+    public function store()
+    {
+        $this->validate(request(), [
+                'title' => 'required|min:4,max:100',
+                'intro' => 'required|min:10',
+                'text' => 'required|min:10',
+                'published_at' => 'required'
+            ]);
+        \Auth::user()->articles()->create(request()->except('_token'));
+        return redirect('/backend/articles')->with('success', '添加文章成功！');
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
-use My\Project\Appointment;
+use Gz\Project\Appointment;
 use App\Http\Controllers\Controller;
 
 class AppointmentController extends Controller

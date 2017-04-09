@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
-use My\Project\Material;
+use Gz\Item\Material;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -31,5 +31,11 @@ class MaterialController extends Controller
     {
         $materials = $this->material->orderBy('name', 'asc')->get();
         return view('backend.page.materials', compact('materials'));
+    }
+
+    public function destroy($id)
+    {
+        $this->material->destroy($id);
+        return redirect('materials')->with('success', '删除辅材成功！');
     }
 }
