@@ -8,31 +8,18 @@
       <div class="form-group">
           <label class="col-sm-2 control-label">说明</label>
           <div class="col-sm-10">
-          	@if (isset($option))
-          	@foreach ($option->description as $key => $li)
+            @if (isset($option))
+            @foreach ($option->description as $key => $li)
           <div class="input-group m-bot15">
           	<span class="input-group-addon">{{ $key+1 }}</span>
-              <input class="form-control" name='description[{{ $key }}]' value="{{ old('description['.$key.']', $li ?? '') }}">
+              <input class="form-control" name='description[{{ $key }}]' value="{{ old("description.$key", $li ?? '') }}">
 	       </div>
             @endforeach
-          <div class="input-group m-bot15">
-          	<span class="input-group-addon">{{ $key+2 }}</span>
-              <input class="form-control" name='description[{{ $key+1 }}]' value=''>
-	       </div>
-	       @else
-	                <div class="input-group m-bot15">
-	                 	<span class="input-group-addon">1</span>
-	                     <input class="form-control" name='description[]' value=''>
-	       	       </div>
-   	                <div class="input-group m-bot15">
-   	                 	<span class="input-group-addon">2</span>
-   	                     <input class="form-control" name='description[]' value=''>
-   	       	       </div>
-   	                <div class="input-group m-bot15">
-   	                 	<span class="input-group-addon">3</span>
-   	                     <input class="form-control" name='description[]' value=''>
-   	       	       </div>
             @endif
+              <div class="input-group m-bot15">
+                <span class="input-group-addon">{{ isset($key) ? $key+2 : 1 }}</span>
+                   <input class="form-control" name='description[]' value='' onclick='addInput(this)'>
+             </div>
           </div>
       </div>
       <div class="form-group">

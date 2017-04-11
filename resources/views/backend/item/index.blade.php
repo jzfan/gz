@@ -42,6 +42,7 @@
           <tr>
             <th>ID</th>
             <th> 项目名</th>
+            <th> 选项数</th>
             <th> 单例</th>
             <th> 创建时间</th>
             <th> 操作</th>
@@ -52,6 +53,7 @@
           <tr>
             <th>{{ $item->id }}</th>
             <td>{{ $item->name }}</td>
+            <td>{{ $item->options_count }}</td>
             <td>{{ $item->single }}</td>
             <td> {{ $item->created_at->format('Y-m-d') }} </td>
             <td>

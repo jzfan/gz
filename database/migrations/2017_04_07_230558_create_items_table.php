@@ -18,6 +18,7 @@ class CreateItemsTable extends Migration
             $table->string('name')->unique();
             $table->tinyInteger('single')->unsigned()->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

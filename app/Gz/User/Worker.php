@@ -3,12 +3,14 @@
 namespace Gz\User;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 class Worker extends Model
 {
-    protected $fillable = ['user_id', 'craft', 'area', 'birthday', 'daily_wage', 'evaluate'];
+	use SoftDeletes;
 
-    protected $dates = ['birthday'];
+	protected $dates = ['deleted_at', 'birthday'];
+
+    protected $fillable = ['user_id', 'craft', 'area', 'birthday', 'daily_wage', 'evaluate'];
 
     public function user()
     {

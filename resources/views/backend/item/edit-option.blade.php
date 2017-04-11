@@ -24,5 +24,5 @@
 @stop
 
 @section('js')
-{{-- @include('backend.option.form-js') --}}
+@include('backend.item.form-option-js')
 @stop

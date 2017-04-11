@@ -6,6 +6,19 @@
           </div>
       </div>
       <div class="form-group">
+          <label class="col-sm-2 control-label">标签</label>
+          <div class="col-sm-10">
+              <input name="tags" id="tagsinput" class="tagsinput" value="{{ old('tags', isset($article) ? $article->tags->pluck('name')->implode(',') : '') }}" />
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label class="col-sm-2 control-label">发布时间</label>
+          <div class="col-sm-10">
+              <input id="dp1" type="text" name='published_at' value="{{ old('published_at', date('Y-m-d')) }}" size="16" class="form-control">
+          </div>
+      </div>
+      <div class="form-group">
           <label class="col-sm-2 control-label">简叙</label>
           <div class="col-sm-10">
               <textarea class="form-control" name='intro' rows=5>{{ old('intro', $article->intro ?? '') }}</textarea>
@@ -19,15 +32,10 @@
               </textarea>
           </div>
       </div>
-      <div class="form-group">
-          <label class="col-sm-2 control-label">发布时间</label>
-          <div class="col-sm-10">
-              <input id="dp1" type="text" name='published_at' value="{{ old('published_at', date('Y-m-d')) }}" size="16" class="form-control">
-          </div>
-      </div>
+
       <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
               <button class="btn btn-default" type='button' onclick="javascript:history.go(-1)">返回</button>
-              <button class="btn btn-primary" type='submit' id='submit-btn'>提交</button>
+              <button class="btn btn-success" type='submit' id='submit-btn'>提交</button>
           </div>
       </div>

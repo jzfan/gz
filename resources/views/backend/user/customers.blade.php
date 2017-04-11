@@ -24,6 +24,20 @@
         </thead>
         <tbody>
         @foreach ($customers as $customer)
+          @if ($customer->customerApplies->isEmpty())
+            <tr>
+              <th>{{ $customer->id }}</th>
+              <td><img src="{{ $customer->avatar }}">{{ $customer->name }}</td>
+              <td> {{ $customer->phone }} </td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td> {{ $customer->created_at->format('Y-m-d') }} </td>
+            </tr>
+
+          @else
           @foreach ($customer->customerApplies as $apply)
             <tr>
               <th>{{ $customer->id }}</th>
@@ -32,11 +46,12 @@
               <td> {{ $apply->block }} </td>
               <td> {{ $apply->square }} </td>
               <td>{{ $apply->plan }}</td>
-              <td>{{ $apply->budget }} 万</td>
+              <td>{{ $apply->budget }} 元</td>
               <td>{{ $apply->status }}</td>
               <td> {{ $customer->created_at->format('Y-m-d') }} </td>
             </tr>
             @endforeach
+          @endif
           @endforeach
         </tbody>
       </table>

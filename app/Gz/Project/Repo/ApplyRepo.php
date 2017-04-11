@@ -40,4 +40,9 @@ class ApplyRepo
 	    return $this->apply->findOrFail($id)->update(['leader_id' => $leader_id]);
 	}
 
+	public function store($input)
+	{
+	    return $this->apply->create($input);
+	}
+
 }

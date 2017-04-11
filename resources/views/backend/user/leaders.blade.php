@@ -44,7 +44,7 @@
             <td>{{ $leader->deposit }}</td>
             <td> {{ $leader->created_at->format('Y-m-d') }} </td>
             <td>
-              <a class="btn btn-info btn-xs" data-toggle="modal" href="#myModal2" data-id={{ $leader->id }}><i class="icon-share"></i></a>
+              <a class="btn btn-info btn-xs" data-id={{ $leader->id }}><i class="icon-share"></i></a>
             </td>
           </tr>
           @endforeach

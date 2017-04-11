@@ -18,7 +18,7 @@ class EloquantArticle implements ArticleInterface
 	public function byPage($n)
 	{
 		return $this->article->with('tags', 'user')
-    						->OrderBy('published_at', 'desc')
+    						->OrderBy('id', 'desc')
     						->paginate($n);
 	}
 
@@ -39,17 +39,17 @@ class EloquantArticle implements ArticleInterface
 	    return $data;
 	}
 
-	public function AllWithNeibough($id)
+	public function withNeibough($id)
 	{
 	    $article = $this->byId($id);
-	    $article->prev = $this->article->where('published_at', '<', $article->published_at)->orderBy('published_at', 'desc')->first()->id ?? null;
-	    $article->next = $this->article->where('published_at', '>', $article->published_at)->orderBy('published_at', 'asc')->first()->id ?? null;
+	    $article->prev = $this->article->where('id', '<', $article->id)->orderBy('id', 'desc')->first()->id ?? null;
+	    $article->next = $this->article->where('id', '>', $article->id)->orderBy('id', 'asc')->first()->id ?? null;
 	    return $article;
 	}
 
 	public function byId($id)
 	{
-	    return $this->article->published()->find($id);
+	    return $this->article->published()->with('tags')->find($id);
 
 	}
 
@@ -71,11 +71,35 @@ class EloquantArticle implements ArticleInterface
 
 	public function updateBy($id, $input)
 	{
-	    return $this->byId($id)->update($input);
+		$tags = $this->firstOrCreateTag($input['tags']);
+	    return $this->syncTagById($id, $tags)->update($input);
 	}
 
 	public function deleteBy($id)
 	{
 	    return $this->byId($id)->delete();
+	}
+
+	public function store($uid, $input)
+	{
+		$tag_ids = $this->firstOrCreateTag($input['tags']);
+	    $article = $this->article->create(array_merge($input, ['user_id' => $uid]));
+	    return $this->syncTagById($article->id, $tag_ids);
+	}
+
+	protected function firstOrCreateTag($inputTag) : array
+	{
+		$tags = explode(',', $inputTag);
+		$tag_ids = array_map(function ($tag) {
+			return $this->tag->firstOrCreate(['name'=>$tag])->id;
+		}, $tags);
+		return $tag_ids;
+	}
+
+	protected function syncTagById($id, $tag_ids)
+	{
+	    $article = $this->article->findOrFail($id);
+	    $article->tags()->sync($tag_ids);
+	    return $article;
 	}
 }

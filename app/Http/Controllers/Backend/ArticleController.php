@@ -9,6 +9,12 @@ use Gz\Article\Repo\ArticleInterface;
 class ArticleController extends Controller
 {
 	private $article;
+    private $rule = [
+                'title' => 'required|min:4,max:100',
+                'intro' => 'required|min:10',
+                'text' => 'required|min:10',
+                'published_at' => 'required'
+            ];
 
 	public function __construct(ArticleInterface $article)
 	{
@@ -29,7 +35,7 @@ class ArticleController extends Controller
 
     public function show($id)
     {
-        $article = $this->article->AllWithNeibough($id);
+        $article = $this->article->withNeibough($id);
         return view('backend.article.show', compact('article'));
     }
 
@@ -39,11 +45,12 @@ class ArticleController extends Controller
         return view('backend.article.edit', compact('article'));
     }
 
-    public function update($id, Request $request)
+    public function update($id)
     {
-        $this->article->updateBy($id, $request->input());
-        session()->flash('success', '更新成功！');
-        return redirect('/backend/articles');
+        $this->validate(request(), $this->rule);
+        $this->article->updateBy($id, request()->input());
+        // session()->flash('success', '更新成功！');
+        return redirect('/backend/articles')->with('success', '更新成功！');
     }
 
     public function destroy($id)
@@ -60,13 +67,8 @@ class ArticleController extends Controller
 
     public function store()
     {
-        $this->validate(request(), [
-                'title' => 'required|min:4,max:100',
-                'intro' => 'required|min:10',
-                'text' => 'required|min:10',
-                'published_at' => 'required'
-            ]);
-        \Auth::user()->articles()->create(request()->except('_token'));
+        $this->validate(request(), $this->rule);
+        $this->article->store(\Auth::user()->id, request()->except('_token'));
         return redirect('/backend/articles')->with('success', '添加文章成功！');
     }
 }

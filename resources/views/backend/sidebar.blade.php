@@ -22,9 +22,9 @@
                       </a>
                   </li>
                   <li class="">
-                      <a class="" href="/appointments">
+                      <a class="" href="/applies">
                           <i class="icon-bell"></i>
-                          <span>预约</span>
+                          <span>申请</span>
                       </a>
                   </li>
                   <li class="sub-menu">
@@ -51,20 +51,7 @@
                           <span>项目</span>
                       </a>
                   </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-legal"></i>
-                          <span>工程</span>
-                          <span class="arrow"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="/backend/projects/applies">申请</a></li>
-                          <li><a class="" href="/backend/projects/offers">报价</a></li>
-                          <li><a class="" href="/backend/projects/pending">审核</a></li>
-                          <li><a class="" href="/backend/projects/working">施工</a></li>
-                          <li><a class="" href="/backend/projects/done">完工</a></li>
-                      </ul>
-                  </li>
+                  
                   @endif
                   <li class="sub-menu">
                       <a href="javascript:;" class="">

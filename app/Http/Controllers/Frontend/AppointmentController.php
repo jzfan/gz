@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
-use Gz\Project\Appointment;
+use Gz\Project\Apply;
 use App\Http\Controllers\Controller;
 
-class AppointmentController extends Controller
+class ApplyController extends Controller
 {
-	private $appointment;
+	private $apply;
 
-	public function __construct(Appointment $appointment)
+	public function __construct(Apply $apply)
 	{
-		$this->appointment = $appointment;
+		$this->appointment = $apply;
 	}
 
     public function store()
@@ -23,7 +23,7 @@ class AppointmentController extends Controller
         		'plan' => 'required|in:全装修,半装修,待定',
         		'block' => 'required|between:2,60'
         	]);
-        $appointment = $this->appointment->create(request()->except('_token'));
-        return response()->json(['data' => $appointment, 'code' => 201]);
+        $apply = $this->appointment->create(request()->except('_token'));
+        return response()->json(['data' => $apply, 'code' => 201]);
     }
 }

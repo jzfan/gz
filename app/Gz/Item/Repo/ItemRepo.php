@@ -15,7 +15,7 @@ class ItemRepo
 
 	public function byPage($n=10)
 	{
-	    return $this->item->latest()->paginate($n);
+	    return $this->item->withCount('options')->latest()->paginate($n);
 	}
 
 	public function deleteWithOption($id)
@@ -34,5 +34,10 @@ class ItemRepo
 	public function find($id)
 	{
 	    return $this->item->with('options')->findOrFail($id);
+	}
+
+	public function all()
+	{
+	    return $this->item->select('id', 'name')->get();
 	}
 }

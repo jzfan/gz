@@ -14,39 +14,39 @@
           <tr>
             <th>ID</th>
             <th> 客户</th>
-            <th> 工头</th>
             <th> 电话</th>
             <th> 小区</th>
             <th> 计划</th>
             <th> 创建时间</th>
+            <th> 工头</th>
             <th> 分配</th>
           </tr>
         </thead>
         <tbody>
-        @foreach ($appointments as $appointment)
+        @foreach ($applies as $apply)
           <tr>
-            <th>{{ $appointment->id }}</th>
-            <td>{{ $appointment->name }}</td>
-            <td>{{ $appointment->leader->name or '' }}</td>
-            <td> {{ $appointment->phone }} </td>
-            <td>{{ $appointment->block }}</td>
-            <td>{{ $appointment->plan }}</td>
-            <td> {{ $appointment->created_at->format('Y-m-d') }} </td>
+            <th>{{ $apply->id }}</th>
+            <td>{{ $apply->name }}</td>
+            <td> {{ $apply->phone }} </td>
+            <td>{{ $apply->block }}</td>
+            <td>{{ $apply->plan }}</td>
+            <td> {{ $apply->created_at->format('Y-m-d') }} </td>
+            <td>{{ $apply->leader->name or '' }}</td>
             <td>
-              <a class="btn btn-info btn-xs" data-toggle="modal" href="#myModal2" data-id={{ $appointment->id }}><i class="icon-share"></i></a>
+              <a class="btn btn-info btn-xs" data-toggle="modal" href="#myModal2" data-id={{ $apply->id }}><i class="icon-share"></i></a>
             </td>
           </tr>
           @endforeach
         </tbody>
       </table>
-      {!! $appointments->links() !!}
+      {!! $applies->links() !!}
     </section>
   </div>
 </div>
 
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                   <div class="modal-dialog">
-                                      <form class="modal-content form-horizontal tasi-form" method="POST" action="/appointments/:APPOINTMENT_ID/leaders" id='modal-form'>
+                                      <form class="modal-content form-horizontal tasi-form" method="POST" action="/applies/:APPOINTMENT_ID/leaders" id='modal-form'>
                                             {!! csrf_field() !!}
                                           <div class="modal-header">
                                               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

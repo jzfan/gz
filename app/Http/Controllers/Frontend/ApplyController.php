@@ -26,5 +26,18 @@ class ApplyController extends Controller
         $site = $this->apply->byId($id);
         return view('frontend.apply.site', compact('site'));
     }
+
+    public function store()
+    {
+        $this->validate(request(), [
+                'name' => 'required|min:2,max:60',
+                'block' => 'required|min:2,max:60',
+                'phone' => 'required',
+                'plan' => 'required|in:全装修,半装修,待定',
+                'budget' => 'required|integer'
+            ]);
+        $this->apply->store(request()->input());
+        return 'ok';
+    }
      
 }

@@ -19,6 +19,7 @@ class CreateOfferItemsTable extends Migration
             $table->string('title', 60);
             $table->string('type', 60);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

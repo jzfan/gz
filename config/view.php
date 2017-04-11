@@ -30,4 +30,6 @@ return [
 
     'compiled' => realpath(storage_path('framework/views')),
 
+    'color' => ['info', 'primary', 'inverse', 'warning', 'default', 'danger', 'success'],
+
 ];

@@ -5,7 +5,7 @@
   <div class="col-lg-12">
     <section class="panel">
       <header class="panel-heading">
-        业主列表
+        工人列表
       </header>
 
       <table class="table table-striped table-advance table-hover">
@@ -26,11 +26,11 @@
             <tr>
               <th>{{ $worker->id }}</th>
               <td><img src="{{ $worker->user->avatar }}">{{ $worker->user->name }}</td>
-              <th>{{ date('Y') - $worker->birthday->format('Y') }} 岁</th>
-              <th>{{ $worker->user->phone }}</th>
-              <th>{{ $worker->craft }}</th>
-              <th>{{ $worker->area }}</th>
-              <th>{{ $worker->daily_wage }} 元</th>
+              <td>{{ date('Y') - $worker->birthday->format('Y') }} 岁</td>
+              <td>{{ $worker->user->phone }}</td>
+              <td>{{ $worker->craft }}</td>
+              <td>{{ $worker->area }}</td>
+              <td>{{ $worker->daily_wage }} 元</td>
               <td> {{ $worker->created_at->format('Y-m-d') }} </td>
             </tr>
           @endforeach

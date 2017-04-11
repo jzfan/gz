@@ -33,31 +33,21 @@ $factory->define(Gz\User\Leader::class, function (Faker\Generator $faker) {
         'points' => mt_rand(0, 1000),
         'quality' => mt_rand(60, 99),
         'working_age' => mt_rand(1, 20),
-        'work_area' => $faker->city,
+        'area' => array_rand(array_flip(config('site.area'))),
         'ex_company' => $faker->company,
         'from' => $faker->state,
         'fans' => mt_rand(0, 200),
-        'deposit' => mt_rand(100, 500) * 100
+        'deposit' => mt_rand(0, 500) * 100
     ];
 });
 
 $factory->define(Gz\User\Worker::class, function (Faker\Generator $faker) {
     return [
-        'craft' => mt_rand(1, 5),
-        'area' => mt_rand(1, 3),
+        'craft' => array_rand(array_flip(config('site.craft'))),
+        'area' => array_rand(array_flip(config('site.area'))),
         'birthday' => $faker->datetime(),
         'daily_wage' => mt_rand(20, 100)*10,
         'evaluate' => $faker->paragraph
-    ];
-});
-
-$factory->define(Gz\Project\Apply::class, function (Faker\Generator $faker) {
-    return [
-        'block' => $faker->streetName,
-        'square' => mt_rand(50, 200),
-        'plan' => mt_rand(1, 3),
-        'budget' => mt_rand(2, 20),
-        'status' => mt_rand(1, 5)
     ];
 });
 
@@ -83,18 +73,18 @@ $factory->define(Gz\Project\Project::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(Gz\Project\Appointment::class, function (Faker\Generator $faker) {
+$factory->define(Gz\Project\Apply::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'phone' => mt_rand(1300000000, 19000000000),
         'block' => $faker->streetName,
-        'plan' => array_rand(array_flip(['全装修', '半装修', '待定']))
+        'plan' => array_rand(array_flip(['全装修', '半装修', '待定'])),
+        'budget' => mt_rand(2, 20)
     ];
 });
 
 $factory->define(Gz\Article\Tag::class, function (Faker\Generator $faker) {
     return [
-        'tag' => join('_', $faker->words)
+        'name' => join(' ', $faker->words)
     ];
 });
 

@@ -16,10 +16,10 @@ class CreateOffersTable extends Migration
         Schema::create('offers', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('apply_id');
-            $table->unsignedInteger('user_id');
             $table->unsignedInteger('amount');
             $table->text('data');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

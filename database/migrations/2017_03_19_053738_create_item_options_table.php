@@ -21,6 +21,7 @@ class CreateItemOptionsTable extends Migration
             $table->string('unit');
             $table->decimal('price', 10, 2);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

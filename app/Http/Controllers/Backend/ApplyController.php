@@ -2,29 +2,35 @@
 
 namespace App\Http\Controllers\Backend;
 
+use Gz\Project\Apply;
 use Illuminate\Http\Request;
-use Gz\Project\Repo\ApplyRepo;
+use Gz\User\Repo\LeaderRepo;
 use App\Http\Controllers\Controller;
 
 class ApplyController extends Controller
 {
-	private $apply;
+    private $apply;
+    private $leader;
 
-	public function __construct(ApplyRepo $apply)
-	{
-		$this->apply = $apply;
-	}
-
-    public function giveLeader($id, $leader_id)
+    public function __construct(Apply $apply, LeaderRepo $leader)
     {
-        $this->apply->giveLeader($id, $leader_id);
-        return redirect()->back()->with('success', 'ok');
+        $this->apply = $apply;
+        $this->leader = $leader;
     }
 
-    public function show($id)
+    public function index()
     {
-        $apply = $this->apply->byId($id);
-        $leaders = \Gz\User\User::where('role', 'leader')->select('id', 'name')->get();
-        return view('backend.apply.show', compact('apply', 'leaders'));
+        $applies = $this->apply->with('leader')->orderBy('leader_id', 'asc')->latest()->paginate(10);
+        $leaders = $this->leader->select2();
+        return view('backend.page.applies', compact('applies', 'leaders'));
+    }
+
+    public function giveLeader($id)
+    {
+        $this->validate(request(), [
+                'leader_id' => 'required|integer|exists:users,id,role,leader'
+            ]);
+        $this->apply->findOrFail($id)->update(['leader_id' => request('leader_id')]);
+        return redirect()->back()->with('success', '分配成功！');
     }
 }

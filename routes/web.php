@@ -14,7 +14,9 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('sites', 'ApplyController@sites');
 	Route::get('sites/{id}', 'ApplyController@show');
 	Route::get('comments', 'CommentController@index');
-	Route::post('appointments', 'AppointmentController@store');
+	Route::post('applies', 'ApplyController@store');
+	Route::get('me', 'MeController@profile');
+	Route::post('me', 'MeController@update');
 
 });
 
@@ -29,11 +31,10 @@ Route::namespace('Backend')->middleware('auth')->group( function () {
 		Route::post('materials', 'MaterialController@store');
 		Route::delete('materials/{id}', 'MaterialController@destroy');
 		Route::get('admin-console', 'PageController@dashboard');
-		Route::get('appointments', 'AppointmentController@index');
-		Route::post('appointments/{id}/leaders', 'AppointmentController@giveLeader');
+		Route::get('applies', 'ApplyController@index');
+		Route::post('applies/{id}/leaders', 'ApplyController@giveLeader');
 		Route::get('backend-users', 'AdminController@backendUsers');
 		Route::post('roles', 'AdminController@setRole');
-		Route::post('applies/{apply_id}/leaders/{leader_id}', 'ApplyController@giveLeader');
 		Route::get('applies/{apply_id}', 'ApplyController@show');
 		// Route::get('editors', 'EditorController@index');
 		

@@ -13,6 +13,6 @@ class CustomerRepo extends UserRepo
 
 	public function byPage($n=10)
 	{
-		return $this->user->has('customerApplies')->with('customerApplies')->latest()->paginate($n);
+		return $this->user->with('customerApplies')->paginate($n);
 	}
 }

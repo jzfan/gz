@@ -6,9 +6,22 @@
     <section class="panel">
       <header class="panel-heading">
         <h3 class="text-center">{{ $article->title }}</h3>
+        <p>
+            @foreach ($article->tags as $tag)
+                <span class="label label-{{ array_rand(array_flip(config('view.color'))) }}">{{ $tag->name }}</span>
+            @endforeach
+        </p>
       </header>
       <div class="panel-body">
-        {!! $article->text !!}
+        <dl>
+          <dt>
+            {{ $article->intro }}
+          </dt>
+          <dd>
+            {!! $article->text !!}
+            
+          </dd>
+        </dl>
       </div>
       <div class="panel-footer">
         {{ $article->user->name }}

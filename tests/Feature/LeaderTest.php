@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use Gz\User\User;
 use Tests\TestCase;
 use Gz\Project\Apply;
-use App\Gz\Project\Appointment;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;

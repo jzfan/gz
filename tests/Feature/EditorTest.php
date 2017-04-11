@@ -4,7 +4,7 @@ namespace Tests\Feature;
 
 use Gz\User\User;
 use Tests\TestCase;
-use Gz\Project\Material;
+use Gz\Article\Article;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -20,14 +20,16 @@ class EditorTest extends TestCase
         $this->be($editor);
     }
 
-    public function test_editor_can_add_material()
+    public function test_editor_can_create_articles()
     {
-        $this->post('materials', [
-            'name' => '电线',
-            'brand' => 'Brand A',
-            'price' => '100',
-            'unit' => 'm2'
-            ]);
-        $this->assertNotNull(Material::where(['name'=>'电线', 'brand'=>'Brand A'])->first());
+        $title = str_random(20);
+        $this->post('backend/articles', [
+                'title' => $title,
+                'text' => 'some content',
+                'published_at' => date('Y-m-d'),
+                'intro' => 'some description',
+                'tags' => ''
+            ])->assertStatus(302);
+        $this->assertNotNull(Article::where(['title'=>$title])->first());
     }
 }

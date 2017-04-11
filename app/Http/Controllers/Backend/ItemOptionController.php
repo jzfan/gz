@@ -31,6 +31,7 @@ class ItemOptionController extends Controller
 
     public function edit($id)
     {
+        // dd(old('description'));
         $option = $this->option->find($id);
         return view('backend.item.edit-option', compact('option'));
     }

@@ -18,16 +18,17 @@ class CreateLeadersTable extends Migration
             $table->unsignedInteger('user_id');
             $table->smallInteger('WO')->unsigned()->default(0);
             $table->tinyInteger('rank')->unsigned()->default(1);
-            $table->smallInteger('points')->unsigned();
-            $table->tinyInteger('quality')->unsigned();
+            $table->smallInteger('points')->unsigned()->default(0);
+            $table->tinyInteger('quality')->unsigned()->default(80);
             $table->tinyInteger('working_age')->unsigned();
-            $table->string('work_area', 100);
-            $table->string('ex_company', 100);
-            $table->string('tel', 20)->default('');
-            $table->string('from', 100);
+            $table->string('area');
+            $table->string('ex_company')->nullable();
+            $table->string('tel')->nullable();
+            $table->string('from')->nullable();
             $table->unsignedInteger('fans')->default(0);
-            $table->unsignedInteger('deposit');
+            $table->unsignedInteger('deposit')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
