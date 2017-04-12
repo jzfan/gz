@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model
 {
-    protected $fillable = ['amount', 'apply_id', 'leader_id', 'data'];
+    protected $fillable = ['amount', 'apply_id', 'leader_id', 'data', 'accepted_at', 'done_at'];
 
     protected $casts = ['data' => 'array'];
+    protected $dates = ['accepted_at', 'done_at'];
 
     public function user()
     {

@@ -18,6 +18,8 @@ class CreateOffersTable extends Migration
             $table->unsignedInteger('apply_id');
             $table->unsignedInteger('amount');
             $table->text('data');
+            $table->timestamp('accepted_at');
+            $table->timestamp('done_at');
             $table->timestamps();
             $table->softDeletes();
         });
