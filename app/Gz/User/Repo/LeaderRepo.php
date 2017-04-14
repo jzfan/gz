@@ -39,4 +39,23 @@ class LeaderRepo
 	{
 	    return $this->user->select('id', 'name')->where('role', 'leader')->get();
 	}
+
+	public function byId($id)
+	{
+	    return $this->user->with('leader')->whereRole('leader')->findOrFail($id);
+	}
+
+	public function showById($id)
+	{
+	    return $this->user->with(['comments' => function($q) {
+	    	$q->latest()->take(5);
+	    }, 'leaderApplies' => function ($q) {
+	    	$q->latest()->take(5);
+	    }])->with('leader')->whereRole('leader')->findOrFail($id);
+	}
+
+	public function tops($n=4)
+	{
+		return $this->leader->OrderBy('rank', 'desc')->with('user')->take($n)->get();
+	}
 }

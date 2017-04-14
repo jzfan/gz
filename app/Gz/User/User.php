@@ -43,7 +43,12 @@ class User extends Authenticatable
 
     public function customerApplies()
     {
-        return $this->hasMany(Apply::class, 'phone', 'phone');
+        return $this->hasMany(Apply::class);
+    }
+
+    public function leaderApplies()
+    {
+        return $this->hasMany(Apply::class, 'leader_id', 'id');
     }
 
     public function articles()

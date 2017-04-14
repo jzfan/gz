@@ -18,6 +18,9 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('me', 'MeController@profile');
 	Route::post('me', 'MeController@update');
 
+	Route::get('leaders/{id}', 'LeaderController@show');
+	Route::get('offer-form', 'OfferController@getForm');
+
 });
 
 

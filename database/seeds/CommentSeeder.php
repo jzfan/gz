@@ -14,9 +14,9 @@ class CommentSeeder extends Seeder
     public function run()
     {
         Comment::truncate();
-        foreach (User::inRandomOrder()->take(mt_rand(11, 22))->get() as $user) {
+        foreach (User::inRandomOrder()->whereRole('leader')->take(mt_rand(11, 22))->get() as $user) {
             $customer = User::inRandomOrder()->first();
-            $user->comments()->save(factory(Comment::class)->make(['user_id' => $customer->id]));
+            $user->comments()->saveMany(factory(Comment::class, mt_rand(5, 11))->make(['user_id' => $customer->id]));
         }
     }
 }

@@ -14,7 +14,7 @@ class ApplySeeder extends Seeder
     public function run()
     {
         Apply::truncate();
-        $costomers = User::where('role', 'customer')->inRandomOrder()->take(11)->get();
+        $costomers = User::where('role', 'customer')->inRandomOrder()->take(55)->get();
         foreach ($costomers as $c) {
             $c->customerApplies()->save(factory(Apply::class)->make());
         }

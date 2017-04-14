@@ -20,4 +20,9 @@ class OfferController extends Controller
         $offers = $this->offer->byPage(10);
         return view('frontend.offer.index', compact('offers'));
     }
+
+    public function getForm()
+    {
+        return view('frontend.offer.form');
+    }
 }

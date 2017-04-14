@@ -15,11 +15,12 @@ class CreateOffersTable extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
             $table->unsignedInteger('apply_id');
             $table->unsignedInteger('amount');
             $table->text('data');
-            $table->timestamp('accepted_at');
-            $table->timestamp('done_at');
+            $table->timestamp('accepted_at')->nullable();
+            $table->timestamp('done_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

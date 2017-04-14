@@ -1,6 +1,7 @@
 <?php
 
 use Gz\Item\Item;
+use Gz\User\User;
 use Gz\Item\Material;
 use Gz\Project\Apply;
 use Gz\Project\Offer;
@@ -17,7 +18,7 @@ class OfferSeeder extends Seeder
     {
     	Offer::truncate();
 
-        $applies = Apply::inRandomOrder()->take(5)->get();
+        $applies = Apply::inRandomOrder()->take(33)->get();
 
         foreach ($applies as $apply) {
         	$items = $this->getItems();
@@ -25,15 +26,18 @@ class OfferSeeder extends Seeder
         		return $item['options']->sum('total');
         	});
         	$materials = $this->getMaterials();
-
+            $leader = User::inRandomOrder()->whereRole('leader')->first();
         	Offer::create([
         			'apply_id' => $apply->id,
-        			'data' => [
-	        				'items' => $items,
-	        				'materials' => $materials
+                    'user_id' => $leader->id,
+                    'data' => [
+                            'items' => $items,
+                            'materials' => $materials
         				],
         			'amount' => $amount
         		]);
+
+            $apply->update(['leader_id' => $leader->id]);
         }
     }
 

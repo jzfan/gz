@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model
 {
-    protected $fillable = ['amount', 'apply_id', 'leader_id', 'data', 'accepted_at', 'done_at'];
+    protected $fillable = ['amount', 'apply_id', 'leader_id', 'data', 'accepted_at', 'done_at', 'user_id'];
 
     protected $casts = ['data' => 'array'];
     protected $dates = ['accepted_at', 'done_at'];
