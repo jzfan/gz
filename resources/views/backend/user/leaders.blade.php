@@ -14,6 +14,7 @@
           <tr>
             <th>ID</th>
             <th> 姓名</th>
+            <th> 手机</th>
             <th> 签单</th>
             <th> 星级</th>
             <th> 积分</th>
@@ -32,18 +33,33 @@
         @foreach ($leaders as $leader)
           <tr>
             <th>{{ $leader->id }}</th>
-            <td><img src="{{ $leader->user->avatar }}">{{ $leader->user->name }}</td>
-            <td> {{ $leader->WO }} </td>
-            <td>{{ $leader->rank }}</td>
-            <td>{{ $leader->points }}</td>
-            <td>{{ $leader->quality }}</td>
-            <td>{{ $leader->working_age }}</td>
-            <td>{{ $leader->ex_company }}</td>
-            <td>{{ $leader->tel }}</td>
-            <td>{{ $leader->from }}</td>
-            <td>{{ $leader->fans }}</td>
-            <td>{{ $leader->deposit }}</td>
-            <td> {{ $leader->created_at->format('Y-m-d') }} </td>
+            <td><img src="{{ $leader->avatar }}">{{ $leader->name }}</td>
+            <td> {{ $leader->phone }} </td>
+            @if (isset($leader->leader))
+            <td> {{ $leader->leader->WO }} </td>
+            <td>{{ $leader->leader->rank }}</td>
+            <td>{{ $leader->leader->points }}</td>
+            <td>{{ $leader->leader->quality }}</td>
+            <td>{{ $leader->leader->working_age }}</td>
+            <td>{{ $leader->leader->ex_company }}</td>
+            <td>{{ $leader->leader->tel }}</td>
+            <td>{{ $leader->leader->from }}</td>
+            <td>{{ $leader->leader->fans }}</td>
+            <td>{{ $leader->leader->deposit }}</td>
+            <td> {{ $leader->leader->created_at->format('Y-m-d') }} </td>
+            @else
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            @endif
             <td>
               <a class="btn btn-info btn-xs" data-id={{ $leader->id }}><i class="icon-share"></i></a>
             </td>

@@ -32,12 +32,10 @@ class ApplyController extends Controller
         $this->validate(request(), [
                 'name' => 'required|min:2,max:60',
                 'block' => 'required|min:2,max:60',
-                'phone' => 'required',
-                'plan' => 'required|in:全装修,半装修,待定',
-                'budget' => 'required|integer'
+                'phone' => 'required|phone',
             ]);
         $this->apply->store(request()->input());
-        return 'ok';
+        return redirect()->back()->withSuccess('ok');
     }
      
 }

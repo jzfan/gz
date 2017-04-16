@@ -1548,15 +1548,18 @@
         <h4 class="modal-title" id="exampleModalLabel">免费预约</h4>
       </div>
       <div class="modal-body contact_input_area">
-        <form>
+        <form action='/applies' method="POST">
+        {!! csrf_field() !!}
           <div class="form-group">
-            <input type="text" class="form-control" id="recipient-name" placeholder="您的称呼">
+            <input type="text" class="form-control" id="recipient-name" placeholder="您的称呼"
+                name='name'>
           </div>
           <div class="form-group">
-            <input type="number" class="form-control" id="recipient-name" placeholder="您的手机号">
+            <input type="number" class="form-control" id="recipient-name" placeholder="您的手机号"
+                name='phone'>
           </div>
           <div class="form-group">
-            <textarea class="form-control" id="message-text" placeholder="您的需求"></textarea>
+            <textarea class="form-control" id="message-text" placeholder="小区" name='block'></textarea>
           </div>
         </form>
       </div>
@@ -1581,10 +1584,11 @@
     </div>
 
     <div class="foot-form">
-        <form action="">
-            <input type="text" placeholder="姓名">
-            <input type="number" placeholder="手机号">
-            <input type="text" placeholder="所在小区">
+        <form action="/applies" method="POST">
+        {!! csrf_field() !!}
+            <input type="text" placeholder="姓名" name='name'>
+            <input type="number" placeholder="手机号" name='phone'>
+            <input type="text" placeholder="所在小区" name='block'>
             <button>免费预约</button>
         </form>
     </div>

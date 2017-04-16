@@ -16,13 +16,12 @@ class CreateAppliesTable extends Migration
         Schema::create('applies', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('leader_id')->nullable();
-            $table->unsignedInteger('user_id');
             $table->string('name');
             $table->string('phone');
             $table->string('block');
-            $table->unsignedInteger('square');
-            $table->enum('plan', ['全装修', '半装修', '待定']);
-            $table->decimal('budget', 10, 2)->unsigned();
+            $table->unsignedInteger('square')->nullable();
+            $table->enum('plan', ['全装修', '半装修', '待定'])->default('待定');
+            $table->decimal('budget', 10, 2)->unsigned()->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

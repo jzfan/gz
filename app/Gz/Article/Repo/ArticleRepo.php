@@ -25,6 +25,13 @@ class ArticleRepo
     						->paginate($n);
 	}
 
+	public function byPage($n)
+	{
+		return $this->article->with('tags', 'user')
+							->OrderBy('id', 'desc')
+    						->paginate($n);
+	}
+
 	public function byTag($tag, $page=1, $limit=10)
 	{
 	    $data = new \StdClass;

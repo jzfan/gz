@@ -32,7 +32,7 @@ class LeaderRepo
 
 	public function byPage($n=10)
 	{
-	    return $this->leader->with('user')->orderBy('id', 'desc')->paginate($n);
+	    return $this->user->whereRole('leader')->with('leader')->orderBy('id', 'desc')->paginate($n);
 	}
 
 	public function select2()

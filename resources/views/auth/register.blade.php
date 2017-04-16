@@ -44,7 +44,7 @@
                                 <div class="col-sm-12 col-xs-12">
                                     <div class="gz-sign">
                                         <label for="">用户类型</label>
-                                        <input type="radio" name="role" valu='customer'>业主
+                                        <input type="radio" name="role" value='customer'>业主
                                         <input type="radio" name="role" value='leader'>工长
                                     </div>
                                 </div>
