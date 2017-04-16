@@ -35,7 +35,8 @@
                 </div>
 
                 <div class="contact_from wow fadeInUp" data-wow-delay=".2s">
-                    <form action="mail.php" method="post" id="main_contact_form">
+                    <form action="login" method="post" id="main_contact_form">
+                    {!! csrf_field() !!}
                         <!-- Message Input Area Start -->
                         <div class="contact_input_area">
                             <div id="success_fail_info"></div>
@@ -43,20 +44,20 @@
                                 <!-- Single Input Area Start -->
                                 <div class="col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="手机号码" required>
+                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="手机号码" required>
                                     </div>
                                 </div>
                                 <!-- Single Input Area Start -->
                                 <div class="col-sm-12 col-xs-12">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="密码" required>
+                                        <input type="password" class="form-control" name="password" id="password" placeholder="密码" required>
                                     </div>
                                 </div>
 
                                 <!-- Single Input Area Start -->
                                 <div class="col-sm-6 col-xs-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="验证码" required>
+                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="验证码">
                                     </div>
                                 </div>
                                 <!-- Single Input Area Start -->

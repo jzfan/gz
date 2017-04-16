@@ -61,6 +61,11 @@ class User extends Authenticatable
         return $this->morphMany(Comment::class, 'commentable');
     }
 
+    public function images()
+    {
+        return $this->morphMany(\Gz\Gallery\Image::class, 'imageable');
+    }
+
     public function isAdmin()
     {
         return $this->role == 'admin';

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use Gz\File\Repo\ImageRepo;
+use Gz\Gallery\Repo\ImageRepo;
 use Illuminate\Http\Request;
 use Gz\User\Repo\LeaderRepo;
 use Gz\Project\Repo\OfferRepo;

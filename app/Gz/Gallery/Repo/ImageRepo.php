@@ -1,8 +1,8 @@
 <?php
 
-namespace Gz\File\Repo;
+namespace Gz\Gallery\Repo;
 
-use Gz\File\Image;
+use Gz\Gallery\Image;
 
 class ImageRepo
 {

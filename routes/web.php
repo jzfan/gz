@@ -56,6 +56,7 @@ Route::namespace('Backend')->middleware('auth')->group( function () {
 			Route::get('projects/{status}', 'ProjectController@pageByStatus');
 
 			Route::get('articles/tags/{tag}', 'ArticleController@byTag');
+			Route::resource('galleries', 'GalleryController', ['except'=>['edit']]);
 
 		});
 	});

@@ -9,6 +9,12 @@
           <label class="col-sm-2 control-label">标签</label>
           <div class="col-sm-10">
               <input name="tags" id="tagsinput" class="tagsinput" value="{{ old('tags', isset($article) ? $article->tags->pluck('name')->implode(',') : '') }}" />
+              <br>
+              <div id='tags-div'>
+              @foreach ($tags as $tag)
+                <button type="button" class="btn btn-round btn-{{ array_rand(array_flip(config('view.color'))) }}" style="margin-bottom: 5px">{{ $tag->name }}</button>
+              @endforeach
+              </div>
           </div>
       </div>
 

@@ -15,4 +15,13 @@
 	    format: 'yyyy-mm-dd'
 	});
 	$(".tagsinput").tagsInput();
+	$('#tags-div button').click( function () {
+		console.log($(this).text());
+		text = $(this).text();
+		tags = $('.tagsinput').val();
+		if (tags.includes(text)) {
+			return;
+		}
+		$(".tagsinput").addTag(text);
+	})
 </script>

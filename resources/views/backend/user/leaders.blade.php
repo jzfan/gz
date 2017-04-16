@@ -25,6 +25,7 @@
             <th> 关注人数</th>
             <th> 保证金</th>
             <th> 注册时间</th>
+            <th> action</th>
           </tr>
         </thead>
         <tbody>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Gz\File;
+namespace Gz\Gallery;
 
 use Illuminate\Database\Eloquent\Model;
 

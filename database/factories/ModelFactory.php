@@ -106,12 +106,11 @@ $factory->define(Gz\Article\Comment::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(Gz\File\Image::class, function (Faker\Generator $faker) {
-    $arr = ['工地', '工头', '工人'];
+$factory->define(Gz\Gallery\Image::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence,
         'path' => '/images/'.mt_rand(1,5).'.jpg',
-        'group' => $arr[array_rand($arr)],
+        'group' => $faker->word,
         'description' => $faker->paragraph
     ];
 });

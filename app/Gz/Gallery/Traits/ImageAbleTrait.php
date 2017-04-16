@@ -1,8 +1,8 @@
 <?php
 
-namespace Gz\File\Traits;
+namespace Gz\Gallery\Traits;
 
-use Gz\File\Image;
+use Gz\Gallery\Image;
 
 trait ImageAbleTrait
 {

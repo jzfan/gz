@@ -102,4 +102,9 @@ class EloquantArticle implements ArticleInterface
 	    $article->tags()->sync($tag_ids);
 	    return $article;
 	}
+
+	public function allTags()
+	{
+	    return $this->tag->select('id', 'name')->get();
+	}
 }

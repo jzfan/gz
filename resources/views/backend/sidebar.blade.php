@@ -27,6 +27,12 @@
                           <span>申请</span>
                       </a>
                   </li>
+                  <li class="">
+                      <a class="" href="/backend/galleries">
+                          <i class="icon-picture"></i>
+                          <span>相册</span>
+                      </a>
+                  </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon-user"></i>

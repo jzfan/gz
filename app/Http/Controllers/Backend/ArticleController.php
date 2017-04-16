@@ -41,8 +41,9 @@ class ArticleController extends Controller
 
     public function edit($id)
     {
+        $tags = $this->article->allTags();
         $article = $this->article->byId($id);
-        return view('backend.article.edit', compact('article'));
+        return view('backend.article.edit', compact('article', 'tags'));
     }
 
     public function update($id)
@@ -62,7 +63,8 @@ class ArticleController extends Controller
 
     public function create()
     {
-        return view('backend.article.create');
+        $tags = $this->article->allTags();
+        return view('backend.article.create', compact('tags'));
     }
 
     public function store()
