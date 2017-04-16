@@ -288,144 +288,25 @@
 
     <div class="container">
         <div class="row win_feature">
-
+@foreach ($leaders as $leader)
             <div class="col-sm-4 col-md-3">
                 <!-- Single Feature Area Start -->
                 <div class="single_feature wow fadeInUp" data-wow-delay=".2s">  
                     <div class="bg-icon">
-                        <img data-url="picture/gt1.jpg" src="images/pix.png" alt="">
+                        <img data-url="{{ $leader->user->avatar }}" src="{{ $leader->user->avatar }}" alt="">
                     </div>
                     <!-- Single Feature Image Area End -->
                     <div class="feature_text">
-                        <h4><span class="w_name">刘大宝</span></h4>
-                        <p>工长签单：19</p>
-                        <p>网站保证金：15500元</p>
-                        <p>接单区域：青山区 江夏区 东湖高新</p>
+                        <h4><span class="w_name">{{ $leader->user->name }}</span></h4>
+                        <p>工长签单：{{ $leader->WO }}</p>
+                        <p>网站保证金：{{ $leader->deposit }}元</p>
+                        <p>接单区域：{{ $leader->area }}</p>
                     </div>
                     <!-- Single Feature Text Area End -->
                 </div>
             </div>
-
-            <div class="col-sm-4 col-md-3">
-                <!-- Single Feature Area Start -->
-                <div class="single_feature wow fadeInUp" data-wow-delay=".2s">  
-                    <div class="bg-icon">
-                        <img data-url="picture/gt2.jpg" src="images/pix.png" alt="">
-                    </div>
-                    <!-- Single Feature Image Area End -->
-                    <div class="feature_text">
-                        <h4><span class="w_name">赵宝华</span></h4>
-                        <p>工长签单：39</p>
-                        <p>网站保证金：20000元</p>
-                        <p>接单区域：青山区 江夏区 江汉区</p>
-                    </div>
-                    <!-- Single Feature Text Area End -->
-                </div>
-            </div>
-
-            <div class="col-sm-4 col-md-3">
-                <!-- Single Feature Area Start -->
-                <div class="single_feature wow fadeInUp" data-wow-delay=".2s">  
-                    <div class="bg-icon">
-                        <img data-url="picture/gt3.jpg" src="images/pix.png" alt="">
-                    </div>
-                    <!-- Single Feature Image Area End -->
-                    <div class="feature_text">
-                        <h4><span class="w_name">高东杰</span></h4>
-                        <p>工长签单：12</p>
-                        <p>网站保证金：18000元</p>
-                        <p>接单区域：汉口 江夏区 武昌</p>
-                    </div>
-                    <!-- Single Feature Text Area End -->
-                </div>
-            </div>
-
-            <div class="col-sm-4 col-md-3">
-                <!-- Single Feature Area Start -->
-                <div class="single_feature wow fadeInUp" data-wow-delay=".2s">  
-                    <div class="bg-icon">
-                        <img data-url="picture/gt4.jpg" src="images/pix.png" alt="">
-                    </div>
-                    <!-- Single Feature Image Area End -->
-                    <div class="feature_text">
-                        <h4><span class="w_name">刘大宝</span></h4>
-                        <p>工长签单：19</p>
-                        <p>网站保证金：15500元</p>
-                        <p>接单区域：青山区 江夏区 东湖高新</p>
-                    </div>
-                    <!-- Single Feature Text Area End -->
-                </div>
-            </div>
-
-            <div class="col-sm-4 col-md-3">
-                <!-- Single Feature Area Start -->
-                <div class="single_feature wow fadeInUp" data-wow-delay=".2s">  
-                    <div class="bg-icon">
-                        <img data-url="picture/gt1.jpg" src="images/pix.png" alt="">
-                    </div>
-                    <!-- Single Feature Image Area End -->
-                    <div class="feature_text">
-                        <h4><span class="w_name">刘大宝</span></h4>
-                        <p>工长签单：19</p>
-                        <p>网站保证金：15500元</p>
-                        <p>接单区域：青山区 江夏区 东湖高新</p>
-                    </div>
-                    <!-- Single Feature Text Area End -->
-                </div>
-            </div>
-
-            <div class="col-sm-4 col-md-3">
-                <!-- Single Feature Area Start -->
-                <div class="single_feature wow fadeInUp" data-wow-delay=".2s">  
-                    <div class="bg-icon">
-                        <img data-url="picture/gt2.jpg" src="images/pix.png" alt="">
-                    </div>
-                    <!-- Single Feature Image Area End -->
-                    <div class="feature_text">
-                        <h4><span class="w_name">赵宝华</span></h4>
-                        <p>工长签单：39</p>
-                        <p>网站保证金：20000元</p>
-                        <p>接单区域：青山区 江夏区 江汉区</p>
-                    </div>
-                    <!-- Single Feature Text Area End -->
-                </div>
-            </div>
-
-            <div class="col-sm-4 col-md-3">
-                <!-- Single Feature Area Start -->
-                <div class="single_feature wow fadeInUp" data-wow-delay=".2s">  
-                    <div class="bg-icon">
-                        <img data-url="picture/gt3.jpg"  src="images/pix.png" alt="">
-                    </div>
-                    <!-- Single Feature Image Area End -->
-                    <div class="feature_text">
-                        <h4><span class="w_name">高东杰</span></h4>
-                        <p>工长签单：12</p>
-                        <p>网站保证金：18000元</p>
-                        <p>接单区域：汉口 江夏区 武昌</p>
-                    </div>
-                    <!-- Single Feature Text Area End -->
-                </div>
-            </div>
-
-            <div class="col-sm-4 col-md-3">
-                <!-- Single Feature Area Start -->
-                <div class="single_feature wow fadeInUp" data-wow-delay=".2s">  
-                    <div class="bg-icon">
-                        <img data-url="picture/gt4.jpg" src="images/pix.png" alt="">
-                    </div>
-                    <!-- Single Feature Image Area End -->
-                    <div class="feature_text">
-                        <h4><span class="w_name">刘大宝</span></h4>
-                        <p>工长签单：19</p>
-                        <p>网站保证金：15500元</p>
-                        <p>接单区域：青山区 江夏区 东湖高新</p>
-                    </div>
-                    <!-- Single Feature Text Area End -->
-                </div>
-            </div>
-            
-        </div>
+        @endforeach
+</div>
     </div>
 
     </div>
@@ -453,23 +334,23 @@
         </div>
 
         <div class="row">
-
+@foreach ($images as $image)
             <!-- Single Service Area Start -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="single_service wow fadeInUp" data-wow-delay=".2s">
                     <!-- Single Service image -->
                     <div class="single_service_img">
-                        <img data-url="picture/service-3.jpg"  src="images/pix.png" alt="">
+                        <img data-url="{{ $image->path }}"  src="{{ $image->path }}" alt="">
                     </div>
                     <!-- Single Service title -->
                     <div class="single_service_title">
-                        <h4>万科传奇 武工长</h4>
+                        <h4>{{ $image->imageable->name }} 工长</h4>
                     </div>
                     <!-- Single Service content -->
                     <div class="single_service_content">
                         <div class="table">
                             <div class="table_cell">
-                                <p>花样年华</p>
+                                <p>{{ $image->group }}</p>
                             </div>
                         </div>
                     </div>
@@ -479,207 +360,8 @@
                 </div>
             </div>
 
-            <!-- Single Service Area Start -->
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="single_service wow fadeInUp" data-wow-delay=".4s">
-                    <!-- Single Service image -->
-                    <div class="single_service_img">
-                        <img data-url="picture/service-1.jpg" src="images/pix.png" alt="">
-                    </div>
-                    <!-- Single Service title -->
-                    <div class="single_service_title">
-                        <h4>万景国际  李工长</h4>
-                    </div>
-                    <!-- Single Service content -->
-                    <div class="single_service_content">
-                        <div class="table">
-                            <div class="table_cell">
-                                <p>花样年华</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="learn_more">
-                        <a data-target="#service_details" data-toggle="modal" href="#"><h4>查看详情</h4></a>
-                    </div>
-                </div>
+            @endforeach
             </div>
-
-            <!-- Single Service Area Start -->
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="single_service wow fadeInUp" data-wow-delay=".6s">
-                    <!-- Single Service image -->
-                    <div class="single_service_img">
-                        <img data-url="picture/service-2.jpg" src="images/pix.png" alt="">
-                    </div>
-                    <!-- Single Service title -->
-                    <div class="single_service_title">
-                        <h4>滨江公馆  万工长</h4>
-                    </div>
-                    <!-- Single Service content -->
-                    <div class="single_service_content">
-                        <div class="table">
-                            <div class="table_cell">
-                                <p>花样年华</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="learn_more">
-                        <a data-target="#service_details" data-toggle="modal" href="#"><h4>查看详情</h4></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Service Area Start -->
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="single_service wow fadeInUp" data-wow-delay=".8s">
-                    <!-- Single Service image -->
-                    <div class="single_service_img">
-                        <img data-url="picture/service-4.jpg" src="images/pix.png" alt="">
-                    </div>
-                    <!-- Single Service title -->
-                    <div class="single_service_title">
-                        <h4>泛海越庭  刘工长</h4>
-                    </div>
-                    <!-- Single Service content -->
-                    <div class="single_service_content">
-                        <div class="table">
-                            <div class="table_cell">
-                                <p>花样年华</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="learn_more">
-                        <a data-target="#service_details" data-toggle="modal" href="#"><h4>查看详情</h4></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Service Area Start -->
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="single_service wow fadeInUp" data-wow-delay="1s">
-                    <!-- Single Service image -->
-                    <div class="single_service_img">
-                        <img data-url="picture/service-1.jpg"  src="images/pix.png" alt="">
-                    </div>
-                    <!-- Single Service title -->
-                    <div class="single_service_title">
-                        <h4>汉江新城  赵工长</h4>
-                    </div>
-                    <!-- Single Service content -->
-                    <div class="single_service_content">
-                        <div class="table">
-                            <div class="table_cell">
-                                <p>花样年华</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="learn_more">
-                        <a data-target="#service_details" data-toggle="modal" href="#"><h4>查看详情</h4></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Service Area Start -->
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="single_service wow fadeInUp" data-wow-delay="1.2s">
-                    <!-- Single Service image -->
-                    <div class="single_service_img">
-                        <img data-url="picture/service-2.jpg" src="images/pix.png" alt="">
-                    </div>
-                    <!-- Single Service title -->
-                    <div class="single_service_title">
-                        <h4>万达高尔夫  高工长</h4>
-                    </div>
-                    <!-- Single Service content -->
-                    <div class="single_service_content">
-                        <div class="table">
-                            <div class="table_cell">
-                                <p>花样年华</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="learn_more">
-                        <a data-target="#service_details" data-toggle="modal" href="#"><h4>查看详情</h4></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Service Area Start -->
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="single_service wow fadeInUp" data-wow-delay="1.4s">
-                    <!-- Single Service image -->
-                    <div class="single_service_img">
-                        <img data-url="picture/service-3.jpg"  src="images/pix.png" alt="">
-                    </div>
-                    <!-- Single Service title -->
-                    <div class="single_service_title">
-                        <h4>保利华府  杨工长</h4>
-                    </div>
-                    <!-- Single Service content -->
-                    <div class="single_service_content">
-                        <div class="table">
-                            <div class="table_cell">
-                                <p>花样年华</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="learn_more">
-                        <a data-target="#service_details" data-toggle="modal" href="#"><h4>查看详情</h4></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Service Area Start -->
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="single_service wow fadeInUp" data-wow-delay="1.6s">
-                    <!-- Single Service image -->
-                    <div class="single_service_img">
-                        <img data-url="picture/service-4.jpg" src="images/pix.png" alt="">
-                    </div>
-                    <!-- Single Service title -->
-                    <div class="single_service_title">
-                        <h4>俱乐华府  丘工长</h4>
-                    </div>
-                    <!-- Single Service content -->
-                    <div class="single_service_content">
-                        <div class="table">
-                            <div class="table_cell">
-                                <p>花样年华</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="learn_more">
-                        <a data-target="#service_details" data-toggle="modal" href="#"><h4>查看详情</h4></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Service Area Start -->
-            <div class="col-sm-6 col-md-4 col-lg-3 hidden-sm hidden-xs hidden-lg">
-                <div class="single_service wow fadeInUp" data-wow-delay="1.8s">
-                    <!-- Single Service image -->
-                    <div class="single_service_img">
-                        <img data-url="picture/service-1.jpg"  src="images/pix.png" alt="">
-                    </div>
-                    <!-- Single Service title -->
-                    <div class="single_service_title">
-                        <h4>Business Advisor</h4>
-                    </div>
-                    <!-- Single Service content -->
-                    <div class="single_service_content">
-                        <div class="table">
-                            <div class="table_cell">
-                                <p>花样年华</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="learn_more">
-                        <a data-target="#service_details" data-toggle="modal" href="#"><h4>查看详情</h4></a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
         <!-- end. row -->
     </div>
     <div class="row w-more">

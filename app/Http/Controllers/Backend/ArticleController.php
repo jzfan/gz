@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
+use Gz\Article\Repo\ArticleRepo;
 use App\Http\Controllers\Controller;
-use Gz\Article\Repo\ArticleInterface;
 
 class ArticleController extends Controller
 {
@@ -16,7 +16,7 @@ class ArticleController extends Controller
                 'published_at' => 'required'
             ];
 
-	public function __construct(ArticleInterface $article)
+	public function __construct(ArticleRepo $article)
 	{
 		$this->article = $article;
 	}

@@ -2,23 +2,26 @@
 
 namespace Gz\Article\Repo;
 
-use Illuminate\Database\Eloquent\Model;
+use Gz\Article\Tag;
+use Gz\Article\Article;
 
-class EloquantArticle implements ArticleInterface
+class ArticleRepo
 {
 	private $article;
 	private $tag;
 
-	public function __construct(Model $article, Model $tag)
+	public function __construct(Article $article, Tag $tag)
 	{
 		$this->article = $article;
 		$this->tag = $tag;
 	}
 
-	public function byPage($n)
+	public function byTagPage($tag, $n)
 	{
 		return $this->article->with('tags', 'user')
-    						->OrderBy('id', 'desc')
+							->whereHas('tags', function ($q) use ($tag) {
+								$q->whereName($tag);
+							})->OrderBy('published_at', 'desc')
     						->paginate($n);
 	}
 

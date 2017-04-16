@@ -1,29 +1,54 @@
-@extends('layouts.app')
+@extends('frontend.partial.main2') 
 
 @section('content')
-<div class="container">
-    <div class="row">
-    @foreach ($articles as $article)
-        <div class="col-md-12">
-        <div class="panel panel-default">
-          <div class="panel-heading"><a href="/articles/{{ $article->id }}">{{ $article->title }}</a></div>
-          <div class="panel-body">
-            {{ $article->intro }}
-          </div>
-          <div class="panel-footer text-right">
-              <span>{{ $article->user->name }} 发表于 {{ $article->published_at->diffForHumans() }}</span>
-          </div>
+    <div class="page-content">
+        <!-- inner page banner -->
+        <div class="dez-bnr-inr overlay-black-middle" style="background-image:url(images/bg4.jpg);">
+            <div class="container">
+                <div class="dez-bnr-inr-entry">
+                    <h1 class="text-white">新闻动态</h1>
+                </div>
+            </div>
         </div>
+        <!-- inner page banner END -->
+        <!-- Breadcrumb row -->
+        <div class="breadcrumb-row">
+            <div class="container">
+                <ul class="list-inline">
+                    <li><a href="#">新闻</a></li>
+                    <li>行业新闻</li>
+                </ul>
+            </div>
         </div>
-    @endforeach
+        <!-- Breadcrumb row END -->
+        <!-- contact area -->
+        <div class="content-area">
+            <!-- Portfolio -->
+            <div class="container">
+                <div class="row">
+                @foreach ($articles as $article)
+                    <div class="col-md-12  bg-white p-a20 m-b20">
+                        <div class="blog-post blog-md date-style-2">
+                            <div class="dez-post-media dez-img-effect zoom-slow"> <a href="#">{!! preg_match('/<img .+?\/>/', $article->text, $img) ?$img[0] : '' !!}</a> </div>
+                            <div class="dez-post-info">
+                                <div class="dez-post-title ">
+                                    <h3 class="post-title"><a href="#">{{ $article->title }}</a></h3>
+                                </div>
+                                <div class="dez-post-text">
+                                    <p>{{ $article->intro }}</p>
+                                </div>
+                                <div class="dez-post-readmore"> <a href="/articles/{{ $article->id }}" title="READ MORE" rel="bookmark" class="site-button-link">查看详情<i class="fa fa-angle-double-right"></i></a> </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                </div>
+                <!-- Pagination start -->
+{!! $articles->links() !!}
+                <!-- Pagination END -->
+            </div>
+            <!-- Portfolio END-->
+        </div>
+        <!-- contact area END -->
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <span class="pull-right">
-                {!! $articles->links() !!}
-            </span>
-        </div>
-    </div>
-</div>
-
 @stop
