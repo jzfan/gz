@@ -28,6 +28,7 @@ Route::namespace('Frontend')->group( function () {
 Route::namespace('Backend')->middleware('auth')->group( function () {
 	Route::middleware('editor')->group( function () {
 		Route::get('editor-console', 'PageController@editorConsole');
+		Route::resource('seos', 'SeoController');
 		Route::resource('backend/articles', 'ArticleController');
 	});
 	Route::middleware('admin')->group( function () {
@@ -52,6 +53,10 @@ Route::namespace('Backend')->middleware('auth')->group( function () {
 		Route::group(['prefix'=>'backend'], function () {
 
 			Route::get('leaders', 'LeaderController@index');
+			Route::get('leaders/{id}/edit', 'LeaderController@edit');
+			Route::put('leaders/{id}', 'LeaderController@update');
+			Route::get('offers', 'OfferController@index');
+			Route::get('offers/{id}', 'OfferController@show');
 			Route::get('workers', 'WorkerController@index');
 			Route::get('customers', 'CustomerController@index');
 			Route::get('projects/{status}', 'ProjectController@pageByStatus');

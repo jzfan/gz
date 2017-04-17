@@ -15,6 +15,7 @@ class CreateAppliesTable extends Migration
     {
         Schema::create('applies', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('leader_id')->nullable();
             $table->string('name');
             $table->string('phone');

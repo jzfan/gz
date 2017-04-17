@@ -9,6 +9,6 @@ class ApplySeeder extends Seeder
     public function run()
     {
         Apply::truncate();
-        factory(Apply::class)->create();
+        factory(Apply::class, 33)->create();
     }
 }

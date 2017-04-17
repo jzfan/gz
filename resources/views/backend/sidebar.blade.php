@@ -14,6 +14,12 @@
                           <span>文章</span>
                       </a>
                   </li>
+                  <li class="">
+                      <a class="" href="/seos">
+                          <i class="icon-lightbulb"></i>
+                          <span>SEO</span>
+                      </a>
+                  </li>
           @if (Auth::user()->isAdmin())
                   <li class="">
                       <a class="" href="/backend-users">
@@ -23,8 +29,14 @@
                   </li>
                   <li class="">
                       <a class="" href="/applies">
-                          <i class="icon-bell"></i>
+                          <i class="icon-envelope-alt"></i>
                           <span>申请</span>
+                      </a>
+                  </li>
+                  <li class="">
+                      <a class="" href="/backend/offers">
+                          <i class="icon-table"></i>
+                          <span>报价</span>
                       </a>
                   </li>
                   <li class="">
@@ -59,18 +71,7 @@
                   </li>
                   
                   @endif
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-cogs"></i>
-                          <span>Components</span>
-                          <span class="arrow"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="/flatlab/grids.html">Grids</a></li>
-                          <li><a class="" href="/flatlab/calendar.html">Calendar</a></li>
-                          <li><a class="" href="/flatlab/charts.html">Charts</a></li>
-                      </ul>
-                  </li>
+                  
               </ul>
               <!-- sidebar menu end-->
           </div>

@@ -12,6 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Material::truncate();
+        factory(Material::class, 11)->create();
         $this->call(UserSeeder::class);
         $this->call(ApplySeeder::class);
         $this->call(ItemSeeder::class);
@@ -22,8 +24,6 @@ class DatabaseSeeder extends Seeder
 
 
 
-        Material::truncate();
-        factory(Material::class, 11)->create();
         
     }
 

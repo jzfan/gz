@@ -2,13 +2,8 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="description" content="武汉工长装修­_五八工长通­__五八工长第一装修平台">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>武汉工长装修­_五八工长通­__五八工长第一装修平台</title>
+@include('frontend.partial.meta')
 <link rel="stylesheet" href="/css/style.css">
-
 <!-- Responsive css -->
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 <link rel="stylesheet" href="/css/bootstrap.min.css">

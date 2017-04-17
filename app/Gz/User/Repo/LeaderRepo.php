@@ -58,4 +58,11 @@ class LeaderRepo
 	{
 		return $this->leader->OrderBy('rank', 'desc')->with('user')->take($n)->get();
 	}
+
+	public function updateById($id, $input)
+	{
+	    $this->user->findOrFail($id)->update($input);
+	    return $this->leader->updateOrCreate(['user_id' => $id], $input);
+	    // return $this->leader->where('user_id', $id)->get()->update($input);
+	}
 }

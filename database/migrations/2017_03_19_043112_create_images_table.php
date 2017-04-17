@@ -16,11 +16,11 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('imageable_id');
-            $table->string('imageable_type', 100);
-            $table->string('group', 20);
+            $table->string('imageable_type');
+            $table->string('group');
             $table->string('path');
-            $table->string('title', 100);
-            $table->text('description');
+            $table->string('title');
+            $table->text('description')->nullable();
             $table->string('link')->default('');
             $table->timestamps();
         });

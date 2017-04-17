@@ -21,4 +21,16 @@ class LeaderController extends Controller
         $leaders = $this->leader->byPage(6);
         return view('backend.user.leaders', compact('leaders'));
     }
+
+    public function edit($id)
+    {
+    	$leader = $this->leader->byId($id);
+    	return view('backend.user.leader-edit', compact('leader'));
+    }
+
+    public function update($id)
+    {
+    	$this->leader->updateById($id, request()->input());
+        return redirect('/backend/leaders')->withSuccess('更新成功！');
+    }
 }

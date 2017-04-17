@@ -26,7 +26,7 @@
             <th> 关注人数</th>
             <th> 保证金</th>
             <th> 注册时间</th>
-            <th> action</th>
+            <th> 操作</th>
           </tr>
         </thead>
         <tbody>
@@ -61,7 +61,7 @@
             <td></td>
             @endif
             <td>
-              <a class="btn btn-info btn-xs" data-id={{ $leader->id }}><i class="icon-share"></i></a>
+              <a class="btn btn-info btn-xs" href='/backend/leaders/{{ $leader->id }}/edit'><i class="icon-edit"></i></a>
             </td>
           </tr>
           @endforeach

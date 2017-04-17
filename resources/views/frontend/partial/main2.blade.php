@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="format-detection" content="telephone=no">
-<title>设计师</title>
-<!-- Mobile Specific -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
+@include('frontend.partial.meta')
 <!--[if lt IE 9]>
         <script src="/other/js/html5shiv.min_1.js"></script>
         <script src="/other/js/respond.min_1.js"></script>

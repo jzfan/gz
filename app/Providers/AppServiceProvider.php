@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use Faker\Generator;
-use Faker\Factory;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,12 +14,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         \Carbon\Carbon::setlocale('zh');
-        $this->app->singleton(Generator::class, function () {
-            return Factory::create('zh_CN');
+        $this->app->singleton(\Faker\Generator::class, function () {
+            return \Faker\Factory::create('zh_CN');
         });
         \Validator::extend('phone', function($attribute, $value, $parameters, $validator) {
                               return preg_match('/^1[34578][0-9]{9}$/', $value);
                           });
+        view()->share('seo', \Gz\Seo::all()->pluck('value', 'key')->toArray());
     }
 
     /**

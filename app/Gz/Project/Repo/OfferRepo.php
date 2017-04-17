@@ -22,4 +22,9 @@ class OfferRepo
 	{
 	    return $this->offer->with('user', 'apply')->orderBy('id', 'desc')->take($n)->paginate($n);
 	}
+
+	public function byId($id)
+	{
+	    return $this->offer->with('user', 'apply')->findOrFail($id);
+	}
 }

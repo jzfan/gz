@@ -18,7 +18,7 @@ class OfferSeeder extends Seeder
     {
     	Offer::truncate();
 
-        $applies = Apply::inRandomOrder()->take(33)->get();
+        $applies = Apply::inRandomOrder()->take(22)->get();
 
         foreach ($applies as $apply) {
         	$items = $this->getItems();
@@ -54,7 +54,6 @@ class OfferSeeder extends Seeder
         		}
         	}
         }
-
         return $arr;
     }
 
@@ -89,13 +88,6 @@ class OfferSeeder extends Seeder
 
     protected function getMaterials()
     {
-        $materials = Material::inRandomOrder()->take(2)->get();
-        return $materials->map(function ($m) {
-        	return [
-        		'id' => $m->id,
-        		'name' => $m->name,
-        		'unit' => $m->unit
-        	];
-        });
+        return Material::inRandomOrder()->select('id', 'brand', 'name')->take(mt_rand(2, 5))->get();
     }
 }
