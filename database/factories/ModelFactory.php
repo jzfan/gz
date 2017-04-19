@@ -32,7 +32,7 @@ $factory->define(Gz\User\Leader::class, function (Faker\Generator $faker) {
         'points' => mt_rand(0, 1000),
         'quality' => mt_rand(60, 99),
         'working_age' => mt_rand(1, 20),
-        'area' => array_rand(array_flip(config('site.area'))),
+        'area' => $faker->randomElement(config('site.area')),
         'ex_company' => $faker->company,
         'from' => $faker->state,
         'fans' => mt_rand(0, 200),
@@ -68,9 +68,9 @@ $factory->define(Gz\Item\Material::class, function (Faker\Generator $faker) {
 $factory->define(Gz\Project\Apply::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'block' => $faker->streetName,
+        'block' => $faker->area,
         'square' => mt_rand(30, 300),
-        'phone' => '1' . mt_rand(3000000000, 6000000000),
+        'phone' => $faker->phoneNumber,
         'plan' => array_rand(array_flip(['全装修', '半装修', '待定'])),
         'budget' => mt_rand(2, 20) * 10000
     ];
@@ -100,18 +100,21 @@ $factory->define(Gz\Article\Comment::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(Gz\Gallery\Image::class, function (Faker\Generator $faker) {
+    $arr = ['工地', '工头', '设计', 'banner'];
     return [
         'title' => $faker->sentence,
         'path' => '/images/'.mt_rand(1,5).'.jpg',
-        'group' => $faker->word,
+        'group' => $faker->randomElement($arr),
         'description' => $faker->paragraph
     ];
 });
 
 $factory->define(Gz\Item\Item::class, function (Faker\Generator $faker) {
+    $arr = ['基础', '水电', '主卧', '次卧', '厕所', '客厅', '餐厅', '杂项', '其他'];
+    $name = $faker->unique()->randomElement($arr);
     return [
-        'name' => join(' ', $faker->words),
-        'single' => mt_rand(0, 1)
+        'name' => $name,
+        'single' => array_flip($arr)[$name] > 1 ? 0 : 1
     ];
 });
 

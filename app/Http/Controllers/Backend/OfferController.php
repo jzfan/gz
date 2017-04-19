@@ -26,4 +26,6 @@ class OfferController extends Controller
         $offer = $this->offer->byId($id);
         return view('backend.offer.show', compact('offer'));
     }
+
+    
 }

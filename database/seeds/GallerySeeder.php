@@ -11,7 +11,12 @@ class GallerySeeder extends Seeder
         Image::truncate();
 
         $leaders = User::whereRole('leader')->get();
-        $groups = ['group one', 'group two', 'group three', 'group four'];
+        $arr = [
+                    '工地' => new , 
+                    '工头', 
+                    '设计', 
+                    'banner'
+                ];
         $leaders->map( function ($leader) use ($groups) {
         	$leader->images()->saveMany(factory(Image::class, 5)->make([
         			'group' => $groups[array_rand($groups)]

@@ -9,15 +9,15 @@
                       </a>
                   </li>
                   <li class="">
-                      <a class="" href="/backend/articles">
-                          <i class="icon-file-text-alt"></i>
-                          <span>文章</span>
-                      </a>
-                  </li>
-                  <li class="">
                       <a class="" href="/seos">
                           <i class="icon-lightbulb"></i>
                           <span>SEO</span>
+                      </a>
+                  </li>
+                  <li class="">
+                      <a class="" href="/backend/articles">
+                          <i class="icon-file-text-alt"></i>
+                          <span>文章</span>
                       </a>
                   </li>
           @if (Auth::user()->isAdmin())

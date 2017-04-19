@@ -33,7 +33,7 @@
             <td> {{ $offer->created_at->format('Y-m-d') }} </td>
             <td>
               <a class="btn btn-info btn-xs" href='/backend/offers/{{ $offer->id }}'><i class="icon-eye-open"></i></a>
-              <button ><i class="icon-edit"></i></button>
+              <a class="btn btn-success btn-xs" href='/backend/galleries/create?type=offer&id={{ $offer->id }}'><i class="icon-picture"></i></a>
             </td>
           </tr>
           @endforeach

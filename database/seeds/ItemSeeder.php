@@ -16,7 +16,7 @@ class ItemSeeder extends Seeder
         Item::truncate();
         ItemOption::truncate();
 
-        $items = factory(Item::class, 11)->create();
+        $items = factory(Item::class, 9)->create();
 
         foreach ($items as $item) {
             $item->options()->saveMany(factory(ItemOption::class, mt_rand(2,5))->make());
