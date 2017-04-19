@@ -7,13 +7,20 @@
             </div>
             <div class="modal-body">
 
-                <form class="form-horizontal" role="form" method="POST" action="/backend/galleries/{{ $gallery->group }}">
+                <form class="form-horizontal" role="form" method="POST" action="">
                     {!! method_field('PUT') !!}
                     {!! csrf_field() !!}
                     <div class="form-group">
                         <label class="col-lg-2 control-label">图集名</label>
                         <div class="col-lg-10">
-                            <input type="text" class="form-control" name='group' value="{{ $gallery->group }}">
+                            <input type="text" class="form-control" name='name' value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">描叙</label>
+                        <div class="col-lg-10">
+                            <textarea name="description" rows="5" class="form-control">
+                            </textarea>
                         </div>
                     </div>
                     <div class="form-group">

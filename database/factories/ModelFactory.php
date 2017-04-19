@@ -98,14 +98,18 @@ $factory->define(Gz\Article\Comment::class, function (Faker\Generator $faker) {
         'content' => join(PHP_EOL, $faker->paragraphs)
     ];
 });
+$factory->define(Gz\Gallery\Gallery::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->sentence,
+        'description' => $faker->paragraph
+    ];
+});
 
 $factory->define(Gz\Gallery\Image::class, function (Faker\Generator $faker) {
-    $arr = ['工地', '工头', '设计', 'banner'];
+    // $arr = ['工地', '工头', '设计', 'banner'];
     return [
-        'title' => $faker->sentence,
+        'name' => $faker->slug,
         'path' => '/images/'.mt_rand(1,5).'.jpg',
-        'group' => $faker->randomElement($arr),
-        'description' => $faker->paragraph
     ];
 });
 

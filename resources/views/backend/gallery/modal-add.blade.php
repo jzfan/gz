@@ -1,4 +1,4 @@
-<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-1" class="modal fade" style="display: none;">
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-2" class="modal fade" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,13 +7,19 @@
             </div>
             <div class="modal-body">
 
-                <form class="form-horizontal" role="form" method="POST" action="/backend/galleries/{{ $gallery->group }}">
-                    {!! method_field('PUT') !!}
+                <form class="form-horizontal" role="form" method="POST" 
+                        action="" enctype="multipart/form-data">
                     {!! csrf_field() !!}
                     <div class="form-group">
-                        <label class="col-lg-2 control-label">图集名</label>
+                        <label class="col-lg-2 control-label">图片名</label>
                         <div class="col-lg-10">
-                            <input type="text" class="form-control" name='group' value="{{ $gallery->group }}">
+                            <input type="text" class="form-control" name='name' value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">图片上传</label>
+                        <div class="col-lg-10">
+                            <input type="file" class="form-control" name='pic' value="">
                         </div>
                     </div>
                     <div class="form-group">

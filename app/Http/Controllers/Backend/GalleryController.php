@@ -2,43 +2,38 @@
 
 namespace App\Http\Controllers\Backend;
 
-use Gz\Gallery\Image;
 use Illuminate\Http\Request;
+use Gz\Gallery\Repo\GalleryRepo;
 use App\Http\Controllers\Controller;
 
 class GalleryController extends Controller
 {
-	private $image;
+	private $gallery;
 
-	public function __construct(Image $image)
+	public function __construct(GalleryRepo $gallery)
 	{
-		$this->image = $image;
+		$this->gallery = $gallery;
 	}
 
 	public function index()
 	{
-	    $galleries = $this->image->select(\DB::raw('count(*) as image_count, `group`'))
-                     ->groupBy('group')
-                     ->get()->map( function ($gallery) {
-                     	$gallery->page_image = $this->image->whereGroup($gallery->group)
-                     										->latest()->first()->path;
-                     	return $gallery;
-                     });
+	    $galleries = $this->gallery->indexPage(4);
 	    return view('backend.gallery.index', compact('galleries'));
 	}
 
-	public function show($group)
+	public function show($id)
 	{
-	    $images = $this->image->whereGroup($group)->paginate(5);
-	    return view('backend.gallery.show', compact('images'));
+	    $gallery = $this->gallery->byId($id);
+	    return view('backend.gallery.show', compact('gallery'));
 	}
 
-	public function update($group)
+	public function update($id)
 	{
 		$this->validate(request(), [
-				'group' => 'required|min:2|max:200'
+				'name' => 'required|min:2|max:200',
+				'description' => 'required|min:10'
 			]);
-		$this->image->whereGroup($group)->update(request(['group']));
+		$this->gallery->updateById($id, request(['name', 'description']));
 		return redirect()->back()->withSuccess('更新成功！');
 	}
 
@@ -58,19 +53,35 @@ class GalleryController extends Controller
 	    		'title' => 'required|string|min:2|max:255',
 	    		'pic' => 'required|mimes:svg,jpg,jpeg,png,gif',
 	    	]);
-	    $path = '/' .str_replace('public', 'storage', request('pic')->store('public/images'));
+	    $path = '/' .str_replace('public', 'storage', request('pic')->store('public/gallerys'));
 	    if (request('type') == 'offer') {
-	    	$this->image->create( array_merge(
+	    	$this->gallery->create( array_merge(
 	    			request()->input(),
 	    			[
-	    				'imageable_type' => 'Gz\Project\Offer',
-	    				'imageable_id' => request('id'),
+	    				'galleryable_type' => 'Gz\Project\Offer',
+	    				'galleryable_id' => request('id'),
 	    				'path' => $path
 	    			]
 	    		));
 	    	return redirect('/backend/galleries')->with('success', '添加图片成功！');
 	    }
 
+	}
+
+	public function storeImage()
+	{
+		// dd(request()->all());
+		$this->validate(request(), [
+				'gallery_id' => 'required|exists:galleries,id',
+				'name' => 'required|min:2|max:255',
+				'pic' => 'required|mimes:jpeg,bmp,png',
+			]);
+		$path = '/' .str_replace('public', 'storage', request('pic')->store('public/gallery'));
+		$this->gallery->storeImageById(request('gallery_id'), array_merge(
+				request(['name']),
+				['path' => $path]
+			));
+    	return redirect('/backend/galleries')->with('success', '添加图片成功！');
 	}
     
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use Gz\User\Repo\LeaderRepo;
 use Illuminate\Http\Request;
-use Gz\Gallery\Repo\ImageRepo;
+use Gz\Gallery\Repo\GalleryRepo;
 use Gz\Project\Repo\OfferRepo;
 use Gz\Article\Repo\ArticleRepo;
 use App\Http\Controllers\Controller;
@@ -15,14 +15,14 @@ class ArticleController extends Controller
 	private $article;
     private $offer;
     private $leader;
-    private $image;
+    private $gallery;
 
-	public function __construct(ArticleRepo $article, OfferRepo $offer, LeaderRepo $leader, ImageRepo $image)
+	public function __construct(ArticleRepo $article, OfferRepo $offer, LeaderRepo $leader, GalleryRepo $gallery)
 	{
 		$this->article = $article;
         $this->offer = $offer;
         $this->leader = $leader;
-        $this->image = $image;
+        $this->gallery = $gallery;
 	}
 
     public function index()
@@ -39,7 +39,7 @@ class ArticleController extends Controller
         $articles = $this->article->byTagPage('工头', 8);
         $offers = $this->offer->newList(3);
         $leaders = $this->leader->rankList(5);
-        $pictures = $this->image->newList(6);
+        $pictures = $this->gallery->newList(6);
         $tags = $this->article->allTags();
         return view('frontend.article.index-leader', compact('articles', 'offers', 'leaders', 'pictures', 'tags'));
     }

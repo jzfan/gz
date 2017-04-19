@@ -5,24 +5,30 @@
   <div class="col-lg-12">
     <section class="panel">
       <header class="panel-heading">
-        {{ $images->first()->group }} 列表
+      {{ $gallery->name }} 相册
       </header>
- 
+
       <div class="panel-body">
-      @foreach ($images as $image)
-          <article class="media">
-              <a class="pull-left thumb">
-                  <img src="{{ $image->path }}" height="150px" width="auto">
-              </a>
-              <div class="media-body">
-                  <strong class=" p-head">{{ $image->imageable->name }}</strong>
-                  <p>{{ $image->description }}</p>
-              </div>
-          </article>
-      @endforeach
-{!! $images->links() !!}
-                                                </div>
-    </section>
-  </div>
+      <p>{{ $gallery->created_at->format("Y-m-d") }}</p>
+      <p>{{ $gallery->description }}</p>
+      <hr>
+      @foreach ($gallery->images as $image)
+      <section class="col-md-4">
+
+
+                    <h4>{{ $image->name }}</h4>
+
+                        <img src="{{ $image->path }}" alt="" width="100%">
+
+
+
+      </section>
+@endforeach
+   </div>
+
+   <div class="panel-body">
+   </div>
+ </section>
+</div>
 </div>
 @stop

@@ -1184,34 +1184,13 @@
                     <div class="single_latest_news_img_area">
                         最新签单
                     </div>
+                    @foreach ($articles as $article)
                     <div class="single_latest_news_text_area">
                         <div class="news_title">
-                            <a href="single.html"><h4>缘分与默契造就不简单的135㎡北欧之家<span>2017-4-1</span></h4></a>
+                            <a href="single.html"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
                         </div>
                     </div>
-                    <div class="single_latest_news_text_area">
-                        <div class="news_title">
-                            <a href="single.html"><h4>缘分与默契造就不简单的135㎡北欧之家<span>2017-4-1</span></h4></a>
-                        </div>
-                    </div>
-                    <div class="single_latest_news_text_area">
-                        <div class="news_title">
-                            <a href="single.html"><h4>缘分与默契造就不简单的135㎡北欧之家<span>2017-4-1</span></h4></a>
-                        </div>
-                    </div>
-
-                    <div class="single_latest_news_text_area">
-                        <div class="news_title">
-                            <a href="single.html"><h4>缘分与默契造就不简单的135㎡北欧之家<span>2017-4-1</span></h4></a>
-                        </div>
-                    </div>
-
-                    <div class="single_latest_news_text_area">
-                        <div class="news_title">
-                            <a href="single.html"><h4>缘分与默契造就不简单的135㎡北欧之家<span>2017-4-1</span></h4></a>
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div>
             </div>
 
@@ -1222,33 +1201,13 @@
                     <div class="single_latest_news_img_area">
                         居家风水
                     </div>
+                    @foreach ($feng_shui as $article)
                     <div class="single_latest_news_text_area">
                         <div class="news_title">
-                            <a href="single.html"><h4>缘分与默契造就不简单的135㎡北欧之家<span>2017-4-1</span></h4></a>
+                            <a href="single.html"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
                         </div>
                     </div>
-                    <div class="single_latest_news_text_area">
-                        <div class="news_title">
-                            <a href="single.html"><h4>缘分与默契造就不简单的135㎡北欧之家<span>2017-4-1</span></h4></a>
-                        </div>
-                    </div>
-                    <div class="single_latest_news_text_area">
-                        <div class="news_title">
-                            <a href="single.html"><h4>缘分与默契造就不简单的135㎡北欧之家<span>2017-4-1</span></h4></a>
-                        </div>
-                    </div>
-
-                    <div class="single_latest_news_text_area">
-                        <div class="news_title">
-                            <a href="single.html"><h4>缘分与默契造就不简单的135㎡北欧之家<span>2017-4-1</span></h4></a>
-                        </div>
-                    </div>
-
-                    <div class="single_latest_news_text_area">
-                        <div class="news_title">
-                            <a href="single.html"><h4>缘分与默契造就不简单的135㎡北欧之家<span>2017-4-1</span></h4></a>
-                        </div>
-                    </div>
+                    @endforeach
 
                 </div>
             </div>
@@ -1260,33 +1219,13 @@
                     <div class="single_latest_news_img_area">
                         行业新闻
                     </div>
+                    @foreach ($industry as $article)
                     <div class="single_latest_news_text_area">
                         <div class="news_title">
-                            <a href="single.html"><h4>缘分与默契造就不简单的135㎡北欧之家<span>2017-4-1</span></h4></a>
+                            <a href="single.html"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
                         </div>
                     </div>
-                    <div class="single_latest_news_text_area">
-                        <div class="news_title">
-                            <a href="single.html"><h4>缘分与默契造就不简单的135㎡北欧之家<span>2017-4-1</span></h4></a>
-                        </div>
-                    </div>
-                    <div class="single_latest_news_text_area">
-                        <div class="news_title">
-                            <a href="single.html"><h4>缘分与默契造就不简单的135㎡北欧之家<span>2017-4-1</span></h4></a>
-                        </div>
-                    </div>
-
-                    <div class="single_latest_news_text_area">
-                        <div class="news_title">
-                            <a href="single.html"><h4>缘分与默契造就不简单的135㎡北欧之家<span>2017-4-1</span></h4></a>
-                        </div>
-                    </div>
-
-                    <div class="single_latest_news_text_area">
-                        <div class="news_title">
-                            <a href="single.html"><h4>缘分与默契造就不简单的135㎡北欧之家<span>2017-4-1</span></h4></a>
-                        </div>
-                    </div>
+                    @endforeach
 
                 </div>
             </div>

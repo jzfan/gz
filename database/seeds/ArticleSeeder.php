@@ -17,7 +17,7 @@ class ArticleSeeder extends Seeder
         Article::truncate();
         Tag::truncate();
         \DB::table('article_tag')->truncate();
-        $arr = ['工头', '行业', '工地', 'tag2', 'tag3'];
+        $arr = ['工头', '行业', '工地', '居家风水', 'tag3'];
         $tags = collect($arr)->map( function ($tag) {
             return factory(Tag::class)->create(['name'=>$tag]);
         });

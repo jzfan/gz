@@ -117,4 +117,11 @@ class ArticleRepo
 	{
 	    return $this->tag->select('id', 'name')->get();
 	}
+
+	public function listByTag($tag, $n)
+	{
+		return $this->article->whereHas('tags', function ($query) use ($tag) {
+		    $query->where('name', $tag);
+		})->latest()->take($n)->get();
+	}
 }

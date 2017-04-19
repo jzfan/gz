@@ -27,7 +27,7 @@ class OfferSeeder extends Seeder
         	});
         	$materials = $this->getMaterials();
             $leader = User::inRandomOrder()->whereRole('leader')->first();
-        	Offer::create([
+        	$offer = Offer::create([
         			'apply_id' => $apply->id,
                     'user_id' => $leader->id,
                     'data' => [
@@ -36,8 +36,10 @@ class OfferSeeder extends Seeder
         				],
         			'amount' => $amount
         		]);
-
             $apply->update(['leader_id' => $leader->id]);
+            if (rand(0, 1)) {
+                $offer->update(['accepted_at' => \Carbon\Carbon::now()]);
+            }
         }
     }
 

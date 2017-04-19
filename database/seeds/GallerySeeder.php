@@ -1,26 +1,22 @@
 <?php
 
-use Gz\User\User;
 use Gz\Gallery\Image;
+use Gz\Project\Offer;
+use Gz\Gallery\Gallery;
 use Illuminate\Database\Seeder;
 
 class GallerySeeder extends Seeder
 {
     public function run()
     {
+        Gallery::truncate();
         Image::truncate();
 
-        $leaders = User::whereRole('leader')->get();
-        $arr = [
-                    '工地' => new , 
-                    '工头', 
-                    '设计', 
-                    'banner'
-                ];
-        $leaders->map( function ($leader) use ($groups) {
-        	$leader->images()->saveMany(factory(Image::class, 5)->make([
-        			'group' => $groups[array_rand($groups)]
-        		]));
+        $offers = Offer::whereNotNull('accepted_at')->get();
+
+        $offers->map( function ($offer) {
+            $g = $offer->gallery()->save( factory(Gallery::class)->make() );
+        	$g->images()->saveMany(factory(Image::class, rand(2, 4))->make());
         });
     }
 }
