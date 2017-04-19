@@ -10,6 +10,11 @@ class Gallery extends Model
     protected $fillable = ['name', 'description'];
     protected $appends = ['page_image'];
 
+    public function galleryable()
+    {
+        return $this->morphTo();
+    }
+    
     public function images()
     {
     	return $this->hasMany(Image::class);

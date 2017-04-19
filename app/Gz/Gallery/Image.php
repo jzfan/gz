@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     protected $fillable = ['gallery_id', 'name', 'path'];
-
-    public function imageable()
+    protected $touches = ['gallery'];
+    
+    public function gallery()
     {
-        return $this->morphTo();
+        return $this->belongsTo(Gallery::class);
     }
 }

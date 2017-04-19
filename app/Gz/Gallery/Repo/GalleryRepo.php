@@ -16,9 +16,9 @@ class GalleryRepo
 		$this->image = $image;
 	}
 
-	public function newList($n)
+	public function newConstructions($n)
 	{
-	    return $this->image->orderBy('id', 'desc')->take($n)->get();
+	    return $this->gallery->where('galleryable_type', 'Gz\Project\Offer')->orderBy('updated_at', 'desc')->take($n)->get();
 	}
 
 	public function indexPage($n)
