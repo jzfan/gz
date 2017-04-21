@@ -17,7 +17,10 @@ class GalleryController extends Controller
 
 	public function index()
 	{
-	    $galleries = $this->gallery->indexPage(4);
+		$this->validate(request(), [
+				'type' => 'required|in:leader,construction,design'
+			]);
+	    $galleries = $this->gallery->pageByType(request('type'), 4);
 	    return view('backend.gallery.index', compact('galleries'));
 	}
 
@@ -49,39 +52,19 @@ class GalleryController extends Controller
 	public function store()
 	{
 	    $this->validate(request(), [
-	    		'group' => 'required|min:2|max:100',
-	    		'title' => 'required|string|min:2|max:255',
-	    		'pic' => 'required|mimes:svg,jpg,jpeg,png,gif',
+	    		'galleryable_id' => 'required|integer',
+	    		'type' => 'required|in:'.$this->gallery->type(),
+	    		'name' => 'required|string|min:2|max:255|unique:galleries',
+	    		'description' => 'required|between:10,3000',
 	    	]);
-	    $path = '/' .str_replace('public', 'storage', request('pic')->store('public/gallerys'));
-	    if (request('type') == 'offer') {
-	    	$this->gallery->create( array_merge(
-	    			request()->input(),
-	    			[
-	    				'galleryable_type' => 'Gz\Project\Offer',
-	    				'galleryable_id' => request('id'),
-	    				'path' => $path
-	    			]
-	    		));
-	    	return redirect('/backend/galleries')->with('success', '添加图片成功！');
-	    }
-
+	    $gallery = $this->gallery->create(request()->input());
+	    return redirect('/backend/galleries?type='.request('type'))->with('success', '添加' . $gallery->name . '成功！');
 	}
 
-	public function storeImage()
+	public function destroy($id)
 	{
-		// dd(request()->all());
-		$this->validate(request(), [
-				'gallery_id' => 'required|exists:galleries,id',
-				'name' => 'required|min:2|max:255',
-				'pic' => 'required|mimes:jpeg,bmp,png',
-			]);
-		$path = '/' .str_replace('public', 'storage', request('pic')->store('public/gallery'));
-		$this->gallery->storeImageById(request('gallery_id'), array_merge(
-				request(['name']),
-				['path' => $path]
-			));
-    	return redirect('/backend/galleries')->with('success', '添加图片成功！');
+		$this->gallery->delete($id);
+    	return redirect()->back()->with('success', '删除成功！');
 	}
     
 }

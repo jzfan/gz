@@ -7,13 +7,14 @@ use Gz\Project\Offer;
 use Gz\Article\Article;
 use Gz\Article\Comment;
 use Gz\User\Traits\RoleTrait;
+use Gz\Gallery\Traits\GalleryTrait;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes, RoleTrait;
+    use Notifiable, SoftDeletes, RoleTrait, GalleryTrait;
 
     protected $fillable = [
         'name', 'email', 'password', 'phone', 'qq', 'avatar', 'role', 'api_token'

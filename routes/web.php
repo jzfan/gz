@@ -63,7 +63,9 @@ Route::namespace('Backend')->middleware('auth')->group( function () {
 
 			Route::get('articles/tags/{tag}', 'ArticleController@byTag');
 			Route::resource('galleries', 'GalleryController', ['except'=>['edit']]);
-			Route::post('images', 'GalleryController@storeImage');
+			Route::resource('images', 'ImageController', ['except'=>['index', 'edit']]);
+			Route::resource('designers', 'DesignerController', ['except'=>[]]);
+			// Route::post('images', 'ImageController@storeImage');
 
 		});
 	});

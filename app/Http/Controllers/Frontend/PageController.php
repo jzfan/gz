@@ -32,8 +32,7 @@ class PageController extends Controller
     	$offers = $this->offer->newList(10);
     	$leaders = $this->leader->rankList(4);
     	$comments = $this->comment->newList(10);
-    	$galleries = $this->gallery->newConstructions(4);
-    	// dd($galleries->first()->galleryable);
+    	$galleries = $this->gallery->newList(4);
     	$articles = $this->article->newList(5);
     	$feng_shui = $this->article->listByTag('居家风水', 5);
     	$industry = $this->article->listByTag('行业', 5);

@@ -7,14 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Gallery extends Model
 {
 	
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['name', 'description', 'galleryable_type', 'galleryable_id'];
     protected $appends = ['page_image'];
 
-    public function galleryable()
-    {
-        return $this->morphTo();
-    }
-    
     public function images()
     {
     	return $this->hasMany(Image::class);
@@ -22,6 +17,7 @@ class Gallery extends Model
 
     public function getPageImageAttribute()
     {
-    	return $this->images()->latest()->first()->path;
+        $image = $this->images()->latest()->first();
+    	return is_null($image) ? '/images/tes-bg.jpg' : $image->path;
     }
 }

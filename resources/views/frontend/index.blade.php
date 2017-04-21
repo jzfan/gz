@@ -338,13 +338,13 @@
             <!-- Single Service Area Start -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="single_service wow fadeInUp" data-wow-delay=".2s">
-                    <!-- Single Service gallery -->
+                    <!-- Single Service image -->
                     <div class="single_service_img">
                         <img data-url="{{ $gallery->page_image }}"  src="{{ $gallery->page_image }}" alt="">
                     </div>
                     <!-- Single Service title -->
                     <div class="single_service_title">
-                        <h4>{{ $gallery->galleryable->user->name }} 工长</h4>
+                        <h4>{{ $gallery->name }} </h4>
                     </div>
                     <!-- Single Service content -->
                     <div class="single_service_content">
@@ -355,9 +355,7 @@
                         </div>
                     </div>
                     <div class="learn_more">
-                        <a data-target="#service_details" data-toggle="modal" href="#"
-                            data-id='{{ $gallery->galleryable->id }}'><h4>查看详情</h4>
-                        </a>
+                        <a data-target="#service_details" data-toggle="modal" href="#"><h4>查看详情</h4></a>
                     </div>
                 </div>
             </div>
@@ -1189,7 +1187,7 @@
                     @foreach ($articles as $article)
                     <div class="single_latest_news_text_area">
                         <div class="news_title">
-                            <a href="/articles/{{ $article->id }}"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
+                            <a href="single.html"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
                         </div>
                     </div>
                     @endforeach
@@ -1206,7 +1204,7 @@
                     @foreach ($feng_shui as $article)
                     <div class="single_latest_news_text_area">
                         <div class="news_title">
-                            <a href="/articles/{{ $article->id }}"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
+                            <a href="single.html"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
                         </div>
                     </div>
                     @endforeach
@@ -1224,7 +1222,7 @@
                     @foreach ($industry as $article)
                     <div class="single_latest_news_text_area">
                         <div class="news_title">
-                            <a href="/articles/{{ $article->id }}"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
+                            <a href="single.html"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
                         </div>
                     </div>
                     @endforeach

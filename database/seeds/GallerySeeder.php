@@ -1,7 +1,8 @@
 <?php
 
+use Gz\User\User;
 use Gz\Gallery\Image;
-use Gz\Project\Offer;
+use Gz\Project\Apply;
 use Gz\Gallery\Gallery;
 use Illuminate\Database\Seeder;
 
@@ -12,10 +13,15 @@ class GallerySeeder extends Seeder
         Gallery::truncate();
         Image::truncate();
 
-        $offers = Offer::whereNotNull('accepted_at')->get();
+        $applies = Apply::whereNotNull('leader_id')->get();
+        $applies->map( function ($apply) {
+            $g = $apply->gallery()->save( factory(Gallery::class)->make() );
+            $g->images()->saveMany(factory(Image::class, rand(2, 4))->make());
+        });
 
-        $offers->map( function ($offer) {
-            $g = $offer->gallery()->save( factory(Gallery::class)->make() );
+        $leaders = User::whereRole('leader')->inRandomOrder()->take(2)->get();
+        $leaders->map( function ($leader) {
+            $g = $leader->gallery()->save( factory(Gallery::class)->make() );
         	$g->images()->saveMany(factory(Image::class, rand(2, 4))->make());
         });
     }

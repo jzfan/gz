@@ -8,6 +8,6 @@ trait GalleryTrait
 {
 	public function gallery()
 	{
-	    return $this->morphMany(Gallery::class, 'galleryable');
+	    return $this->morphOne(Gallery::class, 'galleryable');
 	}
 }

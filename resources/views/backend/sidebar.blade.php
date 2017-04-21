@@ -10,8 +10,8 @@
                   </li>
                   <li class="">
                       <a class="" href="/seos">
-                          <i class="icon-lightbulb"></i>
-                          <span>SEO</span>
+                          <i class="icon-globe"></i>
+                          <span>S E O</span>
                       </a>
                   </li>
                   <li class="">
@@ -40,10 +40,22 @@
                       </a>
                   </li>
                   <li class="">
-                      <a class="" href="/backend/galleries">
+                      <a class="" href="/backend/designers">
+                          <i class="icon-lightbulb"></i>
+                          <span>设计</span>
+                      </a>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
                           <i class="icon-picture"></i>
                           <span>相册</span>
+                          <span class="arrow"></span>
                       </a>
+                      <ul class="sub">
+                          <li><a class="" href="/backend/galleries?type=leader">工头</a></li>
+                          <li><a class="" href="/backend/galleries?type=construction">工地</a></li>
+                          <li><a class="" href="/backend/galleries?type=design">设计</a></li>
+                      </ul>
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">

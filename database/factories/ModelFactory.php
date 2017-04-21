@@ -100,7 +100,7 @@ $factory->define(Gz\Article\Comment::class, function (Faker\Generator $faker) {
 });
 $factory->define(Gz\Gallery\Gallery::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->sentence,
+        'name' => $faker->sentence(2),
         'description' => $faker->paragraph
     ];
 });
@@ -128,5 +128,17 @@ $factory->define(Gz\Item\ItemOption::class, function (Faker\Generator $faker) {
         'description' => $faker->sentences,
         'unit' => 'm2',
         'price' => mt_rand(100, 1000)/100
+    ];
+});
+
+$factory->define(Gz\User\Designer::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'avatar' => $faker->imageUrl($width = 60, $height = 60),
+        'working_age' => mt_rand(1, 15),
+        'feedback_rate' => mt_rand(66, 100),
+        'precept' => $faker->catchPhrase,
+        'honer' => $faker->sentences(mt_rand(1, 3)),
+        'good_at' => $faker->words(2)
     ];
 });

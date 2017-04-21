@@ -9,6 +9,11 @@ class GalleryRepo
 {
 	private $gallery;
 	protected $image;
+	protected $type = [
+		'leader' => 'Gz\User\User',
+		'construction' => 'Gz\Project\Apply',
+		'design' => 'Gz\User\design',
+	];
 
 	public function __construct(Gallery $gallery, Image $image)
 	{
@@ -16,14 +21,19 @@ class GalleryRepo
 		$this->image = $image;
 	}
 
-	public function newConstructions($n)
+	public function type()
 	{
-	    return $this->gallery->where('galleryable_type', 'Gz\Project\Offer')->orderBy('updated_at', 'desc')->take($n)->get();
+		return join(',', array_keys($this->type));
 	}
 
-	public function indexPage($n)
+	public function newList($n)
 	{
-		return $this->gallery->withCount('images')->latest()->paginate($n);
+	    return $this->image->orderBy('id', 'desc')->take($n)->get();
+	}
+
+	public function pageByType($type, $n)
+	{
+		return $this->gallery->where('galleryable_type', $this->type[$type])->withCount('images')->latest()->paginate($n);
 	}
 
 	public function byId($id)
@@ -39,5 +49,18 @@ class GalleryRepo
 	public function storeImageById($id, $data)
 	{
 		return $this->gallery->findOrFail($id)->images()->create($data);
+	}
+
+	public function create($data)
+	{
+		$data['galleryable_type'] = $this->type[$data['type']];
+		return $this->gallery->create($data);
+	}
+
+	public function delete($id)
+	{
+		$gallery = $this->gallery->findOrFail($id);
+		$gallery->images()->delete();
+		return $gallery->delete();
 	}
 }

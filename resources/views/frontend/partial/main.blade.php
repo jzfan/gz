@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/css/font-awesome.min.css">
 <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/responsive.css">
+<link rel="stylesheet" href="/css/app.css">
 <!--[if IE]>
 <script src="js/html5shiv.min.js"></script>
 <script src="js/respond.min.js"></script>
