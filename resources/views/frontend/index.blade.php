@@ -11,7 +11,7 @@
                 <div class="col-sm-2 col-xs-9">
                     <!-- Logo Area:: For better view in all device please use logo image max-width 70px -->
                     <div class="logo_area">
-                        <a href="index.html"><img  data-url="picture/logo.png" src="images/pix.png"></a>
+                        <a href="index.html"><img  src="picture/logo.png"></a>
                     </div>
                 </div>
 
@@ -289,7 +289,7 @@
     <div class="container">
         <div class="row win_feature">
 @foreach ($leaders as $leader)
-            <div class="col-sm-4 col-md-3">
+            <a href=""><div class="col-sm-4 col-md-3">
                 <!-- Single Feature Area Start -->
                 <div class="single_feature wow fadeInUp" data-wow-delay=".2s">  
                     <div class="bg-icon">
@@ -305,13 +305,14 @@
                     <!-- Single Feature Text Area End -->
                 </div>
             </div>
+            </a>
         @endforeach
 </div>
     </div>
 
     </div>
 
-    <div class="row w-more">
+    <div class="row w-more" style="margin-top: 30px;">
         <div class="col-xs-12 text-center"><a href="./other/gzss.html" role="button" class="btn btn-danger btn-lg">查看更多&nbsp;<span class="glyphicon glyphicon-forward"></span></a></div>
     </div>
 
@@ -587,6 +588,9 @@
                     </div>
                 </div>
             </a>
+            <div class="she-over">
+                <p>现代|厨房卧室 舒适健康</p>
+            </div>
         </div>
 
         <!-- Single gallery Item Start -->
@@ -604,6 +608,10 @@
                     </div>
                 </div>
             </a>
+
+            <div class="she-over">
+                <p>现代|厨房卧室 舒适健康</p>
+            </div>
         </div>
 
         <!-- Single gallery Item Start -->
@@ -621,6 +629,9 @@
                     </div>
                 </div>
             </a>
+            <div class="she-over">
+                <p>现代|厨房卧室 舒适健康</p>
+            </div>
         </div>
 
         <!-- Single gallery Item Start -->
@@ -638,6 +649,9 @@
                     </div>
                 </div>
             </a>
+            <div class="she-over">
+                <p>现代|厨房卧室 舒适健康</p>
+            </div>
         </div>
 
         <!-- Single gallery Item Start -->
@@ -655,6 +669,9 @@
                     </div>
                 </div>
             </a>
+            <div class="she-over">
+                <p>现代|厨房卧室 舒适健康</p>
+            </div>
         </div>
 
         <!-- Single gallery Item Start -->
@@ -672,6 +689,9 @@
                     </div>
                 </div>
             </a>
+            <div class="she-over">
+                <p>现代|厨房卧室 舒适健康</p>
+            </div>
         </div>
 
         <!-- Single gallery Item Start -->
@@ -689,6 +709,9 @@
                     </div>
                 </div>
             </a>
+            <div class="she-over">
+                <p>现代|厨房卧室 舒适健康</p>
+            </div>
         </div>
 
         <!-- Single gallery Item Start -->
@@ -706,6 +729,9 @@
                     </div>
                 </div>
             </a>
+            <div class="she-over">
+                <p>现代|厨房卧室 舒适健康</p>
+            </div>
         </div>
 
     </div>
