@@ -21,4 +21,12 @@ class LeaderController extends Controller
     	// dd($tops);
         return view('frontend.user.gzshow', compact('leader', 'tops'));
     }    
+
+    public function index()
+    {
+        $points_list = $this->leader->latestBy('points', 6); 
+        $rank_list = $this->leader->latestBy('rank', 6); 
+        $WO_list = $this->leader->latestBy('WO', 6);
+        return view('frontend.user.gzlist', compact('points_list', 'rank_list', 'WO_list'));
+    }
 }

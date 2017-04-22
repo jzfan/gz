@@ -20,6 +20,7 @@ Route::namespace('Frontend')->group( function () {
 	Route::post('me', 'MeController@update');
 
 	Route::get('leaders/{id}', 'LeaderController@show');
+	Route::get('leaders', 'LeaderController@index');
 	Route::get('offer-form', 'OfferController@getForm');
 
 });

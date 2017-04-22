@@ -29,7 +29,7 @@
                 @foreach ($articles as $article)
                     <div class="col-md-12  bg-white p-a20 m-b20">
                         <div class="blog-post blog-md date-style-2">
-                            <div class="dez-post-media dez-img-effect zoom-slow"> <a href="#">{!! preg_match('/<img .+?\/>/', $article->text, $img) ?$img[0] : '' !!}</a> </div>
+                            <div class="dez-post-media dez-img-effect zoom-slow"> <a href="#">{!! $article->page_image !!}</a> </div>
                             <div class="dez-post-info">
                                 <div class="dez-post-title ">
                                     <h3 class="post-title"><a href="#">{{ $article->title }}</a></h3>

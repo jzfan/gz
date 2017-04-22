@@ -65,4 +65,9 @@ class LeaderRepo
 	    return $this->leader->updateOrCreate(['user_id' => $id], $input);
 	    // return $this->leader->where('user_id', $id)->get()->update($input);
 	}
+
+	public function latestBy($attr, $n)
+	{
+	    return $this->leader->with('user')->orderBy($attr, 'desc')->take($n)->get();
+	}
 }

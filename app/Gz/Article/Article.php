@@ -10,6 +10,7 @@ class Article extends Model
     protected $fillable = ['user_id', 'title', 'intro', 'text', 'published_at'];
 
     protected $dates = ['published_at'];
+    protected $appends = ['page_image'];
 
     public function scopePublished($q)
     {
@@ -24,5 +25,10 @@ class Article extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getPageImageAttribute()
+    {
+        return preg_match('/<img .+?\/>/', $this->text, $img) ? $img[0] : '';
     }
 }

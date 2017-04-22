@@ -289,7 +289,7 @@
     <div class="container">
         <div class="row win_feature">
 @foreach ($leaders as $leader)
-            <a href=""><div class="col-sm-4 col-md-3">
+            <a href="/leaders/{{ $leader->user->id }}"><div class="col-sm-4 col-md-3">
                 <!-- Single Feature Area Start -->
                 <div class="single_feature wow fadeInUp" data-wow-delay=".2s">  
                     <div class="bg-icon">
@@ -313,7 +313,7 @@
     </div>
 
     <div class="row w-more" style="margin-top: 30px;">
-        <div class="col-xs-12 text-center"><a href="./other/gzss.html" role="button" class="btn btn-danger btn-lg">查看更多&nbsp;<span class="glyphicon glyphicon-forward"></span></a></div>
+        <div class="col-xs-12 text-center"><a href="/leaders" role="button" class="btn btn-danger btn-lg">查看更多&nbsp;<span class="glyphicon glyphicon-forward"></span></a></div>
     </div>
 
 </section>
