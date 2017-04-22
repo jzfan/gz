@@ -135,10 +135,11 @@ $factory->define(Gz\User\Designer::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'avatar' => $faker->imageUrl($width = 60, $height = 60),
+        'company' => $faker->company,
         'working_age' => mt_rand(1, 15),
         'feedback_rate' => mt_rand(66, 100),
         'precept' => $faker->catchPhrase,
-        'honer' => $faker->sentences(mt_rand(1, 3)),
-        'good_at' => $faker->words(2)
+        'honor' => $faker->words(mt_rand(1,3)),
+        'good_at' => $faker->words(mt_rand(1,3)),
     ];
 });

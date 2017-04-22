@@ -365,7 +365,7 @@
         <!-- end. row -->
     </div>
     <div class="row w-more">
-        <div class="col-xs-12 text-center"><a href="./other/gzlist.html" role="button" class="btn btn-danger btn-lg">查看更多&nbsp;<span class="glyphicon glyphicon-forward"></span></a></div>
+        <div class="col-xs-12 text-center"><a href="/constructions" role="button" class="btn btn-danger btn-lg">查看更多&nbsp;<span class="glyphicon glyphicon-forward"></span></a></div>
     </div>
 
     <!-- end. container -->
@@ -1187,7 +1187,7 @@
                     @foreach ($articles as $article)
                     <div class="single_latest_news_text_area">
                         <div class="news_title">
-                            <a href="single.html"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
+                            <a href="/articles/{{ $article->id }}"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
                         </div>
                     </div>
                     @endforeach
@@ -1204,7 +1204,7 @@
                     @foreach ($feng_shui as $article)
                     <div class="single_latest_news_text_area">
                         <div class="news_title">
-                            <a href="single.html"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
+                            <a href="/articles/{{ $article->id }}"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
                         </div>
                     </div>
                     @endforeach
@@ -1222,7 +1222,7 @@
                     @foreach ($industry as $article)
                     <div class="single_latest_news_text_area">
                         <div class="news_title">
-                            <a href="single.html"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
+                            <a href="/articles/{{ $article->id }}"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
                         </div>
                     </div>
                     @endforeach
@@ -1235,7 +1235,7 @@
     </div>
 
     <div class="row w-more">
-        <div class="col-xs-12 text-center"><a href="./other/xwlist.html" role="button" class="btn btn-danger btn-lg">查看更多&nbsp;<span class="glyphicon glyphicon-forward"></span></a></div>
+        <div class="col-xs-12 text-center"><a href="/articles" role="button" class="btn btn-danger btn-lg">查看更多&nbsp;<span class="glyphicon glyphicon-forward"></span></a></div>
     </div>
     <!-- end. container -->
 </section>

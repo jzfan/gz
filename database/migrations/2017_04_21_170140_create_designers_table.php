@@ -17,11 +17,12 @@ class CreateDesignersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('avatar');
+            $table->string('company');
             $table->tinyInteger('working_age');
             $table->tinyInteger('feedback_rate');
             $table->string('precept');
             $table->text('good_at');
-            $table->text('honer');
+            $table->text('honor');
             $table->timestamps();
         });
     }

@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Designer extends Model
 {
-    protected $fillable = ['name', 'working_age', 'feedback_rate', 'precept', 'good_at', 'honer', 'good_at'];
+    protected $fillable = ['name', 'working_age', 'feedback_rate', 'precept', 'good_at', 'honor', 'good_at', 'avatar', 'company'];
     protected $casts = [
-    	'goot_at' => 'array',
-    	'honer' => 'array'
+    	'honor' => 'array',
+    	'good_at' => 'array',
     ];
 
     public function galleries()

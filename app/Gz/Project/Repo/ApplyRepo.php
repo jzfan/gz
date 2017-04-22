@@ -16,11 +16,6 @@ class ApplyRepo
 		$this->user = $user;
 	}
 
-	public function pageByStatus($status, $n=10)
-	{
-	    return $this->apply->with('images')->where('status', $status)->latest()->paginate($n);
-	}
-
 	public function workingPage($n=10)
 	{
 	    return $this->apply->with('images', 'project', 'leader')
@@ -43,6 +38,11 @@ class ApplyRepo
 	public function store($input)
 	{
 	    return $this->apply->create($input);
+	}
+
+	public function pageByGallery($n)
+	{
+	    return $this->apply->has('gallery')->with('gallery')->latest()->paginate($n);
 	}
 
 }

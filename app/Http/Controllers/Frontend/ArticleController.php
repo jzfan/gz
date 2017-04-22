@@ -28,20 +28,10 @@ class ArticleController extends Controller
     public function index()
     {
         $this->validate(request(), [
-                'tag' => 'required|exists:tags,name'
+                'tag' => 'exists:tags,name'
             ]);
         $articles = $this->article->byTagPage(request('tag'), 8);
         return view('frontend.article.index', compact('articles'));
-    }
-
-    public function leaderIndex()
-    {
-        $articles = $this->article->byTagPage('工头', 8);
-        $offers = $this->offer->newList(3);
-        $leaders = $this->leader->rankList(5);
-        $pictures = $this->gallery->newList(6);
-        $tags = $this->article->allTags();
-        return view('frontend.article.index-leader', compact('articles', 'offers', 'leaders', 'pictures', 'tags'));
     }
 
     public function show($id)

@@ -27,29 +27,28 @@
                 <div class="row">
                     <!-- Left part start -->
                     <div class="col-md-9">
-                    @foreach($articles as $article)
+                    @foreach($constructions as $construction)
                         <div class="blog-post blog-md clearfix date-style-2">
-                            <div class="dez-post-media dez-img-effect zoom-slow"> <a href="#">{!! preg_match('/<img .+?\/>/', $articles->first()->text, $img) ? $img[0] : '' !!}</a> </div>
+                            <div class="dez-post-media dez-img-effect zoom-slow"> <a href="#">{{ $construction->page_image }}</a> </div>
                             <div class="dez-post-info">
                                 <div class="dez-post-title ">
-                                    <h3 class="post-title"><a href="#">{{ $article->title }}</a></h3>
+                                    <h3 class="post-title"><a href="#">{{ $construction->name }}</a></h3>
                                 </div>
                                 <div class="dez-post-meta ">
                                     <ul>
-                                        <li class="post-date"> <i class="fa fa-calendar"></i>{{ $article->published_at->diffForHumans() }}</li>
-                                        <li class="post-author"><i class="fa fa-user"></i>小编 <a href="#">{{ $article->user->name }}</a> </li>
+                                        <li class="post-date"> <i class="fa fa-calendar"></i>{{ $construction->updated_at->diffForHumans() }}</li>
                                     </ul>
                                 </div>
                                 <div class="dez-post-text">
-                                    <p>{{ $article->intro }}</p>
+                                    <p>{{ $construction->description }}</p>
                                 </div>
-                                <div class="dez-post-readmore"> <a href="/articles/{{ $article->id }}" title="READ MORE" rel="bookmark" class="site-button-link">查看详情<i class="fa fa-angle-double-right"></i></a> </div>
+                                <div class="dez-post-readmore"> <a href="/constructions/{{ $construction->id }}" title="READ MORE" rel="bookmark" class="site-button-link">查看详情<i class="fa fa-angle-double-right"></i></a> </div>
                             </div>
                             
                         </div>
                     @endforeach
                         <!-- Pagination start -->
-                        {!! $articles->links() !!}
+                        {!! $constructions->links() !!}
                     </div>
                     <!-- Left part END -->
                     <!-- Side bar start -->
@@ -93,9 +92,9 @@
                             <div class="widget widget_gallery">
                                 <h5 class="widget-title">服务案例</h5>
                                 <ul>
-                                @foreach ($pictures as $picture)
+                                @foreach ($constructions as $construction)
                                     <li>
-                                        <div class="dez-post-thum dez-img-overlay1 dez-img-effect zoom-slow"><a href="#"><img src="{{ $picture->path }}" alt=""></a></div>
+                                        <div class="dez-post-thum dez-img-overlay1 dez-img-effect zoom-slow"><a href="#"><img src="{{ $construction->page_image }}" alt=""></a></div>
                                     </li>
                                 @endforeach
                                 </ul>
@@ -103,8 +102,8 @@
                             <div class="widget widget_tag_cloud">
                                 <h4 class="tagcloud">标签</h4>
                                 <div class="tagcloud"> 
-                                @foreach ($tags as $tag)
-                                    <a href="/articles?tag={{ $tag->name }}">{{ $tag->name }}</a>
+                                @foreach (\Gz\Article\Tag::all() as $tag)
+                                    <a href="/constructions?tag={{ $tag->name }}">{{ $tag->name }}</a>
                                 @endforeach
                                  </div>
                             </div>

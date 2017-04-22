@@ -18,6 +18,9 @@ class ArticleRepo
 
 	public function byTagPage($tag, $n)
 	{
+		if ($tag === null) {
+			return $this->byPage($n);
+		}
 		return $this->article->with('tags', 'user')
 							->whereHas('tags', function ($q) use ($tag) {
 								$q->whereName($tag);
