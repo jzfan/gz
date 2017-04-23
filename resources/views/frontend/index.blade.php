@@ -335,23 +335,23 @@
         </div>
 
         <div class="row">
-@foreach ($galleries as $gallery)
+@foreach ($images as $i => $image)
             <!-- Single Service Area Start -->
             <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="single_service wow fadeInUp" data-wow-delay=".2s">
+                <div class="single_service wow fadeInUp" data-wow-delay="{{ ($i+1)*0.2 }}s">
                     <!-- Single Service image -->
                     <div class="single_service_img">
-                        <img data-url="{{ $gallery->page_image }}"  src="{{ $gallery->page_image }}" alt="">
+                        <img data-url="{{ $image->path }}"  src="{{ $image->path }}" alt="">
                     </div>
                     <!-- Single Service title -->
                     <div class="single_service_title">
-                        <h4>{{ $gallery->name }} </h4>
+                        <h4>{{ $image->name }} </h4>
                     </div>
                     <!-- Single Service content -->
                     <div class="single_service_content">
                         <div class="table">
                             <div class="table_cell">
-                                <p>{{ $gallery->name }}</p>
+                                <p>{{ $image->name }}</p>
                             </div>
                         </div>
                     </div>
@@ -573,170 +573,29 @@
 
     <div class="gallery_full_width_images_area">
 
-        <!-- Single gallery Item Start -->
-        <div class="single_gallery_item wow fadeInUp" data-wow-delay="0.2s">
+    @foreach ($designs as $i => $design)
+        <div class="single_gallery_item wow fadeInUp" data-wow-delay="{{ ($i+1)*0.2 }}s">
             <a data-target="#works_details" data-toggle="modal" href="#">
-                <img data-url="picture/1.jpg"  src="images/pix.png" alt="">
+                <img data-url="{{ $design->page_image }}"  src="{{ $design->page_image }}" alt="">
                 <!-- Single gallery Item hover caption -->
                 <div class="hover_overlay">
                     <div class="gallery_info">
                         <div class="testimonial_author_thumb">
-                            <img data-url="picture/tes-1.jpg" src="images/pix.png">
+                            <img data-url="{{ $design->galleryable->avatar }}" src="{{ $design->galleryable->avatar }}">
                         </div>
-                        <h5>[万达公馆] 设计师 张倩</h5>
-                        <p>现代|厨房卧室 舒适健康</p>
+                        <h5>[{{ $design->galleryable->company }}] 设计师 {{ $design->galleryable->name }}</h5>
+                        <p>{{ join(' | ', $design->galleryable->good_at) }}</p>
                     </div>
                 </div>
             </a>
             <div class="she-over">
-                <p>现代|厨房卧室 舒适健康</p>
+                <p>{{ join(' | ', $design->galleryable->good_at) }}</p>
             </div>
         </div>
-
-        <!-- Single gallery Item Start -->
-        <div class="single_gallery_item wow fadeInUp" data-wow-delay=".4s">
-            <a data-target="#works_details" data-toggle="modal" href="#">
-                <img data-url="picture/2.jpg" alt="" src="images/pix.png">
-                <!-- Single gallery Item hover caption -->
-                <div class="hover_overlay">
-                    <div class="gallery_info">
-                        <div class="testimonial_author_thumb">
-                            <img data-url="picture/tes-1.jpg" src="images/pix.png">
-                        </div>
-                        <h5>[万达公馆] 设计师 张倩</h5>
-                        <p>现代|厨房卧室 舒适健康</p>
-                    </div>
-                </div>
-            </a>
-
-            <div class="she-over">
-                <p>现代|厨房卧室 舒适健康</p>
-            </div>
-        </div>
-
-        <!-- Single gallery Item Start -->
-        <div class="single_gallery_item wow fadeInUp" data-wow-delay=".6s">
-            <a data-target="#works_details" data-toggle="modal" href="#">
-                <img data-url="picture/3.jpg" src="images/pix.png" alt="">
-                <!-- Single gallery Item hover caption -->
-                <div class="hover_overlay">
-                    <div class="gallery_info">
-                        <div class="testimonial_author_thumb">
-                            <img data-url="picture/tes-1.jpg">
-                        </div>
-                        <h5>[万达公馆] 设计师 张倩</h5>
-                        <p>现代|厨房卧室 舒适健康</p>
-                    </div>
-                </div>
-            </a>
-            <div class="she-over">
-                <p>现代|厨房卧室 舒适健康</p>
-            </div>
-        </div>
-
-        <!-- Single gallery Item Start -->
-        <div class="single_gallery_item wow fadeInUp" data-wow-delay=".8s">
-            <a data-target="#works_details" data-toggle="modal" href="#">
-                <img data-url="picture/4.jpg" src="images/pix.png" alt="">
-                <!-- Single gallery Item hover caption -->
-                <div class="hover_overlay">
-                    <div class="gallery_info">
-                        <div class="testimonial_author_thumb">
-                            <img data-url="picture/tes-1.jpg">
-                        </div>
-                        <h5>[万达公馆] 设计师 张倩</h5>
-                        <p>现代|厨房卧室 舒适健康</p>
-                    </div>
-                </div>
-            </a>
-            <div class="she-over">
-                <p>现代|厨房卧室 舒适健康</p>
-            </div>
-        </div>
-
-        <!-- Single gallery Item Start -->
-        <div class="single_gallery_item wow fadeInUp" data-wow-delay="1s">
-            <a data-target="#works_details" data-toggle="modal" href="#">
-                <img data-url="picture/5.jpg" src="images/pix.png" alt="">
-                <!-- Single gallery Item hover caption -->
-                <div class="hover_overlay">
-                    <div class="gallery_info">
-                        <div class="testimonial_author_thumb">
-                            <img data-url="picture/tes-1.jpg">
-                        </div>
-                        <h5>[万达公馆] 设计师 张倩</h5>
-                        <p>现代|厨房卧室 舒适健康</p>
-                    </div>
-                </div>
-            </a>
-            <div class="she-over">
-                <p>现代|厨房卧室 舒适健康</p>
-            </div>
-        </div>
-
-        <!-- Single gallery Item Start -->
-        <div class="single_gallery_item wow fadeInUp" data-wow-delay="1.2s">
-            <a data-target="#works_details" data-toggle="modal" href="#">
-                <img data-url="picture/6.jpg" src="images/pix.png" alt="">
-                <!-- Single gallery Item hover caption -->
-                <div class="hover_overlay">
-                    <div class="gallery_info">
-                        <div class="testimonial_author_thumb">
-                            <img data-url="picture/tes-1.jpg">
-                        </div>
-                        <h5>[万达公馆] 设计师 张倩</h5>
-                        <p>现代|厨房卧室 舒适健康</p>
-                    </div>
-                </div>
-            </a>
-            <div class="she-over">
-                <p>现代|厨房卧室 舒适健康</p>
-            </div>
-        </div>
-
-        <!-- Single gallery Item Start -->
-        <div class="single_gallery_item wow fadeInUp" data-wow-delay="1.4s">
-            <a data-target="#works_details" data-toggle="modal" href="#">
-                <img data-url="picture/7.jpg" src="images/pix.png" alt="">
-                <!-- Single gallery Item hover caption -->
-                <div class="hover_overlay">
-                    <div class="gallery_info">
-                        <div class="testimonial_author_thumb">
-                            <img data-url="picture/tes-1.jpg">
-                        </div>
-                        <h5>[万达公馆] 设计师 张倩</h5>
-                        <p>现代|厨房卧室 舒适健康</p>
-                    </div>
-                </div>
-            </a>
-            <div class="she-over">
-                <p>现代|厨房卧室 舒适健康</p>
-            </div>
-        </div>
-
-        <!-- Single gallery Item Start -->
-        <div class="single_gallery_item wow fadeInUp" data-wow-delay="1.6s">
-            <a data-target="#works_details" data-toggle="modal" href="#">
-                <img data-url="picture/8.jpg" src="images/pix.png" alt="">
-                <!-- Single gallery Item hover caption -->
-                <div class="hover_overlay">
-                    <div class="gallery_info">
-                        <div class="testimonial_author_thumb">
-                            <img data-url="picture/tes-1.jpg">
-                        </div>
-                        <h5>[万达公馆] 设计师 张倩</h5>
-                        <p>现代|厨房卧室 舒适健康</p>
-                    </div>
-                </div>
-            </a>
-            <div class="she-over">
-                <p>现代|厨房卧室 舒适健康</p>
-            </div>
-        </div>
-
+    @endforeach
     </div>
     <div class="row w-more">
-        <div class="col-xs-12 text-center"><a href="./other/sjslist.html" role="button" class="btn btn-danger btn-lg">查看更多&nbsp;<span class="glyphicon glyphicon-forward"></span></a></div>
+        <div class="col-xs-12 text-center"><a href="/designers" role="button" class="btn btn-danger btn-lg">查看更多&nbsp;<span class="glyphicon glyphicon-forward"></span></a></div>
     </div>
 </section>
 <!-- ***************** Project area end ***************** -->
@@ -842,14 +701,14 @@
         </div>
 
         <div class="row">
-            <!-- Single Price Plan Area Start -->
+        @foreach ($offers->take(4) as $offer)
             <div class="col-sm-6 col-md-3">
                 <div class="single_price_plan wow fadeInUp" data-wow-delay=".2s">
                     <div class="price">
-                        <h4>￥29700</h4>
+                        <h4>￥ {{ $offer->amount }}</h4>
                     </div>
                     <div class="title">
-                        <h3>汉庭国际</h3>
+                        <h3>{{ $offer->apply->block }}</h3>
                     </div>
                     <div class="description">
                         <div class="description">
@@ -864,79 +723,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Single Price Plan Area End -->
-
-            <!-- Single Price Plan Area Start -->
-            <div class="col-sm-6 col-md-3">
-                <div class="single_price_plan wow fadeInUp" data-wow-delay=".4s">
-                    <div class="price">
-                        <h4>￥38900</h4>
-                    </div>
-                    <div class="title">
-                        <h3>万科传奇</h3>
-                    </div>
-                    <div class="description">
-                        <div class="description">
-                        <p>欧式风格设计</p>
-                        <p>30天工期</p>
-                        <p>高端辅料</p>
-                        <p>客户好评</p>
-                    </div>
-                    </div>
-                    <div class="button">
-                        <a class="btn btn-default" href="#" role="button" data-toggle="modal" data-target="#exampleModal">查看详情</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Price Plan Area End -->
-
-            <!-- Single Price Plan Area Start -->
-            <div class="col-sm-6 col-md-3">
-                <div class="single_price_plan wow fadeInUp" data-wow-delay=".6s">
-                    <div class="price">
-                        <h4>￥20800</h4>
-                    </div>
-                    <div class="title">
-                        <h3>四海泛舟</h3>
-                    </div>
-                    <div class="description">
-                        <div class="description">
-                        <p>欧式风格设计</p>
-                        <p>30天工期</p>
-                        <p>高端辅料</p>
-                        <p>客户好评</p>
-                    </div>
-                    </div>
-                    <div class="button">
-                        <a class="btn btn-default" href="#" role="button" data-toggle="modal" data-target="#exampleModal">查看详情</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Price Plan Area End -->
-
-            <!-- Single Price Plan Area Start -->
-            <div class="col-sm-6 col-md-3">
-                <div class="single_price_plan wow fadeInUp" data-wow-delay=".8s">
-                    <div class="price">
-                        <h4>￥18000</h4>
-                    </div>
-                    <div class="title">
-                        <h3>滨江新城</h3>
-                    </div>
-                    <div class="description">
-                        <div class="description">
-                        <p>欧式风格设计</p>
-                        <p>30天工期</p>
-                        <p>高端辅料</p>
-                        <p>客户好评</p>
-                    </div>
-                    </div>
-                    <div class="button">
-                        <a class="btn btn-default" href="#" role="button" data-toggle="modal" data-target="#exampleModal">查看详情</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Price Plan Area End -->
+        @endforeach
 
         </div>
     </div>
@@ -1118,69 +905,22 @@
 
                     <div class="testimonials">
                         <!-- Single testimonial area start  -->
+                        @foreach ($comments as $comment)
                         <div class="single_testimonial_area">
                             <!-- Single testimonial text  -->
                             <div class="testimonial_text">
                                 <!-- Single testimonial thumb  -->
                                 <div class="testimonial_author_thumb">
-                                    <img data-url="picture/tes-1.jpg" src="images/pix.png" alt="">
+                                    <img data-url="{{ $comment->user->avatar }}" src="{{ $comment->user->avatar }}" alt="">
                                 </div>
-                                <p>态度和施工质量都是一流的，好评！各位打算半包的强烈建议选择李工长，施工质量高，58工长通平台值得信赖！ 装修非常负责，人很实在，各个环节都做的很细心，确实给客户省了不少心，身边朋友...</p>
+                                <p>{{ $comment->content }}</p>
                             </div>
                             <div class="testimonial_author_name">
-                                <h5>保利华都  李先生</h5>
-                                <h6>服务工长 &amp;  刘华清</h6>
+                                <h5>{{ $comment->user->name }}</h5>
+                                <h6>服务工长 &amp;  {{ $comment->commentable->name }}</h6>
                             </div>
                         </div>
-
-                        <!-- Single testimonial area start  -->
-                        <div class="single_testimonial_area">
-                            <!-- Single testimonial text  -->
-                            <div class="testimonial_text">
-                                <!-- Single testimonial thumb  -->
-                                <div class="testimonial_author_thumb">
-                                    <img data-url="picture/tes-3.jpg" src="images/pix.png" alt="">
-                                </div>
-                                <p>态度和施工质量都是一流的，好评！各位打算半包的强烈建议选择李工长，施工质量高，58工长通平台值得信赖！ 装修非常负责，人很实在，各个环节都做的很细心，确实给客户省了不少心，身边朋友...</p>
-                            </div>
-                            <div class="testimonial_author_name">
-                                <h5>汉庭国际  周女士</h5>
-                                <h6>服务工长 &amp;  万华杰</h6>
-                            </div>
-                        </div>
-
-                        <!-- Single testimonial area start  -->
-                        <div class="single_testimonial_area">
-                            <!-- Single testimonial text  -->
-                            <div class="testimonial_text">
-                                <!-- Single testimonial thumb  -->
-                                <div class="testimonial_author_thumb">
-                                    <img data-url="picture/tes-2.jpg" src="images/pix.png" alt="">
-                                </div>
-                                <p>态度和施工质量都是一流的，好评！各位打算半包的强烈建议选择李工长，施工质量高，58工长通平台值得信赖！ 装修非常负责，人很实在，各个环节都做的很细心，确实给客户省了不少心，身边朋友...</p>
-                            </div>
-                            <div class="testimonial_author_name">
-                                <h5>光谷翡翠  万先生</h5>
-                                <h6>服务工长 &amp;  周四海</h6>
-                            </div>
-                        </div>
-
-                        <!-- Single testimonial area start  -->
-                        <div class="single_testimonial_area">
-                            <!-- Single testimonial text  -->
-                            <div class="testimonial_text">
-                                <!-- Single testimonial thumb  -->
-                                <div class="testimonial_author_thumb">
-                                    <img data-url="picture/tes-4.jpg" src="images/pix.png" alt="">
-                                </div>
-                                <p>态度和施工质量都是一流的，好评！各位打算半包的强烈建议选择李工长，施工质量高，58工长通平台值得信赖！ 装修非常负责，人很实在，各个环节都做的很细心，确实给客户省了不少心，身边朋友...</p>
-                            </div>
-                            <div class="testimonial_author_name">
-                                <h5>万景国际  李先生</h5>
-                                <h6>服务工长 &amp;  武国安</h6>
-                            </div>
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
             </div>

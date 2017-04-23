@@ -32,11 +32,12 @@ class PageController extends Controller
     	$offers = $this->offer->newList(10);
     	$leaders = $this->leader->rankList(4);
     	$comments = $this->comment->newList(10);
-    	$galleries = $this->gallery->newList(4);
+    	$images = $this->gallery->newList(4);
     	$articles = $this->article->newList(5);
     	$feng_shui = $this->article->listByTag('居家风水', 5);
     	$industry = $this->article->listByTag('行业', 5);
-        return view('frontend.index', compact('leaders', 'offers', 'comments', 'galleries', 'articles', 'feng_shui', 'industry'));
+    	$designs = $this->gallery->newDesignList(8);
+        return view('frontend.index', compact('leaders', 'offers', 'comments', 'images', 'articles', 'feng_shui', 'industry', 'designs'));
     }
 
 }

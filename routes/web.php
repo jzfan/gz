@@ -12,6 +12,7 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('constructions', 'ApplyController@construction');
 	Route::get('articles/{id}', 'ArticleController@show');
 	Route::get('offers', 'OfferController@index');
+	Route::get('offers/create', 'OfferController@create');
 	Route::get('sites', 'ApplyController@sites');
 	Route::get('sites/{id}', 'ApplyController@show');
 	Route::get('comments', 'CommentController@index');
@@ -22,6 +23,7 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('leaders/{id}', 'LeaderController@show');
 	Route::get('leaders', 'LeaderController@index');
 	Route::get('offer-form', 'OfferController@getForm');
+	Route::get('designers', 'DesignerController@index');
 
 });
 

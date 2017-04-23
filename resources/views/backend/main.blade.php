@@ -64,7 +64,12 @@
     <script src="/flatlab/js/common-scripts.js"></script>
     <script type="text/javascript" src="/flatlab/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript">
-  var uri = window.location.pathname + window.location.search;
+  var search = window.location.search
+  if (search.includes('&page')) {
+    search = search.substr(0, search.indexOf('&page'));
+  }
+  var uri = window.location.pathname + search;
+  console.log(window.location.search);
   var li = $('[href="'+uri+'"]').closest('li').addClass('active');
   var ul = li.closest('ul');
   if (ul.attr('class') == 'sub') {

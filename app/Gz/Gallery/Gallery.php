@@ -20,4 +20,9 @@ class Gallery extends Model
         $image = $this->images()->latest()->first();
     	return is_null($image) ? '/images/tes-bg.jpg' : $image->path;
     }
+
+    public function galleryable()
+    {
+        return $this->morphTo();
+    }
 }

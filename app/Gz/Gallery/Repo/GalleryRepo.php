@@ -12,7 +12,7 @@ class GalleryRepo
 	protected $type = [
 		'leader' => 'Gz\User\User',
 		'construction' => 'Gz\Project\Apply',
-		'design' => 'Gz\User\design',
+		'design' => 'Gz\User\designer',
 	];
 
 	public function __construct(Gallery $gallery, Image $image)
@@ -62,5 +62,12 @@ class GalleryRepo
 		$gallery = $this->gallery->findOrFail($id);
 		$gallery->images()->delete();
 		return $gallery->delete();
+	}
+
+	public function newDesignList($n)
+	{
+	    return $this->gallery->with('galleryable')
+	    		->where('galleryable_type', $this->type['design'])
+	    		->latest()->take($n)->get();
 	}
 }

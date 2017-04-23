@@ -28,4 +28,22 @@ class DesignerRepo
 	{
 	    return $this->designer->findOrFail($id);
 	}
+
+
+	public function pageByGallery($n)
+	{
+	    return $this->designer->has('galleries')->with(['galleries' => function ($q) {
+	    	$q->orderBy('updated_at', 'desc');
+	    }])->latest()->paginate($n);
+	}
+
+	public function feedBackList($n)
+	{
+	    return $this->designer->orderBy('feedback_rate', 'desc')->take($n)->get();
+	}
+
+	public function newGalleries($n)
+	{
+	    return $this->designer->galleries()->orderBy('updated_at', 'desc')->take($n)->get();
+	}
 }
