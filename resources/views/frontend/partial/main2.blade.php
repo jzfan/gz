@@ -19,6 +19,9 @@
 	html,body{
 		font-family: '微软雅黑'
 	}
+    #dzSwitcher{
+        display: none;
+    }
 
 </style>
 </head>

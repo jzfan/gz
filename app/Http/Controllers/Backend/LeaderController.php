@@ -30,7 +30,11 @@ class LeaderController extends Controller
 
     public function update($id)
     {
-    	$this->leader->updateById($id, request()->input());
+        $path = '/' . str_replace('public', 'storage', request('avatar')->store('public/avatar'));
+    	$this->leader->updateById($id, array_merge(
+                request()->input(),
+                ['avatar' => $path]
+                ));
         return redirect('/backend/leaders')->withSuccess('更新成功！');
     }
 }

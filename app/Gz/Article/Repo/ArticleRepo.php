@@ -127,4 +127,13 @@ class ArticleRepo
 		    $query->where('name', $tag);
 		})->latest()->take($n)->get();
 	}
+
+	public function byRandTag($n)
+	{
+	    $rand_tag = $this->tag->inRandomOrder()->first()->name;
+	    $tag_list = $this->article->whereHas('tags', function($q) use($rand_tag){
+	        $q->whereName($rand_tag);
+	    })->take($n)->get();
+	    return compact('rand_tag', 'tag_list');
+	}
 }

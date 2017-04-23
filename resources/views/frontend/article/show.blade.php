@@ -28,23 +28,19 @@
           </div>
           <h4></h4>
           <ul class="list-group">
-            <li class="list-group-item">恭喜黄安工长签约金湖天地白先生</li>
-            <li class="list-group-item">恭喜吴云峰工长签约名湖豪庭邱女士</li>
-            <li class="list-group-item">恭喜程又元工长签约依水园鸣女士</li>
-            <li class="list-group-item">恭喜贺修军工长签约摩根空间龚先生</li>
-            <li class="list-group-item">恭喜程又元工长签约依水园鸣女士</li>
+          @foreach ($hots as $h)
+            <li class="list-group-item"><a href="/articles/{{ $h->id }}">{{ $h->title }}</a></li>
+          @endforeach
           </ul>
 
           <div class="panel panel-info">
-            <div class="panel-heading">{{ $rand_tag }}</div>
+            <div class="panel-heading">{{ $rand_tag_list['rand_tag'] }}</div>
           </div>
           <h4></h4>
           <ul class="list-group">
-            <li class="list-group-item">恭喜黄安工长签约金湖天地白先生</li>
-            <li class="list-group-item">恭喜吴云峰工长签约名湖豪庭邱女士</li>
-            <li class="list-group-item">恭喜程又元工长签约依水园鸣女士</li>
-            <li class="list-group-item">恭喜贺修军工长签约摩根空间龚先生</li>
-            <li class="list-group-item">恭喜程又元工长签约依水园鸣女士</li>
+          @foreach ($rand_tag_list['tag_list'] as $li)
+            <li class="list-group-item"><a href="/articles/{{ $li->id }}">{{ $li->title }}</a></li>
+          @endforeach
           </ul>
       </div>
 

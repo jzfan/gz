@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use Gz\Article\Tag;
 use Gz\User\Repo\LeaderRepo;
 use Illuminate\Http\Request;
 use Gz\Project\Repo\OfferRepo;
@@ -39,10 +38,7 @@ class ArticleController extends Controller
     {
         $article = $this->article->byId($id);
         $hots = $this->article->newList(5);
-        $rand_tag = Tag::inRandomOrder()->first()->name;
-        $tag_list = $this->article->whereHas('tags', function($q) use($rand_tag){
-            $q->whereName($rand_tag);
-        })->take(5)->get();
-        return view('frontend.article.show', compact('article', 'hots', 'rand_tag', 'tag_list'));
+        $rand_tag_list = $this->article->byRandTag(5);
+        return view('frontend.article.show', compact('article', 'hots', 'rand_tag', 'rand_tag_list'));
     }
 }

@@ -33,7 +33,7 @@
         @foreach ($leaders as $leader)
           <tr>
             <th>{{ $leader->id }}</th>
-            <td><img src="{{ $leader->avatar }}">{{ $leader->name }}</td>
+            <td><img src="{{ $leader->avatar }}" width="50">{{ $leader->name }}</td>
             <td> {{ $leader->phone }} </td>
             @if (isset($leader->leader))
             <td> {{ $leader->leader->WO }} </td>

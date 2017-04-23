@@ -9,7 +9,7 @@
         工头列表
     </header>
     <div class="panel-body">
-        <form class="form-horizontal" role="form" action='/backend/leaders/{{ $leader->id }}' method="POST">
+        <form class="form-horizontal" role="form" action='/backend/leaders/{{ $leader->id }}' method="POST" enctype="multipart/form-data">
             {!! method_field('put') !!}
             {!! csrf_field() !!}
             <div class="form-group">
