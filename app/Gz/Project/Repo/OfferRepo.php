@@ -27,4 +27,25 @@ class OfferRepo
 	{
 	    return $this->offer->with('user', 'apply')->findOrFail($id);
 	}
+
+	public function createByUid($uid, $input)
+	{
+		// dd($input);
+		if ($materials = $input['materials'] ?? []) {
+			$materials = collect($materials)->map( function ($m) {
+				return [ 'id' => $m];
+			});
+		}
+
+		$apply = \Gz\Project\Apply::firstOrCreate([ 'phone' => $input['phone']], $input);
+		return $this->offer->firstOrCreate([
+				'user_id' => \Auth::user()->id,
+				'apply_id' => $apply->id
+				], [
+				'data' => [
+						'materials' => $materials
+					]
+				]
+			);
+	}
 }

@@ -17,12 +17,15 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('sites/{id}', 'ApplyController@show');
 	Route::get('comments', 'CommentController@index');
 	Route::post('applies', 'ApplyController@store');
-	Route::get('me', 'MeController@profile');
+	Route::get('me', 'MeController@homeByRole');
 	Route::post('me', 'MeController@update');
+	Route::post('me/password', 'MeController@resetPassword');
 
 	Route::get('leaders/{id}', 'LeaderController@show');
 	Route::get('leaders', 'LeaderController@index');
-	Route::get('offer-form', 'OfferController@getForm');
+	Route::get('offers/create-1', 'OfferController@getFormOne');
+	// Route::post('offers/form-1', 'OfferController@setFormOne');
+	Route::get('offers/create-2', 'OfferController@getFormTwo');
 	Route::get('designers', 'DesignerController@index');
 
 });

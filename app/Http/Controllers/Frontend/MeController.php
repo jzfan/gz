@@ -4,13 +4,27 @@ namespace App\Http\Controllers\Frontend;
 
 use Gz\User\Repo\UserRepo;
 use Illuminate\Http\Request;
+use Gz\Article\Repo\CommentRepo;
 use App\Http\Controllers\Controller;
 
 class MeController extends Controller
 {
-    public function profile()
+    public function homeByRole()
     {
-        return \Auth::user();
+        switch (\Auth::user()->role) {
+            case 'leader':
+                return $this->homeOfLeader();
+            default:
+                break;
+        }
+    }
+
+    protected function homeOfLeader()
+    {
+        $comments = \Auth::user()->comments()->latest()->take(10)->get();;
+        $constructions = \Auth::user()->offers()->whereNotNull('accepted_at')->whereNull('done_at')->latest()->take(10)->get();
+        $done = \Auth::user()->offers()->whereNotNull('done_at')->latest()->take(10)->get();
+        return view('frontend.home.leader', compact('comments', 'constructions', 'done'));
     }
 
     public function update()
@@ -18,10 +32,27 @@ class MeController extends Controller
         $this->validate(request(), [
         		'phone' => 'unique:users,phone,'.\Auth::user()->id,
         		'name' => 'required|string|min:2|max:60',
-        		'qq' => 'integer',
-        		'email' => 'email|unique:users,email,' .\Auth::user()->id
         	]);
         \Auth::user()->update(request()->input());
-        return 'ok';
+        $leader = \Auth::user()->leader;
+        $leader->update(request()->input());
+        return redirect()->back();
+    }
+
+    public function resetPassword()
+    {
+        $this->validate(request(), [
+                'password' => 'required|min:6|max:60',
+                'new' => 'required|confirmed'
+            ]);
+        if (password_verify(request('password'), \Auth::user()->password)) {
+            \Auth::user()->forceFill([
+                'password' => bcrypt(request('new')),
+                'remember_token' => str_random(60),
+            ])->save();
+            return redirect()->back();
+        }
+        throw new \Illuminate\Auth\AuthenticationException;
+        
     }
 }

@@ -17,7 +17,7 @@ class CreateOffersTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('apply_id');
-            $table->unsignedInteger('amount');
+            $table->unsignedInteger('amount')->nullable();
             $table->text('data');
             $table->timestamp('accepted_at')->nullable();
             $table->timestamp('done_at')->nullable();

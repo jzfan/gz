@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use Gz\Item\Material;
 use Illuminate\Http\Request;
 use Gz\Project\Repo\OfferRepo;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
 
 class OfferController extends Controller
 {
@@ -21,8 +22,24 @@ class OfferController extends Controller
         return view('frontend.offer.index', compact('offers'));
     }
 
-    public function getForm()
+    public function getFormOne()
     {
-        return view('frontend.offer.form');
+        $materials = Material::get(['id', 'name', 'brand']);
+        return view('frontend.offer.form', compact('materials'));
+    }
+
+    // public function setFormOne()
+    // {
+    //     $this->validate(request(), [
+    //             'phone' => 'required'
+    //         ]);
+    //     $this->offer->createByUid(\Auth::user()->id, request()->except('_token'));
+    //     return view('frontend.offer.form-2');
+    // }
+
+    public function getFormTwo()
+    {
+        $items = \Gz\Item\Item::with('options')->orderBy('single', 'desc')->get(['id', 'name', 'single']);
+        return view('frontend.offer.form-2', compact('items'));
     }
 }
