@@ -14,4 +14,9 @@ class ItemOption extends Model
     protected $casts = [
     	'description' => 'array'
     ];
+
+    public function item()
+    {
+        return $this->belongsTo(Item::class);
+    }
 }

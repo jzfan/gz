@@ -30,21 +30,32 @@ class OfferRepo
 
 	public function createByUid($uid, $input)
 	{
-		// dd($input);
-		if ($materials = $input['materials'] ?? []) {
-			$materials = collect($materials)->map( function ($m) {
-				return [ 'id' => $m];
-			});
-		}
+		$apply = \Gz\Project\Apply::create($input['apply']);
 
-		$apply = \Gz\Project\Apply::firstOrCreate([ 'phone' => $input['phone']], $input);
-		return $this->offer->firstOrCreate([
+		$options = collect($input['options'])->map( function ($input_option) {
+			$option = \Gz\Item\ItemOption::select('id', 'item_id', 'title', 'description', 'unit', 'price')->findOrFail($input_option['id']);
+			$option->quantity = $input_option['quantity'];
+			$option->total = $option->quantity * $option->price;
+			return $option;
+		});
+		$items = $options->groupBy('item_id')->map(function ($group) {
+			$item = $group->first()->item;
+			return [
+				'id' => $item->id,
+				'name' => $item->name,
+				'options' => $group->toArray()
+			];
+		})->toArray();
+
+		return $this->offer->updateOrCreate([
 				'user_id' => \Auth::user()->id,
 				'apply_id' => $apply->id
 				], [
 				'data' => [
-						'materials' => $materials
-					]
+						'materials' => $input['materials'],
+						'items' => $items, 
+					],
+				'amount' => $options->sum('total')
 				]
 			);
 	}

@@ -54,18 +54,18 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($done as $d)
+                @foreach ($all as $offer)
                 <tr class="text-center">
                   <td>
-                    {{ $d->created_at->format('Y-m-d') }}
+                    {{ $offer->created_at->format('Y-m-d') }}
                   </td>
                   <td>平台</td>
                   <td>
-                    {{ $d->apply->block }}
+                    {{ $offer->apply->block }}
                   </td>
-                  <td>{{ $d->apply->name }}({{ $d->apply->id }})</td>
-                  <td>{{ $d->amount }}</td>
-                  <td>完成</td>
+                  <td>{{ $offer->apply->name }}({{ $offer->apply->id }})</td>
+                  <td>{{ $offer->amount }}</td>
+                  <td>{{ $offer->status }}</td>
                 </tr>
                 @endforeach
               </tbody>

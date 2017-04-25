@@ -23,8 +23,8 @@ class MeController extends Controller
     {
         $comments = \Auth::user()->comments()->latest()->take(10)->get();;
         $constructions = \Auth::user()->offers()->whereNotNull('accepted_at')->whereNull('done_at')->latest()->take(10)->get();
-        $done = \Auth::user()->offers()->whereNotNull('done_at')->latest()->take(10)->get();
-        return view('frontend.home.leader', compact('comments', 'constructions', 'done'));
+        $all = \Auth::user()->offers()->latest()->take(20)->get();
+        return view('frontend.home.leader', compact('comments', 'constructions', 'all'));
     }
 
     public function update()

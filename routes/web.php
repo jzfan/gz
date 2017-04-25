@@ -12,7 +12,6 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('constructions', 'ApplyController@construction');
 	Route::get('articles/{id}', 'ArticleController@show');
 	Route::get('offers', 'OfferController@index');
-	Route::get('offers/create', 'OfferController@create');
 	Route::get('sites', 'ApplyController@sites');
 	Route::get('sites/{id}', 'ApplyController@show');
 	Route::get('comments', 'CommentController@index');
@@ -24,8 +23,9 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('leaders/{id}', 'LeaderController@show');
 	Route::get('leaders', 'LeaderController@index');
 	Route::get('offers/create-1', 'OfferController@getFormOne');
-	// Route::post('offers/form-1', 'OfferController@setFormOne');
 	Route::get('offers/create-2', 'OfferController@getFormTwo');
+	// Route::post('offers/form-1', 'OfferController@setFormOne');
+	Route::post('offers', 'OfferController@store');
 	Route::get('designers', 'DesignerController@index');
 
 });

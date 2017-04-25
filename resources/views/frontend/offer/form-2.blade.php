@@ -33,7 +33,7 @@
     @endforeach
   </ul>
 
-<div class="tab-content">
+<form class="tab-content" id='checkbox-form'>
   @foreach ($items as $i=>$item)
   @if ($i === 0)
   <div class="tab-pane active" contenteditable="true" id="panel-{{ $i+1 }}" data-id="{{ $i+1 }}">
@@ -57,7 +57,9 @@
           <tr>
             <td><div class="checkbox">
               <label>
-                <input type="checkbox" data-id="3"> {{ $option->title }}
+                <input type="checkbox"  id='ckb-{{ $option->id }}'
+                  name='options[]' value='{{ $option->id }}'
+                  > {{ $option->title }}
               </label>
             </div>
           </td>
@@ -70,11 +72,13 @@
           </td>
           <td>
             <div class="input-group">
-              <input type="text" class="form-control input-sm num" value="30">
+              <input type="text" class="form-control input-sm num" 
+                  id='quantity-{{ $option->id }}'
+                  value="{{ rand(10, 22) }}">
               <div class="input-group-addon">m</div>
             </div>
           </td>
-          <td><input type="text" class="form-control input-sm price" value="4.00"></td>
+          <td><input type="text" class="form-control input-sm price" value="{{ $option->price }}"></td>
           <td class='cumadd'>1195.00</td>
         </tr>
         @endforeach
@@ -90,7 +94,7 @@
   </div>
 </div>
 @endforeach
-</div>
+</form>
 
 
 
@@ -99,9 +103,8 @@
 </div>
 
 <div class="table-footer">
-  <button type="button" class="btn btn-success" id="save">确认保存</button>
+  <button type="button" class="btn btn-success" id="save" onclick='save()'>确认保存</button>
   <a href="view.html" class="btn btn-success" id="view">预览</a>
-  <button type="button" class="btn btn-success" id="push">提交发布</button>
 </div>
 
 
@@ -115,7 +118,7 @@
         <h4 class="modal-title" id="exampleModalLabel">新增工艺</h4>
       </div>
       <div class="modal-body">
-        <form>
+        <form id='modal-form'>
           <div class="form-group">
             <label for="recipient-name" class="control-label">包括内容</label>
             <input type="text" class="form-control" id="recipient-name">
@@ -152,24 +155,37 @@
 
 @section('js')
 <script>
+let data = JSON.parse(window.localStorage.getItem('offer'))
+let options = []
   $(function () {
-    init()
+    initForm()
   })
-
-  function init()
+  function clicked(checkbox) {
+    let id = $(checkbox).data('id')
+    let obj = {
+      id: id
+    }
+    $.each(options, function (i, option) {
+      console.log(option.id === id)
+       if (option.id === id) {
+          console.log('i :' + i)
+          options.splice(i, 1)
+        }
+    })
+    options.push(obj)
+    console.log(options)
+  }
+  function initForm()
   {
-    let data = JSON.parse(window.localStorage.getItem('offer'))
-    console.log(data)
     initTitle(data.apply)
     initMaterialsTable(data.materials)
   }
   function initTitle(apply)
   {
-    console.log(apply.block)
     $('#title-dv').html(
       `${apply.block ? apply.block : ''} 
       ${apply.name ? apply.name : ''} 
-      ${apply.square ? apply.square : ''} 
+      ${apply.square ? apply.square + '平方米' : ''} 
       室内装修报价
       `.trim()
       )
@@ -181,5 +197,23 @@
       $('#materials-table tbody tr').append(`<td>${item.brand}</td>`)
     })
   }
+
+function save()
+{
+  console.log('save it')
+  let options = $('#checkbox-form').serializeArray().map( function (checked) {
+    return {
+      id: checked.value,
+      quantity: $('#quantity-' + checked.value).val()
+    }
+  })
+  let {apply, materials} = data
+  $.post('/offers', {
+    apply, materials, options,
+    _token: '{!! csrf_token() !!}'
+  }, function(m){
+    window.location.href = '/me'
+  })
+}
 </script>
 @stop

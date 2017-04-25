@@ -13,6 +13,7 @@ class Offer extends Model
 
     protected $casts = ['data' => 'array'];
     protected $dates = ['accepted_at', 'done_at'];
+    protected $append = ['status'];
 
     public function user()
     {
@@ -22,5 +23,16 @@ class Offer extends Model
     public function apply()
     {
         return $this->belongsTo(Apply::class);
+    }
+
+    public function getStatusAttribute()
+    {
+        if ($this->done_at) {
+            return '完成';
+        }
+        if ($this->accepted_at) {
+            return '施工';
+        }
+        return '报价';
     }
 }

@@ -28,14 +28,12 @@ class OfferController extends Controller
         return view('frontend.offer.form', compact('materials'));
     }
 
-    // public function setFormOne()
-    // {
-    //     $this->validate(request(), [
-    //             'phone' => 'required'
-    //         ]);
-    //     $this->offer->createByUid(\Auth::user()->id, request()->except('_token'));
-    //     return view('frontend.offer.form-2');
-    // }
+    public function store()
+    {
+        // dd(request()->input());
+        $this->offer->createByUid(\Auth::user()->id, request()->except('_token'));
+        return 'ok';
+    }
 
     public function getFormTwo()
     {
