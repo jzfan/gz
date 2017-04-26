@@ -230,6 +230,21 @@ $(function(){
 });
 
 
+//咨询侧边栏显示隐藏
+$(function(){
+    $('#shan').click(function(e){
+        e.stopPropagation;
+        $(this).parents('#asideFloat').animate({right:"-100px"}).fadeOut('fast');
+        $('#sprite').fadeIn('slow').css('right','-2rem');
+    });
+
+    $('#sprite').click(function(e){
+        e.stopPropagation;
+        $(this).animate({right:"-100px"}).fadeOut('fast');
+        $('#asideFloat').animate({right:"1.5rem"}).fadeIn('fast');
+    })
+})
+
 //底部透明带
 $(function(){
     // $('#asideFloat li').click(function(){

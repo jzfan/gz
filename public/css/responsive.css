@@ -402,3 +402,24 @@
     font-size: 24px;
     font-family: "微软雅黑";
 }
+#shan{
+    position: absolute;
+    top: 0;
+    right:0.3rem;
+}
+#sprite{
+    display: none;
+    position: fixed;
+    top: 50%;
+    right: -2rem;
+    width: 80px;
+    z-index: 998;
+    width: 80px;
+    height: 100px;
+    transform: rotate(-40deg);
+    -webkit-transform: rotate(-40deg);
+}
+#sprite img{
+    width: 100%;
+    height: 100%;
+}

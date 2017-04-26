@@ -231,7 +231,6 @@ tbody td a:hover{
 	box-shadow: 0px 0px 3px 1px #bce8f1;
 }
 
-
 /* 图像旋转样式 */
 .trans img:hover{
     transform:rotate(360deg);
@@ -248,4 +247,9 @@ tbody td a:hover{
 	font-size: 20px;
 	color: #31708f;
 	font-weight: bold;
+}
+.print{
+	position: fixed;
+	right: 2rem;
+	bottom: 2rem;
 }
