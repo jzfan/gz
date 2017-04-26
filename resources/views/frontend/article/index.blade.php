@@ -16,13 +16,9 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav nav-win">
-        <li><a href="#">家装攻略</a></li>
-        <li><a href="#">行业报道</a></li>
-        <li><a href="#">最新签约</a></li>
-        <li><a href="#">装修知识</a></li>
-        <li><a href="#">装修风水</a></li>
-        <li><a href="#">装修风格</a></li>
-        <li><a href="#">装修预算</a></li>
+      @foreach (\Gz\Article\Tag::get(['id', 'name']) as $tag)
+        <li><a href="articles?tag={{ $tag->name }}">{{ $tag->name }}</a></li>
+     @endforeach
       </ul>
     </div>
   </div>

@@ -247,28 +247,28 @@
         </div>
 
         <div class="row">
-@foreach ($images as $i => $image)
+@foreach ($workings as $i => $working)
             <!-- Single Service Area Start -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="single_service wow fadeInUp" data-wow-delay="{{ ($i+1)*0.2 }}s">
-                    <!-- Single Service image -->
+                    <!-- Single Service working -->
                     <div class="single_service_img">
-                        <img data-url="{{ $image->path }}"  src="{{ $image->path }}" alt="">
+                        <img data-url="{{ $working->page_image }}"  src="{{ $working->page_image }}" alt="">
                     </div>
                     <!-- Single Service title -->
                     <div class="single_service_title">
-                        <h4>{{ $image->name }} </h4>
+                        <h4>{{ $working->name }} </h4>
                     </div>
                     <!-- Single Service content -->
                     <div class="single_service_content">
                         <div class="table">
                             <div class="table_cell">
-                                <p>{{ $image->name }}</p>
+                                <p>{{ $working->name }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="learn_more">
-                        <a href="工地详情.html"><h4>查看详情</h4></a>
+                        <a href="/constructions/{{ $working->id }}"><h4>查看详情</h4></a>
                     </div>
                 </div>
             </div>
@@ -418,7 +418,7 @@
 
     @foreach ($designs as $i => $design)
         <div class="single_gallery_item wow fadeInUp" data-wow-delay="{{ ($i+1)*0.2 }}s">
-            <a  href="设计师展示.html">
+            <a  href="/designers/{{ $design->galleryable->id }}">
                 <img data-url="{{ $design->page_image }}"  src="{{ $design->page_image }}" alt="">
                 <!-- Single gallery Item hover caption -->
                 <div class="hover_overlay">
@@ -924,50 +924,7 @@
 
 <!-- ******用户预约模块start****** -->
 
-<aside id="asideFloat">
-    <div class="aside-top">
-        <img data-url="picture/l_logo.png" src="images/pix.png" alt="">
-    </div>
-    <ul>
-        <li><span class="icon-chat"></span><a href="http://wpa.qq.com/msgrd?v=3&uin=2712192471&site=qq&menu=yes">在线咨询</a></li>
-        <li data-toggle="modal" data-target="#exampleModal">
-            <span class="icon-tools-2 "></span>我要装修</li>
-        <a href="#"><li><span class="icon-browser"></span>查看报价</li></a>
-        <li ><span class="icon-pencil"></span>业主评价</li>
-        <a href="login"><li><span class="icon-tablet"></span>工长登录</li></a>
-    </ul>
-</aside>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="top:16%;">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">免费预约</h4>
-      </div>
-      <div class="modal-body contact_input_area">
-        <form action='/applies' method="POST">
-        {!! csrf_field() !!}
-          <div class="form-group">
-            <input type="text" class="form-control" id="recipient-name" placeholder="您的称呼"
-                name='name'>
-          </div>
-          <div class="form-group">
-            <input type="number" class="form-control" id="recipient-name" placeholder="您的手机号"
-                name='phone'>
-          </div>
-          <div class="form-group">
-            <textarea class="form-control" id="message-text" placeholder="小区" name='block'></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
-        <button type="button" class="btn btn-primary">提交</button>
-      </div>
-    </div>
-  </div>
-</div>
+@include('frontend.partial.aside')
 <!-- ******用户注册模块start****** -->
 
 <!-- ******底部浮层模块start****** -->

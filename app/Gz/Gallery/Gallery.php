@@ -18,7 +18,7 @@ class Gallery extends Model
     public function getPageImageAttribute()
     {
         $image = $this->images()->latest()->first();
-    	return is_null($image) ? '/images/tes-bg.jpg' : $image->path;
+    	return is_null($image) ? '/picture/1.jpg' : $image->path;
     }
 
     public function galleryable()

@@ -33,4 +33,5 @@ class ApplyController extends Controller
         $this->apply->findOrFail($id)->update(['leader_id' => request('leader_id')]);
         return redirect()->back()->with('success', '分配成功！');
     }
+
 }

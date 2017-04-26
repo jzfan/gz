@@ -22,4 +22,9 @@ class CommentRepo
 	{
 	    return $this->comment->with('user')->orderBy('id', 'desc')->paginate($n);
 	}
+
+	public function getRandom($n)
+	{
+	    return $this->comment->inRandomOrder()->take(6)->get();
+	}
 }

@@ -22,4 +22,9 @@ class DesignerController extends Controller
         $galleries = $this->designer->newGalleries(6);
         return view('frontend.design.index', compact('designers', 'stars', 'galleries'));
     }
+
+    public function show(\Gz\User\Designer $designer)
+    {
+        return view('frontend.design.show', compact('designer'));
+    }
 }

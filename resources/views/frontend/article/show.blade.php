@@ -21,7 +21,7 @@
         <div class="panel-body">
           <h4 class="text-center">{{ $article->title }}</h4>
         </div>
-        <p class="text-center sub-text"><span>日期：2017-4-20</span> <span>来源：58工长通</span> <span>责编：{{ $article->user->name }}</span> <span>浏览次数：12</span></p>
+        <p class="text-center sub-text"><span>日期：{{ $article->created_at->format('Y-m-d') }}</span> <span>来源：58工长通</span> <span>责编：{{ $article->user->name }}</span> <span>浏览次数：12</span></p>
         <p class="bg-info description-sub">新闻导读：{{ $article->intro }}</p>
       </div>
 
@@ -32,30 +32,22 @@
           </p>
         </div>
 
-        <nav aria-label="">
+{{--         <nav aria-label="">
           <ul class="pager next-pre">
             <li class="previous"><a href="#">上一篇</a></li>
             <li class="next"><a href="#">下一篇</a></li>
           </ul>
-        </nav>
+        </nav> --}}
       </div>
 
       <div class="row article-push">
         <h4>相关内容<span class="glyphicon glyphicon-forward"></span></h4>
-        <div class="col-md-5">
           <ul class="list-group">
           <!-- li循环5条 -->
-            <li class="list-group-item"><a href="single.html">【行业报道】 世茂林屿岸82平装修样板间</a></li>
-            <li class="list-group-item"><a href="single.html">【行业报道】 清江山水105平装修样板间</a></li>
+          @foreach (\Gz\Article\Article::inRandomOrder()->take(8)->get() as $li)
+            <li class="col-md-6 list-group-item"><a href="/articles/{{ $li->id }}">{{ $li->title }}</a></li>
+          @endforeach
           </ul>
-        </div>
-        <div class="col-md-5 col-md-offset-2">
-          <ul class="list-group">
-          <!-- li循环5条 -->
-            <li class="list-group-item"><a href="single.html">【行业报道】 世茂林屿岸82平装修样板间</a></li>
-            <li class="list-group-item"><a href="single.html">【行业报道】 清江山水105平装修样板间</a></li>
-          </ul>
-        </div>
       </div>
 
 

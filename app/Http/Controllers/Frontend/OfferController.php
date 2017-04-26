@@ -18,8 +18,15 @@ class OfferController extends Controller
 
     public function index()
     {
-        $offers = $this->offer->byPage(10);
-        return view('frontend.offer.index', compact('offers'));
+        $offers = $this->offer->byPage(15);
+        $tag = \Gz\Article\Tag::inRandomOrder()->first();
+        return view('frontend.offer.index', compact('offers', 'tag'));
+    }
+
+    public function show($id)
+    {
+        $offer = \Gz\Project\Offer::findOrFail($id);
+        return view('frontend.offer.show', compact('offer'));
     }
 
     public function getFormOne()

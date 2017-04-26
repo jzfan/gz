@@ -134,7 +134,7 @@ $factory->define(Gz\Item\ItemOption::class, function (Faker\Generator $faker) {
 $factory->define(Gz\User\Designer::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'avatar' => $faker->imageUrl($width = 60, $height = 60),
+        'avatar' => '/picture/tes-' . mt_rand(1, 4) . '.jpg',
         'company' => $faker->company,
         'working_age' => mt_rand(1, 15),
         'feedback_rate' => mt_rand(66, 100),

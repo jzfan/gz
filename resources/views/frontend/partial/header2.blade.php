@@ -21,7 +21,7 @@
                                     <li><a href="/leaders">找工长</a></li>
                                     <li><a href="/constructions">工长工地</a></li>
                                     <li><a href="/designers">设计师</a></li>
-                                    <li><a href="">装修报价</a></li>
+                                    <li><a href="/offers">装修报价</a></li>
                                     <li><a href="/comments">业主评价</a></li>
                                     <li><a href="/articles">新闻热点</a></li>
                                 </ul>

@@ -18,6 +18,14 @@ class CommentController extends Controller
     public function index()
     {
         $comments = $this->comment->byPage(10);
-        return view('frontend.comments.index', compact('comments'));
+        $rands = $this->comment->getRandom(6);
+        return view('frontend.comments.index', compact('comments', 'rands'));
+    }
+
+    public function ofLeader($leader_id)
+    {
+    	$leader = \Gz\User\User::findOrFail($leader_id);
+        $comments = $leader->comments()->paginate(6);
+        return view('frontend.comments.leader', compact('comments', 'leader'));
     }
 }

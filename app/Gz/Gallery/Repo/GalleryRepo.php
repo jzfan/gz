@@ -11,7 +11,7 @@ class GalleryRepo
 	protected $image;
 	protected $type = [
 		'leader' => 'Gz\User\User',
-		'construction' => 'Gz\Project\Apply',
+		'working' => 'Gz\Project\Apply',
 		'design' => 'Gz\User\designer',
 	];
 
@@ -69,5 +69,11 @@ class GalleryRepo
 	    return $this->gallery->with('galleryable')
 	    		->where('galleryable_type', $this->type['design'])
 	    		->latest()->take($n)->get();
+	}
+
+	public function newWorking($n)
+	{
+	    return $this->gallery->where('galleryable_type', $this->type['working'])
+	    				->orderBy('updated_at', 'desc')->take($n)->get();
 	}
 }

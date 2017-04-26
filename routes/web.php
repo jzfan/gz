@@ -10,11 +10,14 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('/', 'PageController@index');
 	Route::get('articles', 'ArticleController@index');
 	Route::get('constructions', 'ApplyController@construction');
+	Route::get('constructions/{id}', 'ApplyController@showWorking');
 	Route::get('articles/{id}', 'ArticleController@show');
 	Route::get('offers', 'OfferController@index');
+	Route::get('offers/{id}', 'OfferController@show');
 	Route::get('sites', 'ApplyController@sites');
 	Route::get('sites/{id}', 'ApplyController@show');
 	Route::get('comments', 'CommentController@index');
+	Route::get('comments/leaders/{leader_id}', 'CommentController@ofLeader');
 	Route::post('applies', 'ApplyController@store');
 	Route::get('me', 'MeController@homeByRole');
 	Route::post('me', 'MeController@update');
@@ -27,7 +30,7 @@ Route::namespace('Frontend')->group( function () {
 	// Route::post('offers/form-1', 'OfferController@setFormOne');
 	Route::post('offers', 'OfferController@store');
 	Route::get('designers', 'DesignerController@index');
-
+	Route::get('designers/{designer}', 'DesignerController@show');
 });
 
 

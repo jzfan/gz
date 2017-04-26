@@ -43,4 +43,10 @@ class ArticleController extends Controller
         $rand_tag_list = $this->article->byRandTag(5);
         return view('frontend.article.show', compact('article', 'hots', 'rand_tag', 'rand_tag_list'));
     }
+
+    public function byTag($tag_id)
+    {
+        $articles = $this->article->byTag($tag_id);
+        dd($articles);
+    }
 }
