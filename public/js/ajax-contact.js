@@ -26,7 +26,7 @@ $(function () {
                 $(formMessages).addClass('success');
 
                 // Set the message text.
-                $(formMessages).text('信息提交成功');
+                $(formMessages).text('Thanks! Message has been sent.');
 
                 // Clear the form.
                 $('#name').val('');
@@ -42,7 +42,7 @@ $(function () {
                 if (data.responseText !== '') {
                     $(formMessages).text(data.responseText);
                 } else {
-                    $(formMessages).text('提交出错');
+                    $(formMessages).text('Oops! An error occured.');
                 }
             });
 

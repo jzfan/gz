@@ -1,7 +1,6 @@
-@extends('frontend.partial.main')
+@extends('frontend.partial.main2')
 
 @section('content')
-<!-- ************** About Us Area Start ************** -->
 <section class="about_area" id="about">
 	<div class="container">
 		<div class="about_us_area">
@@ -9,8 +8,8 @@
 				<div class="col-xs-12 col-md-12 section_padding_100 wow fadeInUp">
 					<!-- Section Heading Start -->
 					<div class="section_heading">
-						<h3><button type="button" class="btn btn-success">预约装修</button>
-						<button type="button" class="btn btn-info">评价工长</button></h3>
+						<h3><button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">预约装修</button>
+						<button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal-1">评价工长</button></h3>
 					</div>
 					<!-- Section Heading End -->
 
@@ -22,8 +21,8 @@
 						  <div class="panel-heading">工长 {{ $leader->name }} 简介</div>
 						  <div class="panel-body">
 						    <div class="row">
-							  <div class="col-md-4">
-									<img src="{{ $leader->avatar }} " alt="{{ $leader->name }}" class="img-thumbnail">
+							  <div class="col-md-4 gzshow-img">
+									<img src="{{ $leader->avatar }}" alt="{{ $leader->name }}" class="img-thumbnail">
 							  </div>
 							  <div class="col-md-4">
 									<ul class="list-group text-left">
@@ -141,44 +140,44 @@
 	  <div class="panel-body">
 	    <div class="row">
 		  <div class="col-sm-6 col-md-3">
-		    <div class="thumbnail">
+		    <a href="工地详情.html"><div class="thumbnail">
 		      <img src="/picture/service-3.jpg" alt="...">
 		      <div class="caption">
 		        <p>联投龙湾 90㎡</p>
 		        <p>总价：46300.00元</p>
-		        <p><a href="#" class="btn btn-primary" role="button">预约参观</a></p>
+		        <p><a data-toggle="modal" data-target="#exampleModal-2" class="btn btn-primary" role="button">预约参观</a></p>
 		      </div>
-		    </div>
+		    </div></a>
 		  </div>
 		  <div class="col-sm-6 col-md-3">
-		    <div class="thumbnail">
+		    <a href="工地详情.html"><div class="thumbnail">
 		      <img src="/picture/service-3.jpg" alt="...">
 		      <div class="caption">
 		        <p>联投龙湾 90㎡</p>
 		        <p>总价：46300.00元</p>
-		        <p><a href="#" class="btn btn-primary" role="button">预约参观</a></p>
+		        <p><a data-toggle="modal" data-target="#exampleModal-2" class="btn btn-primary" role="button">预约参观</a></p>
 		      </div>
-		    </div>
+		    </div></a>
 		  </div>
 		  <div class="col-sm-6 col-md-3">
-		    <div class="thumbnail">
+		    <a href="工地详情.html"><div class="thumbnail">
 		      <img src="/picture/service-3.jpg" alt="...">
 		      <div class="caption">
 		        <p>联投龙湾 90㎡</p>
 		        <p>总价：46300.00元</p>
-		        <p><a href="#" class="btn btn-primary" role="button">预约参观</a></p>
+		        <p><a data-toggle="modal" data-target="#exampleModal-2" class="btn btn-primary" role="button">预约参观</a></p>
 		      </div>
-		    </div>
+		    </div></a>
 		  </div>
 		  <div class="col-sm-6 col-md-3">
-		    <div class="thumbnail">
+		    <a href="工地详情.html"><div class="thumbnail">
 		      <img src="/picture/service-3.jpg" alt="...">
 		      <div class="caption">
 		        <p>联投龙湾 90㎡</p>
 		        <p>总价：46300.00元</p>
-		        <p><a href="#" class="btn btn-primary" role="button">预约参观</a></p>
+		        <p><a data-toggle="modal" data-target="#exampleModal-2" class="btn btn-primary" role="button">预约参观</a></p>
 		      </div>
-		    </div>
+		    </div></a>
 		  </div>
 		</div>
 	  </div>
@@ -197,7 +196,7 @@
 				<th>小 区</th>
 				<th>面 积</th>
 				<th>装修方式</th>
-				<th>预 算</th>
+				<th>总 价</th>
 				<th>查看详情</th>
 			</tr>
 		</thead>
@@ -217,8 +216,6 @@
 
 	</div>
 
-	
-	
 </section>
 
 
@@ -267,7 +264,8 @@
 					<div class="testimonials">
 						<!-- Single testimonial area start  -->
 						@foreach ($tops as $top)
-						<div class="single_testimonial_area">
+						<!-- 跳转到该工长所有评价列表页（模板：工长的评价.html） -->
+						<a href=""><div class="single_testimonial_area">
 							<!-- Single testimonial text  -->
 							<div class="testimonial_text">
 								<!-- Single testimonial thumb  -->
@@ -280,7 +278,7 @@
 								<h5>{{ $top->user->comments()->first()->user->name }}</h5>
 								<h6>服务工长 &amp;  {{ $top->user->name }}</h6>
 							</div>
-						</div>
+						</div></a>
 						@endforeach
 					</div>
 				</div>
@@ -291,15 +289,16 @@
 <!-- ***************** Testimonial Area End ***************** -->
 
 
+
 <!-- ************** Our Advisor Area Start ************** -->
-<section class="our_advisor_area section_padding_100" id="advisor">
+<section class="our_advisor_area section_padding_100">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
 				<!-- Section Heading Start -->
 				<div class="section_heading">
 					<p>我们的工长团队</p>
-					<h3>明星工长<small class="morelist"><a href="./other/gzss.html">更多》</a></small></h3>
+					<h3>明星工长</h3>
 				</div>
 				<!-- Section Heading End -->
 			</div>
@@ -308,8 +307,8 @@
 
 	<div class="container">
 		<div class="row win_feature">
-@foreach ($tops as $top)
-			<div class="col-sm-4 col-md-3">
+		@foreach ($tops as $top)
+			<a href="/leaders/{{ $top->user->id }}"><div class="col-sm-4 col-md-3">
 				<!-- Single Feature Area Start -->
 				<div class="single_feature wow fadeInUp" data-wow-delay=".2s">	
 					<div class="bg-icon">
@@ -324,8 +323,13 @@
 					</div>
 					<!-- Single Feature Text Area End -->
 				</div>
-			</div>
-@endforeach		
+			</div></a>
+		@endforeach		
+
+		<div class="row w-more">
+			<div class="col-xs-12 text-center"><a href="/leaders" role="button" class="btn btn-danger btn-lg">查看更多&nbsp;<span class="glyphicon glyphicon-forward"></span></a></div>
+		</div>
+
 		</div>
 	</div>
 
@@ -333,48 +337,8 @@
 </section>
 <!-- ************** Our advisor Area End ************** -->
 
+<!-- 预约装修开始 -->
 
-
-<!-- ************** Footer Area Start ************** -->
-<footer class="footer_area">
-	<!-- Bottom Footer Area Start -->
-	<div class="footer_bottom_area">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="footer_bottom wow fadeInDown" data-wow-delay=".2s">
-						<p>58工长通有限公司<i class="fa fa-heart" aria-hidden="true"></i> by <a href="#">赢弘科技</a></p>
-					</div>
-					<!-- Bottom Footer Copywrite Text Area End -->
-				</div>
-			</div>
-			<!-- end./ row -->
-		</div>
-		<!-- end./ container -->
-	</div>
-	<!-- Bottom Footer Area End -->
-</footer>
-<!-- ************** Footer Area End ************** -->
-
-
-
-
-
-<!-- ******用户预约模块start****** -->
-
-<aside id="asideFloat">
-	<div class="aside-top">
-		<img src="/picture/l_logo.png" alt="">
-	</div>
-	<ul>
-		<li><span class="icon-chat"></span>在线咨询</li>
-		<li data-toggle="modal" data-target="#exampleModal">
-			<span class="icon-tools-2 "></span>我要装修</li>
-		<a href="#"><li><span class="icon-browser"></span>查看报价</li></a>
-		<li ><span class="icon-pencil"></span>业主评价</li>
-		<a href="login.html"><li><span class="icon-tablet"></span>工长登录</li></a>
-	</ul>
-</aside>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="top:16%;">
   <div class="modal-dialog" role="document">
@@ -392,6 +356,16 @@
             <input type="number" class="form-control" id="recipient-name" placeholder="您的手机号">
           </div>
           <div class="form-group">
+            <input type="text" class="form-control" id="recipient-name" placeholder="所在小区">
+          </div>
+          <div class="form-group">
+	          	<select class="form-control">
+				  <option>装修方式</option>
+				  <option>全屋整装</option>
+				  <option>半包</option>
+				</select>
+          </div>
+          <div class="form-group">
             <textarea class="form-control" id="message-text" placeholder="您的需求"></textarea>
           </div>
         </form>
@@ -403,5 +377,82 @@
     </div>
   </div>
 </div>
-<!-- ******用户注册模块start****** -->
+
+
+
+<!-- 预约装修结束 -->
+
+
+
+
+<!-- 评价工长开始 -->
+<div class="modal fade" id="exampleModal-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="top:16%;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">评价工长</h4>
+      </div>
+      <div class="modal-body contact_input_area">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" id="recipient-name" placeholder="您的称呼">
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" id="recipient-name" placeholder="您的手机号">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="recipient-name" placeholder="所在小区">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" id="message-text" placeholder="您的评价"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
+        <button type="button" class="btn btn-primary">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 评价工长结束 -->
+
+
+
+<!-- 预约参观开始 -->
+
+<div class="modal fade" id="exampleModal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="top:16%;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">免费预约参观</h4>
+      </div>
+      <div class="modal-body contact_input_area">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" id="recipient-name" placeholder="您的称呼">
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" id="recipient-name" placeholder="您的手机号">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="recipient-name" placeholder="预约小区">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" id="message-text" placeholder="备注"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
+        <button type="button" class="btn btn-primary">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 预约参观结束 -->
+
 @stop

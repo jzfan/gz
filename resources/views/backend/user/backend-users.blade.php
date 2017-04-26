@@ -9,7 +9,7 @@
           <div class="panel-heading">
               <h4 class="panel-title">
                   <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                      提升一般用户为 管理员/编辑
+                      提升一般用户为 <button class="btn btn-success">管理员 &nbsp;|&nbsp; 编辑</button>
                   </a>
               </h4>
           </div>

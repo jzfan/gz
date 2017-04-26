@@ -5,7 +5,7 @@
                   <li class="">
                       <a class="" href="/{{ Auth::user()->role }}-console">
                           <i class="icon-dashboard"></i>
-                          <span>Console</span>
+                          <span>控制台</span>
                       </a>
                   </li>
                   <li class="">

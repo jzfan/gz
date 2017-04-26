@@ -1,51 +1,86 @@
-@extends('frontend.partial.main')
+@extends('frontend.partial.main2')
 
 @section('content')
-<section class="container">
-  <div class="panel panel-info">
-      <div class="panel-heading">
-        <h4 class="text-center">{{ $article->title }}</h4>
-        <h4 class="small text-center">责编：{{ $article->user->name }}</h4>
-      </div>
-      <div class="panel-body">
-        新闻导读 : {{ $article->intro }}
-      </div>
+
+<nav class="navbar navbar-win">
+  <div class="container">
+  <p class="com-nav-child">
+    <a href="/">首页</a>/ <a href="">详情页面</a>
+  </p>
   </div>
-</section>
-
-<section class="container">
-  <div class="row">
-      <div class="col-md-8">
-        <p>
-        {!! $article->text !!}
-        </p>
+</nav>
 
 
-      </div>
-      <div class="col-md-4">
-          <div class="panel panel-info">
-            <div class="panel-heading">热门文章推荐</div>
-          </div>
-          <h4></h4>
-          <ul class="list-group">
-          @foreach ($hots as $h)
-            <li class="list-group-item"><a href="/articles/{{ $h->id }}">{{ $h->title }}</a></li>
-          @endforeach
-          </ul>
 
-          <div class="panel panel-info">
-            <div class="panel-heading">{{ $rand_tag_list['rand_tag'] }}</div>
-          </div>
-          <h4></h4>
-          <ul class="list-group">
-          @foreach ($rand_tag_list['tag_list'] as $li)
-            <li class="list-group-item"><a href="/articles/{{ $li->id }}">{{ $li->title }}</a></li>
-          @endforeach
-          </ul>
-      </div>
-
-  </div>
+<section class="container zxbj-list">
+  <!-- 备注:最大浏览量的循环8条 -->
   
+  <div class="row">
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4 class="text-center">{{ $article->title }}</h4>
+        </div>
+        <p class="text-center sub-text"><span>日期：2017-4-20</span> <span>来源：58工长通</span> <span>责编：{{ $article->user->name }}</span> <span>浏览次数：12</span></p>
+        <p class="bg-info description-sub">新闻导读：{{ $article->intro }}</p>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-body article-content">
+          <p>
+             {!! $article->text !!}
+          </p>
+        </div>
+
+        <nav aria-label="">
+          <ul class="pager next-pre">
+            <li class="previous"><a href="#">上一篇</a></li>
+            <li class="next"><a href="#">下一篇</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="row article-push">
+        <h4>相关内容<span class="glyphicon glyphicon-forward"></span></h4>
+        <div class="col-md-5">
+          <ul class="list-group">
+          <!-- li循环5条 -->
+            <li class="list-group-item"><a href="single.html">【行业报道】 世茂林屿岸82平装修样板间</a></li>
+            <li class="list-group-item"><a href="single.html">【行业报道】 清江山水105平装修样板间</a></li>
+          </ul>
+        </div>
+        <div class="col-md-5 col-md-offset-2">
+          <ul class="list-group">
+          <!-- li循环5条 -->
+            <li class="list-group-item"><a href="single.html">【行业报道】 世茂林屿岸82平装修样板间</a></li>
+            <li class="list-group-item"><a href="single.html">【行业报道】 清江山水105平装修样板间</a></li>
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="col-md-3 right-show">
+
+        <h4 class="alert alert-info">热门文章推荐</h4>
+        <ul class="list-group">
+        <!-- 备注：li循环6条 -->
+        @foreach ($hots as $h)
+          <li class="list-group-item"><a href="/articles/{{ $h->id }}" >{{ $h->title }}</a></li>
+        @endforeach
+        </ul>
+
+        <h4 class="alert alert-info">{{ $rand_tag_list['rand_tag'] }}</h4>
+        <ul class="list-group">
+        <!-- 备注：li循环6条 -->
+        @foreach ($rand_tag_list['tag_list'] as $li)
+          <li class="list-group-item"><a <a href="/articles/{{ $li->id }}" >{{ $li->title }}</a></li>
+        @endforeach
+        </ul>
+
+    </div>
+  </div>
 
 </section>
 @stop

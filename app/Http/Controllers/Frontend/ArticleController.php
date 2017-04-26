@@ -31,7 +31,9 @@ class ArticleController extends Controller
                 'tag' => 'exists:tags,name'
             ]);
         $articles = $this->article->byTagPage(request('tag'), 8);
-        return view('frontend.article.index', compact('articles'));
+        $hots = $this->article->newList(5);
+        $rand_tag_list = $this->article->byRandTag(5);
+        return view('frontend.article.index', compact('articles', 'hots', 'rand_tag', 'rand_tag_list'));
     }
 
     public function show($id)

@@ -5,7 +5,7 @@
   <div class="col-lg-12">
     <section class="panel">
       <header class="panel-heading">
-        Inline form
+        SEO关键字设置
       </header>
       <div class="panel-body">
 @include('backend.console.seo-add')

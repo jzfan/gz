@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="contact_from wow fadeInUp" data-wow-delay=".2s">
-                    <form action="login" method="post" id="main_contact_form">
+                    <form action="login" method="post" id="main_contact_form_login">
                     {!! csrf_field() !!}
                         <!-- Message Input Area Start -->
                         <div class="contact_input_area">

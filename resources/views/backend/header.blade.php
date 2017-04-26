@@ -3,13 +3,13 @@
               <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
           </div>
           <!--logo start-->
-          <a href="/" class="logo" >Gong<span>Zhang</span></a>
+          <a href="/" class="logo" >58<span>工长通</span></a>
           <!--logo end-->
           <div class="nav notify-row" id="top_menu">
             <!--  notification start -->
             <ul class="nav top-menu">
               <!-- settings start -->
-              <li class="dropdown">
+              <!-- <li class="dropdown">
                   <a data-toggle="dropdown" class="dropdown-toggle" href="/flatlab/#">
                       <i class="icon-tasks"></i>
                       <span class="badge bg-success">6</span>
@@ -89,10 +89,10 @@
                           <a href="/flatlab/#">See All Tasks</a>
                       </li>
                   </ul>
-              </li>
+              </li> -->
               <!-- settings end -->
               <!-- inbox dropdown start-->
-              <li id="header_inbox_bar" class="dropdown">
+              <!-- <li id="header_inbox_bar" class="dropdown">
                   <a data-toggle="dropdown" class="dropdown-toggle" href="/flatlab/#">
                       <i class="icon-envelope-alt"></i>
                       <span class="badge bg-important">5</span>
@@ -154,10 +154,10 @@
                           <a href="/flatlab/#">See all messages</a>
                       </li>
                   </ul>
-              </li>
+              </li> -->
               <!-- inbox dropdown end -->
               <!-- notification dropdown start-->
-              <li id="header_notification_bar" class="dropdown">
+              <!-- <li id="header_notification_bar" class="dropdown">
                   <a data-toggle="dropdown" class="dropdown-toggle" href="/flatlab/#">
 
                       <i class="icon-bell-alt"></i>
@@ -207,7 +207,7 @@
                           <a href="/flatlab/#">See all notifications</a>
                       </li>
                   </ul>
-              </li>
+              </li> -->
               <!-- notification dropdown end -->
           </ul>
           </div>
@@ -225,14 +225,14 @@
                       </a>
                       <ul class="dropdown-menu extended logout">
                           <div class="log-arrow-up"></div>
-                          <li><a href="/flatlab/#"><i class=" icon-suitcase"></i>Profile</a></li>
+                          <!-- <li><a href="/flatlab/#"><i class=" icon-suitcase"></i>Profile</a></li>
                           <li><a href="/flatlab/#"><i class="icon-cog"></i> Settings</a></li>
-                          <li><a href="/flatlab/#"><i class="icon-bell-alt"></i> Notification</a></li>
+                          <li><a href="/flatlab/#"><i class="icon-bell-alt"></i> Notification</a></li> -->
                           <li>
                               <a href="{{ route('logout') }}"
                                   onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">
-                                  <i class="icon-key"></i> Logout
+                                  <i class="icon-key"></i> 退出
                               </a>
 
                               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

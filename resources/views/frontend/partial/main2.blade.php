@@ -2,82 +2,55 @@
 <html lang="en">
 <head>
 @include('frontend.partial.meta')
-<!--[if lt IE 9]>
-        <script src="/other/js/html5shiv.min_1.js"></script>
-        <script src="/other/js/respond.min_1.js"></script>
-	<![endif]-->
-<!-- Stylesheets -->
-<link rel="stylesheet" type="text/css" href="/other/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/other/css/font-awesome.min.css" />
-<link rel="stylesheet" type="text/css" href="/other/css/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="/other/css/bootstrap-select.min.css">
-<link rel="stylesheet" type="text/css" href="/other/css/magnific-popup.css">
-<link rel="stylesheet" type="text/css" href="/other/css/style.css">
-<link rel="stylesheet" type="text/css" href="/other/css/skin-1.css">
-<link  rel="stylesheet" type="text/css" href="/other/css/templete.css">
+<link rel="stylesheet" href="/css/style.css">
+<!-- Responsive css -->
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<link rel="stylesheet" href="/css/app.css">
+<!--[if IE]>
+<script src="js/html5shiv.min.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
 <style>
 	html,body{
 		font-family: '微软雅黑'
 	}
-    #dzSwitcher{
-        display: none;
-    }
-
 </style>
 </head>
-<body id="bg">
-<div class="page-wraper">
+<body class="dark_version">
+<div id="preloader"></div>
+
+@include('frontend.partial.header2')
 
 @yield('content')
 
     <!-- Content -->
-    </div>
-    <!-- Footer -->
-    <footer class="site-footer yoga-footer">
-        <!-- footer bottom part -->
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-4 text-left "> <span>© Copyright 2017</span> </div>
-					<div class="col-md-4 col-sm-4 text-center"> <span> Design With <i class="fa fa-heart text-primary heart"></i> By DexignZone </span> </div>
-					<div class="col-md-4 text-right "> <a href="about-2.html"> About</a> <a href="help.html"> Help Desk</a> <a href="privacy-policy.html"> Privacy Policy</a> </div>
+
+<!-- ************** Footer Area Start ************** -->
+<footer class="footer_area">
+    <!-- Bottom Footer Area Start -->
+    <div class="footer_bottom_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="footer_bottom wow fadeInDown" data-wow-delay=".2s">
+                       <p>备案号：<a href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action">鄂ICP备17006010号-1</a></p>
+                        <p>58工长通有限公司&nbsp;<i class="fa fa-phone" aria-hidden="true"></i>&nbsp;联系电话：<a href="tel:4001667566">4001667566</a></p>
+                        <p>© 2017 58gzt.com 版权：武汉58工长通有限公司</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- Footer END-->
-    <!-- scroll top button -->
-    <button class="scroltop fa fa-caret-up" ></button>
-</div>
-<!-- JavaScript  files ========================================= -->
-<script type="text/javascript"  src="/other/js/jquery.min_1.js"></script>
-<!-- jquery.min js -->
-<script type="text/javascript"  src="/other/js/bootstrap.min_1.js"></script>
-<!-- bootstrap.min js -->
-<script type="text/javascript"  src="/other/js/bootstrap-select.min_1.js"></script>
-<!-- Form js -->
-<script type="text/javascript"  src="/other/js/jquery.bootstrap-touchspin_1.js"></script>
-<!-- Form js -->
-<script type="text/javascript"  src="/other/js/magnific-popup_1.js"></script>
-<!-- magnific-popup js -->
-<script type="text/javascript"  src="/other/js/waypoints-min_1.js"></script>
-<!-- waypoints js -->
-<script type="text/javascript"  src="/other/js/counterup.min_1.js"></script>
-<!-- counterup js -->
-<script type="text/javascript" src="/other/js/imagesloaded_1.js"></script>
-<!-- masonry  -->
-<script type="text/javascript" src="/other/js/masonry-3.1.4_1.js"></script>
-<!-- masonry  -->
-<script type="text/javascript" src="/other/js/masonry.filter_1.js"></script>
-<!-- masonry  -->
-<script type="text/javascript"  src="/other/js/owl.carousel_1.js"></script>
-<!-- google map  -->
-<script type="text/javascript"  src="/other/js/custom_1.js"></script>
-<!-- custom fuctions  -->
-<script type="text/javascript"  src="/other/js/dz.carousel_1.js"></script>
-<!-- sortcode fuctions  -->
-<!-- switcher fuctions  -->
-<div id="loading-area"></div>
+    </div>
+</footer>
+<!-- ************** Footer Area End ************** -->
+
+<!-- scroll top button -->
+
+<!-- JavaScript  files -->
+
+@include('frontend.partial.js')
 
 </body>
 </html>

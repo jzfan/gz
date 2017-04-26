@@ -18,6 +18,6 @@ class CommentController extends Controller
     public function index()
     {
         $comments = $this->comment->byPage(10);
-        return view('frontend.comments', compact('comments'));
+        return view('frontend.comments.index', compact('comments'));
     }
 }

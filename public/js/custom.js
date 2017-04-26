@@ -205,6 +205,32 @@
 
 })(jQuery);
 
+
+//图片按需加载
+$(function(){
+    var $wd = $(window),
+        $img = $('img'),
+        imgTop,          //图片距离顶部高度
+        scTop,             //滚动条高度
+        wH;           //窗口高度
+    wH = $wd.height();         //获得可视浏览器的高度
+    $wd.scroll( function() {
+        scTop = $wd.scrollTop();       //获取滚动条到顶部的垂直高度
+        $img.each(function(){
+            imgTop =  $(this).offset().top;
+            if(imgTop - wH < scTop &&     //图片必须出现在窗口底部上面
+                imgTop - wH > 0 &&        //排除首页图片
+                $(this).attr('src') != $(this).data('url')){ //排除已经加载过的图片
+                   $(this).attr({
+                       src: $(this).data('url')
+                   });
+            }
+        });
+    });
+});
+
+
+//底部透明带
 $(function(){
     // $('#asideFloat li').click(function(){
     //     $('#asideFloat').animate({right:"-100px"}).fadeOut('fast');
@@ -235,3 +261,170 @@ $(function(){
     // }
 })
 
+
+//报价表table切换
+$(function(){
+    var count = 1;
+    var current = null;
+    $('.tabbable .fa-plus').on('click', function(e){
+        e.stopPropagation();
+        if(current != this){
+            count = 1;
+        }
+        current = this;
+        var text = $(this).parent('a').text();
+        var id = $(this).parent('a').attr('href');
+        var url = '#panel-'+Math.random();
+        $(id).prepend('<p>'+'<a contenteditable="true" data-toggle="tab" href='+url+'>'+text+'</a>'+count+'<span class="fa fa-remove "></span></p>');
+        count++;
+
+        var dom = $(id).clone();
+        var newdom = dom.attr('id', url.split('#')[1]);
+        $('.tab-content').append(newdom);
+        $('.tab-content .tab-pane').each(function(){
+            $(this).removeClass('active');
+            $(this).css('display','none');
+        });
+        newdom.css('display','block');
+        newdom.addClass('active');
+    })
+
+    $('.nav-tabs li a').on('click', function(){
+        var id = $(this).attr('href');
+        $('.tab-content .tab-pane').each(function(){
+            $(this).removeClass('active');
+            $(this).css('display','none');
+        });
+        $(id).css('display','block');
+        $(id).addClass('active');
+    })
+
+    $(document).on('click','.tab-pane .fa-remove',function(){
+        $(this).parent('p').remove();
+        count = 1;
+    })
+
+    $(document).on('click','.tab-pane a',function(e){
+        e.stopPropagation();
+        var id = $(this).attr('href');
+        console.log(id);
+        $('.tab-content .tab-pane').each(function(){
+            $(this).removeClass('active');
+            $(this).css('display','none');
+        });
+        console.log($(id));
+        $(id).addClass('active');
+        $(id).css('display','block');
+        
+    })
+})
+
+
+/*数据存储*/
+$(function(){
+    $(document).on('change','tr input.form-control',function(){
+        var arr = $(this).parents('tr').find('td.cumadd');
+        console.log(arr.text());
+        var num = $(this).parents('tr').find('input.num').val();
+        var price = $(this).parents('tr').find('input.price').val();
+        var total = num*price;
+        arr.text(total);
+
+        var p = $(this).parents('tbody').find('td.sum').text();
+        console.log(p);
+        var sum = 0;
+        $(this).parents('tbody').find('td.cumadd').each(function(){
+            console.log();
+            if($(this).parents('tr').find('.checkbox input').is(':checked')){
+                sum += Number($(this).text());
+            }
+        });
+        $(this).parents('tbody').find('td.sum').text(sum);
+    })
+    
+
+    var items = [];
+    $(document).on('click','tr .checkbox input',function(){
+
+            var item_id = $(this).parents('.tab-pane').attr('data-id');
+            console.log(item_id);
+            var id = $(this).attr('data-id');
+            var quanity = $(this).parents('tr').find('input.num').val();
+            var price = $(this).parents('tr').find('input.price').val();
+            var sum = 0;
+
+
+        if($(this).is(':checked')){
+            var options = {'id':id,'num':quanity,'price':price};
+            var item = {'id':item_id, 'options':options};
+            console.log(item);
+            items.push(item);
+            console.log(items);
+
+            $(this).parents('tbody').find('td.cumadd').each(function(){
+                if($(this).parents('tr').find('.checkbox input').is(':checked')){
+                    sum += Number($(this).text());
+                }
+            });
+            $(this).parents('tbody').find('td.sum').text(sum);
+
+
+        }else{
+            items.forEach(function(e,index){
+                if(e.options.id == id){
+                    items.splice(index,1);
+                    console.log(items);
+                }
+            })
+            console.log('取消选择');
+
+            $(this).parents('tbody').find('td.cumadd').each(function(){
+                if($(this).parents('tr').find('.checkbox input').is(':checked')){
+                    sum += Number($(this).text());
+                }
+            });
+            $(this).parents('tbody').find('td.sum').text(sum);
+
+        }
+    })
+
+   var data = JSON.stringify(items);
+
+   $('#save').on('click',function(){
+        $.ajax({
+            url:'192.168.1.31',
+            data:items,
+            dataType:'json',
+            type:'POST',
+            success:function(data){
+
+            }
+        })
+   })
+
+})
+
+//找工长table 切换
+$(function(){
+    $('.check-type li').click( function(){
+      var i = $(this).index();
+      var contans = $('.tab-contain .win_feature');
+      contans.eq(i).show().siblings().hide();
+    });
+})
+
+
+// 查看电话
+$(function(){
+    $('.view-phone').on('click', function(){
+        $(this).html($(this).attr('data-id'));
+    })
+})
+
+//table表格里a 链接无法跳转
+$(function(){
+    $('tbody td a').on('click', function(){
+        var link = $(this).attr('href');
+        window.location.href = link;
+    })
+})

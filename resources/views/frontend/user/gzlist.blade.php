@@ -1,165 +1,112 @@
 @extends('frontend.partial.main2')
 
 @section('content') 
-	
-    <!-- Content -->
-    <div class="page-content">
-        <!-- inner page banner -->
-        <div class="dez-bnr-inr overlay-black-middle" style="background-image:url(images/bg4.jpg);">
-            <div class="container">
-                <div class="dez-bnr-inr-entry wow">
-                    <h1 class="text-white col-md-6 col-md-offset-3">
-                        <div class="search-bx">
-                                <form role="search" method="post">
-                                    <div class="input-group">
-                                        <input name="text" type="text" class="form-control" placeholder="输入工长或小区">
-                                            <span class="input-group-btn">
-                                            <button type="submit" class="site-button"><i class="fa fa-search"></i></button>
-                                            </span> </div>
-                                </form>
-                        </div>
-                    </h1>
-                </div>
-            </div>
+<nav class="navbar navbar-win">
+  <div class="container">
+    <p class="com-nav-child">
+        <a href="/">首页</a>/ <a href="">找工长</a>
+    </p>
+    <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="输入工长">
         </div>
-        <!-- inner page banner END -->
-        <!-- Breadcrumb row -->
-        <div class="breadcrumb-row">
-            <div class="container">
-                <ul class="list-inline">
-                    <li><a href="index.html">首页</a></li>
-                    <li>工长展示</li>
+        <button type="submit" class="btn btn-default">搜索</button>
+    </form>
+  </div>
+</nav>
+
+
+
+<section class="our_advisor_area section_padding_100 tabbable">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="nav nav-pills check-type">
+                  <li role="presentation"><a>明星工长</a></li>
+                  <li role="presentation"><a>最佳口碑</a></li>
+                  <li role="presentation"><a>签单王</a></li>
                 </ul>
             </div>
-        </div>
-        <!-- Breadcrumb row END -->
-        <div class="content-area">
-            <!-- content start -->
-            <div class="container">
-                <!-- Image Carousel start -->
-                <div class="p-a30 bg-white m-b30">
-                    <div class="section-head">
-                        <h2 class="text-uppercase">最佳口碑工长</h2>
-                    </div>
-                    <div class="section-content">
-                        <div class="img-carousel mfp-gallery gallery owl-btn-center-lr">
-                        @foreach ($points_list as $leader)
-                            <div class="item">
-                                <div class="ow-carousel-entry">
-                                    <div class="ow-entry-media dez-img-effect zoom-slow"> <a href="#"><img src="{{ $leader->user->avatar }}" alt=""></a> </div>
-                                    <div class="ow-entry-content">
-                                        <div class="ow-entry-title"><a href="#">{{ $leader->user->name }}</a></div>
-                                        <div class="ow-entry-text">
-                                            <div>工长签单：{{ $leader->WO }}</div>
-                                            <div>网站保证金：{{ $leader->deposit }}元</div>
-                                            <div>接单区域：{{ $leader->area }}</div>
-                                        </div>
-                                        <div class="ow-entry-button"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                            </div>
-                            </div>
+            <div class="col-xs-12">
+                <!-- Section Heading Start -->
+                <div class="section_heading">
+                    <h3>工长团队</h3>
                 </div>
-                <!-- Image Carousel start END-->
-                <!-- Image Carousel with content -->
-                <div class="p-a30 bg-white m-b30">
-                    <div class="section-head">
-                        <h2 class="text-uppercase">明星工长</h2>
-                    </div>
-                    <div class="section-content">
-                        <div class="img-carousel-content mfp-gallery gallery owl-btn-center-lr">
-                        @foreach ($rank_list as $leader)
-                            <div class="item">
-                                <div class="ow-carousel-entry">
-                                    <div class="ow-entry-media dez-img-effect zoom-slow"> <a href="#"><img src="{{ $leader->user->avatar }}" alt=""></a> </div>
-                                    <div class="ow-entry-content">
-                                        <div class="ow-entry-title"><a href="#">{{ $leader->user->name }}</a></div>
-                                        <div class="ow-entry-text">
-                                            <div class="ow-entry-text">
-                                                <div>工长签单：{{ $leader->WO }}</div>
-                                                <div>网站保证金：{{ $leader->deposit }}元</div>
-                                                <div>接单区域：{{ $leader->area }}</div>
-                                            </div>
-                                        </div>
-                                        <div class="ow-entry-button"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                            </div>
-                            </div>
-                            </div>
-                <!-- Image Carousel with content END -->
-                <!-- Image Carousel with team member -->
-                <div class="p-a30 bg-white m-b30">
-                    <div class="section-head">
-                        <h2 class="text-uppercase">签单王</h2>
-                    </div>
-                    <div class="section-content">
-                        <div class="img-carousel-content mfp-gallery gallery owl-btn-center-lr">
-             @foreach ($WO_list as $leader)
-                 <div class="item">
-                     <div class="ow-carousel-entry">
-                         <div class="ow-entry-media dez-img-effect zoom-slow"> <a href="#"><img src="{{ $leader->user->avatar }}" alt=""></a> </div>
-                         <div class="ow-entry-content">
-                             <div class="ow-entry-title"><a href="#">{{ $leader->user->name }}</a></div>
-                             <div class="ow-entry-text">
-                                 <div class="ow-entry-text">
-                                     <div>工长签单：{{ $leader->WO }}</div>
-                                     <div>网站保证金：{{ $leader->deposit }}元</div>
-                                     <div>接单区域：{{ $leader->area }}</div>
-                                 </div>
-                             </div>
-                             <div class="ow-entry-button"></div>
-                         </div>
-                     </div>
-                 </div>
-                 @endforeach
-                        </div>
-                    </div>
-                </div>
-                <!-- Image Carousel with team member END -->
-                
-                <!-- Event post Carousel with no margin -->
-                <div class="p-a30 bg-white m-b30">
-                    <div class="section-head">
-                        <h2 class="text-uppercase">工长新闻</h2>
-                    </div>
-                    <div class="section-content">
-                        <div class="blog-carousel mfp-gallery gallery owl-btn-center-lr">
-                        @foreach (\Gz\Article\Article::whereHas('tags', function($q){
-                        	$q->whereName('工长');
-                        	})->take(6)->get() as $article)
-                            <div class="item">
-                                <div class="ow-event-post date-style-2">
-                                    <div class="ow-event-media dez-img-effect zoom-slow"> {!! $article->page_image !!}</div>
-                                    <div class="ow-event-info ">
-                                        <div class="ow-event-title">
-                                            <h4 class="event-title"> <a href="#" title="Video post">{{ $article->title }}</a> </h4>
-                                        </div>
-                                        <div class="ow-event-text">
-                                            <p>{{ $article->intro }}</p>
-                                        </div>
-                                        <div class="ow-event-readmore "> <a href="/articles/{{ $article->id }}" title="READ MORE" rel="bookmark" class=" site-button-link"> 查看详情<i class="fa fa-angle-double-right"></i></a> </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                        </div>
-                    </div>
-                </div>
-                <!-- Event post Carousel with no margin END -->
-                
+                <!-- Section Heading End -->
             </div>
-            <!-- content  END -->
         </div>
     </div>
-    <!-- Content END-->
-    <!-- Footer -->
-    <footer class="site-footer yoga-footer">
-    <!-- scroll top button -->
-    <button class="scroltop fa fa-caret-up" ></button>
-</div>
+
+
+
+    <div class="container tab-contain">
+        <div class="row win_feature">
+            <!-- 备注  工长循环12个出来 -->
+            @foreach ($rank_list as $leader)
+            <a href="/leaders/{{ $leader->user->id }}"><div class="col-sm-4 col-md-3">
+                <!-- Single Feature Area Start -->
+                <div class="single_feature wow fadeInDown"  data-delay='0.3' style="margin-bottom: 1.5rem;">    
+                    <div class="bg-icon">
+                        <img src="{{ $leader->user->avatar }}  alt="">
+                    </div>
+                    <!-- Single Feature Image Area End -->
+                    <div class="feature_text">
+                        <h4><span class="w_name">{{ $leader->user->name }}</span></h4>
+                        <p>工长签单：{{ $leader->WO }}</p>
+                        <p>网站保证金：{{ $leader->deposit }}元</p>
+                        <p>接单区域：{{ $leader->area }}</p>
+                    </div>
+                    <!-- Single Feature Text Area End -->
+                </div>
+            </div></a>
+            @endforeach
+        </div>
+
+        <div class="row win_feature">
+            <!-- 备注  工长循环12个出来 -->
+            @foreach ($points_list as $leader)
+            <a href="/leaders/{{ $leader->user->id }}"><div class="col-sm-4 col-md-3">
+                <!-- Single Feature Area Start -->
+                <div class="single_feature wow fadeInDown"  data-delay='0.3' style="margin-bottom: 1.5rem;">    
+                    <div class="bg-icon">
+                        <img src="{{ $leader->user->avatar }}  alt="">
+                    </div>
+                    <!-- Single Feature Image Area End -->
+                    <div class="feature_text">
+                        <h4><span class="w_name">{{ $leader->user->name }}</span></h4>
+                        <p>工长签单：{{ $leader->WO }}</p>
+                        <p>网站保证金：{{ $leader->deposit }}元</p>
+                        <p>接单区域：{{ $leader->area }}</p>
+                    </div>
+                    <!-- Single Feature Text Area End -->
+                </div>
+            </div></a>
+            @endforeach
+        </div>
+
+        <div class="row win_feature">
+            <!-- 备注  工长循环12个出来 -->
+            @foreach ($WO_list as $leader)
+            <a href="/leaders/{{ $leader->user->id }}"><div class="col-sm-4 col-md-3">
+                <!-- Single Feature Area Start -->
+                <div class="single_feature wow fadeInDown"  data-delay='0.3' style="margin-bottom: 1.5rem;">    
+                    <div class="bg-icon">
+                        <img src="{{ $leader->user->avatar }}  alt="">
+                    </div>
+                    <!-- Single Feature Image Area End -->
+                    <div class="feature_text">
+                        <h4><span class="w_name">{{ $leader->user->name }}</span></h4>
+                        <p>工长签单：{{ $leader->WO }}</p>
+                        <p>网站保证金：{{ $leader->deposit }}元</p>
+                        <p>接单区域：{{ $leader->area }}</p>
+                    </div>
+                    <!-- Single Feature Text Area End -->
+                </div>
+            </div></a>
+            @endforeach
+        </div>
+
+    </div>
+
+</section>
 @stop
