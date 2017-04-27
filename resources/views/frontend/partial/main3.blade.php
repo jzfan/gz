@@ -25,7 +25,7 @@
       <div class="col-sm-2 col-xs-9">
           <!-- Logo Area:: For better view in all device please use logo image max-width 70px -->
           <div class="logo-wrap">
-            <a href="index.html"><img src="/picture/logo.png" alt=""></a>
+            <a href="/"><img src="/picture/logo.png" alt=""></a>
           </div>
       </div>
 

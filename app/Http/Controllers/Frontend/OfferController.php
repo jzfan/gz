@@ -14,6 +14,7 @@ class OfferController extends Controller
 	public function __construct(OfferRepo $offer)
 	{
 		$this->offer = $offer;
+        $this->middleware('auth')->only('show');
 	}
 
     public function index()

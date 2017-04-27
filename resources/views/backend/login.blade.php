@@ -34,10 +34,7 @@
         <div class="login-wrap">
             <input type="text" class="form-control" name='phone' placeholder="电话" autofocus="">
             <input type="password" class="form-control" placeholder="Password" name='password'>
-            <label class="checkbox">
-                <input type="checkbox" value="remember-me"> Remember me
-                <span class="pull-right"> </span>
-            </label>
+
             <button class="btn btn-lg btn-login btn-block" type="submit">提交</button>
 
         </div>

@@ -9,7 +9,7 @@
         <thead>
           <tr>
             <th class="text-center"><a href="">会员中心</a></th>
-            <th class="text-center"><a href="gzshow.html">进入网店</a></th>
+            <th class="text-center"><a href="/leaders/{{ \Auth::user()->id }}">进入网店</a></th>
           </tr>
         </thead>
       </table>

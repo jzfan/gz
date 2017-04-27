@@ -13,6 +13,10 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('constructions/{id}', 'ApplyController@showWorking');
 	Route::get('articles/{id}', 'ArticleController@show');
 	Route::get('offers', 'OfferController@index');
+	Route::get('offers/create-1', 'OfferController@getFormOne');
+	Route::get('offers/create-2', 'OfferController@getFormTwo');
+	// Route::post('offers/form-1', 'OfferController@setFormOne');
+	Route::post('offers', 'OfferController@store');
 	Route::get('offers/{id}', 'OfferController@show');
 	Route::get('sites', 'ApplyController@sites');
 	Route::get('sites/{id}', 'ApplyController@show');
@@ -26,15 +30,13 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('leaders', 'LeaderController@index');
 	Route::post('leaders/search', 'LeaderController@likeName');
 	Route::get('leaders/{id}', 'LeaderController@show');
-	Route::get('offers/create-1', 'OfferController@getFormOne');
-	Route::get('offers/create-2', 'OfferController@getFormTwo');
-	// Route::post('offers/form-1', 'OfferController@setFormOne');
-	Route::post('offers', 'OfferController@store');
+
 	Route::get('designers', 'DesignerController@index');
 	Route::get('designers/{designer}', 'DesignerController@show');
 
 	Route::get('workers', 'WorkerController@index');
 	Route::get('workers/{worker}', 'WorkerController@show');
+	Route::get('freesize', 'PageController@freesize');
 });
 
 

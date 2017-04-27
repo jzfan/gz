@@ -42,7 +42,7 @@
 						<td>{{ $worker->craft }}</td>
 						<td>{{ $worker->area }}</td>
 						<td>{{ $worker->birthday->diffInYears() }}</td>
-						<td><span class="view-phone" data-id="{{ $worker->phone }}">查看电话</span></td>
+						<td><span class="view-phone" data-id="{{ $worker->user->phone }}">查看电话</span></td>
 						<td><a href="/workers/{{ $worker->id }}">查看详情</a></td>
 					</tr>
 					@endforeach

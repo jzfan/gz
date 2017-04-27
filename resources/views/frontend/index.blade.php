@@ -38,24 +38,26 @@
 <section class="special_feature_area">
     <div class="container">
         <div class="row">
-
-            <div class="col-sm-6 col-md-2" data-toggle="modal" data-target="#exampleModal">
-                <!-- Single Feature Area Start -->
-                <div class="single_feature wow fadeInUp" data-wow-delay=".2s">
-                    <div class="bg-icon">
-                        <span class="icon-tools"></span>
+            <a href="/freesize">
+                
+                <div class="col-sm-6 col-md-2">
+                    <!-- Single Feature Area Start -->
+                    <div class="single_feature wow fadeInUp" data-wow-delay=".2s">
+                        <div class="bg-icon">
+                            <span class="icon-tools"></span>
+                        </div>
+                        <div class="feature_img">
+                            <span class="icon-tools"></span>
+                        </div>
+                        <!-- Single Feature Image Area End -->
+                        <div class="feature_text">
+                            <h3>免费 量房</h3>
+                            <p>多年经验工长上门免费量房，实地查看毛坯，满足客户个性化需求。数据精准无误</p>
+                        </div>
+                        <!-- Single Feature Text Area End -->
                     </div>
-                    <div class="feature_img">
-                        <span class="icon-tools"></span>
-                    </div>
-                    <!-- Single Feature Image Area End -->
-                    <div class="feature_text">
-                        <h3>免费 量房</h3>
-                        <p>多年经验工长上门免费量房，实地查看毛坯，满足客户个性化需求。数据精准无误</p>
-                    </div>
-                    <!-- Single Feature Text Area End -->
                 </div>
-            </div>
+            </a>
 
             <div class="col-sm-6 col-md-2" data-toggle="modal" data-target="#exampleModal">
                 <!-- Single Feature Area Start -->
@@ -198,35 +200,35 @@
         </div>
 
 
-    <div class="container">
-        <div class="row win_feature">
-@foreach ($leaders as $leader)
-            <a href="/leaders/{{ $leader->user->id }}"><div class="col-sm-4 col-md-3">
-                <!-- Single Feature Area Start -->
-                <div class="single_feature wow fadeInUp" data-wow-delay=".2s">  
-                    <div class="bg-icon">
-                        <img data-url="{{ $leader->user->avatar }}" src="{{ $leader->user->avatar }}" alt="">
+        <div class="container">
+            <div class="row win_feature">
+                @foreach ($leaders as $leader)
+                <a href="/leaders/{{ $leader->user->id }}"><div class="col-sm-4 col-md-3">
+                    <!-- Single Feature Area Start -->
+                    <div class="single_feature wow fadeInUp" data-wow-delay=".2s">  
+                        <div class="bg-icon">
+                            <img data-url="{{ $leader->user->avatar }}" src="{{ $leader->user->avatar }}" alt="">
+                        </div>
+                        <!-- Single Feature Image Area End -->
+                        <div class="feature_text">
+                            <h4><span class="w_name">{{ $leader->user->name }}</span></h4>
+                            <p>工长签单：{{ $leader->WO }}</p>
+                            <p>网站保证金：{{ $leader->deposit }}元</p>
+                            <p>接单区域：{{ $leader->area }}</p>
+                        </div>
+                        <!-- Single Feature Text Area End -->
                     </div>
-                    <!-- Single Feature Image Area End -->
-                    <div class="feature_text">
-                        <h4><span class="w_name">{{ $leader->user->name }}</span></h4>
-                        <p>工长签单：{{ $leader->WO }}</p>
-                        <p>网站保证金：{{ $leader->deposit }}元</p>
-                        <p>接单区域：{{ $leader->area }}</p>
-                    </div>
-                    <!-- Single Feature Text Area End -->
                 </div>
-            </div>
             </a>
-        @endforeach
+            @endforeach
+        </div>
+    </div>
+
 </div>
-    </div>
 
-    </div>
-
-    <div class="row w-more" style="margin-top: 30px;">
-        <div class="col-xs-12 text-center"><a href="/leaders" role="button" class="btn btn-danger btn-lg">查看更多&nbsp;<span class="glyphicon glyphicon-forward"></span></a></div>
-    </div>
+<div class="row w-more" style="margin-top: 30px;">
+    <div class="col-xs-12 text-center"><a href="/leaders" role="button" class="btn btn-danger btn-lg">查看更多&nbsp;<span class="glyphicon glyphicon-forward"></span></a></div>
+</div>
 
 </section>
 <!-- ************** Our advisor Area End ************** -->
@@ -247,7 +249,7 @@
         </div>
 
         <div class="row">
-@foreach ($workings as $i => $working)
+            @foreach ($workings as $i => $working)
             <!-- Single Service Area Start -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="single_service wow fadeInUp" data-wow-delay="{{ ($i+1)*0.2 }}s">
@@ -274,7 +276,7 @@
             </div>
 
             @endforeach
-            </div>
+        </div>
         <!-- end. row -->
     </div>
     <div class="row w-more">
@@ -416,7 +418,7 @@
 
     <div class="gallery_full_width_images_area">
 
-    @foreach ($designs as $i => $design)
+        @foreach ($designs as $i => $design)
         <div class="single_gallery_item wow fadeInUp" data-wow-delay="{{ ($i+1)*0.2 }}s">
             <a  href="/designers/{{ $design->galleryable->id }}">
                 <img data-url="{{ $design->page_image }}"  src="{{ $design->page_image }}" alt="">
@@ -435,7 +437,7 @@
                 <p>{{ join(' | ', $design->galleryable->good_at) }}</p>
             </div>
         </div>
-    @endforeach
+        @endforeach
     </div>
     <div class="row w-more">
         <div class="col-xs-12 text-center"><a href="/designers" role="button" class="btn btn-danger btn-lg">查看更多&nbsp;<span class="glyphicon glyphicon-forward"></span></a></div>
@@ -484,8 +486,8 @@
                         <div class="panel single-accordion wow fadeInUp" data-wow-delay=".1s">
                             <h5>
                                 <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">怎样签订合同？
-                                <span class="accor-open"><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
-                                <span class="accor-close"><i class="fa fa-sort-asc" aria-hidden="true"></i></span>
+                                    <span class="accor-open"><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
+                                    <span class="accor-close"><i class="fa fa-sort-asc" aria-hidden="true"></i></span>
                                 </a>
                             </h5>
                             <div id="collapseOne" class="accordion-content collapse">
@@ -497,8 +499,8 @@
                         <div class="panel single-accordion wow fadeInUp" data-wow-delay=".2s">
                             <h5>
                                 <a role="button" class="collapsed" aria-expanded="true" aria-controls="two" data-parent="#accordion" data-toggle="collapse" href="#two">58工长通服务流程是怎么样的?
-                                <span class="accor-open"><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
-                                <span class="accor-close"><i class="fa fa-sort-asc" aria-hidden="true"></i></span>
+                                    <span class="accor-open"><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
+                                    <span class="accor-close"><i class="fa fa-sort-asc" aria-hidden="true"></i></span>
                                 </a>
                             </h5>
                             <div id="two" class="accordion-content collapse">
@@ -510,20 +512,20 @@
                         <div class="panel single-accordion wow fadeInUp" data-wow-delay=".3s">
                             <h5>
                                 <a role="button" aria-expanded="true" aria-controls="three" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#three">怎么选指定工长? 
-                                 <span class="accor-open"><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
-                            <span class="accor-close"><i class="fa fa-sort-asc" aria-hidden="true"></i></span>
-                                </a>
-                            </h5>
-                            <div id="three" class="accordion-content collapse">
-                                <p>公司有着一群年轻富有想象力的设计队伍，具有从事各种场景设计的丰富经验，使我们在金沙装饰界享有一定的美誉；公司本着“注重细节，追求卓越”的企业宗旨，以品牌建设为中心，致力于 创造完美空间，展现精湛工艺。在材料上，以绿色环保为第一要素，严格控制选用材料的品牌，在施工上，依托工匠的精湛技艺，力求做工精细、完美。</p>
-                            </div>
+                                   <span class="accor-open"><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
+                                   <span class="accor-close"><i class="fa fa-sort-asc" aria-hidden="true"></i></span>
+                               </a>
+                           </h5>
+                           <div id="three" class="accordion-content collapse">
+                            <p>公司有着一群年轻富有想象力的设计队伍，具有从事各种场景设计的丰富经验，使我们在金沙装饰界享有一定的美誉；公司本着“注重细节，追求卓越”的企业宗旨，以品牌建设为中心，致力于 创造完美空间，展现精湛工艺。在材料上，以绿色环保为第一要素，严格控制选用材料的品牌，在施工上，依托工匠的精湛技艺，力求做工精细、完美。</p>
                         </div>
-
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
+</div>
 </section>
 <!-- ************** FAQ Area End ************** -->
 
@@ -544,7 +546,7 @@
         </div>
 
         <div class="row">
-        @foreach ($offers->take(4) as $offer)
+            @foreach ($offers->take(4) as $offer)
             <div class="col-sm-6 col-md-3">
                 <div class="single_price_plan wow fadeInUp" data-wow-delay=".2s">
                     <div class="price">
@@ -566,7 +568,7 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+            @endforeach
 
         </div>
     </div>
@@ -878,74 +880,74 @@
                     <!-- Section Heading Start -->
                     <div class="section_heading">
                         <h4>关于我们</4>
-                        <h3>欢迎来到58工长通平台</h3>
-                    </div>
-                    <!-- Section Heading End -->
+                            <h3>欢迎来到58工长通平台</h3>
+                        </div>
+                        <!-- Section Heading End -->
 
-                    <!-- About Us Text Start -->
-                    <div class="about_us_text">
-                        <p>58工长通是一家集室内设计、预算、施工、材料于一体的专业化装饰公司。公司从事装饰装修行业多年，有一批独立的专业化的施工队伍</p>
-                        <p>我们将以雄厚的设计实力、完整的配套设施、强大的施工力量、精良的技术装备、规范的施工管理、一流的服务措施，竭诚为您服务！！</p>
+                        <!-- About Us Text Start -->
+                        <div class="about_us_text">
+                            <p>58工长通是一家集室内设计、预算、施工、材料于一体的专业化装饰公司。公司从事装饰装修行业多年，有一批独立的专业化的施工队伍</p>
+                            <p>我们将以雄厚的设计实力、完整的配套设施、强大的施工力量、精良的技术装备、规范的施工管理、一流的服务措施，竭诚为您服务！！</p>
+                        </div>
+                        <div class="section_heading">
+                            <h3>联系电话：<a href="tel:4001667566">4001667566</a></h3>
+                        </div>
                     </div>
-                    <div class="section_heading">
-                        <h3>联系电话：<a href="tel:4001667566">4001667566</a></h3>
-                    </div>
-                </div>
 
-            </div>
-        </div>
-    </div>
-    <!-- end./ container -->
-</section>
-
-
-<!-- ************** Footer Area Start ************** -->
-<footer class="footer_area">
-    <!-- Bottom Footer Area Start -->
-    <div class="footer_bottom_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="footer_bottom wow fadeInDown" data-wow-delay=".2s">
-                        <p>备案号：鄂ICP备14017099号-1</p>
-                        <p>58工长通有限公司&nbsp;<i class="fa fa-phone" aria-hidden="true"></i>&nbsp;联系电话：<a href="tel:4001667566">4001667566</a></p>
-                        <p>© 2017 58gzt.com 版权：武汉58工长通有限公司</p>
-                    </div>
                 </div>
             </div>
         </div>
+        <!-- end./ container -->
+    </section>
+
+
+    <!-- ************** Footer Area Start ************** -->
+    <footer class="footer_area">
+        <!-- Bottom Footer Area Start -->
+        <div class="footer_bottom_area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="footer_bottom wow fadeInDown" data-wow-delay=".2s">
+                            <p>备案号：鄂ICP备14017099号-1</p>
+                            <p>58工长通有限公司&nbsp;<i class="fa fa-phone" aria-hidden="true"></i>&nbsp;联系电话：<a href="tel:4001667566">4001667566</a></p>
+                            <p>© 2017 58gzt.com 版权：武汉58工长通有限公司</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ************** Footer Area End ************** -->
+
+
+
+
+
+    <!-- ******用户预约模块start****** -->
+
+    @include('frontend.partial.aside')
+    <!-- ******用户注册模块start****** -->
+
+    <!-- ******底部浮层模块start****** -->
+
+    <div class="float-foot">
+        <div class="left-logo">
+            <img src="picture/l_logo.png"  alt="">
+        </div>
+
+        <div class="r_sale">
+            <img src="picture/r_sale.png"  alt="">
+        </div>
+
+        <div class="foot-form">
+            <form action="/applies" method="POST">
+                {!! csrf_field() !!}
+                <input type="text" placeholder="姓名" name='name'>
+                <input type="number" placeholder="手机号" name='phone'>
+                <input type="text" placeholder="所在小区" name='block'>
+                <button>免费预约</button>
+            </form>
+        </div>
     </div>
-</footer>
-<!-- ************** Footer Area End ************** -->
-
-
-
-
-
-<!-- ******用户预约模块start****** -->
-
-@include('frontend.partial.aside')
-<!-- ******用户注册模块start****** -->
-
-<!-- ******底部浮层模块start****** -->
-
-<div class="float-foot">
-    <div class="left-logo">
-        <img src="picture/l_logo.png"  alt="">
-    </div>
-
-    <div class="r_sale">
-        <img src="picture/r_sale.png"  alt="">
-    </div>
-
-    <div class="foot-form">
-        <form action="/applies" method="POST">
-        {!! csrf_field() !!}
-            <input type="text" placeholder="姓名" name='name'>
-            <input type="number" placeholder="手机号" name='phone'>
-            <input type="text" placeholder="所在小区" name='block'>
-            <button>免费预约</button>
-        </form>
-    </div>
-</div>
-@stop
+    @stop

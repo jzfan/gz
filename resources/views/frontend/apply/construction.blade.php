@@ -63,7 +63,7 @@
                 @foreach ($leaders as $i=>$leader)
                   <li class="row img-avoter"><a href="gzshow.html">
                     <div class="col-md-4">
-                        <img src="{{ $leader->avatar }}" alt="" class="img-responsive img-circle">
+                        <img src="{{ $leader->user->avatar }}" alt="" class="img-responsive img-circle">
                     </div>
 
                     <div class="col-md-8">

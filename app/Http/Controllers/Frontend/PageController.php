@@ -41,4 +41,9 @@ class PageController extends Controller
         return view('frontend.index', compact('leaders', 'offers', 'comments', 'workings', 'articles', 'feng_shui', 'industry', 'designs'));
     }
 
+    public function freesize()
+    {
+        return view('frontend.freesize');
+    }
+
 }
