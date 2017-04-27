@@ -2,7 +2,7 @@
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
-
+Route::get('/admin/login', 'Auth\LoginController@adminLoginForm');
 
 Route::namespace('Frontend')->group( function () {
 	Route::post('customers', 'CustomerController@store');
@@ -23,14 +23,18 @@ Route::namespace('Frontend')->group( function () {
 	Route::post('me', 'MeController@update');
 	Route::post('me/password', 'MeController@resetPassword');
 
-	Route::get('leaders/{id}', 'LeaderController@show');
 	Route::get('leaders', 'LeaderController@index');
+	Route::post('leaders/search', 'LeaderController@likeName');
+	Route::get('leaders/{id}', 'LeaderController@show');
 	Route::get('offers/create-1', 'OfferController@getFormOne');
 	Route::get('offers/create-2', 'OfferController@getFormTwo');
 	// Route::post('offers/form-1', 'OfferController@setFormOne');
 	Route::post('offers', 'OfferController@store');
 	Route::get('designers', 'DesignerController@index');
 	Route::get('designers/{designer}', 'DesignerController@show');
+
+	Route::get('workers', 'WorkerController@index');
+	Route::get('workers/{worker}', 'WorkerController@show');
 });
 
 

@@ -1,3 +1,4 @@
+@include('frontend.partial.login-info')
 <header class="header_area">
     <!-- Main Header Area Start -->
     <div class="main_header_area" id="sticky">

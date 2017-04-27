@@ -1,3 +1,4 @@
+@include('frontend.partial.login-info')
 <header class="header_area">
     <!-- Main Header Area Start -->
     <div class="main_header_area" id="sticky">
@@ -19,6 +20,7 @@
                                 <ul id="nav">
                                     <li class="current_page_item"><a href="#home">首页</a></li>
                                     <li><a href="#advisor">找工长</a></li>
+                                    <li><a href="/workers">找工人</a></li>
                                     <li><a href="#service">工长工地</a></li>
                                     <li><a href="#work">设计师</a></li>
                                     <li><a href="#price">装修报价</a></li>

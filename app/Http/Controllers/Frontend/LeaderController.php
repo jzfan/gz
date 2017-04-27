@@ -18,7 +18,6 @@ class LeaderController extends Controller
     {
     	$leader = $this->leader->showById($id);
     	$tops = $this->leader->tops(4);
-    	// dd($tops);
         return view('frontend.user.gzshow', compact('leader', 'tops'));
     }    
 
@@ -28,5 +27,14 @@ class LeaderController extends Controller
         $rank_list = $this->leader->latestBy('rank', 6); 
         $WO_list = $this->leader->latestBy('WO', 6);
         return view('frontend.user.gzlist', compact('points_list', 'rank_list', 'WO_list'));
+    }
+
+    public function likeName()
+    {
+        $this->validate(request(), [
+                'name' => 'required'
+            ]);
+        $result = $this->leader->likeName(request('name'));
+        return view('frontend.user.gz-result', compact('result'));
     }
 }

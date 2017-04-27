@@ -70,4 +70,11 @@ class LeaderRepo
 	{
 	    return $this->leader->with('user')->orderBy($attr, 'desc')->take($n)->get();
 	}
+
+	public function likeName($name)
+	{
+		return $this->leader->whereHas('user', function($q) use ($name) {
+			$q->where('name', 'like', '%'.$name.'%');
+		})->get();
+	}
 }

@@ -14,8 +14,7 @@ class LeaderController extends Controller
 	{
 		$this->leader = $leader;
 	}
-
-
+    
     public function index()
     {
         $leaders = $this->leader->byPage(6);
@@ -30,11 +29,14 @@ class LeaderController extends Controller
 
     public function update($id)
     {
-        $path = '/' . str_replace('public', 'storage', request('avatar')->store('public/avatar'));
-    	$this->leader->updateById($id, array_merge(
-                request()->input(),
-                ['avatar' => $path]
-                ));
+        $input = request()->input();
+        if (request()->hasFile('avatar')) {
+            $input = array_merge(
+                        $input, 
+                        [ 'avatar' => '/' . str_replace('public', 'storage', request('avatar')->store('public/avatar')) ]
+                    );
+        }
+    	$this->leader->updateById($id, $input);
         return redirect('/backend/leaders')->withSuccess('更新成功！');
     }
 }

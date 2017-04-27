@@ -17,12 +17,18 @@
                     <div class="panel-body">
                         <form class="form-horizontal tasi-form" method="post" action="/materials" id="role-form">
                           {!! csrf_field() !!}
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">名称</label>
-                                <div class="col-sm-10">
-                                    <input type="text" name="name" class="form-control" placeholder="请输入名称." required="" autofocus="">
-                                </div>
-                            </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 control-label">标签</label>
+                              <div class="col-sm-10">
+                                  <input name="name" id="tagsinput" class="tagsinput" value="{{ old('name') }}" />
+                                  <br>
+                                  <div id='tags-div'>
+                                  @foreach (\Gz\Item\Material::all() as $material)
+                                    <button type="button" class="btn btn-round btn-{{ array_rand(array_flip(config('view.color'))) }}" style="margin-bottom: 5px">{{ $material->name }}</button>
+                                  @endforeach
+                                  </div>
+                              </div>
+                          </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">品牌</label>
                                 <div class="col-sm-10">
@@ -93,6 +99,13 @@
 
 @section('js')
 <script type="text/javascript">
+  $(".tagsinput").tagsInput({
+    interactive: false,
+  });
+  $('#tags-div button').click( function () {
+    console.log($(this).text());
+    $(".tagsinput").importTags($(this).text());
+  })
   $('td .btn-danger').click( function (e) {
     e.preventDefault();
     if ( confirm('真的要删除吗？') ) {

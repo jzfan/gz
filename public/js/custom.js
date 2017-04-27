@@ -295,6 +295,7 @@ $(function(){
 
         var dom = $(id).clone();
         var newdom = dom.attr('id', url.split('#')[1]);
+        newdom.attr('data-id', url.split('#')[1]);
         $('.tab-content').append(newdom);
         $('.tab-content .tab-pane').each(function(){
             $(this).removeClass('active');
@@ -319,17 +320,20 @@ $(function(){
         count = 1;
     })
 
-    $(document).on('click','.tab-pane a',function(e){
+    $(document).on('click','.tab-pane p a',function(e){
         e.stopPropagation();
-        var id = $(this).attr('href');
+        var id = $(this).attr('href').split('#')[1];
         console.log(id);
-        $('.tab-content .tab-pane').each(function(){
-            $(this).removeClass('active');
-            $(this).css('display','none');
+        $(document).find('.tab-content .tab-pane').each(function(){
+            console.log($(this).attr('id'));
+            if($(this).attr('id') != id){
+                $(this).removeClass('active');
+                $(this).css('display','none');
+            }else{
+                $(this).addClass('active');
+                $(this).css('display','block');
+            }
         });
-        console.log($(id));
-        $(id).addClass('active');
-        $(id).css('display','block');
         
     })
 })

@@ -17,4 +17,12 @@ class WorkerRepo
 	{
 	    return $this->worker->with('user')->latest()->paginate($n);
 	}
+
+	public function byCrafts($n)
+	{
+		$crafts = $this->worker->groupBy('craft')->get(['craft'])->pluck('craft')->toArray();
+		return collect($crafts)->map( function($craft) use($n) {
+			return $this->worker->with('user')->whereCraft($craft)->latest()->take($n)->get();
+		});
+	}
 }
