@@ -38,116 +38,27 @@
 <section class="special_feature_area">
     <div class="container">
         <div class="row">
-            <a href="/freesize">
-                
+        @foreach (\Gz\Article\Card::all() as $card)
+            <a href="{{ $card->link }}">
                 <div class="col-sm-6 col-md-2">
                     <!-- Single Feature Area Start -->
                     <div class="single_feature wow fadeInUp" data-wow-delay=".2s">
                         <div class="bg-icon">
-                            <span class="icon-tools"></span>
+                            <span class="icon-{{ $card->icon }}"></span>
                         </div>
                         <div class="feature_img">
-                            <span class="icon-tools"></span>
+                            <span class="icon-{{ $card->icon }}"></span>
                         </div>
                         <!-- Single Feature Image Area End -->
                         <div class="feature_text">
-                            <h3>免费 量房</h3>
-                            <p>多年经验工长上门免费量房，实地查看毛坯，满足客户个性化需求。数据精准无误</p>
+                            <h3>{{ $card->title }}</h3>
+                            <p>{{ str_limit($card->content, 80) }}</p>
                         </div>
                         <!-- Single Feature Text Area End -->
                     </div>
                 </div>
             </a>
-
-            <div class="col-sm-6 col-md-2" data-toggle="modal" data-target="#exampleModal">
-                <!-- Single Feature Area Start -->
-                <div class="single_feature wow fadeInUp" data-wow-delay=".4s">
-                    <div class="bg-icon">
-                        <span class="icon-gift"></span>
-                    </div>
-                    <div class="feature_img">
-                        <span class="icon-gift"></span>
-                    </div>
-                    <!-- Single Feature Image Area End -->
-                    <div class="feature_text">
-                        <h3>30% 优惠</h3>
-                        <p>通过平台申请装修需求，最高可优惠30%装修费，优惠多多，赶紧在线申请吧</p>
-                    </div>
-                    <!-- Single Feature Text Area End -->
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-2" data-toggle="modal" data-target="#exampleModal">
-                <!-- Single Feature Area Start -->
-                <div class="single_feature wow fadeInUp" data-wow-delay=".6s">
-                    <div class="bg-icon">
-                        <span class="icon-genius"></span>
-                    </div>
-                    <div class="feature_img">
-                        <span class="icon-genius"></span>
-                    </div>
-                    <!-- Single Feature Image Area End -->
-                    <div class="feature_text">
-                        <h3>平台 监理</h3>
-                        <p>专业审核装修报价，全程8-12次工地，验收通过业主签字方款，平台三方监管</p>
-                    </div>
-                    <!-- Single Feature Text Area End -->
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-2" data-toggle="modal" data-target="#exampleModal">
-                <!-- Single Feature Area Start -->
-                <div class="single_feature wow fadeInUp" data-wow-delay=".8s">
-                    <div class="bg-icon">
-                        <span class="icon-adjustments"></span>
-                    </div>
-                    <div class="feature_img">
-                        <span class="icon-adjustments"></span>
-                    </div>
-                    <!-- Single Feature Image Area End -->
-                    <div class="feature_text">
-                        <h3>辅料 直供</h3>
-                        <p>辅材厂家直购，品质有保证, 安全健康，规模采购,价格比市场价便宜5-20%上.</p>
-                    </div>
-                    <!-- Single Feature Text Area End -->
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-2" data-toggle="modal" data-target="#exampleModal">
-                <!-- Single Feature Area Start -->
-                <div class="single_feature wow fadeInUp" data-wow-delay=".8s">
-                    <div class="bg-icon">
-                        <span class="icon-browser"></span>
-                    </div>
-                    <div class="feature_img">
-                        <span class="icon-browser"></span>
-                    </div>
-                    <!-- Single Feature Image Area End -->
-                    <div class="feature_text">
-                        <h3>先行赔付</h3>
-                        <p>先行赔付争议款项，品质有保证, 维护客户权益，阶段性款项下放,客户实施掌握动态.</p>
-                    </div>
-                    <!-- Single Feature Text Area End -->
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-2" data-toggle="modal" data-target="#exampleModal">
-                <!-- Single Feature Area Start -->
-                <div class="single_feature wow fadeInUp" data-wow-delay=".8s">
-                    <div class="bg-icon">
-                        <span class="icon-hazardous"></span>
-                    </div>
-                    <div class="feature_img">
-                        <span class="icon-hazardous"></span>
-                    </div>
-                    <!-- Single Feature Image Area End -->
-                    <div class="feature_text">
-                        <h3>用工安全</h3>
-                        <p>工长工人保险，用工安全有保障, 客户安心放心舒心,全无后顾之忧.</p>
-                    </div>
-                    <!-- Single Feature Text Area End -->
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

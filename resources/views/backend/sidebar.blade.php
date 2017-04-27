@@ -15,6 +15,12 @@
                       </a>
                   </li>
                   <li class="">
+                      <a class="" href="/cards">
+                          <i class="icon-tag"></i>
+                          <span>卡片</span>
+                      </a>
+                  </li>
+                  <li class="">
                       <a class="" href="/backend/articles">
                           <i class="icon-file-text-alt"></i>
                           <span>文章</span>

@@ -44,6 +44,7 @@ Route::namespace('Backend')->middleware('auth')->group( function () {
 	Route::middleware('editor')->group( function () {
 		Route::get('editor-console', 'PageController@editorConsole');
 		Route::resource('seos', 'SeoController');
+		Route::resource('cards', 'CardController');
 		Route::resource('backend/articles', 'ArticleController');
 	});
 	Route::middleware('admin')->group( function () {

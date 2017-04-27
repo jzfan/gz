@@ -98,6 +98,14 @@ $factory->define(Gz\Article\Comment::class, function (Faker\Generator $faker) {
         'content' => join(PHP_EOL, $faker->paragraphs)
     ];
 });
+
+$factory->define(Gz\Article\Card::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->word,
+        'content' => $faker->paragraph
+    ];
+});
+
 $factory->define(Gz\Gallery\Gallery::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->sentence(2),
