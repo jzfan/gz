@@ -1,7 +1,7 @@
 $(function () {
 
     // Get the form.
-    var form = $('#main_contact_form');
+    var form = $('#main_contact_form_register');
 
     // Get the messages div.
     var formMessages = $('#success_fail_info');
@@ -26,12 +26,17 @@ $(function () {
                 $(formMessages).addClass('success');
 
                 // Set the message text.
-                $(formMessages).text('Thanks! Message has been sent.');
+                $(formMessages).text('信息提交成功');
 
                 // Clear the form.
                 $('#name').val('');
                 $('#email').val('');
                 $('#message').val('');
+                if($('.gz-sign').find('input').is(':checked').val() == 'leader'){
+                    window.location.href = '/me'
+                }else{
+                    window.location.href = '/'
+                }
             })
             .fail(function (data) {
                 // Make sure that the formMessages div has the 'error' class.

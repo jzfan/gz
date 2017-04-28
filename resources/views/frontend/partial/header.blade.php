@@ -18,14 +18,14 @@
                         <div class="mainmenu">
                             <nav>
                                 <ul id="nav">
-                                    <li class="current_page_item"><a href="/">首页</a></li>
-                                    <li><a href="#advisor">找工长</a></li>
-                                    <li><a href="#service">工长工地</a></li>
-                                    <li><a href="#work">设计师</a></li>
-                                    <li><a href="#price">装修报价</a></li>
-                                    <li><a href="#comment">业主评价</a></li>
-                                    <li><a href="#blog">新闻热点</a></li>
-                                    <li><a href="#about">关于我们</a></li>
+                                    <li><a href="/">首页</a></li>
+                                    <li><a href="/leaders">找工长</a></li>
+                                    <li><a href="/workers">找工人</a></li>                                    
+                                    <li><a href="/constructions">工长工地</a></li>
+                                    <li><a href="/designers">设计师</a></li>
+                                    <li><a href="/offers">装修报价</a></li>
+                                    <li><a href="/comments">业主评价</a></li>
+                                    <li><a href="/articles">新闻热点</a></li>
                                 </ul>
                             </nav>
                         </div>
