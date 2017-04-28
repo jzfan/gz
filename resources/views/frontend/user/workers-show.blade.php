@@ -47,7 +47,7 @@
 				<h4 class="alert alert-info">最佳 {{ $worker->craft }}</h4>
 				<ul class="list-group">
 				@endif
-				<a href="/workers/{{ $worker->user->id }}"><li class="row gr-img">
+				<a href="/workers/{{ $worker->id }}"><li class="row gr-img">
 					<div class="col-md-4">
 						<img src="{{ $worker->user->avatar }}" class="img-responsive img-circle">
 					</div>
