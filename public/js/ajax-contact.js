@@ -32,7 +32,7 @@ $(function () {
                 $('#name').val('');
                 $('#email').val('');
                 $('#message').val('');
-                if($('.gz-sign').find('input').is(':checked').val() == 'leader'){
+                if($('.gz-sign').find('input').eq(1).is(':checked')){
                     window.location.href = '/me'
                 }else{
                     window.location.href = '/'
@@ -47,7 +47,7 @@ $(function () {
                 if (data.responseText !== '') {
                     $(formMessages).text(data.responseText);
                 } else {
-                    $(formMessages).text('Oops! An error occured.');
+                    $(formMessages).text('信息有误');
                 }
             });
 
