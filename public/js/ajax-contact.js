@@ -33,9 +33,13 @@ $(function () {
                 $('#email').val('');
                 $('#message').val('');
                 if($('.gz-sign').find('input').eq(1).is(':checked')){
-                    window.location.href = '/me'
+                    setTimeout(function(){
+                        window.location.href = '/me'
+                    },1000)
                 }else{
-                    window.location.href = '/'
+                    setTimeout(function(){
+                        window.location.href = '/'
+                    },1000)
                 }
             })
             .fail(function (data) {
