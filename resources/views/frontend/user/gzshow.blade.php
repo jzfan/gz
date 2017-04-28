@@ -347,33 +347,31 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="exampleModalLabel">免费预约</h4>
       </div>
+        <form action="/applies" method="POST">
       <div class="modal-body contact_input_area">
-        <form>
+        {!! csrf_field() !!}
           <div class="form-group">
-            <input type="text" class="form-control" id="recipient-name" placeholder="您的称呼">
+            <input type="text" class="form-control" id="recipient-name" placeholder="您的称呼" name='name'>
           </div>
           <div class="form-group">
-            <input type="number" class="form-control" id="recipient-name" placeholder="您的手机号">
+            <input type="number" class="form-control" id="recipient-name" placeholder="您的手机号" name='phone'>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="recipient-name" placeholder="所在小区">
+            <input type="text" class="form-control" id="recipient-name" placeholder="所在小区" name='block'>
           </div>
           <div class="form-group">
-	          	<select class="form-control">
-				  <option>装修方式</option>
-				  <option>全屋整装</option>
-				  <option>半包</option>
+	          	<select class="form-control" name='plan'>
+				  <option value='全装修'>全装修</option>
+				  <option value='半装修'>半装修</option>
+				  <option value='待定'>待定</option>
 				</select>
           </div>
-          <div class="form-group">
-            <textarea class="form-control" id="message-text" placeholder="您的需求"></textarea>
-          </div>
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
-        <button type="button" class="btn btn-primary">提交</button>
+        <button type="submit" class="btn btn-primary">提交</button>
       </div>
+        </form>
     </div>
   </div>
 </div>
@@ -393,26 +391,19 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="exampleModalLabel">评价工长</h4>
       </div>
+        <form action="/comments?type=leader" method="POST">
+        {!! csrf_field() !!}
+        <input type="hidden" name='id' value='{{ $leader->id }}'>
       <div class="modal-body contact_input_area">
-        <form>
           <div class="form-group">
-            <input type="text" class="form-control" id="recipient-name" placeholder="您的称呼">
+            <textarea class="form-control" id="message-text" placeholder="您的评价" name='content'></textarea>
           </div>
-          <div class="form-group">
-            <input type="number" class="form-control" id="recipient-name" placeholder="您的手机号">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="recipient-name" placeholder="所在小区">
-          </div>
-          <div class="form-group">
-            <textarea class="form-control" id="message-text" placeholder="您的评价"></textarea>
-          </div>
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
-        <button type="button" class="btn btn-primary">提交</button>
+        <button type="submit" class="btn btn-primary">提交</button>
       </div>
+        </form>
     </div>
   </div>
 </div>

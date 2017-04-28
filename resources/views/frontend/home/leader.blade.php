@@ -146,7 +146,7 @@
                   <td>91㎡</td>
                   <td>25921.00</td>
                   <td>15841</td>
-                  <td><a href="">验收结果</a>&nbsp;&nbsp;<a href="">查看</a>&nbsp;&nbsp;<a href=""></td>
+                  <td><a href="/constructions/{{ $construct->id }}">验收结果</a>&nbsp;&nbsp;<a href="/offers/{{ $construct->id }}">查看</a>&nbsp;&nbsp;<a href=""></td>
                 </tr>
                 @endforeach
               </tbody>

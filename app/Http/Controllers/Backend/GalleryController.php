@@ -18,7 +18,7 @@ class GalleryController extends Controller
 	public function index()
 	{
 		$this->validate(request(), [
-				'type' => 'required|in:leader,construction,design'
+				'type' => 'required|in:leader,working,design'
 			]);
 	    $galleries = $this->gallery->pageByType(request('type'), 4);
 	    return view('backend.gallery.index', compact('galleries'));

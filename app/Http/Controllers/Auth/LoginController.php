@@ -41,4 +41,12 @@ class LoginController extends Controller
     {
         return view('backend.login');
     }
+
+    public function redirectTo()
+    {
+        if (\Auth::user()->isAdmin()) {
+            return '/admin-console';
+        }
+        return '/me';
+    }
 }

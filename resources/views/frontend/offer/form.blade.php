@@ -35,8 +35,8 @@
         <li class="list-group-item">
           {{ $key }}
           @foreach ($group as $material)
-          <label class="radio-inline">
-            <input type="radio" id="inlinebox1" 
+          <label class="checkbox-inline">
+            <input type="checkbox" id="inlinebox1" 
             data-name='{{ $material->name }}'
             data-brand='{{ $material->brand }}'
             value="{{ $material->id }}" name='materials[{{ array_flip(array_keys($materials->toArray()))[$key] }}]'> {{ $material->brand }}

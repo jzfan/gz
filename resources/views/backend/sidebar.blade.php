@@ -65,7 +65,7 @@
                       </a>
                       <ul class="sub">
                           <li><a class="" href="/backend/galleries?type=leader">工头</a></li>
-                          <li><a class="" href="/backend/galleries?type=construction">工地</a></li>
+                          <li><a class="" href="/backend/galleries?type=working">工地</a></li>
                           <li><a class="" href="/backend/galleries?type=design">设计</a></li>
                       </ul>
                   </li>

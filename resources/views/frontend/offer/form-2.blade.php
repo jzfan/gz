@@ -156,25 +156,10 @@
 @section('js')
 <script>
 let data = JSON.parse(window.localStorage.getItem('offer'))
-let options = []
   $(function () {
     initForm()
   })
-  function clicked(checkbox) {
-    let id = $(checkbox).data('id')
-    let obj = {
-      id: id
-    }
-    $.each(options, function (i, option) {
-      console.log(option.id === id)
-       if (option.id === id) {
-          console.log('i :' + i)
-          options.splice(i, 1)
-        }
-    })
-    options.push(obj)
-    console.log(options)
-  }
+
   function initForm()
   {
     initTitle(data.apply)

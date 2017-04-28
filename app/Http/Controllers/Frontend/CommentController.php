@@ -13,6 +13,7 @@ class CommentController extends Controller
 	public function __construct(CommentRepo $comment)
 	{
 		$this->comment = $comment;
+        $this->middleware('auth')->only('store');
 	}
 
     public function index()
@@ -27,5 +28,18 @@ class CommentController extends Controller
     	$leader = \Gz\User\User::findOrFail($leader_id);
         $comments = $leader->comments()->paginate(6);
         return view('frontend.comments.leader', compact('comments', 'leader'));
+    }
+
+    public function store()
+    {
+        $this->validate(request(), [
+                'content' => 'required|min:6'
+            ]);
+        $leader = \Gz\User\User::findOrFail(request('id'));
+        $leader->comments()->create([
+                'user_id' => \Auth::user()->id,
+                'content' => request('content')
+            ]);
+        return redirect()->back();
     }
 }

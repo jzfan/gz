@@ -27,4 +27,9 @@ class CommentRepo
 	{
 	    return $this->comment->inRandomOrder()->take(6)->get();
 	}
+
+	public function createByUer($user, $content)
+	{
+		
+	}
 }
