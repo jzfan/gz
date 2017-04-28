@@ -1,6 +1,6 @@
 <aside id="asideFloat">
     <div class="aside-top">
-        <img src="picture/l_logo.png" alt="">
+        <img src="/picture/l_logo.png" alt="">
     </div>
     <ul>
         <li><span class="icon-chat"></span><a href="http://wpa.qq.com/msgrd?v=3&uin=2712192471&site=qq&menu=yes">在线咨询</a></li>
@@ -14,7 +14,7 @@
 </aside>
 
 <div id="sprite">
-    <img src="picture/l_logo.png" alt="">
+    <img src="/picture/l_logo.png" alt="">
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="top:16%;">

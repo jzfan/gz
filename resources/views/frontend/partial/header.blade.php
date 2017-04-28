@@ -18,9 +18,8 @@
                         <div class="mainmenu">
                             <nav>
                                 <ul id="nav">
-                                    <li class="current_page_item"><a href="#home">首页</a></li>
+                                    <li class="current_page_item"><a href="/">首页</a></li>
                                     <li><a href="#advisor">找工长</a></li>
-                                    <li><a href="/workers">找工人</a></li>
                                     <li><a href="#service">工长工地</a></li>
                                     <li><a href="#work">设计师</a></li>
                                     <li><a href="#price">装修报价</a></li>

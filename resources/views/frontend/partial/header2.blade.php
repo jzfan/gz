@@ -20,6 +20,7 @@
                                 <ul id="nav">
                                     <li class="current_page_item"><a href="/">首页</a></li>
                                     <li><a href="/leaders">找工长</a></li>
+                                    <li><a href="/workers">找工人</a></li>                                    
                                     <li><a href="/constructions">工长工地</a></li>
                                     <li><a href="/designers">设计师</a></li>
                                     <li><a href="/offers">装修报价</a></li>

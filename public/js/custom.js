@@ -447,3 +447,18 @@ $(function(){
         window.location.href = link;
     })
 })
+
+//底部横幅显示隐藏
+$(function(){
+    $('.r-btm').click(function(){
+        $(this).parents('.float-foot').animate({width:"0px"},500);
+        $('.foot-form').fadeOut();
+        $('.left-logo').animate({left:"-50px"},500).css('transform','rotate(30deg)');
+    })
+
+    $('.left-logo').on('click', function(){
+        $('.foot-form').fadeIn();
+        $(this).parents('.float-foot').animate({width:"100%"},500);
+        $('.left-logo').css('transform','rotate(0deg)').animate({left:"100px"},500);
+    })   
+})

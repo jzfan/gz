@@ -61,7 +61,7 @@
                 <ul class="list-group">
                 <!-- 备注：li循环10条 -->
                 @foreach ($leaders as $i=>$leader)
-                  <li class="row img-avoter"><a href="gzshow.html">
+                  <li class="row img-avoter"><a href="/leaders/{{ $leader->user->id }}">
                     <div class="col-md-4">
                         <img src="{{ $leader->user->avatar }}" alt="" class="img-responsive img-circle">
                     </div>

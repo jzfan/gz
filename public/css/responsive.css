@@ -435,3 +435,9 @@
 #logout{
     margin-left:0.5rem;
 }
+.r-btm{
+    position: absolute;
+    right:3px;
+    top:0px;
+    color:#fff;
+}

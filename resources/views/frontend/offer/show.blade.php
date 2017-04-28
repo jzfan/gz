@@ -25,7 +25,7 @@
       <div class="col-sm-2 col-xs-9">
           <!-- Logo Area:: For better view in all device please use logo image max-width 70px -->
           <div class="logo-wrap">
-            <a href="index.html"><img src="/picture/logo.png" alt=""></a>
+            <a href="/"><img src="/picture/logo.png" alt=""></a>
           </div>
       </div>
 
@@ -109,13 +109,13 @@
             <td class="text-center">㎡</td>
             <td class="text-center">{{ $option['quantity'] }}</td>
             <td class="text-center">{{ $option['price'] }}</td>
-            <td class="text-center">{{ $option['total'] }}</td>
+            <td class="text-center cumadd">{{ $option['total'] }}</td>
           </tr>
           @endforeach
           <tr>
            
             <td class="text-center" colspan="5">合计</td>
-            <td class="text-center" colspan="1">123</td>
+            <td class="text-center sum" colspan="1">123</td>
           </tr>
         </tbody>
     </table>
@@ -150,6 +150,19 @@
 <script src="/js/jquery.stellar.min.js"></script>
 <script src="/js/ytplayer.min.js"></script>
 <script src="/js/custom.js"></script>
+<script type="text/javascript">
+//view页面单项工程总价计算
+$(function(){
+    $('tbody').each(function(){
+        var oneSum = 0;
+        var _this = $(this);
+        $(this).find('.cumadd').each(function(){
+          oneSum += Number($(this).text());
+          _this.find('.sum').text(oneSum);
+        })
+    });
+})
+</script>
 
 </body>
 

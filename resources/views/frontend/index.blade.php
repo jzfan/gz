@@ -485,7 +485,7 @@
     </div>
 
     <div class="row w-more">
-        <div class="col-xs-12 text-center"><a href="装修报价.html" role="button" class="btn btn-danger btn-lg">查看更多&nbsp;<span class="glyphicon glyphicon-forward"></span></a></div>
+        <div class="col-xs-12 text-center"><a href="/offers" role="button" class="btn btn-danger btn-lg">查看更多&nbsp;<span class="glyphicon glyphicon-forward"></span></a></div>
     </div>
 </div>
 <!-- ***************** Price and Plans Area End ***************** -->
@@ -548,7 +548,7 @@
                 <!-- Section Heading Start -->
                 <div class="section_heading white">
                     <p>我们时刻关注您的评价</p>
-                    <h3>客户最新评价<small><a href="comment.html" style="color:#fff">更多评价</a></small></h3>
+                    <h3>客户最新评价<small><a href="/comments" style="color:#fff">更多评价</a></small></h3>
                 </div>
                 <!-- Section Heading End -->
             </div>
@@ -559,7 +559,7 @@
                     <div class="testimonials">
                         <!-- Single testimonial area start  -->
                         @foreach ($comments as $comment)
-                        <div class="single_testimonial_area">
+                        <a href="/comments/leaders/{{ $comment->user->id }}"><div class="single_testimonial_area">
                             <!-- Single testimonial text  -->
                             <div class="testimonial_text">
                                 <!-- Single testimonial thumb  -->
@@ -572,7 +572,7 @@
                                 <h5>{{ $comment->user->name }}</h5>
                                 <h6>服务工长 &amp;  {{ $comment->commentable->name }}</h6>
                             </div>
-                        </div>
+                        </div></a>
                         @endforeach
                     </div>
                 </div>
@@ -757,5 +757,6 @@
                 <button>免费预约</button>
             </form>
         </div>
+        <span class="r-btm">X</span>
     </div>
     @stop
