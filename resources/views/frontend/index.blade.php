@@ -18,7 +18,7 @@
             </div>
         </div>
         <!-- Single Slide Start -->
-        <div class="single_slide" style="background-image: url(images/bg-1.jpg);">
+        <div class="single_slide" style="background-image: url(/images/bg-1.jpg);">
             <div class="slide_text">
                 <div class="table">
                     <div class="table_cell">
@@ -51,7 +51,7 @@
                         </div>
                         <!-- Single Feature Image Area End -->
                         <div class="feature_text">
-                            <h3>{{ $card->title }}</h3>
+                            <h3 style="color: #000;">{{ $card->title }}</h3>
                             <p>{{ str_limit($card->content, 80) }}</p>
                         </div>
                         <!-- Single Feature Text Area End -->

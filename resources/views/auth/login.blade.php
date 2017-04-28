@@ -29,7 +29,7 @@
                 <div class="message_title">
                     <!-- Section Heading Start -->
                     <div class="section_heading text-left">
-                        <h3 class="text-center">工长登录</h3>
+                        <h3 class="text-center">工长&nbsp;&nbsp;  | &nbsp;&nbsp; 用户登录</h3>
                     </div>
                     <!-- Section Heading End -->
                 </div>
