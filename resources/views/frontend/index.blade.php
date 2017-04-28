@@ -559,7 +559,7 @@
                     <div class="testimonials">
                         <!-- Single testimonial area start  -->
                         @foreach ($comments as $comment)
-                        <a href="/comments/leaders/{{ $comment->user->id }}"><div class="single_testimonial_area">
+                        <a href="/comments/leaders/{{ $comment->commentable->id }}"><div class="single_testimonial_area">
                             <!-- Single testimonial text  -->
                             <div class="testimonial_text">
                                 <!-- Single testimonial thumb  -->
