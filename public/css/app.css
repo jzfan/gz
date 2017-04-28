@@ -253,3 +253,7 @@ tbody td a:hover{
 	right: 2rem;
 	bottom: 2rem;
 }
+.th-style{
+	font-size: 18px;
+    color: rgba(230,0,45,0.8);
+}
