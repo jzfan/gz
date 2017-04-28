@@ -75,6 +75,8 @@ Route::namespace('Backend')->middleware('auth')->group( function () {
 			Route::get('offers', 'OfferController@index');
 			Route::get('offers/{id}', 'OfferController@show');
 			Route::get('workers', 'WorkerController@index');
+			Route::get('workers/{id}/edit', 'WorkerController@edit');
+			Route::put('workers/{id}', 'WorkerController@update');
 			Route::get('customers', 'CustomerController@index');
 			Route::get('projects/{status}', 'ProjectController@pageByStatus');
 

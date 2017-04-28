@@ -12,8 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Material::truncate();
-        factory(Material::class, 11)->create();
+        $this->call(MaterialSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(ApplySeeder::class);
         $this->call(ItemSeeder::class);
@@ -22,10 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(OfferSeeder::class);
         $this->call(GallerySeeder::class);
         $this->call(DesignerSeeder::class);
-
-
-
-        
     }
 
 }

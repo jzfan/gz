@@ -511,7 +511,7 @@
             <div class="col-sm-4 col-md-2">
                 <div class="single_price_plan wow fadeInUp" data-wow-delay=".2s">
                     <div class="price">
-                        <h4>{{ $i+1 }}</h4>
+                        <h4>0{{ $i+1 }}</h4>
                     </div>
                     <div class="title">
                         <h3>{{ $flow->title }}</h3>

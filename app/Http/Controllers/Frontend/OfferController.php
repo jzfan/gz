@@ -32,7 +32,7 @@ class OfferController extends Controller
 
     public function getFormOne()
     {
-        $materials = Material::get(['id', 'name', 'brand']);
+        $materials = Material::get(['id', 'name', 'brand'])->groupBy('name');
         return view('frontend.offer.form', compact('materials'));
     }
 

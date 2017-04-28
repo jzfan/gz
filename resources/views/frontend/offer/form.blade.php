@@ -31,15 +31,17 @@
     <div class="panel-body">
       <div class="form-inline">
         <ul class="list-group">
-        @foreach ($materials as $i=>$material)
+        @foreach ($materials as $key => $group)
         <li class="list-group-item">
-          {{ $material->name }}
-          <label class="checkbox-inline">
-            <input type="checkbox" id="inlinebox1" 
+          {{ $key }}
+          @foreach ($group as $material)
+          <label class="radio-inline">
+            <input type="radio" id="inlinebox1" 
             data-name='{{ $material->name }}'
             data-brand='{{ $material->brand }}'
-            value="{{ $material->id }}" name='materials[{{ $i+1 }}]'> {{ $material->brand }}
+            value="{{ $material->id }}" name='materials[{{ array_flip(array_keys($materials->toArray()))[$key] }}]'> {{ $material->brand }}
           </label>
+          @endforeach
         </li>
         @endforeach
 </ul>
@@ -66,6 +68,7 @@ $('#forward-link').click( function (e) {
         apply[this.name] = this.value
       }
   })
+  console.log({materials, apply})
   window.localStorage.setItem('offer', JSON.stringify({materials, apply}))
 })
 </script>

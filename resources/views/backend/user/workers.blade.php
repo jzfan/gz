@@ -19,6 +19,7 @@
             <th> 工作区域</th>
             <th> 日薪</th>
             <th> 注册时间</th>
+            <th> 编辑</th>
           </tr>
         </thead>
         <tbody>
@@ -32,6 +33,9 @@
               <td>{{ $worker->area }}</td>
               <td>{{ $worker->daily_wage }} 元</td>
               <td> {{ $worker->created_at->format('Y-m-d') }} </td>
+              <td>
+                <a class="btn btn-info btn-xs" href='/backend/workers/{{ $worker->id }}/edit'><i class="icon-edit"></i></a>
+              </td>
             </tr>
           @endforeach
         </tbody>

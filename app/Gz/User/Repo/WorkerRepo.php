@@ -25,4 +25,17 @@ class WorkerRepo
 			return $this->worker->with('user')->whereCraft($craft)->latest()->take($n)->get();
 		});
 	}
+
+	public function byId($id)
+	{
+	    return $this->worker->with('user')->findOrFail($id);
+	}
+
+	public function updateById($id, $input)
+	{
+	    $worker = $this->worker->findOrFail($id);
+	    $worker->update($input);
+	    return $worker->user->update($input);
+	    // return $this->leader->where('user_id', $id)->get()->update($input);
+	}
 }
