@@ -256,4 +256,5 @@ tbody td a:hover{
 .th-style{
 	font-size: 18px;
     color: rgba(230,0,45,0.8);
+    text-align: center;
 }
