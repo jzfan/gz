@@ -8,28 +8,28 @@
                           <span>控制台</span>
                       </a>
                   </li>
-                  <li class="">
-                      <a class="" href="/seos">
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
                           <i class="icon-globe"></i>
-                          <span>S E O</span>
+                          <span>内容</span>
+                          <span class="arrow"></span>
                       </a>
-                  </li>
-                  <li class="">
-                      <a class="" href="/cards">
-                          <i class="icon-columns"></i>
-                          <span>卡片</span>
-                      </a>
-                  </li>
-                  <li class="">
-                      <a class="" href="/flows">
-                          <i class="icon-refresh"></i>
-                          <span>流程</span>
-                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="/seos">S E O</a></li>
+                          <li><a class="" href="/cards">卡片</a></li>
+                          <li><a class="" href="/flows">流程</a></li>
+                      </ul>
                   </li>
                   <li class="">
                       <a class="" href="/backend/articles">
                           <i class="icon-file-text-alt"></i>
                           <span>文章</span>
+                      </a>
+                  </li>
+                  <li class="">
+                      <a class="" href="/backend/comments">
+                          <i class="icon-comment"></i>
+                          <span>评论</span>
                       </a>
                   </li>
           @if (Auth::user()->isAdmin())
@@ -49,12 +49,6 @@
                       <a class="" href="/backend/offers">
                           <i class="icon-table"></i>
                           <span>报价</span>
-                      </a>
-                  </li>
-                  <li class="">
-                      <a class="" href="/backend/designers">
-                          <i class="icon-lightbulb"></i>
-                          <span>设计</span>
                       </a>
                   </li>
                   <li class="sub-menu">
@@ -79,6 +73,7 @@
                           <li><a class="" href="/backend/leaders">工头</a></li>
                           <li><a class="" href="/backend/workers">工人</a></li>
                           <li><a class="" href="/backend/customers">业主</a></li>
+                          <li><a class="" href="/backend/designers">设计师</a></li>
                       </ul>
                   </li>
                   <li class="">
