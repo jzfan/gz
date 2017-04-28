@@ -507,129 +507,26 @@
 
         <div class="row">
             <!-- Single Price Plan Area Start -->
+            @foreach (\Gz\Article\Flow::all() as $i => $flow)
             <div class="col-sm-4 col-md-2">
                 <div class="single_price_plan wow fadeInUp" data-wow-delay=".2s">
                     <div class="price">
-                        <h4>01</h4>
+                        <h4>{{ $i+1 }}</h4>
                     </div>
                     <div class="title">
-                        <h3>量房验房</h3>
+                        <h3>{{ $flow->title }}</h3>
                     </div>
                     <div class="description">
-                        <p>量房时间: 3天内</p>
-                        <p>精准数据测量</p>
-                        <p>了解房屋布局</p>
-                        <p>48小时内反馈</p>
+                        @foreach ($flow->text as $li)
+                        <p>{{ $li }}</p>
+                        @endforeach
                     </div>
                     <!-- <div class="button">
                         <a class="btn btn-default" href="#" role="button">查看详情</a>
                     </div> -->
                 </div>
             </div>
-            <!-- Single Price Plan Area End -->
-
-            <!-- Single Price Plan Area Start -->
-            <div class="col-sm-4 col-md-2">
-                <div class="single_price_plan wow fadeInUp" data-wow-delay=".4s">
-                    <div class="price">
-                        <h4>02</h4>
-                    </div>
-                    <div class="title">
-                        <h3>设计报价</h3>
-                    </div>
-                    <div class="description">
-                        <p>量房时间: 3天内</p>
-                        <p>精准数据测量</p>
-                        <p>了解房屋布局</p>
-                        <p>48小时内反馈</p>
-                    </div><!-- 
-                    <div class="button">
-                        <a class="btn btn-default" href="#" role="button">查看详情</a>
-                    </div> -->
-                </div>
-            </div>
-            <!-- Single Price Plan Area End -->
-
-            <!-- Single Price Plan Area Start -->
-            <div class="col-sm-4 col-md-2">
-                <div class="single_price_plan wow fadeInUp" data-wow-delay=".6s">
-                    <div class="price">
-                        <h4>03</h4>
-                    </div>
-                    <div class="title">
-                        <h3>装修验收</h3>
-                    </div>
-                    <div class="description">
-                        <p>量房时间: 3天内</p>
-                        <p>精准数据测量</p>
-                        <p>明确客户预算</p>
-                        <p>48小时内反馈</p>
-                    </div><!-- 
-                    <div class="button">
-                        <a class="btn btn-default" href="#" role="button">查看详情</a>
-                    </div> -->
-                </div>
-            </div>
-            <!-- Single Price Plan Area End -->
-
-            <!-- Single Price Plan Area Start -->
-            <div class="col-sm-4 col-md-2">
-                <div class="single_price_plan wow fadeInUp" data-wow-delay=".8s">
-                    <div class="price">
-                        <h4>04</h4>
-                    </div>
-                    <div class="title">
-                        <h3>售后保障</h3>
-                    </div>
-                    <div class="description">
-                        <p>量房时间: 3天内</p>
-                        <p>精准数据测量</p>
-                        <p>了解房屋布局</p>
-                        <p>48小时内反馈</p>
-                    </div><!-- 
-                    <div class="button">
-                        <a class="btn btn-default" href="#" role="button">查看详情</a>
-                    </div> -->
-                </div>
-            </div>
-            <div class="col-sm-4 col-md-2">
-                <div class="single_price_plan wow fadeInUp" data-wow-delay=".8s">
-                    <div class="price">
-                        <h4>05</h4>
-                    </div>
-                    <div class="title">
-                        <h3>售后保障</h3>
-                    </div>
-                    <div class="description">
-                        <p>量房时间: 3天内</p>
-                        <p>精准数据测量</p>
-                        <p>了解房屋布局</p>
-                        <p>48小时内反馈</p>
-                    </div><!-- 
-                    <div class="button">
-                        <a class="btn btn-default" href="#" role="button">查看详情</a>
-                    </div> -->
-                </div>
-            </div>
-            <div class="col-sm-4 col-md-2">
-                <div class="single_price_plan wow fadeInUp" data-wow-delay=".8s">
-                    <div class="price">
-                        <h4>06</h4>
-                    </div>
-                    <div class="title">
-                        <h3>售后保障</h3>
-                    </div>
-                    <div class="description">
-                        <p>量房时间: 3天内</p>
-                        <p>精准数据测量</p>
-                        <p>了解房屋布局</p>
-                        <p>48小时内反馈</p>
-                    </div><!-- 
-                    <div class="button">
-                        <a class="btn btn-default" href="#" role="button">查看详情</a>
-                    </div> -->
-                </div>
-            </div>
+            @endforeach
             <!-- Single Price Plan Area End -->
 
         </div>

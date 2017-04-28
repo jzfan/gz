@@ -16,8 +16,14 @@
                   </li>
                   <li class="">
                       <a class="" href="/cards">
-                          <i class="icon-tag"></i>
+                          <i class="icon-columns"></i>
                           <span>卡片</span>
+                      </a>
+                  </li>
+                  <li class="">
+                      <a class="" href="/flows">
+                          <i class="icon-refresh"></i>
+                          <span>流程</span>
                       </a>
                   </li>
                   <li class="">
