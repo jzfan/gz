@@ -241,9 +241,6 @@
           </form>
 
         </div>
-
-
-
         <div class="tab-pane panel panel-default" contenteditable="true" id="panel-10">
           <form class="form-horizontal panel-body" method="post" action="/me/password">
           {!! csrf_field() !!}

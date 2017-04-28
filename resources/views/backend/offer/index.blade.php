@@ -22,7 +22,7 @@
           </tr>
         </thead>
         <tbody>
-        @foreach ($offers as $offer)
+          @foreach ($offers as $offer)
           <tr>
             <th>{{ $offer->id }}</th>
             <th>{{ $offer->user->name }}</th>
@@ -33,6 +33,14 @@
             <td> {{ $offer->created_at->format('Y-m-d') }} </td>
             <td>
               <a class="btn btn-info btn-xs" href='/backend/offers/{{ $offer->id }}'><i class="icon-eye-open"></i></a>
+              <div class="btn-group">
+                <button data-toggle="dropdown" class="btn btn-primary btn-xs dropdown-toggle btn-sm" type="button"> 状态 <span class="caret"></span></button>
+                <ul role="menu" class="dropdown-menu">
+                  <li><a href="/backend/offers/{{ $offer->id }}/status/offering">报价中</a></li>
+                  <li><a href="/backend/offers/{{ $offer->id }}/status/working">施工中</a></li>
+                  <li><a href="/backend/offers/{{ $offer->id }}/status/done">完工</a></li>
+                </ul>
+              </div>
               <a class="btn btn-success btn-xs" href='/backend/galleries/create?type=offer&id={{ $offer->id }}'><i class="icon-picture"></i></a>
             </td>
           </tr>

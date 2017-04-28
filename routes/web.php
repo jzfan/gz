@@ -48,6 +48,8 @@ Route::namespace('Backend')->middleware('auth')->group( function () {
 		Route::resource('cards', 'CardController');
 		Route::resource('flows', 'FlowController');
 		Route::resource('backend/articles', 'ArticleController');
+		Route::get('backend/comments', 'CommentController@index');
+		Route::delete('backend/comments/{id}', 'CommentController@destroy');
 	});
 	Route::middleware('admin')->group( function () {
 		Route::get('materials', 'MaterialController@index');
@@ -75,6 +77,7 @@ Route::namespace('Backend')->middleware('auth')->group( function () {
 			Route::put('leaders/{id}', 'LeaderController@update');
 			Route::get('offers', 'OfferController@index');
 			Route::get('offers/{id}', 'OfferController@show');
+			Route::get('offers/{id}/status/{status}', 'OfferController@setStatus');
 			Route::get('workers', 'WorkerController@index');
 			Route::get('workers/{id}/edit', 'WorkerController@edit');
 			Route::put('workers/{id}', 'WorkerController@update');
