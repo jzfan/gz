@@ -178,7 +178,7 @@ let data = JSON.parse(window.localStorage.getItem('offer'))
   function initMaterialsTable(materials)
   {
     materials.forEach(function (item) {
-      $('#materials-table thead tr').append(`<th class="th-style">${item.name}</th>`)
+      $('#materials-table thead tr').append(`<th class="th-style text-center">${item.name}</th>`)
       $('#materials-table tbody tr').append(`<td>${item.brand}</td>`)
     })
   }
