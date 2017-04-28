@@ -128,15 +128,6 @@ $factory->define(Gz\Gallery\Image::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(Gz\Item\Item::class, function (Faker\Generator $faker) {
-    $arr = ['基础', '水电', '主卧', '次卧', '厕所', '客厅', '餐厅', '杂项', '其他'];
-    $name = $faker->unique()->randomElement($arr);
-    return [
-        'name' => $name,
-        'single' => array_flip($arr)[$name] > 1 ? 0 : 1
-    ];
-});
-
 $factory->define(Gz\Item\ItemOption::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence,

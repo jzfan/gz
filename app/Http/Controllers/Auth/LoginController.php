@@ -47,13 +47,9 @@ class LoginController extends Controller
         if (\Auth::user()->isAdmin()) {
             return '/admin-console';
         }
-<<<<<<< HEAD
-        
-=======
-	if (\Auth::user()->isLeader()) {
-           return '/me';
-	}
-	return '/';
->>>>>>> e6ebf0bd93a4dd797394342698c37d30189ea3f5
+    	if (\Auth::user()->isLeader()) {
+               return '/me';
+    	}
+    	return '/';
     }
 }
