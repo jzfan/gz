@@ -1,4 +1,7 @@
 @extends('frontend.partial.main2')
+
+@section('content')
+
 <nav class="navbar navbar-win">
   <div class="container">
 	<p class="com-nav-child">
@@ -6,7 +9,7 @@
 	</p>
   </div>
 </nav>
-@section('content')
+
 <section class="container zxbj-list">
 	<!-- 备注:最大浏览量的循环8条 -->
 	<h4>58工长通工人展示</h4>
@@ -44,7 +47,7 @@
 				<h4 class="alert alert-info">最佳 {{ $worker->craft }}</h4>
 				<ul class="list-group">
 				@endif
-				<a href="工人详情页.html"><li class="row gr-img">
+				<a href="/workers/{{ $worker->user->id }}"><li class="row gr-img">
 					<div class="col-md-4">
 						<img src="{{ $worker->user->avatar }}" class="img-responsive img-circle">
 					</div>
