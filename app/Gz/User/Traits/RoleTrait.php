@@ -36,7 +36,7 @@ trait RoleTrait
 	        case 'editor':
 	            return '编辑';
 	        case 'leader':
-	            return '工头';
+	            return '工长';
 	        case 'worker':
 	            return '工人';
 	        default:

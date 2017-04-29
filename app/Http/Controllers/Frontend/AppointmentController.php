@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use Gz\Appointment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -13,6 +14,7 @@ class AppointmentController extends Controller
                 'phone' => 'required|phone',
                 'block' => 'required'
             ]);
-        dd(request()->all());
+        Appointment::create(request()->input());
+        return redirect()->back();
     }
 }

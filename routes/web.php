@@ -38,6 +38,7 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('workers', 'WorkerController@index');
 	Route::get('workers/{worker}', 'WorkerController@show');
 	Route::get('freesize', 'PageController@freesize');
+	Route::post('appointments', 'AppointmentController@store');
 });
 
 
@@ -93,6 +94,8 @@ Route::namespace('Backend')->middleware('auth')->group( function () {
 			Route::post('certificates', 'CertificateController@store');
 			Route::put('certificates/{id}', 'CertificateController@update');
 			Route::delete('certificates/{id}', 'CertificateController@destroy');
+			Route::get('appointments', 'AppointmentController@index');
+			Route::delete('appointments/{id}', 'AppointmentController@destroy');
 
 		});
 	});

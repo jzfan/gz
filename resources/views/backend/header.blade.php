@@ -8,7 +8,24 @@
           <div class="nav notify-row" id="top_menu">
             <!--  notification start -->
             <ul class="nav top-menu">
-            
+            <li class="">
+                <a class="" href="/{{ Auth::user()->role }}-console">
+                    <i class="icon-dashboard"></i>
+                    <span>控制台</span>
+                </a>
+            </li>
+            <li class="">
+                <a class="" href="/backend/appointments">
+                    <i class="icon-bell"></i>
+                    <span>预约</span>
+                </a>
+            </li>
+            <li class="">
+                <a class="" href="/backend/comments">
+                    <i class="icon-comment-alt"></i>
+                    <span>评论</span>
+                </a>
+            </li>
           </ul>
           </div>
           <div class="top-nav ">

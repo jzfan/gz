@@ -389,16 +389,3 @@
 	<!-- 预约参观结束 -->
 
 	@stop
-
-	@section('js')
-	<script>
-		$(function(){
-			$('.appointment').click(function(){
-				var name = $(this).parents('.thumbnail').find('.housing').text();
-				console.log(name);
-				$('#house').val(name);
-				$('#house').attr('preloader',name);
-			})
-		})
-	</script>
-	@stop

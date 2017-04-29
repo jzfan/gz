@@ -2,12 +2,7 @@
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu">
-                  <li class="">
-                      <a class="" href="/{{ Auth::user()->role }}-console">
-                          <i class="icon-dashboard"></i>
-                          <span>控制台</span>
-                      </a>
-                  </li>
+                  
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon-globe"></i>
@@ -24,12 +19,6 @@
                       <a class="" href="/backend/articles">
                           <i class="icon-file-text-alt"></i>
                           <span>文章</span>
-                      </a>
-                  </li>
-                  <li class="">
-                      <a class="" href="/backend/comments">
-                          <i class="icon-comment"></i>
-                          <span>评论</span>
                       </a>
                   </li>
           @if (Auth::user()->isAdmin())
