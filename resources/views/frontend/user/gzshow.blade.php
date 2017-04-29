@@ -110,7 +110,7 @@
 							<div class="caption">
 								<p><span class="housing">{{ $work->block }}</span> {{ $work->square }}㎡</p>
 								<p>总价： {{ $work->offer->amount }} 元</p>
-								<p><a data-toggle="modal" data-target="#exampleModal-2" class="btn btn-primary" role="button" class="appointment">预约参观</a></p>
+								<p><a data-toggle="modal" data-target="#exampleModal-2" class="btn btn-primary appointment" role="button">预约参观</a></p>
 							</div>
 						</div></a>
 					</div>
@@ -395,6 +395,7 @@
 		$(function(){
 			$('.appointment').click(function(){
 				var name = $(this).parents('.thumbnail').find('.housing').text();
+				console.log(name);
 				$('#house').val(name);
 				$('#house').attr('preloader',name);
 			})
