@@ -50,6 +50,13 @@ $factory->define(Gz\User\Worker::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(Gz\User\Certificate::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+        'picture' => '/images/'.mt_rand(1,5).'.jpg',
+    ];
+});
+
 $factory->define(Gz\Project\Offer::class, function (Faker\Generator $faker) {
     return [
         'amount' => mt_rand(10000, 200000)

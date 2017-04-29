@@ -89,6 +89,10 @@ Route::namespace('Backend')->middleware('auth')->group( function () {
 			Route::resource('images', 'ImageController', ['except'=>['index', 'edit']]);
 			Route::resource('designers', 'DesignerController', ['except'=>[]]);
 			// Route::post('images', 'ImageController@storeImage');
+			Route::get('certificates', 'CertificateController@index');
+			Route::post('certificates', 'CertificateController@store');
+			Route::put('certificates/{id}', 'CertificateController@update');
+			Route::delete('certificates/{id}', 'CertificateController@destroy');
 
 		});
 	});

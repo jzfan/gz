@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use Gz\User\User;
 use Gz\User\Repo\LeaderRepo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,7 +19,11 @@ class LeaderController extends Controller
     {
     	$leader = $this->leader->showById($id);
     	$tops = $this->leader->tops(4);
-        return view('frontend.user.gzshow', compact('leader', 'tops'));
+        $certificates = User::findOrFail($id)->certificates()->latest()->take(6)->get();
+        $workings = User::findOrFail($id)->leaderApplies()
+                ->has('gallery')->with('gallery')->take(6)->get();
+        // dd($working_galleries->first()->toArray());
+        return view('frontend.user.gzshow', compact('leader', 'tops', 'certificates', 'workings'));
     }    
 
     public function index()

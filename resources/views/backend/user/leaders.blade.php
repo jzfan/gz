@@ -25,6 +25,7 @@
             <th> 籍贯</th>
             <th> 关注人数</th>
             <th> 保证金</th>
+            <th> 证书</th>
             <th> 注册时间</th>
             <th> 操作</th>
           </tr>
@@ -46,6 +47,7 @@
             <td>{{ $leader->leader->from }}</td>
             <td>{{ $leader->leader->fans }}</td>
             <td>{{ $leader->leader->deposit }}</td>
+            <td><a href='/backend/certificates?user_id={{ $leader->id }}' type="button" class="btn btn-primary btn-sm"><i class="icon-trophy"></i> {{ $leader->certificates_count }}</a></td>
             <td> {{ $leader->leader->created_at->format('Y-m-d') }} </td>
             @else
             <td></td>

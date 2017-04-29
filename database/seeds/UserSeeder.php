@@ -3,6 +3,7 @@
 use Gz\User\User;
 use Gz\User\Leader;
 use Gz\User\Worker;
+use Gz\User\Certificate;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -16,7 +17,8 @@ class UserSeeder extends Seeder
     {
     	User::truncate();
     	Leader::truncate();
-    	Worker::truncate();
+        Worker::truncate();
+    	Certificate::truncate();
         $users = factory(User::class, 44)->create();
         //admin
         $users->first()->update(['phone'=>'13333333333', 'role' => 'admin']);
@@ -35,6 +37,7 @@ class UserSeeder extends Seeder
         foreach ($leaders as $leader) {
             $leader->update(['role'=>'leader']);
             $leader->leader()->save(factory(Leader::class)->make());
+            $leader->certificates()->saveMany(factory(Certificate::class, mt_rand(1, 3))->make());
         }
         $leaders->first()->update(['phone'=>'17777777777']);
         
