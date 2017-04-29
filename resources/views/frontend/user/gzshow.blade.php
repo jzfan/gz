@@ -108,9 +108,9 @@
 						<a href="/constructions/{{ $work->id }}"><div class="thumbnail">
 							<img src="{{ $work->gallery->page_image }}" alt="{{ $work->block }}">
 							<div class="caption">
-								<p>{{ $work->block }} {{ $work->square }}㎡</p>
+								<p><span class="housing">{{ $work->block }}</span> {{ $work->square }}㎡</p>
 								<p>总价： {{ $work->offer->amount }} 元</p>
-								<p><a data-toggle="modal" data-target="#exampleModal-2" class="btn btn-primary" role="button">预约参观</a></p>
+								<p><a data-toggle="modal" data-target="#exampleModal-2" class="btn btn-primary" role="button" class="appointment">预约参观</a></p>
 							</div>
 						</div></a>
 					</div>
@@ -360,19 +360,18 @@
 					{!! csrf_field() !!}
 					<div class="modal-body contact_input_area">
 						<div class="form-group">
-							<input type="text" class="form-control" id="recipient-name" placeholder="您的称呼"
+							<input type="text" class="form-control"  placeholder="您的称呼"
 							name='name'
 							>
 						</div>
 						<div class="form-group">
-							<input type="number" class="form-control" id="recipient-name" placeholder="您的手机号"
+							<input type="number" class="form-control"  placeholder="您的手机号"
 							name='phone'
 							>
 						</div>
 						<div class="form-group">
-							<input type="text" class="form-control" id="recipient-name" placeholder="预约小区"
-							name='block'
-							>
+							<input type="text" class="form-control" placeholder="预约小区"
+							name='block' id='house'>
 						</div>
 						<div class="form-group">
 							<textarea class="form-control" id="message-text" placeholder="备注" name='mark'></textarea>
@@ -392,6 +391,13 @@
 	@stop
 
 	@section('js')
-<script>
-</script>
+	<script>
+		$(function(){
+			$('.appointment').click(function(){
+				var name = $(this).parents('.thumbnail').find('.housing').text();
+				$('#house').val(name);
+				$('#house').attr('preloader',name);
+			})
+		})
+	</script>
 	@stop
