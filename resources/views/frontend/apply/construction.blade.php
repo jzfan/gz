@@ -31,7 +31,7 @@
                             <h5>{{ $construction->name }}&nbsp;142m</h5>
                           </div>
                           <div class="row gzgd-foot">
-                            <p class="col-sm-6 col-md-6"><a href="gzshow.html">刘工长</a></p>
+                            <p class="col-sm-6 col-md-6"><a href="/leaders/{{ $construction->leader_id }}">{{ $construction->leader->name }}工长</a></p>
                             <p class="col-sm-6 col-md-6"><a data-toggle="modal" data-target="#exampleModal-2" >预约参观</a></p>
                           </div>
                         </div></a>
@@ -79,20 +79,7 @@
         </div>
     </div>
 
-    
-
-
-    <nav aria-label="...">
-      <ul class="pagination">
-        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-        <li ><a href="#">2 <span class="sr-only">(current)</span></a></li>
-        <li ><a href="#">3 <span class="sr-only">(current)</span></a></li>
-        <li ><a href="#">4 <span class="sr-only">(current)</span></a></li>
-        <li ><a href="#">5 <span class="sr-only">(current)</span></a></li>
-        <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-      </ul>
-    </nav>
+    {!! $constructions->links() !!}
 
 </section>
 
