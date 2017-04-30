@@ -171,7 +171,7 @@
 								</blockquote>
 							</div>
 
-							<div class="col-md-2"><img src="{{ $leader->avatar }}" alt="{{ $leader->name }}" class="img-rounded"></div>
+							<div class="col-md-2"><img src="{{ $comment->user->avatar }}" alt="{{ $leader->name }}" class="img-rounded"></div>
 						</div>
 					</li>
 					@endforeach

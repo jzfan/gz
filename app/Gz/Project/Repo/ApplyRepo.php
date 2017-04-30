@@ -45,4 +45,9 @@ class ApplyRepo
 	    return $this->apply->has('gallery')->with('gallery')->latest()->paginate($n);
 	}
 
+	public function getWorking($id)
+	{
+	    return $this->apply->with('offer', 'gallery')->findOrFail($id);
+	}
+
 }

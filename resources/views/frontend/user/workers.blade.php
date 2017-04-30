@@ -4,7 +4,7 @@
 <nav class="navbar navbar-win">
 	<div class="container">
 		<p class="com-nav-child">
-			<a href="/">首页</a>/ <a href="">找工长</a>
+			<a href="/">首页</a>/ <a href="">找工人</a>
 		</p>
 		<form class="navbar-form navbar-right" action="/workers/search" method="POST">
 			{!! csrf_field() !!}

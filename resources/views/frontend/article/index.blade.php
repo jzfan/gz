@@ -34,7 +34,7 @@
             <div class="panel panel-default wow fadeInDown" data-wow-delay="0.2s">
               <div class="panel-body row">
                 <div class="col-md-3">
-                    <img src="picture/4.jpg" class="img-responsive">
+                    {!! $article->page_image !!}
                 </div>
                 <div class="col-md-9">
                     <a href="/articles/{{ $article->id }}"><h4>{{ $article->title }}</h4></a>

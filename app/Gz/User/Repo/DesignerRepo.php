@@ -46,4 +46,14 @@ class DesignerRepo
 	{
 	    return $this->designer->galleries()->orderBy('updated_at', 'desc')->take($n)->get();
 	}
+
+	public function updateById($id, $input)
+	{
+	    return $this->find($id)->update($input);
+	}
+
+	public function delete($id)
+	{
+	    return $this->designer->destroy($id);
+	}
 }

@@ -18,7 +18,7 @@ class CreateArticlesTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('title');
             $table->text('intro');
-            $table->text('text');
+            $table->longText('text');
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

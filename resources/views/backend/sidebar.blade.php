@@ -59,7 +59,7 @@
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="/backend/leaders">工头</a></li>
+                          <li><a class="" href="/backend/leaders">工长</a></li>
                           <li><a class="" href="/backend/workers">工人</a></li>
                           <li><a class="" href="/backend/customers">业主</a></li>
                           <li><a class="" href="/backend/designers">设计师</a></li>

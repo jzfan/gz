@@ -27,7 +27,7 @@
           @if ($customer->customerApplies->isEmpty())
             <tr>
               <th>{{ $customer->id }}</th>
-              <td><img src="{{ $customer->avatar }}">{{ $customer->name }}</td>
+              <td><img src="{{ $customer->avatar }}" width="50">{{ $customer->name }}</td>
               <td> {{ $customer->phone }} </td>
               <td></td>
               <td></td>

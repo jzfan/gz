@@ -63,3 +63,17 @@
 </form>
 
 @stop
+
+@section('js')
+<script>
+$('td .btn-danger').click( function (e) {
+  e.preventDefault();
+  if ( confirm('真的要删除吗？') ) {
+    var form = $('#delete-form');
+    var url = form.attr('action') + $(this).data('id');
+    form.attr('action', url);
+    form.submit();
+  }
+});
+</script>
+@stop
