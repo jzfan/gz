@@ -41,7 +41,7 @@
                 <!-- Single Feature Area Start -->
                 <div class="single_feature wow fadeInDown"  data-delay='0.3' style="margin-bottom: 1.5rem;">    
                     <div class="bg-icon">
-                        <img src="{{ $leader->user->avatar }}  alt="">
+                        <img src="{{ $leader->user->avatar }}"  alt="">
                     </div>
                     <!-- Single Feature Image Area End -->
                     <div class="feature_text">

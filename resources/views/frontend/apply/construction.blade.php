@@ -28,11 +28,11 @@
                         <a href="/constructions/{{ $construction->id }}" ><div class="thumbnail">
                           <img src="{{ $construction->gallery->page_image }}" alt="..." class="img-responsive">
                           <div class="caption">
-                            <h5>{{ $construction->name }}&nbsp;142m</h5>
+                            <h5><span class="housing">{{ $construction->name }}</span>&nbsp;142m</h5>
                           </div>
                           <div class="row gzgd-foot">
                             <p class="col-sm-6 col-md-6"><a href="/leaders/{{ $construction->leader_id }}">{{ $construction->leader->name }}工长</a></p>
-                            <p class="col-sm-6 col-md-6"><a data-toggle="modal" data-target="#exampleModal-2" >预约参观</a></p>
+                            <p class="col-sm-6 col-md-6"><a data-toggle="modal" data-target="#exampleModal-2" class="appointment">预约参观</a></p>
                           </div>
                         </div></a>
                     </div>
@@ -97,13 +97,13 @@
       <div class="modal-body contact_input_area">
         <form>
           <div class="form-group">
-            <input type="text" class="form-control" id="recipient-name" placeholder="您的称呼">
+            <input type="text" class="form-control" placeholder="您的称呼">
           </div>
           <div class="form-group">
-            <input type="number" class="form-control" id="recipient-name" placeholder="您的手机号">
+            <input type="number" class="form-control" placeholder="您的手机号">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="recipient-name" placeholder="预约小区">
+            <input type="text" class="form-control" id="house" placeholder="预约小区">
           </div>
           <div class="form-group">
             <textarea class="form-control" id="message-text" placeholder="备注"></textarea>
