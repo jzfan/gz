@@ -2,6 +2,7 @@
 
 namespace Gz\Project\Repo;
 
+use Carbon\Carbon;
 use Gz\Project\Offer;
 
 class OfferRepo
@@ -58,5 +59,18 @@ class OfferRepo
 				'amount' => $options->sum('total')
 				]
 			);
+	}
+
+	public function setStatusById($id, $status)
+	{
+	    $offer = $this->offer->findOrFail($id);
+	    switch ($status) {
+	    	case 'done':
+	    		return $offer->update(['accepted_at' => $offer->accepted_at ?? Carbon::now(), 'done_at' => Carbon::now()]);
+	    	case 'working':
+	    		return $offer->update(['accepted_at' => Carbon::now(), 'done_at' => null]);
+	    	default:
+	    		return $offer->update(['accepted_at' => null, 'done_at' => null]);
+	    }
 	}
 }

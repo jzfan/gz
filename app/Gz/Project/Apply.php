@@ -17,4 +17,9 @@ class Apply extends Model
     {
         return $this->belongsTo(User::class, 'leader_id', 'id');
     }
+
+    public function offer()
+    {
+        return $this->hasOne(\Gz\Project\Offer::class);
+    }
 }

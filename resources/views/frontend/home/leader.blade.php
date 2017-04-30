@@ -210,7 +210,7 @@
               <label for="inputPassword3" class="col-sm-2 control-label">籍贯：</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="inputPassword3" placeholder="籍贯" name='from'
-                value='{{ old("from", \Auth::user()->leader->from) }}'
+                value='{{ old("from", \Auth::user()->leader->from ?? '') }}'
                 >
               </div>
             </div>
@@ -219,7 +219,7 @@
               <label for="inputPassword3" class="col-sm-2 control-label">从业年限：</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="inputPassword3" placeholder="从业年限"
-                value='{{ old("working_age", \Auth::user()->leader->working_age) }}'
+                value='{{ old("working_age", \Auth::user()->leader->working_age ?? '') }}'
                 name='working_age'>
               </div>
             </div>
@@ -228,7 +228,7 @@
               <label for="inputPassword3" class="col-sm-2 control-label">曾任职公司：</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="inputPassword3" placeholder="曾任职公司" 
-                value='{{ old("ex_company", \Auth::user()->leader->ex_company) }}'
+                value='{{ old("ex_company", \Auth::user()->leader->ex_company ?? '') }}'
                 name='ex_company'>
               </div>
             </div>
@@ -241,9 +241,6 @@
           </form>
 
         </div>
-
-
-
         <div class="tab-pane panel panel-default" contenteditable="true" id="panel-10">
           <form class="form-horizontal panel-body" method="post" action="/me/password">
           {!! csrf_field() !!}

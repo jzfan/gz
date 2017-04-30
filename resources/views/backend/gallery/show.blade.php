@@ -38,7 +38,7 @@
 </div>
 @include('backend.gallery.partial.modal-show')
 @include('backend.gallery.partial.modal-rename')
-<form action="/aaa" method="post" id='delete-form'>
+<form action="" method="post" id='delete-form'>
   {!! csrf_field() !!}
   {!! method_field('DELETE') !!}
 </form>

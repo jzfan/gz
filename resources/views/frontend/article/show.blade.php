@@ -20,6 +20,11 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <h4 class="text-center">{{ $article->title }}</h4>
+          <p>
+              @foreach ($article->tags as $tag)
+                  <span class="label label-{{ array_rand(array_flip(config('view.color'))) }}">{{ $tag->name }}</span>
+              @endforeach
+          </p>
         </div>
         <p class="text-center sub-text"><span>日期：{{ $article->created_at->format('Y-m-d') }}</span> <span>来源：58工长通</span> <span>责编：{{ $article->user->name }}</span> <span>浏览次数：12</span></p>
         <p class="bg-info description-sub">新闻导读：{{ $article->intro }}</p>

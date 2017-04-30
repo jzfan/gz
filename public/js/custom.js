@@ -462,3 +462,10 @@ $(function(){
         $('.left-logo').css('transform','rotate(0deg)').animate({left:"100px"},500);
     })   
 })
+$(function(){
+    $('.appointment').click(function(){
+        var name = $(this).parents('.thumbnail').find('.housing').text();
+        $('#house').val(name);
+        $('#house').attr('preloader',name);
+    })
+})

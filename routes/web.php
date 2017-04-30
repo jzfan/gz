@@ -38,6 +38,7 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('workers', 'WorkerController@index');
 	Route::get('workers/{worker}', 'WorkerController@show');
 	Route::get('freesize', 'PageController@freesize');
+	Route::post('appointments', 'AppointmentController@store');
 });
 
 
@@ -48,6 +49,8 @@ Route::namespace('Backend')->middleware('auth')->group( function () {
 		Route::resource('cards', 'CardController');
 		Route::resource('flows', 'FlowController');
 		Route::resource('backend/articles', 'ArticleController');
+		Route::get('backend/comments', 'CommentController@index');
+		Route::delete('backend/comments/{id}', 'CommentController@destroy');
 	});
 	Route::middleware('admin')->group( function () {
 		Route::get('materials', 'MaterialController@index');
@@ -75,6 +78,7 @@ Route::namespace('Backend')->middleware('auth')->group( function () {
 			Route::put('leaders/{id}', 'LeaderController@update');
 			Route::get('offers', 'OfferController@index');
 			Route::get('offers/{id}', 'OfferController@show');
+			Route::get('offers/{id}/status/{status}', 'OfferController@setStatus');
 			Route::get('workers', 'WorkerController@index');
 			Route::get('workers/{id}/edit', 'WorkerController@edit');
 			Route::put('workers/{id}', 'WorkerController@update');
@@ -86,6 +90,12 @@ Route::namespace('Backend')->middleware('auth')->group( function () {
 			Route::resource('images', 'ImageController', ['except'=>['index', 'edit']]);
 			Route::resource('designers', 'DesignerController', ['except'=>[]]);
 			// Route::post('images', 'ImageController@storeImage');
+			Route::get('certificates', 'CertificateController@index');
+			Route::post('certificates', 'CertificateController@store');
+			Route::put('certificates/{id}', 'CertificateController@update');
+			Route::delete('certificates/{id}', 'CertificateController@destroy');
+			Route::get('appointments', 'AppointmentController@index');
+			Route::delete('appointments/{id}', 'AppointmentController@destroy');
 
 		});
 	});

@@ -27,5 +27,10 @@ class OfferController extends Controller
         return view('backend.offer.show', compact('offer'));
     }
 
+    public function setStatus($id, $status)
+    {
+        $this->offer->setStatusById($id, $status);
+        return redirect()->back()->with('success', '更新成功！');
+    }
     
 }

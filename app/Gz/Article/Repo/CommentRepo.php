@@ -32,4 +32,9 @@ class CommentRepo
 	{
 		
 	}
+
+	public function delete($id)
+	{
+	    return $this->comment->destroy($id);
+	}
 }
