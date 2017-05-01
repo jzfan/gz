@@ -46,6 +46,6 @@ class OfferController extends Controller
     public function getFormTwo()
     {   
         $items = \Gz\Item\Item::with('options')->orderBy('single', 'desc')->get(['id', 'name', 'single']);
-        return view('frontend.offer.form-2', compact('items', $offer));
+        return view('frontend.offer.form-2', compact('items'));
     }
 }
