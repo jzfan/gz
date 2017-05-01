@@ -104,7 +104,7 @@
 
 <div class="table-footer">
   <button type="button" class="btn btn-success" id="save" onclick='save()'>确认保存</button>
-  <a href="view.html" class="btn btn-success" id="view">预览</a>
+  <a href="/offers/{{ $offer->id }}" class="btn btn-success" id="view">预览</a>
 </div>
 
 
@@ -197,6 +197,7 @@ function save()
     apply, materials, options,
     _token: '{!! csrf_token() !!}'
   }, function(m){
+    alert('保存成功！');
     window.location.href = '/me'
   })
 }

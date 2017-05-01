@@ -466,14 +466,14 @@
                     <div class="title">
                         <h3>{{ $offer->apply->block }}</h3>
                     </div>
-                    <div class="description">
+                    <!-- <div class="description">
                         <div class="description">
                             <p>欧式风格设计</p>
                             <p>30天工期</p>
                             <p>高端辅料</p>
                             <p>客户好评</p>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="button">
                         <a class="btn btn-default" href="#" role="button" data-toggle="modal" data-target="#exampleModal">查看详情</a>
                     </div>
@@ -694,8 +694,8 @@
 
                         <!-- About Us Text Start -->
                         <div class="about_us_text">
-                            <p>58工长通是一家集室内设计、预算、施工、材料于一体的专业化装饰公司。公司从事装饰装修行业多年，有一批独立的专业化的施工队伍</p>
-                            <p>我们将以雄厚的设计实力、完整的配套设施、强大的施工力量、精良的技术装备、规范的施工管理、一流的服务措施，竭诚为您服务！！</p>
+                            <p>58工长通丨武汉工长通丨装修平台找工长是一种有别于装修公司、马路游击队的全新互联网装修模式，省去所有中间环节（工程管理费、设计师费用、业务员费用、项目经理费、公司利润）</p>
+                            <p>工长直接提供免费上门量房、免费报价、免费设计效果图等服务，同时平台提供专业监理服务，保障工程质量；平台全程监督工程进展、投诉协调、售后服务等内容，从而避免纠纷发生，保障装修进展顺利！</p>
                         </div>
                         <div class="section_heading">
                             <h3>联系电话：<a href="tel:4001667566">4001667566</a></h3>
