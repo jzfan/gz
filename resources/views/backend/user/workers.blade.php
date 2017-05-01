@@ -26,7 +26,7 @@
         @foreach ($workers as $worker)
             <tr>
               <th>{{ $worker->id }}</th>
-              <td><img src="{{ $worker->user->avatar }}">{{ $worker->user->name }}</td>
+              <td><img src="{{ $worker->user->avatar }}" width="50">{{ $worker->user->name }}</td>
               <td>{{ date('Y') - $worker->birthday->format('Y') }} 岁</td>
               <td>{{ $worker->user->phone }}</td>
               <td>{{ $worker->craft }}</td>

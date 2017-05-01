@@ -8,7 +8,9 @@
 				新增 设计师
 			</header>
 			<div class="panel-body">
-				@include('backend.designer.form')
+				<form class="form-horizontal" role="form" action="/backend/designers" method="POST" enctype="multipart/form-data">
+					@include('backend.designer.form')
+				</form>
 			</div>
 		</section>
 

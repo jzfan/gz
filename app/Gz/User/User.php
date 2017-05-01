@@ -65,4 +65,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Certificate::class);
     }
+
+    public function getAvatarAttribute($value)
+    {
+        return $value ?? '/pucture/logo.png';
+    }
 }

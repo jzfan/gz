@@ -20,11 +20,11 @@
 	<div class="panel panel-default">
 	  <div class="panel-body row gdxq-top">
 	   	 <div class="col-md-3 col-sm-3 gzgd-gz">
-	   	 	<img src="picture/tes-2.jpg" class="img-responsive img-circle">
+	   	 	<img src="{{ $working->leader->avatar }}" class="img-responsive img-circle">
 	   	 </div>
-	   	 <div class="col-md-2 col-sm-2"><h4 class="home-area">光谷朗诗里程</h4></div>
-	   	 <div class="col-md-2 col-sm-2"><h4>面积：70m²</h4></div>
-	   	 <div class="col-md-3 col-sm-3"><h4>合同价：23200.00元</h4></div>
+	   	 <div class="col-md-2 col-sm-2"><h4 class="home-area">{{ $working->block }}</h4></div>
+	   	 <div class="col-md-2 col-sm-2"><h4>面积：{{ $working->square }}m²</h4></div>
+	   	 <div class="col-md-3 col-sm-3"><h4>合同价：{{ $working->offer->amount }}元</h4></div>
 	   	 <div class="col-md-2 col-sm-2">
 	   	 	<a data-toggle="modal" data-target="#exampleModal-2" class="btn btn-warning">预约参观</a>
 	   	 </div>
@@ -53,16 +53,17 @@
 						<div id="carousel-example-generic1" class="carousel slide" data-ride="carousel">
 							  <!-- Wrapper for slides -->
 							  <div class="carousel-inner img-box-lun" role="listbox">
-							    <div class="item row active">
-							      <div class="col-md-4 col-xs-12 col-sm-12"><img src="picture/2.jpg" alt="..."></div>
-							      <div class="col-md-4 col-xs-12 col-sm-12"><img src="picture/3.jpg" alt="..."></div>
-							      <div class="col-md-4 col-xs-12 col-sm-12"><img src="picture/1.jpg" alt="..."></div>
+							  @foreach ($working->gallery->images->chunk(3) as $chunks)
+							    <div class="item row
+							    @if ($loop->first)
+							     active
+							    @endif
+							    ">
+							  	@foreach ($chunks as $image)
+							      <div class="col-md-4 col-xs-12 col-sm-12"><img src="{{ $image->path }}" alt="{{ $image->name }}"></div>
+							    @endforeach
 							    </div>
-							    <div class="item row">
-							      <div class="col-md-4 col-xs-12 col-sm-12"><img src="picture/3.jpg" alt="..."></div>
-							      <div class="col-md-4 col-xs-12 col-sm-12"><img src="picture/2.jpg" alt="..."></div>
-							      <div class="col-md-4 col-xs-12 col-sm-12"><img src="picture/1.jpg" alt="..."></div>
-							    </div>
+							  @endforeach
 							  </div>
 
 						  <!-- Controls -->

@@ -44,7 +44,7 @@
             <td> {{ $designer->precept }} </td>
             <td> {{ $designer->feedback_rate }} </td>
             <td>
-              <a class="btn btn-info btn-xs" href="/backend/designers/{{ $designer->id }}"><i class="icon-eye-open"></i></a>
+              <a class="btn btn-info btn-xs" target='_blank' href="/designers/{{ $designer->id }}"><i class="icon-eye-open"></i></a>
               <a class="btn btn-success btn-xs" href="/backend/designers/{{ $designer->id }}/edit"><i class="icon-edit"></i></a>
               <a class="btn btn-danger btn-xs" data-id='{{ $designer->id }}'><i class="icon-trash"></i></a>
             </td>
@@ -62,4 +62,18 @@
   {!! csrf_field() !!}
 </form>
 
+@stop
+
+@section('js')
+<script>
+$('td .btn-danger').click( function (e) {
+  e.preventDefault();
+  if ( confirm('真的要删除吗？') ) {
+    var form = $('#delete-form');
+    var url = form.attr('action') + $(this).data('id');
+    form.attr('action', url);
+    form.submit();
+  }
+});
+</script>
 @stop

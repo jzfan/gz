@@ -51,4 +51,25 @@ class DesignerController extends Controller
         $designer = $this->designer->find($id);
         return view('backend.designer.edit', compact('designer'));
     }
+
+    public function update($id)
+    {
+        $this->validate(request(), [
+                'name' => 'required|between:2,100',
+                'avatar' => 'image',
+                'working_age' => 'required|integer|between:1,99',
+                'honor' => 'required|array',
+                'good_at' => 'required|array',
+                'company' => 'required|string|between:4,255',
+                'feedback_rate' => 'required|integer|between:0,100',
+            ]);
+        $this->designer->updateById($id, request()->input());
+        return redirect('/backend/designers')->with('success', 'update设计师'.request('name').'成功！');
+    }
+
+    public function destroy($id)
+    {
+        $this->designer->delete($id);
+        return redirect('/backend/designers')->with('success', 'delete设计师'.request('name').'成功！');
+    }
 }

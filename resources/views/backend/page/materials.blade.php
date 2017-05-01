@@ -99,9 +99,7 @@
 
 @section('js')
 <script type="text/javascript">
-  $(".tagsinput").tagsInput({
-    interactive: false,
-  });
+  $(".tagsinput").tagsInput();
   $('#tags-div button').click( function () {
     console.log($(this).text());
     $(".tagsinput").importTags($(this).text());

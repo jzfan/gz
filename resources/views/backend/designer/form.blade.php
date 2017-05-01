@@ -1,4 +1,4 @@
-<form class="form-horizontal" role="form" action="/backend/designers" method="POST" enctype="multipart/form-data">
+
   {!! csrf_field() !!}
   <div class="form-group">
     <label  class="col-lg-2 control-label">姓名</label>
@@ -84,4 +84,3 @@
     <button type="submit" class="btn btn-danger">提交</button>
   </div>
 </div>
-</form>

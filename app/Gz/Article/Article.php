@@ -29,6 +29,6 @@ class Article extends Model
 
     public function getPageImageAttribute()
     {
-        return preg_match('/<img .+?\/>/', $this->text, $img) ? $img[0] : '';
+        return preg_match('/<img .+?>/', $this->text, $img) ? $img[0] : '';
     }
 }

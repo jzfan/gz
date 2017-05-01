@@ -51,7 +51,8 @@ class ApplyController extends Controller
     
     public function showWorking($id)
     {
-        return view('frontend.apply.working');
+        $working = $this->apply->getWorking($id);
+        return view('frontend.apply.working', compact('working'));
     }
      
 }

@@ -8,7 +8,10 @@
 				编辑 设计师 {{ $designer->name }}
 			</header>
 			<div class="panel-body">
+			<form class="form-horizontal" role="form" action="/backend/designers/{{ $designer->id }}" method="POST" enctype="multipart/form-data">
+				{!! method_field('PUT') !!}				
 				@include('backend.designer.form')
+			</form>
 			</div>
 		</section>
 

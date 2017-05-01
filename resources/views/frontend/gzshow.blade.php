@@ -171,7 +171,7 @@
 								</blockquote>
 							</div>
 
-							<div class="col-md-2"><img src="{{ $comment->user->avatar }}" alt="{{ $leader->name }}" class="img-rounded"></div>
+							<div class="col-md-2"><img src="{{ $leader->avatar }}" alt="{{ $leader->name }}" class="img-rounded"></div>
 						</div>
 					</li>
 					@endforeach
@@ -388,4 +388,17 @@
 
 	<!-- 预约参观结束 -->
 
+	@stop
+
+	@section('js')
+	<script>
+		$(function(){
+			$('.appointment').click(function(){
+				var name = $(this).parents('.thumbnail').find('.housing').text();
+				console.log(name);
+				$('#house').val(name);
+				$('#house').attr('preloader',name);
+			})
+		})
+	</script>
 	@stop
