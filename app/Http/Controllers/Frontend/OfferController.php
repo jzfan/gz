@@ -43,7 +43,7 @@ class OfferController extends Controller
         return 'ok';
     }
 
-    public function getFormTwo()
+    public function getFormTwo($id)
     {   
         $offer = \Gz\Project\Offer::findOrFail($id);
         $items = \Gz\Item\Item::with('options')->orderBy('single', 'desc')->get(['id', 'name', 'single']);
