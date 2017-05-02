@@ -402,7 +402,7 @@
                                 </a>
                             </h5>
                             <div id="collapse{{ $i }}" class="accordion-content collapse">
-                                {!! $ask->answer !!}
+                               <p>{!! $ask->answer !!}</p>
                             </div>
                         </div>
 @endforeach
@@ -707,7 +707,6 @@
 
 
     <!-- ******用户预约模块start****** -->
-
     @include('frontend.partial.aside')
     <!-- ******用户注册模块start****** -->
 
@@ -728,7 +727,7 @@
                 <input type="text" placeholder="姓名" name='name'>
                 <input type="number" placeholder="手机号" name='phone'>
                 <input type="text" placeholder="所在小区" name='block'>
-                <button>免费预约</button>
+                <button onclick="alert('预约成功！')">免费预约</button>
             </form>
         </div>
         <span class="r-btm">X</span>

@@ -104,6 +104,7 @@
 
 <div class="table-footer">
   <button type="button" class="btn btn-success" id="save" onclick='save()'>确认保存</button>
+  <button type="button" class="btn btn-success" id="view" onclick='view()'>确认保存</button>
 </div>
 
 
@@ -200,5 +201,11 @@ function save()
     window.location.href = '/me'
   })
 }
+
+function view(){
+  save();
+  window.location.href = '/me';
+}
+
 </script>
 @stop

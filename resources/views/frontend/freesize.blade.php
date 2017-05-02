@@ -17,4 +17,8 @@
 	<img src="/picture/baojia8.jpg" class="img-responsive" style="margin-top: 5rem;">
 </section>
 
+<!-- ******右侧边悬浮模块start****** -->
+    @include('frontend.partial.aside')
+<!-- ******右侧边悬浮模块end****** -->
+
 @stop
