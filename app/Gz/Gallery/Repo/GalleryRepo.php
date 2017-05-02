@@ -12,6 +12,7 @@ class GalleryRepo
 	protected $type = [
 		'leader' => 'Gz\User\User',
 		'working' => 'Gz\Project\Apply',
+		'inspection' => 'Gz\Project\inspection',
 		'design' => 'Gz\User\designer',
 	];
 

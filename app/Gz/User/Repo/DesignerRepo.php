@@ -49,6 +49,8 @@ class DesignerRepo
 
 	public function updateById($id, $input)
 	{
+		$input['honor'] = array_filter($input['honor']);
+		$input['good_at'] = array_filter($input['good_at']);
 	    return $this->find($id)->update($input);
 	}
 

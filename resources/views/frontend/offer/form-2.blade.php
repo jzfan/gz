@@ -104,7 +104,6 @@
 
 <div class="table-footer">
   <button type="button" class="btn btn-success" id="save" onclick='save()'>确认保存</button>
-  <a href="/offers/{{ $offer->id }}" class="btn btn-success" id="view">预览</a>
 </div>
 
 

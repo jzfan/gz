@@ -18,25 +18,19 @@
           <!-- About Us Text Start -->
           <div class="about_us_text comment-form">
               <div class="contact_from wow fadeInUp" data-wow-delay=".2s">
-              <form action="mail.php" method="post" id="main_contact_form">
+              <div id="main_contact_form">
                 <!-- Message Input Area Start -->
                 <div class="contact_input_area">
                   <div id="success_fail_info"></div>
                   <div class="row">
                     <!-- Single Input Area Start -->
                     <div class="col-sm-12 col-xs-12 col-md-6 col-md-offset-3 col-xs-6 col-xs-offset-3">
-                      <div class="form-group">
-                        <input type="text" class="form-control" name="name" id="name" placeholder="输入工长姓名" required>
-                      </div>
-                    </div>
-
-                    <div class="col-xs-12">
-                      <button type="submit" class="btn btn-default">立即搜索</button>
+@include('frontend.partial.form-leader-search')
                     </div>
                   </div>
                 </div>
                 <!-- Message Input Area End -->
-              </form>
+              </div>
             </div>
           </div>
         </div>

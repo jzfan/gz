@@ -29,6 +29,19 @@ class LeaderController extends Controller
 
     public function update($id)
     {
+        $this->validate(request(), [
+                'name' => 'required',
+                'avatar' => 'image',
+                'WO' => 'required|integer',
+                'rank' => 'required|integer',
+                'points' => 'required|integer',
+                'quality' => 'required|integer',
+                'working_age' => 'required|integer',
+                'fans' => 'required|integer',
+                'deposit' => 'required|integer',
+                'area' => 'required|string',
+
+            ]);
         $input = request()->input();
         if (request()->hasFile('avatar')) {
             $input = array_merge(

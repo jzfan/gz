@@ -47,7 +47,7 @@ class ApplyRepo
 
 	public function getWorking($id)
 	{
-	    return $this->apply->with('offer', 'gallery')->findOrFail($id);
+	    return $this->apply->with('offer.inspections')->findOrFail($id);
 	}
 
 }

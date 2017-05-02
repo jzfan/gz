@@ -42,12 +42,13 @@ Route::namespace('Frontend')->group( function () {
 });
 
 
-Route::namespace('Backend')->middleware('auth')->group( function () {
+Route::namespace('Backend')->group( function () {
 	Route::middleware('editor')->group( function () {
 		Route::get('editor-console', 'PageController@editorConsole');
 		Route::resource('seos', 'SeoController');
 		Route::resource('cards', 'CardController');
 		Route::resource('flows', 'FlowController');
+		Route::resource('asks', 'AskController');
 		Route::resource('backend/articles', 'ArticleController');
 		Route::get('backend/comments', 'CommentController@index');
 		Route::delete('backend/comments/{id}', 'CommentController@destroy');

@@ -113,6 +113,13 @@ $factory->define(Gz\Article\Comment::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(Gz\Article\Ask::class, function (Faker\Generator $faker) {
+    return [
+        'question' => $faker->sentence,
+        'answer' => $faker->paragraph
+    ];
+});
+
 $factory->define(Gz\Article\Card::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->word,

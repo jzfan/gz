@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Designer extends Model
 {
-    protected $fillable = ['name', 'working_age', 'feedback_rate', 'precept', 'good_at', 'honor', 'good_at', 'avatar', 'company'];
+    protected $fillable = ['name', 'working_age', 'feedback_rate', 'precept', 'good_at', 'honor', 'avatar', 'company'];
     protected $casts = [
     	'honor' => 'array',
     	'good_at' => 'array',

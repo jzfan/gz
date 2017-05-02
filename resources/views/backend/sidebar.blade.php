@@ -13,6 +13,7 @@
                           <li><a class="" href="/seos">S E O</a></li>
                           <li><a class="" href="/cards">卡片</a></li>
                           <li><a class="" href="/flows">流程</a></li>
+                          <li><a class="" href="/asks">问答</a></li>
                       </ul>
                   </li>
                   <li class="">
@@ -49,6 +50,7 @@
                       <ul class="sub">
                           <li><a class="" href="/backend/galleries?type=leader">工头</a></li>
                           <li><a class="" href="/backend/galleries?type=working">工地</a></li>
+                          <li><a class="" href="/backend/galleries?type=inspection">验收</a></li>
                           <li><a class="" href="/backend/galleries?type=design">设计</a></li>
                       </ul>
                   </li>

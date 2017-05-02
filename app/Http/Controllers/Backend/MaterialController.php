@@ -20,7 +20,7 @@ class MaterialController extends Controller
         $this->validate(request(), [
         		'name' => 'required|min:2,max:60',
         		'brand' => 'required|min:2,max:60',
-        		'unit' => 'required|min:2,max:60',
+        		'unit' => 'required|max:60',
         		'price' => 'required|numeric'
         	]);
         $this->material->create(request()->input());

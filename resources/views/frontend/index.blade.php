@@ -392,50 +392,20 @@
             <div class="col-xs-12 col-sm-8 col-sm-offset-4 col-md-6 col-md-offset-6">
                 <div class="faq_area">
                     <div class="accordions" id="accordion" role="tablist" aria-multiselectable="true">
-
+@foreach (\Gz\Article\Ask::all() as $i => $ask)
                         <!-- single accordian area start -->
                         <div class="panel single-accordion wow fadeInUp" data-wow-delay=".1s">
                             <h5>
-                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">我们的装修报价与其他公司报价的区别？
+                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapse{{ $i }}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $i }}">{{ $ask->question }}
                                     <span class="accor-open"><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
                                     <span class="accor-close"><i class="fa fa-sort-asc" aria-hidden="true"></i></span>
                                 </a>
                             </h5>
-                            <div id="collapseOne" class="accordion-content collapse">
-                                <p>58工长通所有工长的单项报价相同，工长毛利润在工程款的13-17%左右。3种情况会造成不同工长对同一工程的报价存在差异：</p> 
-                                <p>1 工长所报材料不同。材料的品牌及品级不同，会造成工长的报价有差异。</p><p>2 工长所报项目不同。对同一业主的装修要求，不同工长会有不同的理解，由此可能工程项目方面存在差异，由此造成报价有差异，此种差异可在与工长的后期沟通过程中解决。</p><p>3 工长星级不同。58工长通根据施工质量、业主好评数、工长签单量对工长进行评级，评级越高，工长可按网站规定额外收取200元/级的星级服务费。同样项目量、同样材料应比武汉中等装修公司报价低20-30%左右。</p>
+                            <div id="collapse{{ $i }}" class="accordion-content collapse">
+                                {!! $ask->answer !!}
                             </div>
                         </div>
-
-                        <!-- single accordian area start -->
-                        <div class="panel single-accordion wow fadeInUp" data-wow-delay=".2s">
-                            <h5>
-                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="two" data-parent="#accordion" data-toggle="collapse" href="#two">58工长通报价与装修公司报价接近，达不到低20-30%的幅度?
-                                    <span class="accor-open"><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
-                                    <span class="accor-close"><i class="fa fa-sort-asc" aria-hidden="true"></i></span>
-                                </a>
-                            </h5>
-                            <div id="two" class="accordion-content collapse">
-                                <p>1 是否闭口合同。</p><p>58工长通采取闭口合同，业主装修要花多少钱，前期工长必须全部列出，不允许有增项和漏项，否则工长自行承担；但部分装修公司设计师为签单，会先以较低的价格与业主签订合同，后期没有报的项目再让业主补足差价。</p><p> 2 装修公司赚钱，但工长不赚钱。</p>
-                                <p>装修公司设计师以很低的价格签单之后，扣除30%左右的利润再转包给工长（项目经理），项目经理利润极低甚至亏钱，由此导致工程质量较差、偷工减料或工长让业主不断加钱。</p>
-                                <p> 3 所用材料不同。</p><p>使用不同品牌或品级的材料对业主装修报价有很大影响，58工长通装修材料定位中高端，有很透明的装修材料说明，而且全部厂家配货绝无假货水货。部分装修公司会用市面最差或者工程用而非家用的材料给业主报价，以极低的价格来吸引业主签单。</p></p>
-                            </div>
-                        </div>
-
-                        <!-- single accordian area start -->
-                        <div class="panel single-accordion wow fadeInUp" data-wow-delay=".3s">
-                            <h5>
-                                <a role="button" aria-expanded="true" aria-controls="three" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#three">58工长通的售后及维权? 
-                                   <span class="accor-open"><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
-                                   <span class="accor-close"><i class="fa fa-sort-asc" aria-hidden="true"></i></span>
-                               </a>
-                           </h5>
-                           <div id="three" class="accordion-content collapse">
-                            <p>业主可在58工长通网站对工长进行投诉。网站确保在24小时内回复业主，48小时内提供解决方案。对于工长解决不满意的，业主可采取拒绝解冻装修款的方式进行制裁。投诉电话：4001667566</p>
-<p>58工长通要求工长为业主的装修提供：</p><p>整体工程2年、水电5年的售后服务。售后服务自竣工之日起计算。为防工长在业主的售后期内退出58工长通而导致无法提供售后情况出现，工长帮帮强制要求工长缴纳1-2万售后质保金，该质保金只有在该工长最后一个工程售后期结束后才给与退还工长。</p>
-                        </div>
-                    </div>
-
+@endforeach
                 </div>
             </div>
         </div>

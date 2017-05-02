@@ -4,6 +4,7 @@ namespace Gz\Project;
 
 use Gz\User\User;
 use Gz\Project\Apply;
+use Gz\Project\Inspection;
 use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model
@@ -18,6 +19,11 @@ class Offer extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function inspections()
+    {
+        return $this->hasMany(Inspection::class);
     }
 
     public function apply()

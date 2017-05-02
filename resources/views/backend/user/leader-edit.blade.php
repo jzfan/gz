@@ -31,7 +31,7 @@
                 <div class="col-lg-10">
                 <input type="text" class="form-control"
                     name='phone' 
-                    value='{{ old("name", $leader->phone) }}'>
+                    value='{{ old("phone", $leader->phone) }}'>
                 </div>
             </div>
             <div class="form-group">
@@ -39,7 +39,7 @@
                 <div class="col-lg-10">
                 <input type="text" class="form-control"
                     name='WO' 
-                    value='{{ old("WO", $leader->leader->WO) }}'>
+                    value='{{ old("WO", $leader->leader ? $leader->leader->WO : "") }}'>
                 </div>
             </div>
             
@@ -48,7 +48,7 @@
                 <div class="col-lg-10">
                 <input type="text" class="form-control"
                     name='rank' 
-                    value='{{ old("rank", $leader->leader->rank) }}'>
+                    value='{{ old("rank", $leader->leader ? $leader->leader->rank : "") }}'>
                 </div>
             </div>
             
@@ -57,7 +57,7 @@
                 <div class="col-lg-10">
                 <input type="text" class="form-control"
                     name='points' 
-                    value='{{ old("points", $leader->leader->points) }}'>
+                    value='{{ old("points", $leader->leader ? $leader->leader->points : "") }}'>
                 </div>
             </div>
             
@@ -66,7 +66,7 @@
                 <div class="col-lg-10">
                 <input type="text" class="form-control"
                     name='quality' 
-                    value='{{ old("quality", $leader->leader->quality) }}'>
+                    value='{{ old("quality", $leader->leader ? $leader->leader->quality : "") }}'>
                 </div>
             </div>
             
@@ -75,7 +75,7 @@
                 <div class="col-lg-10">
                 <input type="text" class="form-control"
                     name='working_age' 
-                    value='{{ old("working_age", $leader->leader->working_age) }}'>
+                    value='{{ old("working_age", $leader->leader ? $leader->leader->working_age : "") }}'>
                 </div>
             </div>
             
@@ -84,7 +84,7 @@
                 <div class="col-lg-10">
                 <input type="text" class="form-control"
                     name='area' 
-                    value='{{ old("area", $leader->leader->area) }}'>
+                    value='{{ old("area", $leader->leader ? $leader->leader->area : "") }}'>
                 </div>
             </div>
             
@@ -93,7 +93,7 @@
                 <div class="col-lg-10">
                 <input type="text" class="form-control"
                     name='ex_company' 
-                    value='{{ old("ex_company", $leader->leader->ex_company) }}'>
+                    value='{{ old("ex_company", $leader->leader ? $leader->leader->ex_company : "") }}'>
                 </div>
             </div>
             <div class="form-group">
@@ -101,7 +101,7 @@
                 <div class="col-lg-10">
                 <input type="text" class="form-control"
                     name='tel' 
-                    value='{{ old("tel", $leader->leader->tel) }}'>
+                    value='{{ old("tel", $leader->leader ? $leader->leader->tel : "") }}'>
                 </div>
             </div>
             <div class="form-group">
@@ -109,7 +109,7 @@
                 <div class="col-lg-10">
                 <input type="text" class="form-control"
                     name='from' 
-                    value='{{ old("from", $leader->leader->from) }}'>
+                    value='{{ old("from", $leader->leader ? $leader->leader->from : "") }}'>
                 </div>
             </div>
             <div class="form-group">
@@ -117,7 +117,7 @@
                 <div class="col-lg-10">
                 <input type="text" class="form-control"
                     name='fans' 
-                    value='{{ old("fans", $leader->leader->fans) }}'>
+                    value='{{ old("fans", $leader->leader ? $leader->leader->fans : "") }}'>
                 </div>
             </div>
             <div class="form-group">
@@ -125,7 +125,7 @@
                 <div class="col-lg-10">
                 <input type="text" class="form-control"
                     name='deposit' 
-                    value='{{ old("deposit", $leader->leader->deposit) }}'>
+                    value='{{ old("deposit", $leader->leader ? $leader->leader->deposit : "") }}'>
                 </div>
             </div>
    
