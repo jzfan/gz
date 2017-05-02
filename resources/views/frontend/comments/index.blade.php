@@ -158,3 +158,11 @@
 </section>
 <!-- ************** Our advisor Area End ************** -->
 @stop
+
+@section('js')
+<script>
+  $(function () {
+    $('#main_contact_form').find('form.navbar-form').attr('class','');
+  })
+</script>
+@stop

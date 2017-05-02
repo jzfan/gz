@@ -51,6 +51,6 @@
 <!-- JavaScript  files -->
 
 @include('frontend.partial.js')
-
+@yield('js')
 </body>
 </html>
