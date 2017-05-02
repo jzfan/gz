@@ -20,9 +20,9 @@ class CreateAppliesTable extends Migration
             $table->string('name')->nullable();
             $table->string('phone');
             $table->string('block')->nullable();
-            $table->unsignedInteger('square')->nullable();
+            $table->string('square')->nullable();
             $table->enum('plan', ['全装修', '半装修', '待定'])->default('待定');
-            $table->decimal('budget', 10, 2)->unsigned()->nullable();
+            $table->string('budget')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

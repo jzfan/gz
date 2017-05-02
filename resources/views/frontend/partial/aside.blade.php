@@ -36,8 +36,32 @@
                 name='phone'>
           </div>
           <div class="form-group">
-            <textarea class="form-control" id="message-text" placeholder="小区" name='block'></textarea>
+            <input type='text' class="form-control" id="message-text" placeholder="小区" name='block'>
           </div>
+          <div class="form-group">
+               <select class="form-control" name='plan'>
+                    <option value='全装修'>全装修</option>
+                    <option value="半装修">半装修</option>
+                </select>
+          </div>
+          <div class="form-group">
+                        <select class="form-control" name='budget'>
+                    <option value='0'>装修预算</option>
+                    <option value='5万以内'>5万以内</option>
+                    <option value='5-8万'>5-8万</option>
+                    <option value='5-12万'>5-12万</option>
+                    <option value='12万以上'>12万以上</option>
+                  </select>
+                    </div>
+                    <div class="form-group" name='square'>
+                        <select class="form-control">
+                    <option value='房屋面积'>房屋面积</option>
+                    <option value='80m2以下'>80m2以下</option>
+                    <option value='80-120㎡'>80-120㎡</option>
+                    <option value='120-150㎡'>120-150㎡</option>
+                    <option value='150㎡以上'>150㎡以上</option>
+                  </select>
+                    </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
