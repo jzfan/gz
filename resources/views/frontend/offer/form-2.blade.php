@@ -79,7 +79,7 @@
             </div>
           </td>
           <td><input type="text" class="form-control input-sm price" value="{{ $option->price }}"></td>
-          <td class='cumadd'>1195.00</td>
+          <td class='cumadd'>0</td>
         </tr>
         @endforeach
         <tr>
@@ -87,7 +87,7 @@
             <button class="btn btn-default" data-toggle="modal" data-target="#exampleModal">新增</button>
           </td>
           <td colspan="3" class="text-right">合计</td>
-          <td class="sum">11800</td>
+          <td class="sum">0</td>
         </tr>
       </tbody>
     </table>
@@ -104,7 +104,7 @@
 
 <div class="table-footer">
   <button type="button" class="btn btn-success" id="save" onclick='save()'>确认保存</button>
-  <button type="button" class="btn btn-success" id="view" onclick='view()'>确认保存</button>
+  <button type="button" class="btn btn-success" id="view" onclick='view()'>预览</button>
 </div>
 
 
