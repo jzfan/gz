@@ -469,3 +469,11 @@ $(function(){
         $('#house').attr('preloader',name);
     })
 })
+$(function(){
+    $(document).on('click','.appointing',function(){
+        console.log(111)
+        var home = $(this).parents('.gdxq-top').find('.home-area').text();
+        console.log(home)
+        $('#house').val(home);
+    });
+})

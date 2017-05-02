@@ -21,7 +21,7 @@
 	   	 <div class="col-md-2 col-sm-2"><h4>面积：{{ $working->square }}m²</h4></div>
 	   	 <div class="col-md-3 col-sm-3"><h4>合同价：{{ $working->offer->amount }}元</h4></div>
 	   	 <div class="col-md-2 col-sm-2">
-	   	 	<a data-toggle="modal" data-target="#exampleModal-2" class="btn btn-warning">预约参观</a>
+	   	 	<a data-toggle="modal" data-target="#exampleModal-2" class="btn btn-warning appointing">预约参观</a>
 	   	 </div>
 	  </div>
 	</div>

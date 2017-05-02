@@ -69,7 +69,6 @@
     search = search.substr(0, search.indexOf('&page'));
   }
   var uri = window.location.pathname + search;
-  console.log(window.location.search);
   var li = $('[href="'+uri+'"]').closest('li').addClass('active');
   var ul = li.closest('ul');
   if (ul.attr('class') == 'sub') {

@@ -68,6 +68,6 @@ class User extends Authenticatable
 
     public function getAvatarAttribute($value)
     {
-        return $value ?? '/picture/logo.png';
+        return $value ?? '/picture/l_logo.png';
     }
 }

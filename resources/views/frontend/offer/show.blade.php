@@ -38,7 +38,7 @@
 
 <div class="container">
   <div class="row text-center">
-    <div class="col-md-4"><h4>客户姓名：{{ $offer->apply->name }}</h4> </div>
+    <div class="col-md-4"><h4>客户姓名：{{ $offer->apply->name }} ({{ $offer->apply->phone }})</h4> </div>
     <div class="col-md-4"><h4>小 区：{{ $offer->apply->block }}</h4> </div>
     <div class="col-md-4"><h4>建筑面积：{{ $offer->apply->square }} ㎡</h4></div>
   </div>
@@ -47,7 +47,7 @@
 
   <div class="row text-center">
     <div class="col-md-6">
-      <h4>工 长：{{ $offer->user->name }} </h4>   
+      <h4>工 长：{{ $offer->user->name }} ({{ $offer->user->phone }})</h4>   
     </div class="col-md-6">
 
     <div>
