@@ -36,6 +36,7 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('designers/{designer}', 'DesignerController@show');
 
 	Route::get('workers', 'WorkerController@index');
+	Route::post('workers/search', 'WorkerController@likeName');
 	Route::get('workers/{worker}', 'WorkerController@show');
 	Route::get('freesize', 'PageController@freesize');
 	Route::post('appointments', 'AppointmentController@store');

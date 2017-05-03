@@ -73,7 +73,9 @@
 			</ul>
 		</div>
 	</div>
+	@if (method_exists($workers, 'links'))
 	{!! $workers->links() !!}
+	@endif
 
 </section>
 @stop

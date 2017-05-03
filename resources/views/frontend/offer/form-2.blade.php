@@ -26,10 +26,17 @@
   <ul class="nav nav-tabs">
     @foreach ($items as $i=>$item)
     @if ($i === 0)
-    <li class="active"><a contenteditable="true" data-toggle="tab" href="#panel-1"><span class="fa fa-plus"></span>{{ $item->name }}</a></li>
+    <li class="active">
     @else
-    <li><a contenteditable="true" data-toggle="tab" href="#panel-{{ $i+1 }}"><span class="fa fa-plus"></span>{{ $item->name }}</a></li>
+    <li>
     @endif
+    <a contenteditable="true" data-toggle="tab" href="#panel-{{ $i+1 }}">
+    @if ($item->single == '否')
+    <span class="fa fa-plus">
+    @else
+    <span>
+    @endif
+    </span>{{ $item->name }}</a></li>
     @endforeach
   </ul>
 
