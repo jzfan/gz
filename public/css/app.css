@@ -1,0 +1,260 @@
+/* 公共头部 */
+.common-head{
+	padding-top:90px;
+	background-color:gray;
+	margin-bottom:0px;
+}
+.nav-win{
+	margin-left:50%;
+	transform:translateX(-50%);
+}
+.nav-win a{
+	color:#fff;
+}
+.nav-win a:hover{
+	color:#e6002d;
+}
+.navbar-win{
+	border-radius:0px;
+	background-color:#e6002d;
+}
+.xw-list .panel:hover{
+	box-shadow:0px 0px 3px 1px #ccc;
+}
+.navbar-toggle .icon-bar{
+	background-color:#2c3e50;
+}
+.com-nav-child{
+	display:inline-block;
+	font-size:18px;
+	color:#fff;
+	margin-top:12px;
+}
+.gdxq-top img{
+	max-width: 60px;
+}
+.img-box-lun img{
+	max-height: 200px;
+}
+.home-area{
+	color: #e67e22;
+	font-weight: 500;
+}
+.yan h4{
+	color: #e67e22;
+}
+.img-avoter img{
+	margin-top: 1rem;
+}
+.gzgd-gz img{
+	margin-left: 4rem;
+}
+.gr-list tr td img{
+	max-width: 50px;
+}
+.gr-list td{
+	line-height: 50px;
+}
+.gr-img img{
+	margin-top: 1rem;
+}
+.grxq .panel-body p img{
+	max-width: 160px;
+}
+.grxq{
+	padding: 0 2rem;
+}
+.gzshow-img img{
+	max-width: 200px;
+}
+.sub-text span{
+	margin: 0 1rem;
+}
+.description-sub{
+	text-indent: 2rem;
+	padding: 1rem;
+}
+.article-content p{
+	text-indent: 2rem;
+}
+.next-pre{
+	margin:1rem 2rem; 
+}
+.tab-contain .win_feature{
+	display: none;
+}
+.tab-contain .win_feature:nth-child(1){
+	display: block;
+}
+.article-push h4{
+	border-bottom: 3px solid #e6002d;
+	padding-bottom: 1rem;
+	color: #e6002d;
+}
+.article-push .glyphicon-forward{
+	margin-left: 1rem;
+}
+.view-phone{
+	padding: 0.5rem;
+	background-color: #e6002d;
+	color:#fff;
+	border-radius: 2px;
+}
+.com-nav-child a{
+	margin:0 0.5rem;
+	color:#fff;
+}
+.gzgd-foot p{
+	text-align: center;
+}
+/* 文章列表左侧 */
+.right-show h4{
+	margin:0px;
+}
+
+.logo-wrap{
+	padding: 20px;
+}
+.h-title{
+	font-size: 20px;
+}
+.h-table th.text-center{
+	font-size: 18px;
+	color: rgba(230,0,45,0.8);
+}
+.right-show .list-group{
+	padding-top: 1rem;
+}
+/* 工长登陆页面 */
+.gz-login{
+	border-bottom: 2px solid rgba(230,0,45,0.8);
+	box-shadow:0px 0px 3px 3px #ccc;
+}
+.gz-sign{
+	font-size:18px;
+	margin-bottom:1rem;
+}
+.gz-sign input{
+	margin-left:2rem;
+	height:1rem;
+	width:1rem;
+}
+
+/* 用户登陆 */
+.w-sign{
+	position: relative;
+}
+.w-sign .n-register{
+	position: absolute;
+	top:1rem;
+	right:1rem;
+	font-size:16px;
+	color:green;
+}
+
+/* 业主评价表单 */
+.comment-form .btn{
+	background:rgba(230,0,45,0.8);
+	color:#fff;
+}
+.w-table{
+	width: 100%;
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.w-table thead tr th{
+	text-align:center;
+	padding:5px;
+	font-size:18px;
+	color:#969696;
+}
+.w-table tbody tr{
+	text-align:center;
+}
+.w-table tbody td{
+	padding:8px;
+}
+.win_feature .single_feature{
+	margin-bottom: 2rem;
+}
+.list-top img{
+	height: 200px;
+}
+.top-img {
+	position: relative;
+}
+.top-img .top-text{
+	position: absolute;
+	top: 0;
+	text-align: center;
+	width: 100%;
+	color: #fff;
+	font-size: 24px;
+	font-family: "微软雅黑";
+}
+.table-footer{
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+}
+.table-footer button,.table-footer a{
+	margin-left: 1rem;
+}
+.group-t .form-group{
+	margin-top:2rem;
+}
+.tabbable .fa-plus{
+	margin-right: 0.5rem;
+}
+.tab-pane .fa-remove{
+	margin-left: 0.5rem;
+}
+input.input-sm{
+	min-width: 50px;
+} 
+.gz-pj-img img{
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
+tbody td a:hover{
+	cursor:pointer
+}
+.sjs-list .row{
+	margin-top: 2rem;
+	border-radius: 5px;
+	padding: 1rem 0;
+}
+.sjs-list .row:hover{
+	border:2px solid #bce8f1;
+	box-shadow: 0px 0px 3px 1px #bce8f1;
+}
+
+/* 图像旋转样式 */
+.trans img:hover{
+    transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    transition: transform 1s;
+    -moz-transition: transform 1s; /* Firefox 4 */
+    -webkit-transition: transform 1s; /* Safari 和 Chrome */
+    -o-transition: transform 1s; /* Opera */
+}
+
+/*设计师*/
+.sjs .panel-body h3{
+	margin-top:2rem;
+	font-size: 20px;
+	color: #31708f;
+	font-weight: bold;
+}
+.print{
+	position: fixed;
+	right: 2rem;
+	bottom: 2rem;
+}
+.th-style{
+	font-size: 18px;
+    color: rgba(230,0,45,0.8);
+    text-align: center;
+}
