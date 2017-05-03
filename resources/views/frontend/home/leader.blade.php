@@ -24,7 +24,9 @@
       <ul class="list-group">
         <li class="list-group-item"><a href="/offers/create-1">进行报价</a></li>
         <li class="list-group-item"><a href="">采购辅材</a></li>
+        @if (\Auth::user()->leader !== null)
         <li class="list-group-item"><a contenteditable="true" data-toggle="tab" href="#panel-8">修改资料</a></li>
+        @endif
         <li class="list-group-item"><a href="">在建工地</a></li>
         <li class="list-group-item"><a contenteditable="true" data-toggle="tab" href="#panel-10" >修改密码</a></li>
         <li class="list-group-item"><a contenteditable="true" data-toggle="tab" href="#panel-11" >扣分记录</a></li>
