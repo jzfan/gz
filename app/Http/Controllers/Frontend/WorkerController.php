@@ -18,13 +18,23 @@ class WorkerController extends Controller
     public function index()
     {
     	$workers = $this->worker->byPage(10);
-    	$crafts_list = $this->worker->byCrafts(5);
-    	return view('frontend.user.workers', compact('workers', 'crafts_list'));
+        $crafts_list = $this->worker->byCrafts(5);
+        return view('frontend.user.workers', compact('workers', 'crafts_list'));
     }
 
     public function show(\Gz\User\Worker $worker)
     {
+        $crafts_list = $this->worker->byCrafts(5);
+        return view('frontend.user.workers-show', compact('worker', 'crafts_list'));
+    }
+
+    public function likeName()
+    {
+        $this->validate(request(), [
+                'name' => 'required'
+            ]);
+        $workers = $this->worker->likeName(request('name'));
     	$crafts_list = $this->worker->byCrafts(5);
-    	return view('frontend.user.workers-show', compact('worker', 'crafts_list'));
+        return view('frontend.user.workers', compact('workers', 'crafts_list'));
     }
 }
