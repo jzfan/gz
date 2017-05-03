@@ -111,7 +111,7 @@
 
 <div class="table-footer">
   <button type="button" class="btn btn-success" id="save" onclick='save()'>确认保存</button>
-  <button type="button" class="btn btn-success" id="view" onclick='view()'>预览</button>
+  <button type="button" class="btn btn-success" id="view" onclick='view()' disabled><a href="">预览</a></button>
 </div>
 
 
@@ -209,10 +209,15 @@ function save()
   })
 }
 
-function view(){
-  save();
-  window.location.href = '/me';
-}
+$(function(){
+  var count = 0;
+  $('#save').click(function(){
+    count++;
+    if(count>0){
+      $('#view').removeAttr("disabled");
+    }
+  })
+})
 
 </script>
 @stop
