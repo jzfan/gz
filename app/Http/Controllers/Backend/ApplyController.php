@@ -22,7 +22,7 @@ class ApplyController extends Controller
     {
         $applies = $this->apply->with('leader')->orderBy('leader_id', 'asc')->latest()->paginate(10);
         $leaders = $this->leader->select2();
-        return view('backend.page.applies', compact('applies', 'leaders'));
+        return view('backend.apply.index', compact('applies', 'leaders'));
     }
 
     public function giveLeader($id)
