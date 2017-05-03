@@ -17,10 +17,14 @@ class LeaderController extends Controller
 	}
 	public function show($id)
     {
+        $user = User::findOrFail($id);
+        if ($user->leader == null) {
+            return redirect()->back();
+        }
     	$leader = $this->leader->showById($id);
     	$tops = $this->leader->tops(4);
-        $certificates = User::findOrFail($id)->certificates()->latest()->take(6)->get();
-        $workings = User::findOrFail($id)->leaderApplies()
+        $certificates = $user->certificates()->latest()->take(6)->get();
+        $workings = $user->leaderApplies()
                 ->has('gallery')->with('gallery')->take(6)->get();
         // dd($working_galleries->first()->toArray());
         return view('frontend.user.gzshow', compact('leader', 'tops', 'certificates', 'workings'));

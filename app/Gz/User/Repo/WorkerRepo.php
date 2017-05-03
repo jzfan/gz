@@ -38,4 +38,11 @@ class WorkerRepo
 	    return $worker->user->update($input);
 	    // return $this->leader->where('user_id', $id)->get()->update($input);
 	}
+
+	public function likeName($name)
+	{
+		return $this->worker->whereHas('user', function($q) use ($name) {
+			$q->where('name', 'like', '%'.$name.'%');
+		})->get();
+	}
 }

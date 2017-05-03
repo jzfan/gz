@@ -39,8 +39,8 @@ class OfferController extends Controller
     public function store()
     {
         // dd(request()->input());
-        $this->offer->createByUid(\Auth::user()->id, request()->except('_token'));
-        return 'ok';
+        $offer = $this->offer->createByUid(\Auth::user()->id, request()->except('_token'));
+        return $offer->id;
     }
 
     public function getFormTwo()

@@ -56,7 +56,9 @@ class LeaderRepo
 
 	public function tops($n=4)
 	{
-		return $this->leader->OrderBy('rank', 'desc')->with('user')->take($n)->get();
+		return $this->leader->whereHas('user', function($q) {
+			$q->has('comments');
+		})->with('user.comments')->OrderBy('rank', 'desc')->take($n)->get();
 	}
 
 	public function updateById($id, $input)
