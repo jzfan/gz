@@ -1,4 +1,4 @@
-@extends('frontend.partial.main')
+@extends('frontend.partial.main4')
 
 @section('content')
 <!-- ************** Call to action Area Start ************** -->

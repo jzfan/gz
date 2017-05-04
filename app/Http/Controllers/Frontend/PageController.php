@@ -46,4 +46,30 @@ class PageController extends Controller
         return view('frontend.freesize');
     }
 
+    public function discount()
+    {
+        return view('frontend.discount');
+    }
+
+    public function supervise()
+    {
+        return view('frontend.supervise');
+    }
+
+
+    public function supply()
+    {
+        return view('frontend.supply');
+    }
+
+    public function compensate()
+    {
+        return view('frontend.compensate');
+    }
+
+    public function safety()
+    {
+        return view('frontend.safety');
+    }
+
 }
