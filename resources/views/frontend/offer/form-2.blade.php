@@ -206,7 +206,7 @@ function save()
   }, function(m){
     alert('保存成功！');
     $('#view').attr('disabled', false);
-    $('#view').attr('href', '/offers/'+m);
+    $('#view a').attr('href', '/offers/'+m);
   })
 }
 
