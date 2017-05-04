@@ -143,7 +143,7 @@
 						<td>{{ $apply->square }} ㎡</td>
 						<td>{{ $apply->plan }}</td>
 						<td>{{ number_format($apply->budget) }}元</td>
-						<td><a href="/applies/{{ $apply->id }}">浏览报价</a></td>
+						<td><a href="/offers/{{ $apply->offer->id }}">浏览报价</a></td>
 					</tr>
 					@endforeach
 				</tbody>
