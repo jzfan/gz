@@ -204,14 +204,12 @@ function save()
     apply, materials, options,
     _token: '{!! csrf_token() !!}'
   }, function(m){
-    alert('保存成功！');
-    window.location.href = '/me'
+    window.location.href = '/offers/'+me
   })
 }
 
 function view(){
   save();
-  window.location.href = '/me';
 }
 
 </script>
