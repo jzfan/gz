@@ -39,6 +39,7 @@
         <li><a contenteditable="true" data-toggle="tab" href="#panel-2">采购辅材记录</a></li>
         <li><a contenteditable="true" data-toggle="tab" href="#panel-3">所有工地</a></li>
         <li><a contenteditable="true" data-toggle="tab" href="#panel-4">业主评价</a></li>
+        <li><a contenteditable="true" data-toggle="tab" href="#panel-44">平台分配</a></li>
       </ul>
 
       <div class="tab-content">
@@ -179,6 +180,37 @@
               </ul>
 
             </div>
+          </div>
+        </div>
+
+
+        <div class="tab-pane" contenteditable="true" id="panel-44">
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+              <thead>
+                <tr>     
+                  <th class="text-center">业主(编号)</th>
+                  <th class="text-center">电话</th>
+                  <th class="text-center">小区</th>
+                  <th class="text-center">面  积</th>
+                  <th class="text-center">计划</th>
+                  <th class="text-center">预算</th>
+                  <th class="text-center">分配时间</th>
+                  <th class="text-center">操  作</th>
+                </tr>
+              </thead>
+              <tbody class="push-info">
+                <tr>
+                  <td>刘女士</td>
+                  <td>1867237784</td>
+                  <td>汉口传奇</td>
+                  <td>86m²</td>
+                  <td>5-8万</td>
+                  <td>2017-4-25</td>
+                  <td><a href="/offers/create-1">进行报价</a></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
