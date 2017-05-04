@@ -208,7 +208,7 @@
                   <td class="text-center">半装修</td>
                   <td class="text-center">5-8万</td>
                   <td class="text-center">2017-4-25</td>
-                  <td class="text-center"><a href="/offers/create-1">进行报价</a></td>
+                  <td class="text-center"><a href="/offers/create-1" class="quote">进行报价</a></td>
                 </tr>
               </tbody>
             </table>

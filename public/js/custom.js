@@ -477,3 +477,19 @@ $(function(){
         $('#house').val(home);
     });
 })
+
+
+//平台分配客户进行报价自动录入客户信息
+
+$(function(){
+    $('.quote').click(function(){
+        var arrInfo = [];
+        var tds = $(this).parents('.push-info').find('tr td');
+        for (var i = 0; i<=3; i++) {
+            arrInfo.push(tds[i].text());
+        }
+        console.log(arrInfo);
+
+        localStorage.setItem('cinfo', JSON.stringify(arrInfo));
+    })
+})

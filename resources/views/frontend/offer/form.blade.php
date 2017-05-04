@@ -71,5 +71,16 @@ $('#forward-link').click( function (e) {
   console.log({materials, apply})
   window.localStorage.setItem('offer', JSON.stringify({materials, apply}))
 })
+
+$(function(){
+  var inputs = $('.group-t').find('input');
+  var cinfo = JSON.parse(localStorage.getItem('cinfo'));
+  if(cinfo){
+    inputs.each(function(index,e){
+      $(this).val(cinfo[index]);
+    })
+  }
+})
+
 </script>
 @stop
