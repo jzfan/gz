@@ -63,7 +63,7 @@ class GalleryController extends Controller
 	    	$inspection =  \Gz\Project\Inspection::create(['offer_id' => $offer->id]);
 	    	$input['galleryable_id'] = $inspection->id; 
 	    }
-	    $gallery = $this->gallery->create(request()->input());
+	    $gallery = $this->gallery->create($input);
 	    return redirect('/backend/galleries?type='.request('type'))->with('success', '添加' . $gallery->name . '成功！');
 	}
 
