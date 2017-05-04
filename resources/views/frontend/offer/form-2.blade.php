@@ -111,7 +111,7 @@
 
 <div class="table-footer">
   <button type="button" class="btn btn-success" id="save" onclick='save()'>确认保存</button>
-  <button type="button" class="btn btn-success" id="view" onclick='view()'>预览</button>
+  <button type="button" class="btn btn-success" id="view" onclick='view()' disabled><a href="">预览</a></button>
 </div>
 
 
@@ -204,12 +204,10 @@ function save()
     apply, materials, options,
     _token: '{!! csrf_token() !!}'
   }, function(m){
-    window.location.href = '/offers/'+me
+    alert('保存成功！');
+    $('#view').attr('disabled', false);
+    $('#view a').attr('href', '/offers/'+m);
   })
-}
-
-function view(){
-  save();
 }
 
 </script>
