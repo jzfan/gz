@@ -17,9 +17,9 @@
 	   	 <div class="col-md-3 col-sm-3 gzgd-gz">
 	   	 	<img src="{{ $working->leader->avatar }}" class="img-responsive img-circle">
 	   	 </div>
-	   	 <div class="col-md-2 col-sm-2"><h4 class="home-area">{{ $working->block }}</h4></div>
-	   	 <div class="col-md-2 col-sm-2"><h4>面积：{{ $working->square }}m²</h4></div>
-	   	 <div class="col-md-3 col-sm-3"><h4>合同价：{{ $working->offer->amount }}元</h4></div>
+	   	 <div class="col-md-2 col-sm-2"><h4 class="home-area">{{ $working->block ?? '' }}</h4></div>
+	   	 <div class="col-md-2 col-sm-2"><h4>面积：{{ $working->square ?? '' }}m²</h4></div>
+	   	 <div class="col-md-3 col-sm-3"><h4>合同价：{{ $working->offer ? $working->offer->amount : '' }}元</h4></div>
 	   	 <div class="col-md-2 col-sm-2">
 	   	 	<a data-toggle="modal" data-target="#exampleModal-2" class="btn btn-warning appointing">预约参观</a>
 	   	 </div>
@@ -28,6 +28,7 @@
 
 	<div class="row container">
 			<!-- 备注：panel 循环个数依据验收步骤进行 panel start  -->
+			@if ( $working->offer)
 			@foreach ($working->offer->inspections as $inspection)
 			<div class="panel panel-success">
 			  <div class="panel-heading text-center">{{ $inspection->gallery->name }}</div>
@@ -74,6 +75,7 @@
 			  </div>
 			</div>
 		@endforeach
+		@endif
 	</div>
 
 </section>
