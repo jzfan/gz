@@ -258,3 +258,12 @@ tbody td a:hover{
     color: rgba(230,0,45,0.8);
     text-align: center;
 }
+.service-img{
+	margin: 0 auto;
+	height: 300px;
+	width: 700px;
+}
+.service-img img{
+	height: 100%;
+	width: 100%;
+}
