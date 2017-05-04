@@ -22,6 +22,7 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('sites/{id}', 'ApplyController@show');
 	Route::get('comments', 'CommentController@index');
 	Route::post('comments', 'CommentController@store');
+	Route::get('comments/leaders/search', 'CommentController@likeName');
 	Route::get('comments/leaders/{leader_id}', 'CommentController@ofLeader');
 	Route::post('applies', 'ApplyController@store');
 	Route::get('me', 'MeController@homeByRole');
