@@ -20,7 +20,7 @@
 <div id="preloader"></div>
 
 <!-- ***************** Header Start ***************** -->
-@include('frontend.partial.header2')
+@include('frontend.partial.header3')
 <!-- ***************** Header End ***************** -->
 @yield('content')
 
