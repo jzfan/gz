@@ -146,9 +146,9 @@
                   <td>
                     {{ $construct->apply->name }}
                   </td>
-                  <td>91㎡</td>
-                  <td>25921.00</td>
-                  <td>15841</td>
+                  <td>{{ $construct->apply->block ?? '' }} ㎡</td>
+                  <td>{{ $construct->amount }}</td>
+                  <td>{{ $construct->apply->user ?  $construct->apply->user->id : ''}}</td>
                   <td><a href="/constructions/{{ $construct->id }}">验收结果</a>&nbsp;&nbsp;<a href="/offers/{{ $construct->id }}">查看</a>&nbsp;&nbsp;<a href=""></td>
                 </tr>
                 @endforeach
@@ -200,16 +200,18 @@
                 </tr>
               </thead>
               <tbody class="push-info">
+              @foreach (\Auth::user()->leaderApplies()->doesntHave('offer')->get() as $apply)
                 <tr>
-                  <td class="text-center">刘女士</td>
-                  <td class="text-center">1867237784</td>
-                  <td class="text-center">汉口传奇</td>
-                  <td class="text-center">86m²</td>
-                  <td class="text-center">半装修</td>
-                  <td class="text-center">5-8万</td>
-                  <td class="text-center">2017-4-25</td>
+                  <td class="text-center">{{ $apply->name ?? '' }}</td>
+                  <td class="text-center">{{ $apply->phone ?? ''}}</td>
+                  <td class="text-center">{{ $apply->block ?? ''}}</td>
+                  <td class="text-center">{{ $apply->square ?? ''}}m²</td>
+                  <td class="text-center">{{ $apply->plan ?? ''}}</td>
+                  <td class="text-center">{{ $apply->budget ?? ''}}</td>
+                  <td class="text-center">{{ $apply->created_at->format('Y-m-d') }}</td>
                   <td class="text-center"><a href="/offers/create-1">进行报价</a></td>
                 </tr>
+              @endforeach
               </tbody>
             </table>
           </div>
