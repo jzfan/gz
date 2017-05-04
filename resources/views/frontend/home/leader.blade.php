@@ -201,13 +201,14 @@
               </thead>
               <tbody class="push-info">
                 <tr>
-                  <td>刘女士</td>
-                  <td>1867237784</td>
-                  <td>汉口传奇</td>
-                  <td>86m²</td>
-                  <td>5-8万</td>
-                  <td>2017-4-25</td>
-                  <td><a href="/offers/create-1">进行报价</a></td>
+                  <td class="text-center">刘女士</td>
+                  <td class="text-center">1867237784</td>
+                  <td class="text-center">汉口传奇</td>
+                  <td class="text-center">86m²</td>
+                  <td class="text-center">半装修</td>
+                  <td class="text-center">5-8万</td>
+                  <td class="text-center">2017-4-25</td>
+                  <td class="text-center"><a href="/offers/create-1">进行报价</a></td>
                 </tr>
               </tbody>
             </table>
