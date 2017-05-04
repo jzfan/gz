@@ -75,9 +75,11 @@ $('#forward-link').click( function (e) {
 $(function(){
   var inputs = $('.group-t').find('input');
   var cinfo = JSON.parse(localStorage.getItem('cinfo'));
+  console.log(typeof cinfo);
   if(cinfo){
     inputs.each(function(index,e){
       $(this).val(cinfo[index]);
+      console.log(cinfo[index]);
     })
   }
 })
