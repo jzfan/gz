@@ -409,17 +409,17 @@ $(function(){
 
    var data = JSON.stringify(items);
 
-   $('#save').on('click',function(){
-        $.ajax({
-            url:'192.168.1.31',
-            data:items,
-            dataType:'json',
-            type:'POST',
-            success:function(data){
+   // $('#save').on('click',function(){
+   //      $.ajax({
+   //          url:'192.168.1.31',
+   //          data:items,
+   //          dataType:'json',
+   //          type:'POST',
+   //          success:function(data){
 
-            }
-        })
-   })
+   //          }
+   //      })
+   // })
 
 })
 

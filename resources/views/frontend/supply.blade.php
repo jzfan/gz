@@ -17,7 +17,7 @@
 		    <h3 class="text-center">辅料直供</h3>
 		    <hr>
 		    <div class="service-img">
-		    	<img src="picture/sh.png">	
+		    	<img src="/picture/sh.png">	
 		    </div>
 		    <p>装修价格不再高
 
