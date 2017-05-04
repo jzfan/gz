@@ -27,6 +27,10 @@
 
     <!-- Content -->
 
+<!-- ******右侧边悬浮模块start****** -->
+    @include('frontend.partial.aside')
+<!-- ******右侧边悬浮模块end****** -->
+
 <!-- ************** Footer Area Start ************** -->
 <footer class="footer_area">
     <!-- Bottom Footer Area Start -->
@@ -45,12 +49,13 @@
     </div>
 </footer>
 <!-- ************** Footer Area End ************** -->
-
+<a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647;"><i class="fa fa-angle-up"></i></a>
 <!-- scroll top button -->
 
 <!-- JavaScript  files -->
 
 @include('frontend.partial.js')
+
 @yield('js')
 </body>
 </html>

@@ -261,7 +261,7 @@ tbody td a:hover{
 .service-img{
 	margin: 0 auto;
 	height: 300px;
-	width: 700px;
+	width: 700px!important;
 }
 .service-img img{
 	height: 100%;
