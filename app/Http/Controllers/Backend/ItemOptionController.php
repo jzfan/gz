@@ -16,7 +16,7 @@ class ItemOptionController extends Controller
 	{
 		$this->option = $option;
 		$this->rule = [
-			'title' => 'required|min:4,max:255',
+			'title' => 'required|min:2,max:255',
 			'description' => 'required|array',
 			'unit' => 'required|string|min:1,max:255',
 			'price' => 'required|numeric'
