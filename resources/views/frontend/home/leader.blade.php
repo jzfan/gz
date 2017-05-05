@@ -27,7 +27,7 @@
         <li><a contenteditable="true" data-toggle="tab" href="#panel-2">采购辅材记录</a></li>
         <li><a contenteditable="true" data-toggle="tab" href="#panel-3">所有工地</a></li>
         <li><a contenteditable="true" data-toggle="tab" href="#panel-4">平台分配</a></li>
-        <li><a contenteditable="true" data-toggle="tab" href="/offers/create-1">进行报价(个人)</a></li>
+        <li><a href="/offers/create-1">进行报价(个人)</a></li>
         <!-- <li><a contenteditable="true" data-toggle="tab" href="#panel-5">在建工地</a></li> -->
         <li><a contenteditable="true" data-toggle="tab" href="">采购辅材</a></li>
         <li><a contenteditable="true" data-toggle="tab" href="#panel-6">业主评价</a></li>
