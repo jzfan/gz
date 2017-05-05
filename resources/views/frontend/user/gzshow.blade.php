@@ -140,41 +140,26 @@
 @if ( ! $leader->leaderApplies->isEmpty() )
 					@foreach ($leader->leaderApplies as $apply)
 					<tr>
-<<<<<<< HEAD
 						<td>{{ $apply->block }}</td>
 						<td>{{ $apply->square }} ㎡</td>
 						<td>{{ $apply->plan }}</td>
 						<td>{{ number_format($apply->budget) }}元</td>
-<<<<<<< HEAD
-						<td><a href="/applies/{{ $apply->id }}">浏览报价</a></td>
-=======
 						<td>{{ $apply->block ?? '' }}</td>
 						<td>{{ $apply->square ?? '' }} ㎡</td>
 						<td>{{ $apply->plan ?? '' }}</td>
 					@if (isset($apply->offer))
 						<td>{{ number_format($apply->offer->amount) }}元</td>
-                                                <td><a href="/offers/{{ $apply->offer->id }}">浏览报价</a></td>
+                        <td><a href="/offers/{{ $apply->offer->id }}">浏览报价</a></td>
 					@else
 						<td></td>
 						<td></td>
 					@endif
 
->>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
 					</tr>
 					@endforeach
 @endif
 				</tbody>
 			</table>
-<<<<<<< HEAD
-=======
-						<td><a href="/offers/{{ $apply->offer->id }}">浏览报价</a></td>
-					</tr>
-					@endforeach
-				</tbody>
-			</table
->>>>>>> 341b4904a61321d3f28dc0f0b921dbce9bc99631
-=======
->>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
 
 
 		</div>

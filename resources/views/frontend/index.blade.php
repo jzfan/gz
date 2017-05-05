@@ -402,15 +402,7 @@
                                 </a>
                             </h5>
                             <div id="collapse{{ $i }}" class="accordion-content collapse">
-<<<<<<< HEAD
-<<<<<<< HEAD
                                <p>{!! $ask->answer !!}</p>
-=======
-                                {!! $ask->answer !!}
->>>>>>> 341b4904a61321d3f28dc0f0b921dbce9bc99631
-=======
-                               <p>{!! $ask->answer !!}</p>
->>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
                             </div>
                         </div>
 @endforeach
@@ -715,13 +707,6 @@
 
 
     <!-- ******用户预约模块start****** -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 341b4904a61321d3f28dc0f0b921dbce9bc99631
-=======
->>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
     @include('frontend.partial.aside')
     <!-- ******用户注册模块start****** -->
 
@@ -742,15 +727,7 @@
                 <input type="text" placeholder="姓名" name='name'>
                 <input type="number" placeholder="手机号" name='phone'>
                 <input type="text" placeholder="所在小区" name='block'>
-<<<<<<< HEAD
-<<<<<<< HEAD
                 <button onclick="alert('预约成功！')">免费预约</button>
-=======
-                <button>免费预约</button>
->>>>>>> 341b4904a61321d3f28dc0f0b921dbce9bc99631
-=======
-                <button onclick="alert('预约成功！')">免费预约</button>
->>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
             </form>
         </div>
         <span class="r-btm">X</span>

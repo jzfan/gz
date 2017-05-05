@@ -26,15 +26,7 @@ class ApplyRepo
 
 	public function byId($id)
 	{
-<<<<<<< HEAD
-<<<<<<< HEAD
-	    return $this->apply->with('images', 'leader', 'customer')->findOrFail($id);
-=======
 	    return $this->apply->with('gallery.images', 'leader', 'user')->findOrFail($id);
->>>>>>> 341b4904a61321d3f28dc0f0b921dbce9bc99631
-=======
-	    return $this->apply->with('images', 'leader', 'customer')->findOrFail($id);
->>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
 	}
 
 	public function giveLeader($id, $leader_id)

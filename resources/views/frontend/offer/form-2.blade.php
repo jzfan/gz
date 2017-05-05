@@ -165,7 +165,6 @@ function save()
     $('#view a').attr('href', '/offers/'+m);
   })
 }
-<<<<<<< HEAD
 
 $(function(){
   var count = 0;
@@ -176,8 +175,6 @@ $(function(){
     }
   })
 })
-=======
->>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
 
 </script>
 @stop
