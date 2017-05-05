@@ -17,4 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::namespace('Api')->get('offers/{id}', 'OfferController@getOne');
+// Route::namespace('Api')->get('offers/{id}', 'OfferController@getOne');
+Route::group(['namespace'=>'Api'], function(){
+	Route::get('offers/{id}', 'OfferController@getOne');
+});

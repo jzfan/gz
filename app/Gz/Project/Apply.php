@@ -10,7 +10,7 @@ class Apply extends Model
 {
 	use SoftDeletes, GalleryTrait;
 
-    protected $fillable = ['name', 'phone', 'plan', 'block', 'leader_id', 'budget'];
+    protected $fillable = ['name', 'phone', 'plan', 'block', 'leader_id', 'budget', 'square'];
 	protected $dates = ['deleted_at'];
 
     public function leader()
