@@ -61,6 +61,6 @@ class ItemOptionController extends Controller
         		request()->input(),
         		['description' => array_filter(request('description'))]
         	));
-        return redirect('/items')->with('success', '添加项目选项成功！');
+        return redirect('/items/'.request('item_id'))->with('success', '添加项目选项成功！');
     }
 }
