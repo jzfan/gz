@@ -91,7 +91,7 @@
         @endforeach
         <tr>
           <td class="text-center">
-            <button class="btn btn-default" data-toggle="modal" data-target="#exampleModal">新增</button>
+            <button class="btn btn-default" data-toggle="modal" data-target="#exampleModaladd">新增</button>
           </td>
           <td colspan="3" class="text-right">合计</td>
           <td class="sum">0</td>
@@ -117,7 +117,7 @@
 
 <!-- 新增模态框 -->
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+<div class="modal fade" id="exampleModaladd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

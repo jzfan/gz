@@ -3,7 +3,7 @@
         <img src="/picture/l_logo.png" alt="">
     </div>
     <ul>
-        <li><span class="icon-chat"></span><a href="http://wpa.qq.com/msgrd?v=3&uin=2712192471&site=qq&menu=yes">在线咨询</a></li>
+        <li><span class="icon-chat"></span><a href="http://wpa.qq.com/msgrd?v=3&uin=46825699&site=qq&menu=yes">在线咨询</a></li>
         <li data-toggle="modal" data-target="#exampleModal">
             <span class="icon-tools-2 "></span>我要装修</li>
         <a href="#"><li><span class="icon-browser"></span><a href="/offers">查看报价</a></li></a>
