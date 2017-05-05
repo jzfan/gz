@@ -90,15 +90,10 @@
         </tr>
         @endforeach
         <tr>
-<<<<<<< HEAD
           <td class="text-center">
-            <button class="btn btn-default" data-toggle="modal" data-target="#exampleModal">新增</button>
+            合计
           </td>
-          <td colspan="3" class="text-right">合计</td>
-=======
-          <td class="text-center"></td>
           <td colspan="3"></td>
->>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
           <td class="sum">0</td>
         </tr>
       </tbody>

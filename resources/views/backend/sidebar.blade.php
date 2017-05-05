@@ -30,15 +30,8 @@
                       </a>
                   </li>
                   <li class="">
-<<<<<<< HEAD
-<<<<<<< HEAD
+                      <!-- <a class="" href="/backend/applies"> -->
                       <a class="" href="/applies">
-=======
-                      <a class="" href="/backend/applies">
->>>>>>> 341b4904a61321d3f28dc0f0b921dbce9bc99631
-=======
-                      <a class="" href="/applies">
->>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
                           <i class="icon-envelope-alt"></i>
                           <span>申请</span>
                       </a>
