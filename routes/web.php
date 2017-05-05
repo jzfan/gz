@@ -22,12 +22,16 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('sites/{id}', 'ApplyController@show');
 	Route::get('comments', 'CommentController@index');
 	Route::post('comments', 'CommentController@store');
+	Route::get('comments/leaders/search', 'CommentController@likeName');
 	Route::get('comments/leaders/{leader_id}', 'CommentController@ofLeader');
 	Route::post('applies', 'ApplyController@store');
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 	Route::get('applies/{id}', 'ApplyController@show');
 >>>>>>> 341b4904a61321d3f28dc0f0b921dbce9bc99631
+=======
+>>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
 	Route::get('me', 'MeController@homeByRole');
 	Route::post('me', 'MeController@update');
 	Route::post('me/password', 'MeController@resetPassword');
@@ -43,6 +47,11 @@ Route::namespace('Frontend')->group( function () {
 	Route::post('workers/search', 'WorkerController@likeName');
 	Route::get('workers/{worker}', 'WorkerController@show');
 	Route::get('freesize', 'PageController@freesize');
+	Route::get('discount', 'PageController@discount');
+	Route::get('supervise', 'PageController@supervise');
+	Route::get('supply', 'PageController@supply');
+	Route::get('compensate', 'PageController@compensate');
+	Route::get('safety', 'PageController@safety');
 	Route::post('appointments', 'AppointmentController@store');
 });
 
@@ -64,15 +73,21 @@ Route::namespace('Backend')->group( function () {
 		Route::delete('materials/{id}', 'MaterialController@destroy');
 		Route::get('admin-console', 'PageController@dashboard');
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
 		Route::get('applies', 'ApplyController@index');
 		Route::post('applies/{id}/leaders', 'ApplyController@giveLeader');
 		Route::get('backend-users', 'AdminController@backendUsers');
 		Route::post('roles', 'AdminController@setRole');
 		Route::get('applies/{apply_id}', 'ApplyController@show');
+<<<<<<< HEAD
 =======
 		Route::get('backend-users', 'AdminController@backendUsers');
 		Route::post('roles', 'AdminController@setRole');
 >>>>>>> 341b4904a61321d3f28dc0f0b921dbce9bc99631
+=======
+>>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
 		// Route::get('editors', 'EditorController@index');
 		
 		Route::resource('items', 'ItemController');
@@ -108,11 +123,14 @@ Route::namespace('Backend')->group( function () {
 			Route::get('appointments', 'AppointmentController@index');
 			Route::delete('appointments/{id}', 'AppointmentController@destroy');
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 			Route::get('applies', 'ApplyController@index');
 			Route::post('applies/{id}/leaders', 'ApplyController@giveLeader');
 			Route::get('applies/{apply_id}', 'ApplyController@show');
 >>>>>>> 341b4904a61321d3f28dc0f0b921dbce9bc99631
+=======
+>>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
 
 		});
 	});

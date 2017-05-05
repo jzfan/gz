@@ -90,10 +90,15 @@
         </tr>
         @endforeach
         <tr>
+<<<<<<< HEAD
           <td class="text-center">
             <button class="btn btn-default" data-toggle="modal" data-target="#exampleModal">新增</button>
           </td>
           <td colspan="3" class="text-right">合计</td>
+=======
+          <td class="text-center"></td>
+          <td colspan="3"></td>
+>>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
           <td class="sum">0</td>
         </tr>
       </tbody>
@@ -114,50 +119,6 @@
   <button type="button" class="btn btn-success" id="view" onclick='view()' disabled><a href="">预览</a></button>
 </div>
 
-
-<!-- 新增模态框 -->
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">新增工艺</h4>
-      </div>
-      <div class="modal-body">
-        <form id='modal-form'>
-          <div class="form-group">
-            <label for="recipient-name" class="control-label">包括内容</label>
-            <input type="text" class="form-control" id="recipient-name">
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="control-label">工艺做法、材料及收费说明</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-          <div class="input-group">
-            <span class="input-group-addon">数量/单位</span>
-            <input type="text" class="form-control">
-            <span class="input-group-addon">m</span>
-          </div>
-          <br>
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">单价(元)</span>
-            <input type="text" class="form-control" placeholder="单价(元)" aria-describedby="basic-addon1">
-          </div>
-          <br>
-          <div class="input-group">
-            <span class="input-group-addon" id="basic-addon1">总金额(元)</span>
-            <input type="text" class="form-control" placeholder="总金额(元)" aria-describedby="basic-addon1">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary">提交</button>
-      </div>
-    </div>
-  </div>
-</div>
 @stop
 
 @section('js')
@@ -205,9 +166,11 @@ function save()
     _token: '{!! csrf_token() !!}'
   }, function(m){
     alert('保存成功！');
-    window.location.href = '/me'
+    $('#view').attr('disabled', false);
+    $('#view a').attr('href', '/offers/'+m);
   })
 }
+<<<<<<< HEAD
 
 $(function(){
   var count = 0;
@@ -218,6 +181,8 @@ $(function(){
     }
   })
 })
+=======
+>>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
 
 </script>
 @stop

@@ -20,25 +20,21 @@
 
 <div class="">
   <div class="row">
-    <div class="col-md-2">
-      <ul class="list-group">
-        <li class="list-group-item"><a href="/offers/create-1">进行报价</a></li>
-        <li class="list-group-item"><a href="">采购辅材</a></li>
-        @if (\Auth::user()->leader !== null)
-        <li class="list-group-item"><a contenteditable="true" data-toggle="tab" href="#panel-8">修改资料</a></li>
-        @endif
-        <li class="list-group-item"><a href="">在建工地</a></li>
-        <li class="list-group-item"><a contenteditable="true" data-toggle="tab" href="#panel-10" >修改密码</a></li>
-        <li class="list-group-item"><a contenteditable="true" data-toggle="tab" href="#panel-11" >扣分记录</a></li>
-      </ul>
-    </div>
 
-    <div class="tabbable col-md-10">
+    <div class="tabbable col-md-12">
       <ul class="nav nav-tabs" style="margin-bottom: 1rem;">
         <li class="active"><a contenteditable="true" data-toggle="tab" href="#panel-1">历史报价</a></li>
         <li><a contenteditable="true" data-toggle="tab" href="#panel-2">采购辅材记录</a></li>
         <li><a contenteditable="true" data-toggle="tab" href="#panel-3">所有工地</a></li>
-        <li><a contenteditable="true" data-toggle="tab" href="#panel-4">业主评价</a></li>
+        <li><a contenteditable="true" data-toggle="tab" href="#panel-4">平台分配</a></li>
+        <li><a href="/offers/create-1">进行报价(个人)</a></li>
+        <!-- <li><a contenteditable="true" data-toggle="tab" href="#panel-5">在建工地</a></li> -->
+        <li><a contenteditable="true" data-toggle="tab" href="">采购辅材</a></li>
+        <li><a contenteditable="true" data-toggle="tab" href="#panel-6">业主评价</a></li>
+        @if (\Auth::user()->leader !== null)
+        <li><a contenteditable="true" data-toggle="tab" href="#panel-7">修改资料</a></li>
+        @endif
+        <li><a contenteditable="true" data-toggle="tab" href="#panel-8">修改密码</a></li>
       </ul>
 
       <div class="tab-content">
@@ -53,6 +49,7 @@
                   <th class="text-center">业主(编号)</th>
                   <th class="text-center">总  价</th>
                   <th class="text-center">报价状态</th>
+                  <th class="text-center">操作</th>
                 </tr>
               </thead>
               <tbody>
@@ -68,6 +65,7 @@
                   <td>{{ $offer->apply->name }}({{ $offer->apply->id }})</td>
                   <td>{{ $offer->amount }}</td>
                   <td>{{ $offer->status }}</td>
+                  <td><a href="/offers/{{ $offer->id }}">预览</a>|<a href="">修改</a>|<a href="">发送</a></td>
                 </tr>
                 @endforeach
               </tbody>
@@ -145,9 +143,9 @@
                   <td>
                     {{ $construct->apply->name }}
                   </td>
-                  <td>91㎡</td>
-                  <td>25921.00</td>
-                  <td>15841</td>
+                  <td>{{ $construct->apply->block ?? '' }} ㎡</td>
+                  <td>{{ $construct->amount }}</td>
+                  <td>{{ $construct->apply->user ?  $construct->apply->user->id : ''}}</td>
                   <td><a href="/constructions/{{ $construct->id }}">验收结果</a>&nbsp;&nbsp;<a href="/offers/{{ $construct->id }}">查看</a>&nbsp;&nbsp;<a href=""></td>
                 </tr>
                 @endforeach
@@ -156,7 +154,41 @@
           </div>
         </div>
 
+
         <div class="tab-pane" contenteditable="true" id="panel-4">
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+              <thead>
+                <tr>     
+                  <th class="text-center">业主(编号)</th>
+                  <th class="text-center">电话</th>
+                  <th class="text-center">小区</th>
+                  <th class="text-center">面  积</th>
+                  <th class="text-center">计划</th>
+                  <th class="text-center">预算</th>
+                  <th class="text-center">分配时间</th>
+                  <th class="text-center">操  作</th>
+                </tr>
+              </thead>
+              <tbody class="push-info">
+              @foreach (\Auth::user()->leaderApplies()->doesntHave('offer')->get() as $apply)
+                <tr>
+                  <td class="text-center">{{ $apply->name ?? '' }}</td>
+                  <td class="text-center">{{ $apply->phone ?? ''}}</td>
+                  <td class="text-center">{{ $apply->block ?? ''}}</td>
+                  <td class="text-center">{{ $apply->square ?? ''}}m²</td>
+                  <td class="text-center">{{ $apply->plan ?? ''}}</td>
+                  <td class="text-center">{{ $apply->budget ?? ''}}</td>
+                  <td class="text-center">{{ $apply->created_at->format('Y-m-d') }}</td>
+                  <td class="text-center"><a href="/offers/create-1">进行报价</a>|<a href="">修改</a>|<a href="">发送</a></td>
+                </tr>
+              @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-pane" contenteditable="true" id="panel-6">
           <div class="panel panel-default">
             <div class="panel-heading">业主最新评价</div>
             <div class="panel-body">
@@ -180,6 +212,38 @@
 
             </div>
           </div>
+        </div>
+
+
+        <div class="tab-pane panel panel-default" contenteditable="true" id="panel-7">
+          <form class="form-horizontal panel-body" method="post" action="/me/password">
+          {!! csrf_field() !!}
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">原密码：</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputEmail3" placeholder="原密码" name='password'>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">新密码：</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="新密码" name='new'>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">确认密码：</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="再次确认密码" name='new_confirmation'>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">提交</button>
+              </div>
+            </div>
+          </form>
+
         </div>
 
 
@@ -241,80 +305,7 @@
               </div>
             </div>
           </form>
-
         </div>
-        <div class="tab-pane panel panel-default" contenteditable="true" id="panel-10">
-          <form class="form-horizontal panel-body" method="post" action="/me/password">
-          {!! csrf_field() !!}
-            <div class="form-group">
-              <label for="inputPassword3" class="col-sm-2 control-label">原密码：</label>
-              <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputEmail3" placeholder="原密码" name='password'>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputPassword3" class="col-sm-2 control-label">新密码：</label>
-              <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="新密码" name='new'>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputPassword3" class="col-sm-2 control-label">确认密码：</label>
-              <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="再次确认密码" name='new_confirmation'>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">提交</button>
-              </div>
-            </div>
-          </form>
-
-        </div>
-
-
-        <div class="tab-pane" contenteditable="true" id="panel-11">
-          <div class="table-responsive">
-            <table class="table table-bordered table-striped table-hover">
-              <thead>
-                <tr>
-                  <th class="text-center">扣分时间</th>
-                  <th class="text-center">违反规则</th>
-                  <th class="text-center">分值变化</th>
-                  <th class="text-center">备注</th>
-                  <th class="text-center">详细</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="text-center">
-                  <td>2017-03-09
-                  </td>
-                  <td>工长月会或活动缺席</td>
-                  <td>
-                    -1.0
-                  </td>
-                  <td>03.8月会缺席</td>
-                  <td><a href="">查看</a></td>
-                </tr>
-
-                <tr class="text-center">
-                  <td>2017-03-09
-                  </td>
-                  <td>工长月会或活动缺席</td>
-                  <td>
-                    -1.0
-                  </td>
-                  <td>03.8月会缺席</td>
-                  <td><a href="">查看</a></td>
-                </tr>
-                
-              </tbody>
-            </table>
-          </div>
-        </div>
-
 
       </div>
 

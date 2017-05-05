@@ -294,6 +294,11 @@ $(function(){
         count++;
 
         var dom = $(id).clone();
+        dom.find('.checkbox input').each(function(){
+            $(this).attr('checked', false);
+        });//取消勾选
+        dom.find('.sum').text(0);
+
         var newdom = dom.attr('id', url.split('#')[1]);
         newdom.attr('data-id', url.split('#')[1]);
         $('.tab-content').append(newdom);
@@ -337,7 +342,6 @@ $(function(){
         
     })
 })
-
 
 /*数据存储*/
 $(function(){
@@ -409,17 +413,17 @@ $(function(){
 
    var data = JSON.stringify(items);
 
-   $('#save').on('click',function(){
-        $.ajax({
-            url:'192.168.1.31',
-            data:items,
-            dataType:'json',
-            type:'POST',
-            success:function(data){
+   // $('#save').on('click',function(){
+   //      $.ajax({
+   //          url:'192.168.1.31',
+   //          data:items,
+   //          dataType:'json',
+   //          type:'POST',
+   //          success:function(data){
 
-            }
-        })
-   })
+   //          }
+   //      })
+   // })
 
 })
 
@@ -476,4 +480,21 @@ $(function(){
         console.log(home)
         $('#house').val(home);
     });
+})
+
+
+//平台分配客户进行报价自动录入客户信息
+
+$(function(){
+    $('.quote').eq(0).click(function(){
+        var arrInfo = [];
+        var tds = $(this).parents('.push-info').find('tr td');
+        tds.each(function(index,e){
+          if(index<=3){
+            arrInfo.push($(this).text());
+          }
+        })
+        console.log(arrInfo);
+        localStorage.setItem('cinfo', JSON.stringify(arrInfo));
+    })
 })

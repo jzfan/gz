@@ -13,6 +13,7 @@
           <tr>
             <th>ID</th>
             <th> 姓名</th>
+            <th> 头像</th>
             <th> 电话</th>
             <th> 小区</th>
             <th> 面积</th>
@@ -27,7 +28,8 @@
           @if ($customer->customerApplies->isEmpty())
             <tr>
               <th>{{ $customer->id }}</th>
-              <td><img src="{{ $customer->avatar }}" width="50">{{ $customer->name }}</td>
+              <td>{{ $customer->name }}</td>
+              <td><img src="{{ $customer->avatar }}" width="50" class="img-circle"></td>
               <td> {{ $customer->phone }} </td>
               <td></td>
               <td></td>

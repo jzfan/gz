@@ -22,6 +22,7 @@ class CreateAppliesTable extends Migration
             $table->string('block')->nullable();
             $table->string('square')->nullable();
             $table->enum('plan', ['全装修', '半装修', '待定'])->default('待定');
+            $table->enum('from', ['平台', '个人'])->default('平台');
             $table->string('budget')->nullable();
             $table->timestamps();
             $table->softDeletes();

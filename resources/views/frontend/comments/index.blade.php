@@ -25,7 +25,12 @@
                   <div class="row">
                     <!-- Single Input Area Start -->
                     <div class="col-sm-12 col-xs-12 col-md-6 col-md-offset-3 col-xs-6 col-xs-offset-3">
-@include('frontend.partial.form-leader-search')
+                    <form class="navbar-form navbar-right" action="/comments/leaders/search" method="GET">
+                      <div class="form-group">
+                        <input type="text" class="form-control" name='name' placeholder="输入工长">
+                      </div>
+                      <button type="submit" class="btn btn-default">搜索</button>
+                    </form>
                     </div>
                   </div>
                 </div>

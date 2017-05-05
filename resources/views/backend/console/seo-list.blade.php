@@ -2,7 +2,7 @@
         <hr>
         @foreach ($seos as $seo)
         <form class="form-inline col-md-6" role="form" action='seos/{{ $seo->id }}' method="POST"
-           action="/seos/{{ $seo->id }}">
+           action="/seos/{{ $seo->id }}" style="margin-bottom: 3rem;">
           {!! method_field('PUT') !!}
           {!! csrf_field() !!}
           <div class="form-group">

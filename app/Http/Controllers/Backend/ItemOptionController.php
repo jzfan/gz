@@ -16,7 +16,7 @@ class ItemOptionController extends Controller
 	{
 		$this->option = $option;
 		$this->rule = [
-			'title' => 'required|min:4,max:255',
+			'title' => 'required|min:2,max:255',
 			'description' => 'required|array',
 			'unit' => 'required|string|min:1,max:255',
 			'price' => 'required|numeric'
@@ -45,7 +45,7 @@ class ItemOptionController extends Controller
         		'unit' => request('unit'),
         		'price' => request('price'),
         	]);
-        return redirect('/items')->with('success', '更新项目成功！');
+        return redirect('/items/'.$id)->with('success', '更新项目成功！');
     }
 
     public function create($id)
@@ -61,6 +61,6 @@ class ItemOptionController extends Controller
         		request()->input(),
         		['description' => array_filter(request('description'))]
         	));
-        return redirect('/items')->with('success', '添加项目选项成功！');
+        return redirect('/items/'.request('item_id'))->with('success', '添加项目选项成功！');
     }
 }

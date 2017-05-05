@@ -34,7 +34,7 @@ class PageController extends Controller
     	$comments = $this->comment->newList(10);
     	// $images = $this->gallery->newList(4);
     	$workings = $this->gallery->newWorking(4);
-    	$articles = $this->article->newList(5);
+    	$articles = $this->article->listByTag('最新签单', 5);
     	$feng_shui = $this->article->listByTag('居家风水', 5);
     	$industry = $this->article->listByTag('行业新闻', 5);
     	$designs = $this->gallery->newDesignList(8);
@@ -44,6 +44,32 @@ class PageController extends Controller
     public function freesize()
     {
         return view('frontend.freesize');
+    }
+
+    public function discount()
+    {
+        return view('frontend.discount');
+    }
+
+    public function supervise()
+    {
+        return view('frontend.supervise');
+    }
+
+
+    public function supply()
+    {
+        return view('frontend.supply');
+    }
+
+    public function compensate()
+    {
+        return view('frontend.compensate');
+    }
+
+    public function safety()
+    {
+        return view('frontend.safety');
     }
 
 }
