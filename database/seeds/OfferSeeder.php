@@ -48,7 +48,7 @@ class OfferSeeder extends Seeder
     	$items = Item::inRandomOrder()->take(2)->get();
         $arr = [];
         foreach ($items as $item) {
-        	if ($item->single) {
+        	if ($item->single == 1) {
         		$arr[] = $this->getSingle($item);
         	} else {
         		foreach (range(1, 2) as $index) {

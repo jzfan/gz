@@ -65,7 +65,7 @@
                   <td>{{ $offer->apply->name }}({{ $offer->apply->id }})</td>
                   <td>{{ $offer->amount }}</td>
                   <td>{{ $offer->status }}</td>
-                  <td><a href="">预览</a>|<a href="">修改</a>|<a href="">发送</a></td>
+                  <td><a href="/offers/{{ $offer->id }}">预览</a>|<a href="">修改</a>|<a href="">发送</a></td>
                 </tr>
                 @endforeach
               </tbody>
@@ -188,43 +188,6 @@
           </div>
         </div>
 
-
-        <!-- <div class="tab-pane" contenteditable="true" id="panel-5">
-          <div class="table-responsive">
-            <table class="table table-bordered table-striped table-hover">
-              <thead>
-                <tr>
-                  <th class="text-center">时  间</th>
-                  <th class="text-center">小  区</th>
-                  <th class="text-center">业  主</th>
-                  <th class="text-center">面  积</th>
-                  <th class="text-center">合同价</th>
-                  <th class="text-center">业主编号</th>
-                  <th class="text-center">操  作</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach ($constructions as $construct)
-                <tr class="text-center">
-                  <td>
-                    {{ $construct->created_at->format('Y-m-d') }}
-                  </td>
-                  <td>{{ $construct->apply->block }}</td>
-                  <td>
-                    {{ $construct->apply->name }}
-                  </td>
-                  <td>{{ $construct->apply->block ?? '' }} ㎡</td>
-                  <td>{{ $construct->amount }}</td>
-                  <td>{{ $construct->apply->user ?  $construct->apply->user->id : ''}}</td>
-                  <td><a href="/constructions/{{ $construct->id }}">验收结果</a>&nbsp;&nbsp;<a href="/offers/{{ $construct->id }}">查看</a>&nbsp;&nbsp;<a href=""></td>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
-          </div>
-        </div> -->
-
-
         <div class="tab-pane" contenteditable="true" id="panel-6">
           <div class="panel panel-default">
             <div class="panel-heading">业主最新评价</div>
@@ -343,48 +306,6 @@
             </div>
           </form>
         </div>
-
-
-        <!-- <div class="tab-pane" contenteditable="true" id="panel-11">
-          <div class="table-responsive">
-            <table class="table table-bordered table-striped table-hover">
-              <thead>
-                <tr>
-                  <th class="text-center">扣分时间</th>
-                  <th class="text-center">违反规则</th>
-                  <th class="text-center">分值变化</th>
-                  <th class="text-center">备注</th>
-                  <th class="text-center">详细</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="text-center">
-                  <td>2017-03-09
-                  </td>
-                  <td>工长月会或活动缺席</td>
-                  <td>
-                    -1.0
-                  </td>
-                  <td>03.8月会缺席</td>
-                  <td><a href="">查看</a></td>
-                </tr>
-
-                <tr class="text-center">
-                  <td>2017-03-09
-                  </td>
-                  <td>工长月会或活动缺席</td>
-                  <td>
-                    -1.0
-                  </td>
-                  <td>03.8月会缺席</td>
-                  <td><a href="">查看</a></td>
-                </tr>
-                
-              </tbody>
-            </table>
-          </div>
-        </div> -->
-
 
       </div>
 
