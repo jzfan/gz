@@ -45,7 +45,7 @@ class ItemOptionController extends Controller
         		'unit' => request('unit'),
         		'price' => request('price'),
         	]);
-        return redirect('/items')->with('success', '更新项目成功！');
+        return redirect('/items/'.$id)->with('success', '更新项目成功！');
     }
 
     public function create($id)
