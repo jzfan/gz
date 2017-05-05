@@ -25,13 +25,7 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('comments/leaders/search', 'CommentController@likeName');
 	Route::get('comments/leaders/{leader_id}', 'CommentController@ofLeader');
 	Route::post('applies', 'ApplyController@store');
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 	Route::get('applies/{id}', 'ApplyController@show');
->>>>>>> 341b4904a61321d3f28dc0f0b921dbce9bc99631
-=======
->>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
 	Route::get('me', 'MeController@homeByRole');
 	Route::post('me', 'MeController@update');
 	Route::post('me/password', 'MeController@resetPassword');
@@ -72,22 +66,14 @@ Route::namespace('Backend')->group( function () {
 		Route::post('materials', 'MaterialController@store');
 		Route::delete('materials/{id}', 'MaterialController@destroy');
 		Route::get('admin-console', 'PageController@dashboard');
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
 		Route::get('applies', 'ApplyController@index');
 		Route::post('applies/{id}/leaders', 'ApplyController@giveLeader');
 		Route::get('backend-users', 'AdminController@backendUsers');
 		Route::post('roles', 'AdminController@setRole');
 		Route::get('applies/{apply_id}', 'ApplyController@show');
-<<<<<<< HEAD
-=======
 		Route::get('backend-users', 'AdminController@backendUsers');
 		Route::post('roles', 'AdminController@setRole');
->>>>>>> 341b4904a61321d3f28dc0f0b921dbce9bc99631
-=======
->>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
+		
 		// Route::get('editors', 'EditorController@index');
 		
 		Route::resource('items', 'ItemController');
@@ -122,15 +108,9 @@ Route::namespace('Backend')->group( function () {
 			Route::delete('certificates/{id}', 'CertificateController@destroy');
 			Route::get('appointments', 'AppointmentController@index');
 			Route::delete('appointments/{id}', 'AppointmentController@destroy');
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 			Route::get('applies', 'ApplyController@index');
 			Route::post('applies/{id}/leaders', 'ApplyController@giveLeader');
 			Route::get('applies/{apply_id}', 'ApplyController@show');
->>>>>>> 341b4904a61321d3f28dc0f0b921dbce9bc99631
-=======
->>>>>>> 46063c5656e25104d752268d34fcfef5ff568025
 
 		});
 	});
