@@ -294,6 +294,11 @@ $(function(){
         count++;
 
         var dom = $(id).clone();
+        dom.find('.checkbox input').each(function(){
+            $(this).attr('checked', false);
+        });//取消勾选
+        dom.find('.sum').text(0);
+
         var newdom = dom.attr('id', url.split('#')[1]);
         newdom.attr('data-id', url.split('#')[1]);
         $('.tab-content').append(newdom);
@@ -337,7 +342,6 @@ $(function(){
         
     })
 })
-
 
 /*数据存储*/
 $(function(){
