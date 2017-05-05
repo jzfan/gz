@@ -39,7 +39,11 @@
                                       QQ：{{ $apply->leader->qq }}
                                     </p>
                                     @else
+<<<<<<< HEAD
                                       <form class="form-group" method="POST" action='/applies/{{ $apply->id }}/leaders/:leader_id' id='gt-form'>
+=======
+                                      <form class="form-group" method="POST" action='/backend/applies/{{ $apply->id }}/leaders/:leader_id' id='gt-form'>
+>>>>>>> 341b4904a61321d3f28dc0f0b921dbce9bc99631
                                           {{ csrf_field() }}
                                             <label class="control-label col-lg-2" for="inputSuccess">选择</label>
                                             <div class="col-lg-10">

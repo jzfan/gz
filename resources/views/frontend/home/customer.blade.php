@@ -16,8 +16,13 @@
 
     <div class="tabbable col-md-8" id="tabs-15322"> <!-- Only required for left/right tabs -->
       <ul class="nav nav-tabs">
+<<<<<<< HEAD
         <li class="active"><a href="#panel-334914" data-toggle="tab" contenteditable="true">报价项目</a></li>
         <li class=""><a href="#panel-839711" data-toggle="tab" contenteditable="true">资料修改</a></li>
+=======
+        <li class="active"><a href="#panel-334914" data-toggle="tab" contenteditable="true">第一部分</a></li>
+        <li class=""><a href="#panel-839711" data-toggle="tab" contenteditable="true">第二部分</a></li>
+>>>>>>> 341b4904a61321d3f28dc0f0b921dbce9bc99631
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="panel-334914" contenteditable="true" style="margin-top: 2rem;">

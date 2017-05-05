@@ -50,7 +50,11 @@
 
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog">
+<<<<<<< HEAD
     <form class="modal-content form-horizontal tasi-form" method="POST" action="/applies/:APPOINTMENT_ID/leaders" id='modal-form'>
+=======
+    <form class="modal-content form-horizontal tasi-form" method="POST" action="/backend/applies/:APPOINTMENT_ID/leaders" id='modal-form'>
+>>>>>>> 341b4904a61321d3f28dc0f0b921dbce9bc99631
       {!! csrf_field() !!}
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
