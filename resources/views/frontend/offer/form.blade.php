@@ -36,7 +36,7 @@
           {{ $key }}
           @foreach ($group as $material)
           <label class="checkbox-inline">
-            <input type="checkbox"
+            <input type="checkbox" id="inlinebox1" 
             data-name='{{ $material->name }}'
             data-brand='{{ $material->brand }}'
             value="{{ $material->id }}" name='materials[{{ array_flip(array_keys($materials->toArray()))[$key] }}]'> {{ $material->brand }}
@@ -54,27 +54,45 @@
 
 @section('js')
 <script>
-
 $('#forward-link').click( function (e) {
   let materials = []
   let apply = {}
-  $.each($('form').serializeArray(), function() {
-    if (this.name.includes('materials') && this.attr('checked') == true) {
-      materials.push({
-        id: this.value,
-        name: $('[name="'+ this.name +'"]').attr('data-name'),
-        brand: $('[name="'+ this.name +'"]').attr('data-brand')
+  // $.each($('form').serializeArray(), function() {
+  //   if (this.name.includes('materials')) {
+  //     materials.push({
+  //       id: this.value,
+  //       name: $('[name="'+ this.name +'"]').attr('data-name'),
+  //       brand: $('[name="'+ this.name +'"]').attr('data-brand')
+  //     })
+  //   }
+  // })
+
+  $('.list-group .list-group-item').each(function(){
+      var _brand = [];
+      var str = String;
+      $(this).find('input').each(function(){
+        if($(this).is(':checked')){
+          _brand.push($(this).attr('data-brand'));
+        }
       })
-    } else {
-        apply[this.name] = this.value
-      }
+      str = _brand.join('|');  
+      materials.push({
+        id: $(this).find('input').eq(0).value,
+        name: $(this).find('input').eq(0).attr('data-name'),
+        brand: str
+      })
   })
-  console.log({materials, apply})
+
+  $('.group-t input').each(function(){
+     apply[this.name] = this.value;
+  });
+
+  console.log({materials, apply});
   window.localStorage.setItem('offer', JSON.stringify({materials, apply}));
 })
 
 
-//业主信息自动录入
+//业主信息自动录入开始
 
 $(function(){
   var inputs = $('.group-t').find('input');
