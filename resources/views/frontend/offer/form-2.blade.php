@@ -148,7 +148,6 @@ let data = JSON.parse(window.localStorage.getItem('offer'))
 
 function save()
 {
-  console.log('save it')
   let options = $('#checkbox-form').serializeArray().map( function (checked) {
     return {
       id: checked.value,

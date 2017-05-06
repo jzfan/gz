@@ -57,15 +57,6 @@
 $('#forward-link').click( function (e) {
   let materials = []
   let apply = {}
-  // $.each($('form').serializeArray(), function() {
-  //   if (this.name.includes('materials')) {
-  //     materials.push({
-  //       id: this.value,
-  //       name: $('[name="'+ this.name +'"]').attr('data-name'),
-  //       brand: $('[name="'+ this.name +'"]').attr('data-brand')
-  //     })
-  //   }
-  // })
 
   $('.list-group .list-group-item').each(function(){
       var _brand = [];
