@@ -82,6 +82,9 @@ $(function(){
       console.log(cinfo[i]);
     })
   }
+
+  localStorage.removeItem('cinfo');
+  console.log(JSON.parse(localStorage.getItem('cinfo')));
 })
 
 </script>
