@@ -79,6 +79,7 @@ $factory->define(Gz\Project\Apply::class, function (Faker\Generator $faker) {
         'square' => mt_rand(30, 300),
         'phone' => $faker->phoneNumber,
         'plan' => array_rand(array_flip(['全装修', '半装修', '待定'])),
+        'from' => array_rand(array_flip(['平台', '个人'])),
         'budget' => mt_rand(2, 20) * 10000
     ];
 });

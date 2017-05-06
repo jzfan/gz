@@ -27,6 +27,7 @@
       <div class="modal-body contact_input_area">
         <form action='/applies' method="POST">
         {!! csrf_field() !!}
+        <input type="hidden" name='from' value='平台'>
           <div class="form-group">
             <input type="text" class="form-control" id="recipient-name" placeholder="您的称呼"
                 name='name'>
