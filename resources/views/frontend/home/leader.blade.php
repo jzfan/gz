@@ -65,7 +65,7 @@
                   <td>{{ $offer->apply->name }}({{ $offer->apply->id }})</td>
                   <td>{{ $offer->amount }}</td>
                   <td>{{ $offer->status }}</td>
-                  <td><a href="/offers/{{ $offer->id }}">预览</a>|<a href="">修改</a>|<a href="">发送</a></td>
+                  <td><a href="/offers/{{ $offer->id }}">预览</a>&nbap;|&nbap;<a href="">修改</a>|</td>
                 </tr>
                 @endforeach
               </tbody>
@@ -180,7 +180,7 @@
                   <td class="text-center">{{ $apply->plan ?? ''}}</td>
                   <td class="text-center">{{ $apply->budget ?? ''}}</td>
                   <td class="text-center">{{ $apply->created_at->format('Y-m-d') }}</td>
-                  <td class="text-center"><a href="###" class="push-price-link" >进行报价</a>|<a href="">修改</a>|<a href="">发送</a></td>
+                  <td class="text-center"><a href="###" class="push-price-link" >进行报价</a></td>
                 </tr>
               @endforeach
               </tbody>

@@ -54,13 +54,14 @@
                   </select>
                     </div>
                     <div class="form-group">
-                      <select class="form-control" name='square'>
+                      <input type="text" name='square' class="form-control" placeholder="房屋面积（m²）">
+                      <!-- <select class="form-control" name='square'>
                         <option value='房屋面积'>房屋面积</option>
                         <option value='80m2以下'>80m2以下</option>
                         <option value='80-120㎡'>80-120㎡</option>
                         <option value='120-150㎡'>120-150㎡</option>
                         <option value='150㎡以上'>150㎡以上</option>
-                      </select>
+                      </select> -->
                     </div>
       </div>
       <div class="modal-footer">
