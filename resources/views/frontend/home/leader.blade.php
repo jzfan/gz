@@ -171,7 +171,7 @@
                 </tr>
               </thead>
               <tbody class="push-info">
-              @foreach (\Auth::user()->leaderApplies()->doesntHave('offer')->get() as $apply)
+              @foreach (\Auth::user()->leaderApplies()->doesntHave('offer')->where('from', '平台')->get() as $apply)
                 <tr>
                   <td class="text-center">{{ $apply->name ?? '' }}</td>
                   <td class="text-center">{{ $apply->phone ?? ''}}</td>

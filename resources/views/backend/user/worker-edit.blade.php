@@ -27,6 +27,12 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="col-sm-2 control-label">生日</label>
+                <div class="col-sm-10">
+                    <input id="dp1" type="text" name='birthday' value="{{ old('birthday', $worker->birthday->format('Y-m-d')) }}" size="16" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="col-lg-2 control-label">电话</label>
                 <div class="col-lg-10">
                 <input type="text" class="form-control"
@@ -79,4 +85,12 @@
 </section>
 </div>
 </div>
+@stop
+
+@section('js')
+<script>
+    $('#dp1').datepicker({
+        format: 'yyyy-mm-dd'
+    });
+</script>
 @stop

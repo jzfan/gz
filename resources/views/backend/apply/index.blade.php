@@ -20,6 +20,7 @@
             <th> 计划</th>
             <th> 预算</th>
             <th> 创建时间</th>
+            <th> 来源</th>
             <th> 工长</th>
             <th> 分配</th>
           </tr>
@@ -35,6 +36,7 @@
             <td>{{ $apply->plan }}</td>
             <td>{{ $apply->budget }}</td>
             <td> {{ $apply->created_at->format('Y-m-d') }} </td>
+            <td>{{ $apply->from ?? ''}}</td>
             <td>{{ $apply->leader->name or '' }}</td>
             <td>
               <a class="btn btn-info btn-xs" data-toggle="modal" href="#myModal2" data-id={{ $apply->id }}><i class="icon-share"></i></a>

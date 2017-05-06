@@ -43,6 +43,7 @@ class ApplyController extends Controller
                 'name' => 'required|min:2,max:60',
                 'block' => 'required|min:2,max:60',
                 'phone' => 'required|phone',
+                'square' => 'required'
             ]);
         $this->apply->store(request()->input());
         return redirect()->back()->withSuccess('ok');
