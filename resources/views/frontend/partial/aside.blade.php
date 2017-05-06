@@ -53,14 +53,14 @@
                     <option value='12万以上'>12万以上</option>
                   </select>
                     </div>
-                    <div class="form-group" name='square'>
-                        <select class="form-control">
-                    <option value='房屋面积'>房屋面积</option>
-                    <option value='80m2以下'>80m2以下</option>
-                    <option value='80-120㎡'>80-120㎡</option>
-                    <option value='120-150㎡'>120-150㎡</option>
-                    <option value='150㎡以上'>150㎡以上</option>
-                  </select>
+                    <div class="form-group">
+                      <select class="form-control" name='square'>
+                        <option value='房屋面积'>房屋面积</option>
+                        <option value='80m2以下'>80m2以下</option>
+                        <option value='80-120㎡'>80-120㎡</option>
+                        <option value='120-150㎡'>120-150㎡</option>
+                        <option value='150㎡以上'>150㎡以上</option>
+                      </select>
                     </div>
       </div>
       <div class="modal-footer">
