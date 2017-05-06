@@ -36,7 +36,7 @@
           {{ $key }}
           @foreach ($group as $material)
           <label class="checkbox-inline">
-            <input type="checkbox" id="inlinebox1" 
+            <input type="checkbox"
             data-name='{{ $material->name }}'
             data-brand='{{ $material->brand }}'
             value="{{ $material->id }}" name='materials[{{ array_flip(array_keys($materials->toArray()))[$key] }}]'> {{ $material->brand }}
@@ -54,11 +54,12 @@
 
 @section('js')
 <script>
+
 $('#forward-link').click( function (e) {
   let materials = []
   let apply = {}
   $.each($('form').serializeArray(), function() {
-    if (this.name.includes('materials')) {
+    if (this.name.includes('materials') && this.attr('checked') == true) {
       materials.push({
         id: this.value,
         name: $('[name="'+ this.name +'"]').attr('data-name'),
@@ -69,8 +70,11 @@ $('#forward-link').click( function (e) {
       }
   })
   console.log({materials, apply})
-  window.localStorage.setItem('offer', JSON.stringify({materials, apply}))
+  window.localStorage.setItem('offer', JSON.stringify({materials, apply}));
 })
+
+
+//业主信息自动录入
 
 $(function(){
   var inputs = $('.group-t').find('input');
@@ -82,9 +86,7 @@ $(function(){
       console.log(cinfo[i]);
     })
   }
-
   localStorage.removeItem('cinfo');
-  console.log(JSON.parse(localStorage.getItem('cinfo')));
 })
 
 </script>
