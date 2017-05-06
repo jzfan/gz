@@ -488,7 +488,7 @@ $(function(){
 $(function(){
     $('.push-price-link').click(function(){
         var arrInfo = [];
-        var tds = $(this).parents('.push-info').find('tr td');
+        var tds = $(this).parents('tr').find('td');
         tds.each(function(index,e){
           if(index<=3){
             arrInfo.push($(this).text());
