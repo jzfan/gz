@@ -486,9 +486,9 @@ $(function(){
 //平台分配客户进行报价自动录入客户信息
 
 $(function(){
-    $('.quote').eq(0).click(function(){
+    $('.push-price-link').click(function(){
         var arrInfo = [];
-        var tds = $(this).parents('.push-info').find('tr td');
+        var tds = $(this).parents('tr').find('td');
         tds.each(function(index,e){
           if(index<=3){
             arrInfo.push($(this).text());
@@ -496,5 +496,6 @@ $(function(){
         })
         console.log(arrInfo);
         localStorage.setItem('cinfo', JSON.stringify(arrInfo));
+        window.location.href = '/offers/create-1';
     })
 })

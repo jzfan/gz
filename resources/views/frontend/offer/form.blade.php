@@ -77,11 +77,14 @@ $(function(){
   var cinfo = JSON.parse(localStorage.getItem('cinfo'));
   console.log(cinfo);
   if(cinfo){
-    inputs.each(function(index,e){
-      $(this).val(cinfo[index]);
-      console.log(cinfo[index]);
+    inputs.each(function(i,e){
+      $(this).val(cinfo[i]);
+      console.log(cinfo[i]);
     })
   }
+
+  localStorage.removeItem('cinfo');
+  console.log(JSON.parse(localStorage.getItem('cinfo')));
 })
 
 </script>

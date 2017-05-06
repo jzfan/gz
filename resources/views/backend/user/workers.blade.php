@@ -13,6 +13,7 @@
           <tr>
             <th>ID</th>
             <th> 姓名</th>
+            <th> 头像</th>
             <th> 年龄</th>
             <th> 电话</th>
             <th> 工种</th>
@@ -26,7 +27,8 @@
         @foreach ($workers as $worker)
             <tr>
               <th>{{ $worker->id }}</th>
-              <td><img src="{{ $worker->user->avatar }}" width="50">{{ $worker->user->name }}</td>
+              <td>{{ $worker->user->name }}</td>
+              <td><img src="{{ $worker->user->avatar }}" width="50" class="img-circle"></td>
               <td>{{ date('Y') - $worker->birthday->format('Y') }} 岁</td>
               <td>{{ $worker->user->phone }}</td>
               <td>{{ $worker->craft }}</td>

@@ -30,6 +30,7 @@
                       </a>
                   </li>
                   <li class="">
+                      <!-- <a class="" href="/backend/applies"> -->
                       <a class="" href="/applies">
                           <i class="icon-envelope-alt"></i>
                           <span>申请</span>

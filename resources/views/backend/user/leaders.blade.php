@@ -14,6 +14,7 @@
           <tr>
             <th>ID</th>
             <th> 姓名</th>
+            <th> 头像</th>
             <th> 手机</th>
             <th> 签单</th>
             <th> 星级</th>
@@ -34,7 +35,8 @@
         @foreach ($leaders as $leader)
           <tr>
             <th>{{ $leader->id }}</th>
-            <td><img src="{{ $leader->avatar }}" width="50">{{ $leader->name }}</td>
+            <td>{{ $leader->name }}</td>
+            <td><img src="{{ $leader->avatar }}" width="50" class="img-circle"></td>
             <td> {{ $leader->phone }} </td>
             @if (isset($leader->leader))
             <td> {{ $leader->leader->WO }} </td>
