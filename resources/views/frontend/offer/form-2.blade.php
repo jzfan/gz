@@ -81,7 +81,7 @@
             <div class="input-group">
               <input type="text" class="form-control input-sm num" 
                   id='quantity-{{ $option->id }}'
-                  value="{{ rand(10, 22) }}">
+                  value="0">
               <div class="input-group-addon">m</div>
             </div>
           </td>
