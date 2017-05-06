@@ -12,6 +12,7 @@
           <tr>
             <th> ID</th>
             <th> 姓名</th>
+            <th> 头像</th>
             <th> 公司</th>
             <th> 擅长风格</th>
             <th> 从业年限</th>
@@ -24,7 +25,8 @@
         @foreach ($designers as $designer)
           <tr>
             <th>{{ $designer->id }}</th>
-            <th><image src='{{ $designer->avatar }}' width="40"> {{ $designer->name }}</th>
+            <th>{{ $designer->name }}</th>
+            <th><image src='{{ $designer->avatar }}' width="50" class='img-circle'></th>
             <td>{{ $designer->company }}</td>
             <td>
               <ol>

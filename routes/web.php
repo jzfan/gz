@@ -25,6 +25,7 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('comments/leaders/search', 'CommentController@likeName');
 	Route::get('comments/leaders/{leader_id}', 'CommentController@ofLeader');
 	Route::post('applies', 'ApplyController@store');
+	Route::get('applies/{id}', 'ApplyController@show');
 	Route::get('me', 'MeController@homeByRole');
 	Route::post('me', 'MeController@update');
 	Route::post('me/password', 'MeController@resetPassword');
@@ -70,6 +71,9 @@ Route::namespace('Backend')->group( function () {
 		Route::get('backend-users', 'AdminController@backendUsers');
 		Route::post('roles', 'AdminController@setRole');
 		Route::get('applies/{apply_id}', 'ApplyController@show');
+		Route::get('backend-users', 'AdminController@backendUsers');
+		Route::post('roles', 'AdminController@setRole');
+		
 		// Route::get('editors', 'EditorController@index');
 		
 		Route::resource('items', 'ItemController');
@@ -104,6 +108,9 @@ Route::namespace('Backend')->group( function () {
 			Route::delete('certificates/{id}', 'CertificateController@destroy');
 			Route::get('appointments', 'AppointmentController@index');
 			Route::delete('appointments/{id}', 'AppointmentController@destroy');
+			Route::get('applies', 'ApplyController@index');
+			Route::post('applies/{id}/leaders', 'ApplyController@giveLeader');
+			Route::get('applies/{apply_id}', 'ApplyController@show');
 
 		});
 	});

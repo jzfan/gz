@@ -90,7 +90,9 @@
         </tr>
         @endforeach
         <tr>
-          <td class="text-center"></td>
+          <td class="text-center">
+            合计
+          </td>
           <td colspan="3"></td>
           <td class="sum">0</td>
         </tr>
@@ -163,6 +165,16 @@ function save()
     $('#view a').attr('href', '/offers/'+m);
   })
 }
+
+$(function(){
+  var count = 0;
+  $('#save').click(function(){
+    count++;
+    if(count>0){
+      $('#view').removeAttr("disabled");
+    }
+  })
+})
 
 </script>
 @stop
