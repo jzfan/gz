@@ -496,6 +496,6 @@ $(function(){
         })
         console.log(arrInfo);
         localStorage.setItem('cinfo', JSON.stringify(arrInfo));
-        window.location.href = '/offers/create-1';
+        //window.location.href = '/offers/create-1';
     })
 })
