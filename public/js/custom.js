@@ -486,7 +486,7 @@ $(function(){
 //平台分配客户进行报价自动录入客户信息
 
 $(function(){
-    $('#push-price-link').click(function(){
+    $('.push-price-link').click(function(){
         var arrInfo = [];
         var tds = $(this).parents('.push-info').find('tr td');
         tds.each(function(index,e){
