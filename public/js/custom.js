@@ -280,20 +280,12 @@ $(function(){
 //新代码
 $(function(){
     var object = {};
-    var materials = [];
+    
     var applyInfo = JSON.parse(localStorage.getItem('applyInfo'));
-
-    $('.h-table thead tr').find('th').each(function(i, e){
-      var obj = {};
-      var _id = $(this).attr('data-id');
-      var _band = $('.h-table tbody tr').find('td').eq(i).text();
-      var _name = $(this).text();
-      obj = {'id':_id,'brand':_band,'name':_name};
-      materials.push(obj);
-    })
 
     $('#save').click(function(){
         var items = [];
+        var materials = [];
         var bool = null;
         $('.tab-pane').each(function(){
             $(this).find('tbody tr .checkbox input').each(function(){
@@ -318,6 +310,16 @@ $(function(){
                 items.push({'id':id, 'name':name, 'options':options});
             }
             bool = null;
+        });
+
+        $('.h-table thead tr').find('th').each(function(i, e){
+          var obj = {};
+          var _id = $(this).attr('data-id');
+          var _band = $('.h-table tbody tr').find('td').eq(i).text();
+          var _name = $(this).text();
+          obj = {'id':_id,'brand':_band,'name':_name};
+          materials.push(obj);
+          console.log(materials);
         });
 
         object = {'items':items, 'materials':materials, 'apply':applyInfo};

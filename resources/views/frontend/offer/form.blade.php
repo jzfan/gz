@@ -101,10 +101,10 @@ $(function(){
     var applyInfo = {};
     var info = $('.group-t').find('input');
     applyInfo = {
-      'name':info[0],
-      'phone':info[1],
-      'block':info[2],
-      'square':info[3]
+      'name':info[0].val(),
+      'phone':info[1].val(),
+      'block':info[2].val(),
+      'square':info[3].val()
     }
     localStorage.setItem('applyInfo', JSON.stringify(applyInfo));
   })
