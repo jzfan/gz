@@ -580,7 +580,7 @@
                     @foreach ($articles as $article)
                     <div class="single_latest_news_text_area">
                         <div class="news_title">
-                            <a href="/articles/{{ $article->id }}"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
+                            <a href="/articles/{{ $article->id }}"><h4>{{ $article->title }}<span>[&nbsp;{{ $article->created_at->diffForHumans() }}&nbsp;]</span></h4></a>
                         </div>
                     </div>
                     @endforeach
@@ -597,7 +597,7 @@
                     @foreach ($feng_shui as $article)
                     <div class="single_latest_news_text_area">
                         <div class="news_title">
-                            <a href="/articles/{{ $article->id }}"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
+                            <a href="/articles/{{ $article->id }}"><h4>{{ $article->title }}<span>[&nbsp;{{ $article->created_at->diffForHumans() }}&nbsp;]</span></h4></a>
                         </div>
                     </div>
                     @endforeach
@@ -615,7 +615,7 @@
                     @foreach ($industry as $article)
                     <div class="single_latest_news_text_area">
                         <div class="news_title">
-                            <a href="/articles/{{ $article->id }}"><h4>{{ $article->title }}<span>{{ $article->created_at->diffForHumans() }}</span></h4></a>
+                            <a href="/articles/{{ $article->id }}"><h4>{{ $article->title }}<span>[&nbsp;{{ $article->created_at->diffForHumans() }}&nbsp;]</span></h4></a>
                         </div>
                     </div>
                     @endforeach

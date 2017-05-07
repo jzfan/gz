@@ -43,11 +43,13 @@
 <form class="tab-content" id='checkbox-form'>
   @foreach ($items as $i=>$item)
   @if ($i === 0)
-  <div class="tab-pane active" contenteditable="true" id="panel-{{ $i+1 }}" data-id="{{ $i+1 }}">
+  <div class="tab-pane active" contenteditable="true" id="panel-{{ $i+1 }}" data-id="{{ $i+1 }}" data-name="{{ $item->name }}">
   @else
-  <div class="tab-pane" contenteditable="true" id="panel-{{ $i+1 }}" data-id="{{ $i+1 }}">
+  <div class="tab-pane" contenteditable="true" id="panel-{{ $i+1 }}" data-id="{{ $i+1 }}" data-name="{{ $item->name }}">
   @endif
-    <p><a contenteditable="true" data-toggle="tab" href="#panel-2">{{ $item->name }}</a></p>
+    <div class="p-group">
+      <p><a contenteditable="true" data-toggle="tab" href="#panel-2">{{ $item->name }}</a></p>
+    </div>
     <div class="table-responsive">
       <table class="table table-bordered table-striped table-hover">
         <thead>
@@ -82,7 +84,7 @@
               <input type="text" class="form-control input-sm num" 
                   id='quantity-{{ $option->id }}'
                   value="0">
-              <div class="input-group-addon">m</div>
+              <div class="input-group-addon">{{ $option->unit }}</div>
             </div>
           </td>
           <td><input type="text" class="form-control input-sm price" value="{{ $option->price }}"></td>
@@ -154,6 +156,7 @@ function save()
       quantity: $('#quantity-' + checked.value).val()
     }
   })
+  console.log(options);
   let {apply, materials} = data
   $.post('/offers', {
     apply, materials, options,
@@ -163,6 +166,8 @@ function save()
     $('#view').attr('disabled', false);
     $('#view a').attr('href', '/offers/'+m);
   })
+
+  console.log(apply,materials,options);
 }
 
 $(function(){

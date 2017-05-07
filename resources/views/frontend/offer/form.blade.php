@@ -96,6 +96,19 @@ $(function(){
     })
   }
   localStorage.removeItem('cinfo');
+
+  $('#forward-link').click(function(){
+    var applyInfo = {};
+    var info = $('.group-t').find('input');
+    applyInfo = {
+      'name':info[0],
+      'phone':info[1],
+      'block':info[2],
+      'square':info[3]
+    }
+    localStorage.setItem('applyInfo', JSON.stringify(applyInfo));
+  })
+
 })
 
 </script>
