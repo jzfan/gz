@@ -198,10 +198,10 @@ $(function(){
                 $(this).find('tbody tr').each(function(){
                     if($(this).find('.checkbox input').is(':checked')){
                         var option_id = $(this).find('.checkbox input').val();
-                        var quanity = $(this).find('.num').val();
+                        var quantity = $(this).find('.num').val();
                         options.push({
                             'id':option_id,
-                            'quanity':quanity
+                            'quantity':quantity
                         });
                     }
                 });
@@ -220,10 +220,10 @@ $(function(){
         //   console.log(materials);
         // });
         let {apply, materials} = data
-        object = {'items':items, 'materials':materials, 'apply':apply};
+        ;
         $.post('/offers', {
-          object,
-          _token: '{!! csrf_token() !!}'
+          'items':items, 'materials':materials, 'apply':apply,
+           _token: '{!! csrf_token() !!}'
         }, function(m){
           alert('保存成功！');
           $('#view').attr('disabled', false);

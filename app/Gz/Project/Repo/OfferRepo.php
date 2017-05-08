@@ -33,7 +33,7 @@ class OfferRepo
 	{
 		$apply = \Gz\Project\Apply::create($input['apply']);
 		$items = collect($input['items'])->map( function ($item) {
-			$options = $item['options']->map( function ($input_option) {
+			$options = collect($item['options'])->map( function ($input_option) {
 				$option = \Gz\Item\ItemOption::select('id', 'item_id', 'title', 'description', 'unit', 'price')->findOrFail($input_option['id']);
 				$option->quantity = $input_option['quantity'];
 				$option->total = $option->quantity * $option->price;
@@ -68,7 +68,7 @@ class OfferRepo
 						'materials' => $input['materials'],
 						'items' => $items, 
 					],
-				'amount' => $options->sum('total')
+				'amount' => collect($items)->sum('options.total')
 				]
 			);
 	}
