@@ -17,6 +17,7 @@ Route::namespace('Frontend')->group( function () {
 	Route::get('offers/create-2', 'OfferController@getFormTwo');
 	// Route::post('offers/form-1', 'OfferController@setFormOne');
 	Route::post('offers', 'OfferController@store');
+	Route::get('offers/{id}/edit', 'OfferController@edit');
 	Route::get('offers/{id}', 'OfferController@show');
 	Route::get('sites', 'ApplyController@sites');
 	Route::get('sites/{id}', 'ApplyController@show');

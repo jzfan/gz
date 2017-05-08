@@ -65,7 +65,7 @@
                   <td>{{ $offer->apply->name }}({{ $offer->apply->id }})</td>
                   <td>{{ $offer->amount }}</td>
                   <td>{{ $offer->status }}</td>
-                  <td><a href="/offers/{{ $offer->id }}">预览</a>&nbsp;|&nbsp;<a href="">修改</a></td>
+                  <td><a href="/offers/{{ $offer->id }}">预览</a>&nbsp;|&nbsp;<a href="/offers/{{ $offer->id }}/edit">修改</a></td>
                 </tr>
                 @endforeach
               </tbody>
