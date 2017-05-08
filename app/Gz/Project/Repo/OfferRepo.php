@@ -45,20 +45,6 @@ class OfferRepo
 				'options' => $options
 			];
 		});
-		// $options = collect($input['options'])->map( function ($input_option) {
-		// 	$option = \Gz\Item\ItemOption::select('id', 'item_id', 'title', 'description', 'unit', 'price')->findOrFail($input_option['id']);
-		// 	$option->quantity = $input_option['quantity'];
-		// 	$option->total = $option->quantity * $option->price;
-		// 	return $option;
-		// });
-		// $items = $options->groupBy('item_id')->map(function ($group) {
-		// 	$item = $group->first()->item;
-		// 	return [
-		// 		'id' => $item->id,
-		// 		'name' => $item->name,
-		// 		'options' => $group->toArray()
-		// 	];
-		// })->toArray();
 
 		return $this->offer->updateOrCreate([
 				'user_id' => \Auth::user()->id,
@@ -68,7 +54,9 @@ class OfferRepo
 						'materials' => $input['materials'],
 						'items' => $items, 
 					],
-				'amount' => collect($items)->sum('options.total')
+				'amount' => collect($items)->sum( function ($item) {
+						return collect($item['options'])->sum('total');
+					})
 				]
 			);
 	}
