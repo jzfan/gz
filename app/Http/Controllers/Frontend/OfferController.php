@@ -48,4 +48,13 @@ class OfferController extends Controller
         $items = \Gz\Item\Item::with('options')->orderBy('id', 'asc')->get(['id', 'name', 'single']);
         return view('frontend.offer.form-2', compact('items'));
     }
+
+    public function edit($id)
+    {
+        $offer = $this->offer->byId($id);
+        // $m = $offer->data['materials'];
+        // dd(collect($m)->pluck('name'));
+        $materials = Material::get(['id', 'name', 'brand'])->groupBy('name');
+        return view('frontend.offer.edit', compact('offer', 'materials'));
+    }
 }
