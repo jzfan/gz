@@ -30,10 +30,10 @@ class PageController extends Controller
     public function index()
     {
     	$offers = $this->offer->newList(10);
-    	$leaders = $this->leader->rankList(4);
+    	$leaders = $this->leader->rankList(8);
     	$comments = $this->comment->newList(10);
     	// $images = $this->gallery->newList(4);
-    	$workings = $this->gallery->newWorking(4);
+    	$workings = $this->gallery->newWorking(8);
     	$articles = $this->article->listByTag('最新签单', 5);
     	$feng_shui = $this->article->listByTag('居家风水', 5);
     	$industry = $this->article->listByTag('行业新闻', 5);
