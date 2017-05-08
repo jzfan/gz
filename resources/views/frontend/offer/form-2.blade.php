@@ -182,7 +182,7 @@ $(function(){
     // var applyInfo = JSON.parse(localStorage.getItem('applyInfo'));
 
     $('#save').click(function(){
-        var options = [];
+        var items = [];
         // var materials = [];
         var bool = null;
         $('.tab-pane').each(function(){
@@ -194,6 +194,7 @@ $(function(){
             if(bool){
                 var  name = $(this).attr('data-name');
                 var id = $(this).attr('data-id');
+                var options = [];
                 $(this).find('tbody tr').each(function(){
                     if($(this).find('.checkbox input').is(':checked')){
                         var option_id = $(this).find('.checkbox input').val();
@@ -204,6 +205,7 @@ $(function(){
                         });
                     }
                 });
+                items.push({'id':id, 'name':name, 'options':options});
             }
             bool = null;
         });
@@ -218,7 +220,7 @@ $(function(){
         //   console.log(materials);
         // });
         let {apply, materials} = data
-        object = {'options':options, 'materials':materials, 'apply':apply};
+        object = {'items':items, 'materials':materials, 'apply':apply};
         $.post('/offers', {
           object,
           _token: '{!! csrf_token() !!}'
