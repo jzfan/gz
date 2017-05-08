@@ -57,20 +57,33 @@
 $('#forward-link').click( function (e) {
   let materials = []
   let apply = {}
-  $.each($('form').serializeArray(), function() {
-    if (this.name.includes('materials')) {
-      materials.push({
-        id: this.value,
-        name: $('[name="'+ this.name +'"]').attr('data-name'),
-        brand: $('[name="'+ this.name +'"]').attr('data-brand')
+
+  $('.list-group .list-group-item').each(function(){
+      var _brand = [];
+      var str = String;
+      $(this).find('input').each(function(){
+        if($(this).is(':checked')){
+          _brand.push($(this).attr('data-brand'));
+        }
       })
-    } else {
-        apply[this.name] = this.value
-      }
+      str = _brand.join('|');  
+      materials.push({
+        id: $(this).find('input').eq(0).value,
+        name: $(this).find('input').eq(0).attr('data-name'),
+        brand: str
+      })
   })
-  console.log({materials, apply})
-  window.localStorage.setItem('offer', JSON.stringify({materials, apply}))
+
+  $('.group-t input').each(function(){
+     apply[this.name] = this.value;
+  });
+
+  console.log({materials, apply});
+  window.localStorage.setItem('offer', JSON.stringify({materials, apply}));
 })
+
+
+//业主信息自动录入开始
 
 $(function(){
   var inputs = $('.group-t').find('input');
@@ -82,9 +95,20 @@ $(function(){
       console.log(cinfo[i]);
     })
   }
-
   localStorage.removeItem('cinfo');
-  console.log(JSON.parse(localStorage.getItem('cinfo')));
+
+  $('#forward-link').click(function(){
+    var applyInfo = {};
+    var info = $('.group-t').find('input');
+    applyInfo = {
+      'name':info[0].val(),
+      'phone':info[1].val(),
+      'block':info[2].val(),
+      'square':info[3].val()
+    }
+    localStorage.setItem('applyInfo', JSON.stringify(applyInfo));
+  })
+
 })
 
 </script>

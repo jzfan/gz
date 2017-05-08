@@ -277,6 +277,59 @@ $(function(){
 })
 
 
+//新代码
+$(function(){
+    var object = {};
+    
+    var applyInfo = JSON.parse(localStorage.getItem('applyInfo'));
+
+    $('#save').click(function(){
+        var items = [];
+        var materials = [];
+        var bool = null;
+        $('.tab-pane').each(function(){
+            $(this).find('tbody tr .checkbox input').each(function(){
+                if($(this).is(':checked')){
+                    return bool = true;
+                }
+            })
+            if(bool){
+                var  name = $(this).attr('data-name');
+                var id = $(this).attr('data-id');
+                var options = [];
+                $(this).find('tbody tr').each(function(){
+                    if($(this).find('.checkbox input').is(':checked')){
+                        var option_id = $(this).find('.checkbox input').attr('data-id');
+                        var quanity = $(this).find('.num').val();
+                        options.push({
+                            'id':option_id,
+                            'quanity':quanity
+                        });
+                    }
+                });
+                items.push({'id':id, 'name':name, 'options':options});
+            }
+            bool = null;
+        });
+
+        $('.h-table thead tr').find('th').each(function(i, e){
+          var obj = {};
+          var _id = $(this).attr('data-id');
+          var _band = $('.h-table tbody tr').find('td').eq(i).text();
+          var _name = $(this).text();
+          obj = {'id':_id,'brand':_band,'name':_name};
+          materials.push(obj);
+          console.log(materials);
+        });
+
+        object = {'items':items, 'materials':materials, 'apply':applyInfo};
+        console.log(object);
+    })
+})
+
+
+
+
 //报价表table切换
 $(function(){
     var count = 1;
@@ -290,9 +343,16 @@ $(function(){
         var text = $(this).parent('a').text();
         var id = $(this).parent('a').attr('href');
         var url = '#panel-'+Math.random();
-        $(id).prepend('<p>'+'<a contenteditable="true" data-toggle="tab" href='+url+'>'+text+'</a>'+count+'<span class="fa fa-remove "></span></p>');
+        $(id).find('.p-group').prepend('<p>'+'<a contenteditable="true" data-toggle="tab" href='+url+'>'+text+'</a>'+count+'<span class="fa fa-remove "></span></p>');
+        var pgroups = $(id).find('.p-group').html();
+        var original = $(id).attr('data-name');
+        $('.tab-content').find('.tab-pane').each(function(){
+            if($(this).attr('data-name') == original){
+                $(this).find('.p-group p').remove();
+                $(this).find('.p-group').html(pgroups);
+            }
+        })
         count++;
-
         var dom = $(id).clone();
         dom.find('.checkbox input').each(function(){
             $(this).attr('checked', false);
@@ -320,17 +380,36 @@ $(function(){
         $(id).addClass('active');
     })
 
+    //新加代码开始
+
     $(document).on('click','.tab-pane .fa-remove',function(){
-        $(this).parent('p').remove();
-        count = 1;
+        var name = $(this).parents('.tab-pane').attr('data-name');
+        var count = 0;
+        $(this).parent('p').hide();
+        $(this).parents('.tab-pane').siblings().each(function(){
+            if($(this).attr('data-name') == name && count == 0){
+                $(this).addClass('active').css('display','block');
+                count++;
+            }
+        });
+        $(this).parents('.tab-pane').remove();
+
+        var pgroup = $(this).parents('.p-group').html();
+        var original = $(this).parents('.tab-pane').attr('data-name');
+        $('.tab-content').find('.tab-pane').each(function(){
+            if($(this).attr('data-name') == original){
+                $(this).find('.p-group p').remove();
+                $(this).find('.p-group').html(pgroup);
+            }
+        });
     })
+
+    //新加代码结束
 
     $(document).on('click','.tab-pane p a',function(e){
         e.stopPropagation();
         var id = $(this).attr('href').split('#')[1];
-        console.log(id);
         $(document).find('.tab-content .tab-pane').each(function(){
-            console.log($(this).attr('id'));
             if($(this).attr('id') != id){
                 $(this).removeClass('active');
                 $(this).css('display','none');
@@ -343,21 +422,30 @@ $(function(){
     })
 })
 
+
 /*数据存储*/
 $(function(){
+    var obj = {};
+    var materials = [];
+    $('.h-table thead tr').find('th').each(function(i, e){
+      var obj = {};
+      var _id = $(this).attr('data-id');
+      var _band = $('.h-table tbody tr').find('td').eq(i).text();
+      var _name = $(this).text();
+      obj = {'id':_id,'brand':_band,'name':_name};
+      materials.push(obj);
+    })
+
     $(document).on('change','tr input.form-control',function(){
         var arr = $(this).parents('tr').find('td.cumadd');
-        console.log(arr.text());
         var num = $(this).parents('tr').find('input.num').val();
         var price = $(this).parents('tr').find('input.price').val();
         var total = num*price;
         arr.text(total);
 
         var p = $(this).parents('tbody').find('td.sum').text();
-        console.log(p);
         var sum = 0;
         $(this).parents('tbody').find('td.cumadd').each(function(){
-            console.log();
             if($(this).parents('tr').find('.checkbox input').is(':checked')){
                 sum += Number($(this).text());
             }
@@ -369,20 +457,17 @@ $(function(){
     var items = [];
     $(document).on('click','tr .checkbox input',function(){
 
-            var item_id = $(this).parents('.tab-pane').attr('data-id');
-            console.log(item_id);
-            var id = $(this).attr('data-id');
-            var quanity = $(this).parents('tr').find('input.num').val();
-            var price = $(this).parents('tr').find('input.price').val();
-            var sum = 0;
-
+        var item_id = $(this).parents('.tab-pane').attr('data-id');
+        var name = $(this).parents('.tab-pane').attr('data-name');
+        var id = $(this).attr('data-id');
+        var quanity = $(this).parents('tr').find('input.num').val();
+        var price = $(this).parents('tr').find('input.price').val();
+        var sum = 0;
 
         if($(this).is(':checked')){
             var options = {'id':id,'num':quanity,'price':price};
-            var item = {'id':item_id, 'options':options};
-            console.log(item);
+            var item = {'id':item_id, 'name':name, 'options':options};
             items.push(item);
-            console.log(items);
 
             $(this).parents('tbody').find('td.cumadd').each(function(){
                 if($(this).parents('tr').find('.checkbox input').is(':checked')){
@@ -396,7 +481,6 @@ $(function(){
             items.forEach(function(e,index){
                 if(e.options.id == id){
                     items.splice(index,1);
-                    console.log(items);
                 }
             })
             console.log('取消选择');
@@ -413,19 +497,12 @@ $(function(){
 
    var data = JSON.stringify(items);
 
-   // $('#save').on('click',function(){
-   //      $.ajax({
-   //          url:'192.168.1.31',
-   //          data:items,
-   //          dataType:'json',
-   //          type:'POST',
-   //          success:function(data){
+   obj = {'items':items, 'materials':materials};
+});
 
-   //          }
-   //      })
-   // })
 
-})
+
+
 
 //找工长table 切换
 $(function(){

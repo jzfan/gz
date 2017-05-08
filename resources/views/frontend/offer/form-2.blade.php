@@ -43,11 +43,13 @@
 <form class="tab-content" id='checkbox-form'>
   @foreach ($items as $i=>$item)
   @if ($i === 0)
-  <div class="tab-pane active" contenteditable="true" id="panel-{{ $i+1 }}" data-id="{{ $i+1 }}">
+  <div class="tab-pane active" contenteditable="true" id="panel-{{ $i+1 }}" data-id="{{ $i+1 }}" data-name="{{ $item->name }}">
   @else
-  <div class="tab-pane" contenteditable="true" id="panel-{{ $i+1 }}" data-id="{{ $i+1 }}">
+  <div class="tab-pane" contenteditable="true" id="panel-{{ $i+1 }}" data-id="{{ $i+1 }}" data-name="{{ $item->name }}">
   @endif
-    <p><a contenteditable="true" data-toggle="tab" href="#panel-2">{{ $item->name }}</a></p>
+    <div class="p-group">
+      <p><a contenteditable="true" data-toggle="tab" href="#panel-2">{{ $item->name }}</a></p>
+    </div>
     <div class="table-responsive">
       <table class="table table-bordered table-striped table-hover">
         <thead>
@@ -82,7 +84,7 @@
               <input type="text" class="form-control input-sm num" 
                   id='quantity-{{ $option->id }}'
                   value="0">
-              <div class="input-group-addon">m</div>
+              <div class="input-group-addon">{{ $option->unit }}</div>
             </div>
           </td>
           <td><input type="text" class="form-control input-sm price" value="{{ $option->price }}"></td>
@@ -110,7 +112,7 @@
 </div>
 
 <div class="table-footer">
-  <button type="button" class="btn btn-success" id="save" onclick='save()'>确认保存</button>
+  <button type="button" class="btn btn-success" id="save">确认保存</button>
   <button type="button" class="btn btn-success" id="view" onclick='view()' disabled><a href="">预览</a></button>
 </div>
 
@@ -146,25 +148,108 @@ let data = JSON.parse(window.localStorage.getItem('offer'))
     })
   }
 
-function save()
-{
-  console.log('save it')
-  let options = $('#checkbox-form').serializeArray().map( function (checked) {
-    return {
-      id: checked.value,
-      quantity: $('#quantity-' + checked.value).val()
-    }
-  })
-  let {apply, materials} = data
-  $.post('/offers', {
-    apply, materials, options,
-    _token: '{!! csrf_token() !!}'
-  }, function(m){
-    alert('保存成功！');
-    $('#view').attr('disabled', false);
-    $('#view a').attr('href', '/offers/'+m);
-  })
-}
+// function save()
+// {
+//   let options = $('#checkbox-form').serializeArray().map( function (checked) {
+//     return {
+//       id: checked.value,
+//       quantity: $('#quantity-' + checked.value).val()
+//     }
+//   })
+//   console.log(options);
+//   let {apply, materials} = data
+
+
+
+//   $.post('/offers', {
+//     apply, materials, options,
+//     _token: '{!! csrf_token() !!}'
+//   }, function(m){
+//     alert('保存成功！');
+//     $('#view').attr('disabled', false);
+//     $('#view a').attr('href', '/offers/'+m);
+//   })
+
+//   console.log(apply,materials,options);
+// }
+
+
+
+//新代码
+$(function(){
+    var object = {};
+    
+    // var applyInfo = JSON.parse(localStorage.getItem('applyInfo'));
+
+    $('#save').click(function(){
+        var items = [];
+        // var materials = [];
+        var bool = null;
+        $('.tab-pane').each(function(){
+            $(this).find('tbody tr .checkbox input').each(function(){
+                if($(this).is(':checked')){
+                    return bool = true;
+                }
+            })
+            if(bool){
+                var  name = $(this).attr('data-name');
+                var id = $(this).attr('data-id');
+                var options = [];
+                $(this).find('tbody tr').each(function(){
+                    if($(this).find('.checkbox input').is(':checked')){
+                        var option_id = $(this).find('.checkbox input').val();
+                        var quanity = $(this).find('.num').val();
+                        options.push({
+                            'id':option_id,
+                            'quanity':quanity
+                        });
+                    }
+                });
+                items.push({'id':id, 'name':name, 'options':options});
+            }
+            bool = null;
+        });
+
+        // $('.h-table thead tr').find('th').each(function(i, e){
+        //   var obj = {};
+        //   var _id = $(this).attr('data-id');
+        //   var _band = $('.h-table tbody tr').find('td').eq(i).text();
+        //   var _name = $(this).text();
+        //   obj = {'id':_id,'brand':_band,'name':_name};
+        //   materials.push(obj);
+        //   console.log(materials);
+        // });
+        let {apply, materials} = data
+        object = {'items':items, 'materials':materials, 'apply':apply};
+        $.post('/offers', {
+          object,
+          _token: '{!! csrf_token() !!}'
+        }, function(m){
+          alert('保存成功！');
+          $('#view').attr('disabled', false);
+          $('#view a').attr('href', '/offers/'+m);
+        });
+        console.log(object);
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $(function(){
   var count = 0;
