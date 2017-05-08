@@ -277,58 +277,6 @@ $(function(){
 })
 
 
-//新代码
-$(function(){
-    var object = {};
-    
-    var applyInfo = JSON.parse(localStorage.getItem('applyInfo'));
-
-    $('#save').click(function(){
-        var items = [];
-        var materials = [];
-        var bool = null;
-        $('.tab-pane').each(function(){
-            $(this).find('tbody tr .checkbox input').each(function(){
-                if($(this).is(':checked')){
-                    return bool = true;
-                }
-            })
-            if(bool){
-                var  name = $(this).attr('data-name');
-                var id = $(this).attr('data-id');
-                var options = [];
-                $(this).find('tbody tr').each(function(){
-                    if($(this).find('.checkbox input').is(':checked')){
-                        var option_id = $(this).find('.checkbox input').attr('data-id');
-                        var quanity = $(this).find('.num').val();
-                        options.push({
-                            'id':option_id,
-                            'quanity':quanity
-                        });
-                    }
-                });
-                items.push({'id':id, 'name':name, 'options':options});
-            }
-            bool = null;
-        });
-
-        $('.h-table thead tr').find('th').each(function(i, e){
-          var obj = {};
-          var _id = $(this).attr('data-id');
-          var _band = $('.h-table tbody tr').find('td').eq(i).text();
-          var _name = $(this).text();
-          obj = {'id':_id,'brand':_band,'name':_name};
-          materials.push(obj);
-          console.log(materials);
-        });
-
-        object = {'items':items, 'materials':materials, 'apply':applyInfo};
-        console.log(object);
-    })
-})
-
-
-
 
 //报价表table切换
 $(function(){
@@ -354,13 +302,14 @@ $(function(){
         })
         count++;
         var dom = $(id).clone();
+        var new_data_id = $(id).attr('data-id');
         dom.find('.checkbox input').each(function(){
             $(this).attr('checked', false);
         });//取消勾选
         dom.find('.sum').text(0);
 
         var newdom = dom.attr('id', url.split('#')[1]);
-        newdom.attr('data-id', url.split('#')[1]);
+        newdom.attr('data-id', new_data_id);
         $('.tab-content').append(newdom);
         $('.tab-content .tab-pane').each(function(){
             $(this).removeClass('active');
@@ -382,7 +331,8 @@ $(function(){
 
     //新加代码开始
 
-    $(document).on('click','.tab-pane .fa-remove',function(){
+    $(document).on('click','.tab-pane .fa-remove',function(e){
+        e.stopPropagation();
         var name = $(this).parents('.tab-pane').attr('data-name');
         var count = 0;
         $(this).parent('p').hide();

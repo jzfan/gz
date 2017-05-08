@@ -6,7 +6,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.html">
 
-    <title>FlatLab - Flat &amp; Responsive Bootstrap Admin Template</title>
+    <title>58工长通管理后台</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/flatlab/css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
         <h2 class="form-signin-heading">立 即 登 录</h2>
         <div class="login-wrap">
             <input type="text" class="form-control" name='phone' placeholder="电话" autofocus="">
-            <input type="password" class="form-control" placeholder="Password" name='password'>
+            <input type="password" class="form-control" placeholder="密码" name='password'>
 
             <button class="btn btn-lg btn-login btn-block" type="submit">提交</button>
 

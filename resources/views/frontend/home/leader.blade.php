@@ -63,7 +63,7 @@
                     {{ $offer->apply->block }}
                   </td>
                   <td>{{ $offer->apply->name }}({{ $offer->apply->id }})</td>
-                  <td>{{ $offer->amount }}</td>
+                  <td>{{ $offer->amount }}(元)</td>
                   <td>{{ $offer->status }}</td>
                   <td><a href="/offers/{{ $offer->id }}">预览</a>&nbsp;|&nbsp;<a href="/offers/{{ $offer->id }}/edit">修改</a></td>
                 </tr>
@@ -126,10 +126,9 @@
                 <tr>
                   <th class="text-center">时  间</th>
                   <th class="text-center">小  区</th>
-                  <th class="text-center">业  主</th>
+                  <th class="text-center">业主(编号)</th>
                   <th class="text-center">面  积</th>
                   <th class="text-center">合同价</th>
-                  <th class="text-center">业主编号</th>
                   <th class="text-center">操  作</th>
                 </tr>
               </thead>
@@ -140,12 +139,9 @@
                     {{ $construct->created_at->format('Y-m-d') }}
                   </td>
                   <td>{{ $construct->apply->block }}</td>
-                  <td>
-                    {{ $construct->apply->name }}
-                  </td>
-                  <td>{{ $construct->apply->block ?? '' }} ㎡</td>
-                  <td>{{ $construct->amount }}</td>
-                  <td>{{ $construct->apply->user ?  $construct->apply->user->id : ''}}</td>
+                  <td>{{ $construct->apply->name }}({{ $construct->apply->id }})</td>
+                  <td>{{ $construct->apply->square ?? '' }} ㎡</td>
+                  <td>{{ $construct->amount }}(元)</td>
                   <td><a href="/constructions/{{ $construct->id }}">验收结果</a>&nbsp;&nbsp;<a href="/offers/{{ $construct->id }}">查看</a>&nbsp;&nbsp;<a href=""></td>
                 </tr>
                 @endforeach
@@ -165,7 +161,7 @@
                   <th class="text-center">小区</th>
                   <th class="text-center">面  积</th>
                   <th class="text-center">计划</th>
-                  <th class="text-center">预算</th>
+                  <th class="text-center">预算(万)</th>
                   <th class="text-center">分配时间</th>
                   <th class="text-center">操  作</th>
                 </tr>

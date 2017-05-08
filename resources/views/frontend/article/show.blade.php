@@ -37,15 +37,15 @@
           </p>
         </div>
 
-{{--         <nav aria-label="">
+       <!-- <nav aria-label="">
           <ul class="pager next-pre">
             <li class="previous"><a href="#">上一篇</a></li>
             <li class="next"><a href="#">下一篇</a></li>
           </ul>
-        </nav> --}}
+        </nav> -->
       </div>
 
-      <div class="row article-push">
+      <div class="row article-push" style="margin-bottom: 1rem;">
         <h4>相关内容<span class="glyphicon glyphicon-forward"></span></h4>
           <ul class="list-group">
           <!-- li循环5条 -->
