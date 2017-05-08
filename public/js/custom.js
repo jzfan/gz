@@ -302,13 +302,14 @@ $(function(){
         })
         count++;
         var dom = $(id).clone();
+        var new_data_id = $(id).attr('data-id');
         dom.find('.checkbox input').each(function(){
             $(this).attr('checked', false);
         });//取消勾选
         dom.find('.sum').text(0);
 
         var newdom = dom.attr('id', url.split('#')[1]);
-        newdom.attr('data-id', url.split('#')[1]);
+        newdom.attr('data-id', new_data_id);
         $('.tab-content').append(newdom);
         $('.tab-content .tab-pane').each(function(){
             $(this).removeClass('active');

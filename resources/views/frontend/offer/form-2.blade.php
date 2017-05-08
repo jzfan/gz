@@ -113,7 +113,7 @@
 
 <div class="table-footer">
   <button type="button" class="btn btn-success" id="save">确认保存</button>
-  <button type="button" class="btn btn-success" id="view" onclick='view()' disabled><a href="">预览</a></button>
+  <button type="button" class="btn btn-success" id="view" disabled><a href="">预览</a></button>
 </div>
 
 @stop
@@ -210,17 +210,8 @@ $(function(){
             bool = null;
         });
 
-        // $('.h-table thead tr').find('th').each(function(i, e){
-        //   var obj = {};
-        //   var _id = $(this).attr('data-id');
-        //   var _band = $('.h-table tbody tr').find('td').eq(i).text();
-        //   var _name = $(this).text();
-        //   obj = {'id':_id,'brand':_band,'name':_name};
-        //   materials.push(obj);
-        //   console.log(materials);
-        // });
-        let {apply, materials} = data
-        ;
+
+        let {apply, materials} = data;
         $.post('/offers', {
           'items':items, 'materials':materials, 'apply':apply,
            _token: '{!! csrf_token() !!}'
