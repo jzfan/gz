@@ -30,6 +30,7 @@
 			<!-- 备注：panel 循环个数依据验收步骤进行 panel start  -->
 			@if ( $working->offer)
 			@foreach ($working->offer->inspections as $inspection)
+			@if ($inspection->gallery)
 			<div class="panel panel-success">
 			  <div class="panel-heading text-center">{{ $inspection->gallery->name }}</div>
 			  <div class="panel-body row yan">
@@ -74,6 +75,7 @@
 			    	</div>
 			  </div>
 			</div>
+			@endif
 		@endforeach
 		@endif
 	</div>
