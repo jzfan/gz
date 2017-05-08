@@ -32,21 +32,33 @@ class OfferRepo
 	public function createByUid($uid, $input)
 	{
 		$apply = \Gz\Project\Apply::create($input['apply']);
-
-		$options = collect($input['options'])->map( function ($input_option) {
-			$option = \Gz\Item\ItemOption::select('id', 'item_id', 'title', 'description', 'unit', 'price')->findOrFail($input_option['id']);
-			$option->quantity = $input_option['quantity'];
-			$option->total = $option->quantity * $option->price;
-			return $option;
-		});
-		$items = $options->groupBy('item_id')->map(function ($group) {
-			$item = $group->first()->item;
+		$items = collect($input['items'])->map( function ($item) {
+			$options = collect($item['options'])->map( function ($input_option) {
+				$option = \Gz\Item\ItemOption::select('id', 'item_id', 'title', 'description', 'unit', 'price')->findOrFail($input_option['id']);
+				$option->quantity = $input_option['quantity'];
+				$option->total = $option->quantity * $option->price;
+				return $option;
+			});
 			return [
-				'id' => $item->id,
-				'name' => $item->name,
-				'options' => $group->toArray()
+				'id' => $item['id'],
+				'name' => \Gz\Item\Item::findOrFail($item['id'])->name,
+				'options' => $options
 			];
-		})->toArray();
+		});
+		// $options = collect($input['options'])->map( function ($input_option) {
+		// 	$option = \Gz\Item\ItemOption::select('id', 'item_id', 'title', 'description', 'unit', 'price')->findOrFail($input_option['id']);
+		// 	$option->quantity = $input_option['quantity'];
+		// 	$option->total = $option->quantity * $option->price;
+		// 	return $option;
+		// });
+		// $items = $options->groupBy('item_id')->map(function ($group) {
+		// 	$item = $group->first()->item;
+		// 	return [
+		// 		'id' => $item->id,
+		// 		'name' => $item->name,
+		// 		'options' => $group->toArray()
+		// 	];
+		// })->toArray();
 
 		return $this->offer->updateOrCreate([
 				'user_id' => \Auth::user()->id,
@@ -56,7 +68,7 @@ class OfferRepo
 						'materials' => $input['materials'],
 						'items' => $items, 
 					],
-				'amount' => $options->sum('total')
+				'amount' => collect($items)->sum('options.total')
 				]
 			);
 	}
