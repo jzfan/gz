@@ -63,7 +63,7 @@
                     {{ $offer->apply->block }}
                   </td>
                   <td>{{ $offer->apply->name }}({{ $offer->apply->id }})</td>
-                  <td>{{ $offer->amount }}</td>
+                  <td>{{ $offer->amount }}(元)</td>
                   <td>{{ $offer->status }}</td>
                   <td><a href="/offers/{{ $offer->id }}">预览</a>&nbsp;|&nbsp;<a href="">修改</a></td>
                 </tr>
@@ -143,8 +143,8 @@
                   <td>
                     {{ $construct->apply->name }}
                   </td>
-                  <td>{{ $construct->apply->block ?? '' }} ㎡</td>
-                  <td>{{ $construct->amount }}</td>
+                  <td>{{ $construct->apply->square ?? '' }} ㎡</td>
+                  <td>{{ $construct->amount }}(元)</td>
                   <td>{{ $construct->apply->user ?  $construct->apply->user->id : ''}}</td>
                   <td><a href="/constructions/{{ $construct->id }}">验收结果</a>&nbsp;&nbsp;<a href="/offers/{{ $construct->id }}">查看</a>&nbsp;&nbsp;<a href=""></td>
                 </tr>
