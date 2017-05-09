@@ -103,13 +103,13 @@
 			<div class="panel-heading">装修现场</div>
 			<div class="panel-body">
 				<div class="row">
-					@foreach ($workings as $work)
+					@foreach ($gallery_offers as $offer)
 					<div class="col-sm-6 col-md-3">
-						<a href="/constructions/{{ $work->id }}"><div class="thumbnail">
-							<img src="{{ $work->gallery->page_image }}" alt="{{ $work->block ?? '' }}">
+						<a href="/constructions/{{ $offer->id }}"><div class="thumbnail">
+							<img src="{{ $offer->galleries->first()->page_image }}" alt="{{ $offer->apply->block ?? '' }}">
 							<div class="caption">
-								<p><span class="housing">{{ $work->block ?? ''}}</span> {{ $work->square ?? '' }}㎡</p>
-								<p>总价： {{ $work->offer->amount ?? ''}} 元</p>
+								<p><span class="housing">{{ $offer->apply->block ?? ''}}</span> {{ $offer->apply->square ?? '' }}㎡</p>
+								<p>总价： {{ $work->amount ?? ''}} 元</p>
 								<p><a data-toggle="modal" data-target="#exampleModal-2" class="btn btn-primary appointment" role="button">预约参观</a></p>
 							</div>
 						</div></a>

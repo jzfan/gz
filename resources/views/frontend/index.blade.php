@@ -160,7 +160,8 @@
         </div>
 
         <div class="row">
-            @foreach ($working_galleries as $i => $gallery)
+            @foreach ($gallery_offers as $i => $offer)
+            <?php $gallery = $offer->galleries->first() ?>
             <!-- Single Service Area Start -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="single_service wow fadeInUp" data-wow-delay="{{ ($i+1)*0.2 }}s">
@@ -170,13 +171,13 @@
                     </div>
                     <!-- Single Service title -->
                     <div class="single_service_title">
-                        <h4>{{ $gallery->name }} </h4>
+                        <h4>{{ $offer->apply->block }} </h4>
                     </div>
                     <!-- Single Service content -->
                     <div class="single_service_content">
                         <div class="table">
                             <div class="table_cell">
-                                <p>{{ $gallery->name }}</p>
+                                <p>{{ $offer->apply->block }}</p>
                             </div>
                         </div>
                     </div>

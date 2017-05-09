@@ -83,4 +83,11 @@ class OfferRepo
 	{
 	    return $this->offer->has('galleries')->with('galleries')->latest()->paginate($n);
 	}
+
+	public function listWithGallery($n)
+	{
+		return $this->offer->has('galleries')->with(['galleries' => function ($q) {
+							$q->latest()->first();
+						}])->latest()->take($n)->get();
+	}
 }

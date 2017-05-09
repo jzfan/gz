@@ -64,16 +64,14 @@ class GalleryController extends Controller
 	    		'galleryable_id' => 'required|integer',
 	    		'type' => 'required|in:'.$this->gallery->type(),
 	    		'name' => 'required|string|min:2|max:255|unique:galleries',
-	    		'description' => 'required|between:10,3000',
+	    		'description' => 'required|between:10,3000'
 	    	]);
-	    $input = request()->input();
-	    // if (request('type') === 'inspection') {
-	    // 	$offer = \Gz\Project\Apply::findOrFail(request('galleryable_id'))->offer;
-	    // 	$inspection =  \Gz\Project\Inspection::create(['offer_id' => $offer->id]);
-	    // 	$input['galleryable_id'] = $inspection->id; 
-	    // }
-	    $gallery = $this->gallery->create($input);
-	    return redirect('/backend/galleries?type='.request('type'))->with('success', '添加' . $gallery->name . '成功！');
+	    $gallery = $this->gallery->create(request()->input());
+	    $tail = request('type');
+	    if (request('type') === 'working') {
+	    	$tail .= '&offer_id=' . request('galleryable_id');
+	    }
+	    return redirect('/backend/galleries?type='.$tail)->with('success', '添加' . $gallery->name . '成功！');
 	}
 
 	public function destroy($id)

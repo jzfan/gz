@@ -70,10 +70,4 @@ class GalleryRepo
 	    		->where('galleryable_type', $this->type['design'])
 	    		->latest()->take($n)->get();
 	}
-
-	public function newWorking($n)
-	{
-	    return $this->gallery->where('galleryable_type', $this->type['working'])
-	    				->orderBy('updated_at', 'desc')->take($n)->get();
-	}
 }
