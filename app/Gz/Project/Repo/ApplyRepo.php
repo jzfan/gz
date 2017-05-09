@@ -40,9 +40,4 @@ class ApplyRepo
 	    return $this->apply->create($input);
 	}
 
-	public function pageByGallery($n)
-	{
-	    return $this->apply->has('gallery')->with('gallery')->latest()->paginate($n);
-	}
-
 }

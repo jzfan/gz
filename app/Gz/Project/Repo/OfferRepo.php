@@ -78,4 +78,9 @@ class OfferRepo
 	{
 	    return $this->offer->with('galleries')->findOrFail($id);
 	}
+
+	public function pageByGallery($n)
+	{
+	    return $this->offer->has('galleries')->with('galleries')->latest()->paginate($n);
+	}
 }

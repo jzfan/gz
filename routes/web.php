@@ -9,7 +9,7 @@ Route::namespace('Frontend')->group( function () {
 
 	Route::get('/', 'PageController@index');
 	Route::get('articles', 'ArticleController@index');
-	Route::get('constructions', 'ApplyController@construction');
+	Route::get('constructions', 'OfferController@construction');
 	Route::get('constructions/{id}', 'OfferController@showWorking');
 	Route::get('articles/{id}', 'ArticleController@show');
 	Route::get('offers', 'OfferController@index');
