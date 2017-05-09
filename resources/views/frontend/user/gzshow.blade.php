@@ -143,12 +143,12 @@
 						<td>{{ $apply->block }}</td>
 						<td>{{ $apply->square }} ㎡</td>
 						<td>{{ $apply->plan }}</td>
-						<td>{{ number_format($apply->budget) }}元</td>
+						<td>{{ $apply->budget }}元</td>
 						<td>{{ $apply->block ?? '' }}</td>
 						<td>{{ $apply->square ?? '' }} ㎡</td>
 						<td>{{ $apply->plan ?? '' }}</td>
 					@if (isset($apply->offer))
-						<td>{{ number_format($apply->offer->amount) }}元</td>
+						<td>{{ $apply->offer->amount }}元</td>
                         <td><a href="/offers/{{ $apply->offer->id }}">浏览报价</a></td>
 					@else
 						<td></td>
