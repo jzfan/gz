@@ -33,23 +33,7 @@
                             </select>
                         </div>
                     @elseif (request('type') == 'working')
-                    <label class="col-lg-2 control-label">选择工地</label>
-                    <div class="col-lg-10">
-                        <select name="galleryable_id" class="form-control">
-                        @foreach (\Gz\Project\Apply::whereNotNull('leader_id')->get(['id', 'block', 'name']) as $work)
-                            <option value="{{ $work->id }}">{{ $work->block }}  {{ $work->name }}</option>
-                        @endforeach
-                        </select>
-                    </div>
-                    @elseif (request('type') == 'inspection')
-                    <label class="col-lg-2 control-label">选择工地</label>
-                    <div class="col-lg-10">
-                        <select name="galleryable_id" class="form-control">
-                        @foreach (\Gz\Project\Apply::whereNotNull('leader_id')->get(['id', 'block', 'name']) as $work)
-                            <option value="{{ $work->id }}">{{ $work->block }}  {{ $work->name }}</option>
-                        @endforeach
-                        </select>
-                    </div>
+<input type="hidden" name='galleryable_id' value='{{ request("offer_id") }}'>
                     @endif
                     </div>
                     <div class="form-group">

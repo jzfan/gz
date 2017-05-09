@@ -15,11 +15,11 @@
 	<div class="panel panel-default">
 	  <div class="panel-body row gdxq-top">
 	   	 <div class="col-md-3 col-sm-3 gzgd-gz">
-	   	 	<img src="{{ $working->leader->avatar }}" class="img-responsive img-circle">
+	   	 	<img src="{{ $working->user->avatar }}" class="img-responsive img-circle">
 	   	 </div>
-	   	 <div class="col-md-2 col-sm-2"><h4 class="home-area">{{ $working->block ?? '' }}</h4></div>
-	   	 <div class="col-md-2 col-sm-2"><h4>面积：{{ $working->square ?? '' }}m²</h4></div>
-	   	 <div class="col-md-3 col-sm-3"><h4>合同价：{{ $working->offer ? $working->offer->amount : '' }}元</h4></div>
+	   	 <div class="col-md-2 col-sm-2"><h4 class="home-area">{{ $working->apply->block ?? '' }}</h4></div>
+	   	 <div class="col-md-2 col-sm-2"><h4>面积：{{ $working->apply->square ?? '' }}m²</h4></div>
+	   	 <div class="col-md-3 col-sm-3"><h4>合同价：{{ $working->amount ?? '' }}元</h4></div>
 	   	 <div class="col-md-2 col-sm-2">
 	   	 	<a data-toggle="modal" data-target="#exampleModal-2" class="btn btn-warning appointing">预约参观</a>
 	   	 </div>
@@ -28,17 +28,15 @@
 
 	<div class="row container">
 			<!-- 备注：panel 循环个数依据验收步骤进行 panel start  -->
-			@if ( $working->offer)
-			@foreach ($working->offer->inspections as $inspection)
-			@if ($inspection->gallery)
+			@foreach ($working->galleries as $gallery)
 			<div class="panel panel-success">
-			  <div class="panel-heading text-center">{{ $inspection->gallery->name }}</div>
+			  <div class="panel-heading text-center">{{ $gallery->name }}</div>
 			  <div class="panel-body row yan">
 			    	<div class="col-md-4">
 						<p>
-							<h4 class="text-center">验收总结 <small class="pull-right">{{ $inspection->created_at->format('Y-m-d') }}</small></h4>
+							<h4 class="text-center">验收总结 <small class="pull-right">{{ $gallery->created_at->format('Y-m-d') }}</small></h4>
 							<p>
-								{{ $inspection->gallery->description }}
+								{{ $gallery->description }}
 							</p>
 						</p>
 			    	</div>
@@ -48,7 +46,7 @@
 						<div id="carousel-example-generic1" class="carousel slide" data-ride="carousel">
 							  <!-- Wrapper for slides -->
 							  <div class="carousel-inner img-box-lun" role="listbox">
-							  @foreach ($inspection->gallery->images->chunk(3) as $chunks)
+							  @foreach ($gallery->images->chunk(3) as $chunks)
 							    <div class="item row
 							    @if ($loop->first)
 							     active
@@ -75,9 +73,7 @@
 			    	</div>
 			  </div>
 			</div>
-			@endif
 		@endforeach
-		@endif
 	</div>
 
 </section>

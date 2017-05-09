@@ -160,28 +160,28 @@
         </div>
 
         <div class="row">
-            @foreach ($workings as $i => $working)
+            @foreach ($working_galleries as $i => $gallery)
             <!-- Single Service Area Start -->
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="single_service wow fadeInUp" data-wow-delay="{{ ($i+1)*0.2 }}s">
-                    <!-- Single Service working -->
+                    <!-- Single Service gallery -->
                     <div class="single_service_img">
-                        <img data-url="{{ $working->page_image }}"  src="{{ $working->page_image }}" alt="">
+                        <img data-url="{{ $gallery->page_image }}"  src="{{ $gallery->page_image }}" alt="">
                     </div>
                     <!-- Single Service title -->
                     <div class="single_service_title">
-                        <h4>{{ $working->name }} </h4>
+                        <h4>{{ $gallery->name }} </h4>
                     </div>
                     <!-- Single Service content -->
                     <div class="single_service_content">
                         <div class="table">
                             <div class="table_cell">
-                                <p>{{ $working->name }}</p>
+                                <p>{{ $gallery->name }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="learn_more">
-                        <a href="/constructions/{{ $working->id }}"><h4>查看详情</h4></a>
+                        <a href="/constructions/{{ $gallery->galleryable->id }}"><h4>查看详情</h4></a>
                     </div>
                 </div>
             </div>

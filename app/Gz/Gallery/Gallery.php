@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Gallery extends Model
 {
 	
-    protected $fillable = ['name', 'description', 'galleryable_type', 'galleryable_id'];
+    protected $fillable = ['name', 'group', 'description', 'galleryable_type', 'galleryable_id'];
     protected $appends = ['page_image'];
 
     public function images()

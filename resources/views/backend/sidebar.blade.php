@@ -51,7 +51,7 @@
                       <ul class="sub">
                           <li><a class="" href="/backend/galleries?type=leader">工长</a></li>
                           <li><a class="" href="/backend/galleries?type=working">工地</a></li>
-                          <li><a class="" href="/backend/galleries?type=inspection">验收</a></li>
+<!--                           <li><a class="" href="/backend/galleries?type=inspection">验收</a></li> -->
                           <li><a class="" href="/backend/galleries?type=design">设计</a></li>
                       </ul>
                   </li>

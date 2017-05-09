@@ -57,4 +57,10 @@ class OfferController extends Controller
         $materials = Material::get(['id', 'name', 'brand'])->groupBy('name');
         return view('frontend.offer.edit', compact('offer', 'materials'));
     }
+
+    public function showWorking($id)
+    {
+        $working = $this->offer->getWorking($id);
+        return view('frontend.offer.working', compact('working'));
+    }
 }

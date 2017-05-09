@@ -4,7 +4,6 @@ namespace Gz\Project;
 
 use Gz\User\User;
 use Gz\Project\Apply;
-use Gz\Project\Inspection;
 use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model
@@ -21,9 +20,9 @@ class Offer extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function inspections()
+    public function galleries()
     {
-        return $this->hasMany(Inspection::class);
+        return $this->morphMany(\Gz\Gallery\Gallery::class, 'galleryable');
     }
 
     public function apply()

@@ -73,4 +73,9 @@ class OfferRepo
 	    		return $offer->update(['accepted_at' => null, 'done_at' => null]);
 	    }
 	}
+
+	public function getWorking($id)
+	{
+	    return $this->offer->with('galleries')->findOrFail($id);
+	}
 }

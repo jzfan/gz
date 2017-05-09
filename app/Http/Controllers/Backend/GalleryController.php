@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use Gz\Project\Offer;
 use Illuminate\Http\Request;
 use Gz\Gallery\Repo\GalleryRepo;
 use App\Http\Controllers\Controller;
@@ -20,6 +21,14 @@ class GalleryController extends Controller
 		$this->validate(request(), [
 				'type' => 'required|in:leader,working,design,inspection'
 			]);
+		if (request('type') == 'working') {
+			if (request('offer_id')) {
+				$galleries = Offer::find(request('offer_id'))->galleries()->paginate(4);
+				return view('backend.gallery.index', compact('galleries'));
+			}
+			$offers = Offer::withCount('galleries')->latest()->paginate(10);
+			return view('backend.gallery.working_index', compact('offers'));
+		}
 	    $galleries = $this->gallery->pageByType(request('type'), 4);
 	    return view('backend.gallery.index', compact('galleries'));
 	}
@@ -58,11 +67,11 @@ class GalleryController extends Controller
 	    		'description' => 'required|between:10,3000',
 	    	]);
 	    $input = request()->input();
-	    if (request('type') === 'inspection') {
-	    	$offer = \Gz\Project\Apply::findOrFail(request('galleryable_id'))->offer;
-	    	$inspection =  \Gz\Project\Inspection::create(['offer_id' => $offer->id]);
-	    	$input['galleryable_id'] = $inspection->id; 
-	    }
+	    // if (request('type') === 'inspection') {
+	    // 	$offer = \Gz\Project\Apply::findOrFail(request('galleryable_id'))->offer;
+	    // 	$inspection =  \Gz\Project\Inspection::create(['offer_id' => $offer->id]);
+	    // 	$input['galleryable_id'] = $inspection->id; 
+	    // }
 	    $gallery = $this->gallery->create($input);
 	    return redirect('/backend/galleries?type='.request('type'))->with('success', '添加' . $gallery->name . '成功！');
 	}

@@ -48,13 +48,5 @@ class ApplyController extends Controller
         $this->apply->store(request()->input());
         return redirect()->back()->withSuccess('ok');
     }
-
-    
-    public function showWorking($id)
-    {
-        $working = $this->apply->getWorking($id);
-        // dd($working->offer);
-        return view('frontend.apply.working', compact('working'));
-    }
      
 }
