@@ -8,7 +8,7 @@
             <span class="icon-tools-2 "></span>我要装修</li>
         <a href="#"><li><span class="icon-browser"></span><a href="/offers">查看报价</a></li></a>
         <li ><span class="icon-pencil"></span><a href="/comments">业主评价</a></li>
-        <a href="login"><li><span class="icon-tablet"></span>工长登录</li></a>
+        <a href="/login"><li><span class="icon-tablet"></span>工长登录</li></a>
     </ul>
     <span id="shan">X</span>
 </aside>

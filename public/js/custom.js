@@ -307,9 +307,8 @@ $(function(){
             $(this).attr('checked', false);
         });//取消勾选
         dom.find('.sum').text(0);
-
+        dom.attr('data-id', new_data_id);
         var newdom = dom.attr('id', url.split('#')[1]);
-        newdom.attr('data-id', new_data_id);
         $('.tab-content').append(newdom);
         $('.tab-content .tab-pane').each(function(){
             $(this).removeClass('active');
