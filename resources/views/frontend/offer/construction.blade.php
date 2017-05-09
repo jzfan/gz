@@ -38,14 +38,9 @@
                     </div>
 
                     <div class="col-md-9">
-                        <h4 class="row"><span class="text-info col-md-3 col-sm-12">{{ $offer->block }}</span><span class="col-md-3 col-sm-12">面积：{{ $offer->square }}m²</span><span class="col-md-6 col-sm-12">合同价：37200.00元</span></h4><br>
+                        <h4 class="row"><span class="text-info col-md-3 col-sm-12">{{ $offer->block }}</span><span class="col-md-3 col-sm-12">面积：{{ $offer->apply->square }}m²</span><span class="col-md-6 col-sm-12">合同价：{{ $offer->amount }}元</span></h4><br>
                         <h5>验收总结</h5>
-                            <ul>
-                                <li>1、强弱电使用红色和蓝色线管区分，用管规范，布局合理，且间距符合施工要求，大功率电器单独走回路；</li>
-                                <li>2、水路分开布局，冷热水墙面出水口高度一致，左热右冷，布局正确；</li>
-                                <li>3、水路打压测试通过半小时无掉压；</li>
-                                <li></li>
-                            </ul>
+                        <p>{{ $offer->galleries->first()->description }}</p>
                     </div>
               </div>
             </div>
