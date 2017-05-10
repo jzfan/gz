@@ -109,7 +109,7 @@
 							<img src="{{ $offer->galleries->first()->page_image }}" alt="{{ $offer->apply->block ?? '' }}">
 							<div class="caption">
 								<p><span class="housing">{{ $offer->apply->block ?? ''}}</span> {{ $offer->apply->square ?? '' }}㎡</p>
-								<p>总价： {{ $work->amount ?? ''}} 元</p>
+								<p>总价： {{ $offer->amount ?? ''}} 元</p>
 								<p><a data-toggle="modal" data-target="#exampleModal-2" class="btn btn-primary appointment" role="button">预约参观</a></p>
 							</div>
 						</div></a>
@@ -140,10 +140,6 @@
 @if ( ! $leader->leaderApplies->isEmpty() )
 					@foreach ($leader->leaderApplies as $apply)
 					<tr>
-						<td>{{ $apply->block }}</td>
-						<td>{{ $apply->square }} ㎡</td>
-						<td>{{ $apply->plan }}</td>
-						<td>{{ $apply->budget }}元</td>
 						<td>{{ $apply->block ?? '' }}</td>
 						<td>{{ $apply->square ?? '' }} ㎡</td>
 						<td>{{ $apply->plan ?? '' }}</td>

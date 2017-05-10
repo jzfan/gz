@@ -4,7 +4,7 @@
 	  lang: 'zh-CN',
 	  toolbar: [
 	  	['style', ['style']],
-	  	['font', ['bold']],
+	  	['font', ['bold', 'italic', 'underline', 'color']],
 	  	['para', ['ul', 'ol', 'paragraph']],
 	  	['table', ['table']],
 	  	['insert', ['link', 'picture']],
