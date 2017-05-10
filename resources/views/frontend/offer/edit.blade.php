@@ -130,11 +130,11 @@ $(function(){
           console.log(data.data.materials)
           var arr = data.data.materials;
           var nameArr = [];
-          arr.each(function(e){
+          arr.forEach(function(e){
             var name = null;
             if(e.brand.indexOf('|')){
               name = e.brand.split('|');
-              name.each(function(i){
+              name.forEach(function(i){
                 nameArr.push(i);
               });
             }else{
@@ -148,7 +148,7 @@ $(function(){
           $('.list-group').find('input').each(function(){
              var brand = $(this).attr('data-brand');
              var _this = $(this);
-             nameArr.each(function(e){
+             nameArr.forEach(function(e){
                if(e == brand){
                   _this.attr('checked', true);
                }
