@@ -525,3 +525,9 @@ $(function(){
         window.location.href = '/offers/create-1';
     })
 })
+
+
+//首页card 第一个链接换模态框
+$(function(){
+    $('.card-link').find('a').eq(0).attr('href','###').attr('data-toggle', 'model').attr('data-target', '#exampleModal');
+})

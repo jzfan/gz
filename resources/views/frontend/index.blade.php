@@ -37,7 +37,7 @@
 <!-- ************** Special Feature Area Start ************** -->
 <section class="special_feature_area">
     <div class="container">
-        <div class="row">
+        <div class="row card-model">
         @foreach (\Gz\Article\Card::all() as $card)
             <a href="{{ $card->link }}">
                 <div class="col-sm-6 col-md-2">

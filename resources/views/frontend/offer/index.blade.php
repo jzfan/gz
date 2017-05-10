@@ -22,28 +22,28 @@
             <table class="table table-bordered table-hover table-responsive" contenteditable="true">
                 <thead>
                     <tr>
-                        <th>编号</th>
-                        <th>小区</th>
-                        <th>面积</th>
-                        <th>装修方式</th>
-                        <th>报价</th>
-                        <th>工长</th>
-                        <th>日期</th>
-                        <th>查看详情</th>
+                        <th class="text-center">编号</th>
+                        <th class="text-center">小区</th>
+                        <th class="text-center">面积</th>
+                        <th class="text-center">装修方式</th>
+                        <th class="text-center">报价</th>
+                        <th class="text-center">工长</th>
+                        <th class="text-center">日期</th>
+                        <th class="text-center">查看详情</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- 备注：tr循环20个 -->
                     @foreach ($offers as $offer)
                     <tr>    
-                        <td>{{ $offer->id }}</td>
-                        <td>{{ $offer->apply->block }}</td>
-                        <td>{{ $offer->apply->square }}</td>
-                        <td>{{ $offer->apply->plan }}</td>
-                        <td>{{ $offer->amount }}</td>
-                        <td>{{ $offer->user->name }}</td>
-                        <td>{{ $offer->updated_at->format('Y-m-d') }}</td>
-                        <td><a href="/offers/{{ $offer->id }}">查看</a></td>
+                        <td class="text-center">{{ $offer->id }}</td>
+                        <td class="text-center">{{ $offer->apply->block }}</td>
+                        <td class="text-center">{{ $offer->apply->square }}</td>
+                        <td class="text-center">{{ $offer->apply->plan }}</td>
+                        <td class="text-center">{{ $offer->amount }}</td>
+                        <td class="text-center">{{ $offer->user->name }}</td>
+                        <td class="text-center">{{ $offer->updated_at->format('Y-m-d') }}</td>
+                        <td class="text-center"><a href="/offers/{{ $offer->id }}">查看</a></td>
                     </tr>
                     @endforeach
                 </tbody>

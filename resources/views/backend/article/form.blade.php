@@ -6,7 +6,7 @@
           </div>
       </div>
       <div class="form-group">
-          <label class="col-sm-2 control-label">标签</label>
+          <label class="col-sm-2 control-label">文章分类</label>
           <div class="col-sm-10">
               <input name="tags" id="tagsinput" class="tagsinput" value="{{ old('tags', isset($article) ? $article->tags->pluck('name')->implode(',') : '') }}" />
               <br>

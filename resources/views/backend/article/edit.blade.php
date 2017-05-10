@@ -6,7 +6,7 @@
 
     <section class="panel">
         <header class="panel-heading">
-            Horizontal Forms
+            文章编辑
         </header>
         <div class="panel-body">
             <form class="form-horizontal" role="form" action='/backend/articles/{{ $article->id }}'
