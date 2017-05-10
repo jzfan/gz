@@ -19,7 +19,7 @@
                 <i class="icon-tags"></i>
             </div>
             <div class="value">
-                <h1>140</h1>
+                <h1>{{ $appointments_count }}</h1>
                 <p>最新预约</p>
             </div>
         </section>
@@ -30,7 +30,7 @@
                 <i class="icon-shopping-cart"></i>
             </div>
             <div class="value">
-                <h1>345</h1>
+                <h1>{{ $applies_count }}</h1>
                 <p>最新申请</p>
             </div>
         </section>

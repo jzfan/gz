@@ -3,6 +3,7 @@
 namespace Gz\Project\Repo;
 
 use Gz\User\User;
+use Carbon\Carbon;
 use Gz\Project\Apply;
 
 class ApplyRepo
@@ -38,6 +39,11 @@ class ApplyRepo
 	public function store($input)
 	{
 	    return $this->apply->create($input);
+	}
+
+	public function newCountB4Days($n)
+	{
+	    return $this->apply->where('created_at', '>', Carbon::now()->subDays($n))->count();
 	}
 
 }
