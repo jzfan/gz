@@ -205,5 +205,14 @@ $(function(){
   })
 })
 
+//修改数据前自动填充之前选中的数据
+$(function(){
+  var items = JSON.parse(localStorage.getItem('items'));
+  console.log(items);
+  if(items){
+    
+  }
+})
+
 </script>
 @stop

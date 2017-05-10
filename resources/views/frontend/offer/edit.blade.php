@@ -126,8 +126,6 @@ $(function(){
        url: "/api/offers/"+id,
        dataType: "json",
        success: function(data){
-          console.log(data.items);
-          console.log(data.data.materials)
           var arr = data.data.materials;
           var nameArr = [];
           arr.forEach(function(e){
@@ -143,8 +141,6 @@ $(function(){
             }
           });
 
-          console.log(nameArr);
-
           $('.list-group').find('input').each(function(){
              var brand = $(this).attr('data-brand');
              var _this = $(this);
@@ -154,7 +150,8 @@ $(function(){
                }
              })
           });
-
+          
+          localStorage.setItem('items', JSON.stringify(data.data.items));
       }
     })
   }
