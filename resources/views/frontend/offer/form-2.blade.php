@@ -113,7 +113,7 @@
 
 <div class="table-footer">
   <button type="button" class="btn btn-success" id="save">确认保存</button>
-  <button type="button" class="btn btn-success" id="view" disabled><a href="">预览</a></button>
+  <button type="button" class="btn btn-success" id="view" disabled><a href="" target="_blank">预览</a></button>
 </div>
 
 @stop
@@ -148,42 +148,12 @@ let data = JSON.parse(window.localStorage.getItem('offer'))
     })
   }
 
-// function save()
-// {
-//   let options = $('#checkbox-form').serializeArray().map( function (checked) {
-//     return {
-//       id: checked.value,
-//       quantity: $('#quantity-' + checked.value).val()
-//     }
-//   })
-//   console.log(options);
-//   let {apply, materials} = data
-
-
-
-//   $.post('/offers', {
-//     apply, materials, options,
-//     _token: '{!! csrf_token() !!}'
-//   }, function(m){
-//     alert('保存成功！');
-//     $('#view').attr('disabled', false);
-//     $('#view a').attr('href', '/offers/'+m);
-//   })
-
-//   console.log(apply,materials,options);
-// }
-
-
 
 //新代码
 $(function(){
     var object = {};
-    
-    // var applyInfo = JSON.parse(localStorage.getItem('applyInfo'));
-
     $('#save').click(function(){
         var items = [];
-        // var materials = [];
         var bool = null;
         $('.tab-pane').each(function(){
             $(this).find('tbody tr .checkbox input').each(function(){
@@ -223,23 +193,6 @@ $(function(){
         console.log(object);
     })
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 $(function(){

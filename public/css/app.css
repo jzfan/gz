@@ -270,3 +270,6 @@ tbody td a:hover{
 .pagination{
 	margin-left: 1rem;
 }
+@media print{    
+    div.print{display:none;}  
+}  

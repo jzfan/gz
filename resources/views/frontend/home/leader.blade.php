@@ -32,9 +32,9 @@
         <li><a contenteditable="true" data-toggle="tab" href="">采购辅材</a></li>
         <li><a contenteditable="true" data-toggle="tab" href="#panel-6">业主评价</a></li>
         @if (\Auth::user()->leader !== null)
-        <li><a contenteditable="true" data-toggle="tab" href="#panel-7">修改资料</a></li>
+        <li><a contenteditable="true" data-toggle="tab" href="#panel-7">修改密码</a></li>
         @endif
-        <li><a contenteditable="true" data-toggle="tab" href="#panel-8">修改密码</a></li>
+        <li><a contenteditable="true" data-toggle="tab" href="#panel-8">修改资料</a></li>
       </ul>
 
       <div class="tab-content">

@@ -115,5 +115,23 @@ $(function(){
 
 })
 
+//获取id并请求数据
+$(function(){
+  var str = window.location.pathname;  
+  var id  = str.replace(/[^0-9]/ig,"") || 0;  
+  //修改是进入页面ajax
+  if(id){
+    $.ajax({
+       type: "GET",
+       url: "/api/offers/"+id,
+       dataType: "json",
+       success: function(data){
+          console.log(data);
+          console.log(data.data.materials)
+      }
+    })
+  }
+})
+
 </script>
 @stop
