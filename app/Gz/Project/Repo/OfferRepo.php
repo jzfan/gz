@@ -73,4 +73,21 @@ class OfferRepo
 	    		return $offer->update(['accepted_at' => null, 'done_at' => null]);
 	    }
 	}
+
+	public function getWorking($id)
+	{
+	    return $this->offer->with('galleries')->findOrFail($id);
+	}
+
+	public function pageByGallery($n)
+	{
+	    return $this->offer->has('galleries')->with('galleries')->latest()->paginate($n);
+	}
+
+	public function listWithGallery($n)
+	{
+		return $this->offer->has('galleries')->with(['galleries' => function ($q) {
+							$q->latest()->first();
+						}])->latest()->take($n)->get();
+	}
 }

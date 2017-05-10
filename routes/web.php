@@ -9,8 +9,8 @@ Route::namespace('Frontend')->group( function () {
 
 	Route::get('/', 'PageController@index');
 	Route::get('articles', 'ArticleController@index');
-	Route::get('constructions', 'ApplyController@construction');
-	Route::get('constructions/{id}', 'ApplyController@showWorking');
+	Route::get('constructions', 'OfferController@construction');
+	Route::get('constructions/{id}', 'OfferController@showWorking');
 	Route::get('articles/{id}', 'ArticleController@show');
 	Route::get('offers', 'OfferController@index');
 	Route::get('offers/create-1', 'OfferController@getFormOne');
@@ -78,6 +78,7 @@ Route::namespace('Backend')->group( function () {
 		// Route::get('editors', 'EditorController@index');
 		
 		Route::resource('items', 'ItemController');
+		Route::resource('inspections', 'InspectionController');
 		Route::get('items/{id}/item-options/create', 'ItemOptionController@create');
 		Route::get('item-options/{id}/edit', 'ItemOptionController@edit');
 		Route::put('item-options/{id}', 'ItemOptionController@update');

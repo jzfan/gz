@@ -24,10 +24,8 @@ class LeaderController extends Controller
     	$leader = $this->leader->showById($id);
     	$tops = $this->leader->tops(4);
         $certificates = $user->certificates()->latest()->take(6)->get();
-        $workings = $user->leaderApplies()
-                ->has('gallery')->with('gallery')->take(6)->get();
-        // dd($working_galleries->first()->toArray());
-        return view('frontend.user.gzshow', compact('leader', 'tops', 'certificates', 'workings'));
+        $gallery_offers = $user->offers()->has('galleries')->with('galleries')->take(6)->get();
+        return view('frontend.user.gzshow', compact('leader', 'tops', 'certificates', 'gallery_offers'));
     }    
 
     public function index()

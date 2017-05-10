@@ -21,31 +21,26 @@
     <div class="row">
         <div class="col-md-9">
             <!-- 备注：panel 循环8个 panel start  -->
-            @foreach($constructions as $construction)
+            @foreach($constructions as $offer)
             <div class="panel panel-default">
               <div class="panel-body row">
                     <div class="col-md-3">
-                        <a href="/constructions/{{ $construction->id }}" ><div class="thumbnail">
-                          <img src="{{ $construction->gallery->page_image }}" alt="..." class="img-responsive">
+                        <a href="/constructions/{{ $offer->id }}" ><div class="thumbnail">
+                          <img src="{{ $offer->galleries->first()->page_image }}" alt="..." class="img-responsive">
                           <div class="caption">
-                            <h5><span class="housing">{{ $construction->block }}</span></h5>
+                            <h5><span class="housing">{{ $offer->apply->block }}</span></h5>
                           </div>
                           <div class="row gzgd-foot">
-                            <p class="col-sm-6 col-md-6"><a href="/leaders/{{ $construction->leader_id }}">{{ $construction->leader->name }}工长</a></p>
+                            <p class="col-sm-6 col-md-6"><a href="/leaders/{{ $offer->user_id }}">{{ $offer->user->name }}工长</a></p>
                             <p class="col-sm-6 col-md-6"><a data-toggle="modal" data-target="#exampleModal-2" class="appointment">预约参观</a></p>
                           </div>
                         </div></a>
                     </div>
 
                     <div class="col-md-9">
-                        <h4 class="row"><span class="text-info col-md-3 col-sm-12">{{ $construction->block }}</span><span class="col-md-3 col-sm-12">面积：{{ $construction->square }}m²</span><span class="col-md-6 col-sm-12">合同价：37200.00元</span></h4><br>
+                        <h4 class="row"><span class="text-info col-md-3 col-sm-12">{{ $offer->block }}</span><span class="col-md-3 col-sm-12">面积：{{ $offer->apply->square }}m²</span><span class="col-md-6 col-sm-12">合同价：{{ $offer->amount }}元</span></h4><br>
                         <h5>验收总结</h5>
-                            <ul>
-                                <li>1、强弱电使用红色和蓝色线管区分，用管规范，布局合理，且间距符合施工要求，大功率电器单独走回路；</li>
-                                <li>2、水路分开布局，冷热水墙面出水口高度一致，左热右冷，布局正确；</li>
-                                <li>3、水路打压测试通过半小时无掉压；</li>
-                                <li></li>
-                            </ul>
+                        <p>{{ $offer->galleries->first()->description }}</p>
                     </div>
               </div>
             </div>

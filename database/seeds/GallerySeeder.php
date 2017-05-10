@@ -6,7 +6,6 @@ use Gz\Project\Apply;
 use Gz\Project\Offer;
 use Gz\User\Designer;
 use Gz\Gallery\Gallery;
-use Gz\Project\Inspection;
 use Illuminate\Database\Seeder;
 
 class GallerySeeder extends Seeder
@@ -15,7 +14,6 @@ class GallerySeeder extends Seeder
     {
         Gallery::truncate();
         Image::truncate();
-        Inspection::truncate();
 
         $applies = Apply::whereNotNull('leader_id')->get();
         $applies->map( function ($apply) {
@@ -33,14 +31,6 @@ class GallerySeeder extends Seeder
                 ->each( function ($g) {
                     $g->images()->saveMany(factory(Image::class, rand(2, 4))->make());
                 });
-       });
-
-       $offers = Offer::whereNotNull('accepted_at')->get();
-       $offers->map(function($offer) {
-            foreach (range(1, 3) as $i) {
-                $inspection = $offer->inspections()->create([]);
-                $this->createGallery($inspection);
-            }
        });
     }
 

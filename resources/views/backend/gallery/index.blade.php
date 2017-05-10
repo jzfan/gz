@@ -17,7 +17,7 @@
           @foreach ($chunks as $gallery)
           <div class="list-group-item col-md-6" id='gallery-dv'>
             <a href="/backend/galleries/{{ $gallery->id }}">
-              <img src='{{ $gallery->page_image }}' width="100%">
+              <img src='{{ $gallery->page_image }}' height="250">
             </a>
             <h4>
               {{ $gallery->name }} 
