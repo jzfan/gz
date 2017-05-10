@@ -210,7 +210,18 @@ $(function(){
   var items = JSON.parse(localStorage.getItem('items'));
   console.log(items);
   if(items){
-    
+    console.log(items);
+    items.forEach(function(e){
+      e.options.forEach(function(i){
+        $('.checkbox input').each(function(){
+          if($(this).val() == i.id){
+            $(this).attr('checked', true);
+            $(this).parents('tr').find('.num').val(i.quantity);
+            $(this).parents('tr').find('.cumadd').val(i.total);
+          }
+        })
+      })
+    })
   }
 })
 

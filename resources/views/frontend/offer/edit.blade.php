@@ -127,7 +127,10 @@ $(function(){
        dataType: "json",
        success: function(data){
           var arr = data.data.materials;
+          var items = data.data.items;
           var nameArr = [];
+          console.log(items);
+          localStorage.setItem('items', JSON.stringify(items));
           arr.forEach(function(e){
             var name = null;
             if(e.brand.indexOf('|')){
@@ -150,8 +153,6 @@ $(function(){
                }
              })
           });
-          
-          localStorage.setItem('items', JSON.stringify(data.data.items));
       }
     })
   }
