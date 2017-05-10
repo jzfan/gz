@@ -72,8 +72,6 @@ class OfferController extends Controller
         $constructions = $this->offer->pageByGallery(8);
         $offers = $this->offer->newList(3);
         $leaders = $this->leader->rankList(5);
-        // $pictures = $this->gallery->newList(6);
-        // $tags = $this->article->allTags();
         return view('frontend.offer.construction', compact('constructions', 'offers', 'leaders'));
     }
 }
