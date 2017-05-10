@@ -6,7 +6,7 @@
   <div class="col-lg-12">
     <section class="panel">
       <header class="panel-heading">
-        评论列表 
+        工地预约列表 
       </header>
 
       <table class="table table-striped table-advance table-hover">
@@ -17,7 +17,7 @@
             <th> 电话</th>
             <th> 小区</th>
             <th> 备注</th>
-            <th> 创建时间</th>
+            <th> 预约时间</th>
             <th> 删除</th>
           </tr>
         </thead>
