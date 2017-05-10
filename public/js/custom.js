@@ -529,5 +529,9 @@ $(function(){
 
 //首页card 第一个链接换模态框
 $(function(){
-    $('.card-link').find('a').eq(0).attr('href','###').attr('data-toggle', 'model').attr('data-target', '#exampleModal');
+    $('.card-link').find('a').eq(0).click(function(){
+        $(this).attr('href','###');
+        $(this).attr('data-toggle', 'model');
+        $(this).attr('data-target', '#exampleModal');
+    })
 })

@@ -126,8 +126,35 @@ $(function(){
        url: "/api/offers/"+id,
        dataType: "json",
        success: function(data){
-          console.log(data);
+          console.log(data.items);
           console.log(data.data.materials)
+          var arr = data.data.materials;
+          var nameArr = [];
+          arr.each(function(e){
+            var name = null;
+            if(e.brand.indexOf('|')){
+              name = e.brand.split('|');
+              name.each(function(i){
+                nameArr.push(i);
+              });
+            }else{
+              name = e.brand;
+              nameArr.push(name);
+            }
+          });
+
+          console.log(nameArr);
+
+          $('.list-group').find('input').each(function(){
+             var brand = $(this).attr('data-brand');
+             var _this = $(this);
+             nameArr.each(function(e){
+               if(e == brand){
+                  _this.attr('checked', true);
+               }
+             })
+          });
+
       }
     })
   }
