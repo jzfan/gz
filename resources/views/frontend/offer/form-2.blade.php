@@ -217,7 +217,7 @@ $(function(){
           if($(this).val() == i.id){
             $(this).attr('checked', true);
             $(this).parents('tr').find('.num').val(i.quantity);
-            $(this).parents('tr').find('.cumadd').val(i.total);
+            $(this).parents('tr').find('.cumadd').text(i.total);
           }
         })
       })

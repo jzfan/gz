@@ -535,3 +535,10 @@ $(function(){
         $(this).attr('data-target', '#exampleModal');
     })
 })
+
+//工长个人中心历史报价分页
+$(function(){
+    $('.history .pagination').find('li a').click(function(){
+        window.location.href = $(this).attr('href');
+    })
+})
