@@ -39,13 +39,14 @@ class ItemOptionController extends Controller
     public function update($id)
     {
         $this->validate(request(), $this->rule);
-        $this->option->findOrFail($id)->update([
-        		'title' => request('title'),
-        		'description' => array_filter(request('description')),
-        		'unit' => request('unit'),
-        		'price' => request('price'),
-        	]);
-        return redirect('/items/'.$id)->with('success', '更新项目成功！');
+        $option = $this->option->findOrFail($id);
+        $option->update([
+                'title' => request('title'),
+                'description' => array_filter(request('description')),
+                'unit' => request('unit'),
+                'price' => request('price'),
+            ]);
+        return redirect('/items/'.$option->item->id)->with('success', '更新项目成功！');
     }
 
     public function create($id)

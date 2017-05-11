@@ -38,7 +38,7 @@ class ApplyRepo
 
 	public function store($input)
 	{
-	    return $this->apply->create($input);
+	    return $this->apply->create(array_merge($input, ['user_id' => \Auth::user()->id]));
 	}
 
 	public function newCountB4Days($n)

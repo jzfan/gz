@@ -14,6 +14,6 @@ class CustomerRepo extends UserRepo
 
 	public function byPage($n=10)
 	{
-		return $this->user->with('customerApplies')->paginate($n);
+		return $this->user->where('role', 'customer')->with('customerApplies')->paginate($n);
 	}
 }
