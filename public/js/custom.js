@@ -516,8 +516,11 @@ $(function(){
         var arrInfo = [];
         var tds = $(this).parents('tr').find('td');
         tds.each(function(index,e){
-          if(index<=3){
+          if(index<=2){
             arrInfo.push($(this).text());
+          }
+          if(index == 3){
+            arrInfo.push($(this).text().replace('㎡',''));
           }
         })
         console.log(arrInfo);
