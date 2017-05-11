@@ -59,10 +59,8 @@ $('#forward-link').click( function (e) {
   let apply = {}
 
   var link = window.location.pathname;
-  var par = [];
-  par = link.split('?') || [0];
-   if(par.[1] == 'person'){
-    apply.from = '个人';
+   if(link.indexOf('person')){
+      apply.from = '个人';
    }
 
   $('.list-group .list-group-item').each(function(){
