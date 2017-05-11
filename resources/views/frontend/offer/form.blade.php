@@ -75,10 +75,11 @@ $('#forward-link').click( function (e) {
   })
 
   $('.group-t input').each(function(){
+     apply[this.name] = this.value;
      if($(this).val() != ''){
-       apply.from = '个人';
-       return
+       apply.from = '个人'
      }
+     console.log($(this).val());
   });
 
   console.log({materials, apply});
@@ -95,7 +96,7 @@ $(function(){
   if(cinfo){
     inputs.each(function(i,e){
       $(this).val(cinfo[i]);
-      $(this).attr('readonly', 'readonly');
+      $(this).attr('disabled ', true);
       console.log(cinfo[i]);
     })
   }

@@ -520,7 +520,9 @@ $(function(){
             arrInfo.push($(this).text());
           }
           if(index == 3){
-            arrInfo.push($(this).text().replace('㎡',''));
+            arrInfo.push(parseFloat($(this).text()));
+            console.log($(this).text().replace('㎡',''));
+            console.log(parseFloat($(this).text()));
           }
         })
         console.log(arrInfo);
