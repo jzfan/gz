@@ -75,12 +75,14 @@ $('#forward-link').click( function (e) {
   })
 
   $('.group-t input').each(function(){
-     apply[this.name] = this.value;
-     if($(this).val() != ''){
-       apply.from = '个人'
-     }
+     apply[$(this).attr('name')] = $(this).val();
      console.log($(this).val());
   });
+
+  if($('.group-t input').eq(1).val() != ''){
+    apply.from = '个人';
+  }
+  
 
   console.log({materials, apply});
   window.localStorage.setItem('offer', JSON.stringify({materials, apply}));
