@@ -30,7 +30,8 @@
 		            <th class="text-center">工长电话</th>
 		            <th class="text-center">总价</th>
 		            <th class="text-center">报价状态</th>
-		             <th class="text-center">施工现场</th>
+		            <th class="text-center">施工现场</th>
+		            <th class="text-center">报价单</th>
 		          </tr>
 		        </thead>
 		        @if (\Auth::user()->has('customerApplies'))
@@ -44,6 +45,7 @@
 		            <td class="text-center">{{ $apply->offer ? $apply->offer->amount : '' }}</td>
 		            <td class="text-center">{{ $apply->offer ? $apply->offer->status : '未报价' }}</td>
 		            <td class="text-center"><a href="工长工地详情页.html">查看</a></td>
+		            <td class="text-center"><a href="view.html">预览</a></td>
 		          </tr>
 		         @endforeach
 		        </tbody>

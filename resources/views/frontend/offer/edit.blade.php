@@ -115,5 +115,48 @@ $(function(){
 
 })
 
+//获取id并请求数据
+$(function(){
+  var str = window.location.pathname;  
+  var id  = str.replace(/[^0-9]/ig,"") || 0;  
+  //修改是进入页面ajax
+  if(id){
+    $.ajax({
+       type: "GET",
+       url: "/api/offers/"+id,
+       dataType: "json",
+       success: function(data){
+          var arr = data.data.materials;
+          var items = data.data.items;
+          var nameArr = [];
+          console.log(items);
+          localStorage.setItem('items', JSON.stringify(items));
+          arr.forEach(function(e){
+            var name = null;
+            if(e.brand.indexOf('|')){
+              name = e.brand.split('|');
+              name.forEach(function(i){
+                nameArr.push(i);
+              });
+            }else{
+              name = e.brand;
+              nameArr.push(name);
+            }
+          });
+
+          $('.list-group').find('input').each(function(){
+             var brand = $(this).attr('data-brand');
+             var _this = $(this);
+             nameArr.forEach(function(e){
+               if(e == brand){
+                  _this.attr('checked', true);
+               }
+             })
+          });
+      }
+    })
+  }
+})
+
 </script>
 @stop

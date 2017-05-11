@@ -32,12 +32,12 @@
         <li><a contenteditable="true" data-toggle="tab" href="">采购辅材</a></li>
         <li><a contenteditable="true" data-toggle="tab" href="#panel-6">业主评价</a></li>
         @if (\Auth::user()->leader !== null)
-        <li><a contenteditable="true" data-toggle="tab" href="#panel-7">修改资料</a></li>
+        <li><a contenteditable="true" data-toggle="tab" href="#panel-7">修改密码</a></li>
         @endif
-        <li><a contenteditable="true" data-toggle="tab" href="#panel-8">修改密码</a></li>
+        <li><a contenteditable="true" data-toggle="tab" href="#panel-8">修改资料</a></li>
       </ul>
 
-      <div class="tab-content">
+      <div class="tab-content history">
         <div class="tab-pane active" contenteditable="true" id="panel-1">
           <div class="table-responsive">
             <table class="table table-bordered table-striped table-hover">
@@ -65,7 +65,7 @@
                   <td>{{ $offer->apply->name }}({{ $offer->apply->id }})</td>
                   <td>{{ $offer->amount }}(元)</td>
                   <td>{{ $offer->status }}</td>
-                  <td><a href="/offers/{{ $offer->id }}">预览</a>&nbsp;|&nbsp;<a href="/offers/{{ $offer->id }}/edit">修改</a></td>
+                  <td><a href="/offers/{{ $offer->id }}">预览</a>&nbsp;|&nbsp;<a href="/offers/{{ $offer->id }}/edit" class="rewrite">修改</a></td>
                 </tr>
                 @endforeach
               </tbody>
