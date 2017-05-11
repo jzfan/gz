@@ -79,7 +79,9 @@ $('#forward-link').click( function (e) {
      console.log($(this).val());
   });
 
-  if($('.group-t input').eq(1).val() != ''){
+  var link = window.location.href;
+  var par = link.split('?').[1];
+  if(par == 'person'){
     apply.from = '个人';
   }
   
