@@ -9,7 +9,7 @@
             <div class="col-xs-12">
                 <!-- call to action text -->
                 <div class="call_to wow fadeInUp" data-wow-delay=".2s">
-                    <h3>用心服务<i class="fa fa-heart" aria-hidden="true"></i>与平台共进退</h3>
+                    <h3>用心服务<i class="fa fa-heart" aria-hidden="true"></i>客户第一</h3>
                 </div>
             </div>
         </div>
