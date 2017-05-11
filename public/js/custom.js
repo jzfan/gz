@@ -521,7 +521,6 @@ $(function(){
           }
           if(index == 3){
             arrInfo.push(parseFloat($(this).text()));
-            console.log($(this).text().replace('㎡',''));
             console.log(parseFloat($(this).text()));
           }
         })

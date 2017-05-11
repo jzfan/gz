@@ -95,7 +95,12 @@ $(function(){
   console.log(cinfo);
   if(cinfo){
     inputs.each(function(i,e){
-      $(this).val(cinfo[i]);
+      if(i<=2){
+        $(this).val(cinfo[i]);
+      }
+      if(i == 3 ){
+        $(this).val(parseFloat(cinfo[i]));
+      }
       console.log(cinfo[i]);
     })
   }
