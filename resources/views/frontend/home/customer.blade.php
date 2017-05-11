@@ -44,8 +44,20 @@
 		            <td class="text-center">{{ $apply->leader ? $apply->leader->phone : '' }}</td>
 		            <td class="text-center">{{ $apply->offer ? $apply->offer->amount : '' }}</td>
 		            <td class="text-center">{{ $apply->offer ? $apply->offer->status : '未报价' }}</td>
-		            <td class="text-center"><a href="工长工地详情页.html">查看</a></td>
-		            <td class="text-center"><a href="view.html">预览</a></td>
+		            <td class="text-center">
+		            	@if ($apply->offer && ! $apply->offer->galleries->isEmpty())
+		            	<a href="/constructions/{{ $apply->offer->id }}">查看</a>
+		            	@else
+		            	暂未施工
+		            	@endif
+		            </td>
+		            <td class="text-center">
+		            	@if ($apply->offer)
+		            	<a href="/offers/{{ $apply->offer->id }}">预览</a>
+			            @else 
+			            报价未完成
+			            @endif
+		            </td>
 		          </tr>
 		         @endforeach
 		        </tbody>
