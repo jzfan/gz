@@ -58,6 +58,13 @@ $('#forward-link').click( function (e) {
   let materials = []
   let apply = {}
 
+  var link = window.location.pathname;
+  var par = [];
+  par = link.split('?');
+   if(par.[1] == 'person'){
+    apply.from = '个人';
+   }
+
   $('.list-group .list-group-item').each(function(){
       var _brand = [];
       var str = String;
@@ -77,11 +84,6 @@ $('#forward-link').click( function (e) {
   $('.group-t input').each(function(){
      apply[this.name] = this.value;
      console.log($(this).val());
-     var link = window.location.href;
-    var par = link.split('?').[1];
-    if(par == 'person'){
-      apply.from = '个人';
-    }
   });
 
   console.log({materials, apply});
