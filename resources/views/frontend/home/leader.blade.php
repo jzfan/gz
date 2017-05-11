@@ -71,6 +71,7 @@
               </tbody>
             </table>
           </div>
+          {!! $all->links() !!}
         </div>
 
         <div class="tab-pane" contenteditable="true" id="panel-2">

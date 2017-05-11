@@ -76,6 +76,7 @@ $('#forward-link').click( function (e) {
 
   $('.group-t input').each(function(){
      apply[this.name] = this.value;
+     apply.from = '个人'
   });
 
   console.log({materials, apply});
