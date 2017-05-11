@@ -31,7 +31,7 @@ class OfferRepo
 
 	public function createByUid($uid, $input)
 	{
-		$apply = \Gz\Project\Apply::create( array_merge($input['apply'], ['leader_id' => $uid]));
+		$apply = \Gz\Project\Apply::updateOrCreate($input['apply'], ['leader_id' => $uid]);
 		$items = collect($input['items'])->map( function ($item) {
 			$options = collect($item['options'])->map( function ($input_option) {
 				$option = \Gz\Item\ItemOption::select('id', 'item_id', 'title', 'description', 'unit', 'price')->findOrFail($input_option['id']);
