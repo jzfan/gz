@@ -9,7 +9,8 @@
         <div class="panel-body">
             <div class="row invoice-list">
                 <div class="text-center corporate-id">
-                    <h3><img src='{{ $offer->user->avatar }}'>{{ $offer->user->name }} <small> 对 </small>{{ $offer->apply->block }} <small> 报价 </small></h3>
+                    <p><img src='{{ $offer->user->avatar }}' height="160" width="160" class="img-circle"></p>
+                    <h3><small> 工长姓名：</small>{{ $offer->user->name }} <small> 小区：</small>{{ $offer->apply->block }} </h3>
                     <p>合计: {{ $offer->amount }} 元 &nbsp;&nbsp;&nbsp;&nbsp;  {{ $offer->created_at->format('Y-m-d') }}</p>
                 </div>
                 
