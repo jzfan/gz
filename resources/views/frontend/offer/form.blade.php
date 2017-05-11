@@ -75,7 +75,7 @@ $('#forward-link').click( function (e) {
   })
 
   $('.group-t input').each(function(){
-     apply[$(this).attr('name')] = $(this).val();
+     apply[this.name] = this.value;
      console.log($(this).val());
   });
 
