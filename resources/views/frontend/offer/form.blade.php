@@ -96,7 +96,7 @@ $(function(){
   if(cinfo){
     inputs.each(function(i,e){
       $(this).val(cinfo[i]);
-      $(this).attr('disabled ', true);
+      $(this).attr('disabled', true);
       console.log(cinfo[i]);
     })
   }
