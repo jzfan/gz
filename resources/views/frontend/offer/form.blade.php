@@ -77,14 +77,12 @@ $('#forward-link').click( function (e) {
   $('.group-t input').each(function(){
      apply[this.name] = this.value;
      console.log($(this).val());
+     var link = window.location.href;
+    var par = link.split('?').[1];
+    if(par == 'person'){
+      apply.from = '个人';
+    }
   });
-
-  var link = window.location.href;
-  var par = link.split('?').[1];
-  if(par == 'person'){
-    apply.from = '个人';
-  }
-  
 
   console.log({materials, apply});
   window.localStorage.setItem('offer', JSON.stringify({materials, apply}));
