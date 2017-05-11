@@ -60,7 +60,7 @@ $('#forward-link').click( function (e) {
 
   var link = window.location.pathname;
   var par = [];
-  par = link.split('?');
+  par = link.split('?') || [0];
    if(par.[1] == 'person'){
     apply.from = '个人';
    }
