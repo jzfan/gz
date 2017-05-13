@@ -243,7 +243,8 @@ $(function(){
       var n = arrCheck(arrId, e.id);
       console.log(n);//正常
       var count = 0;
-      for(var i=0;i<n;i++){
+      var ele = e;
+      for(var j=0;j<n;j++){
           console.log(5555);
           newdom = $(e.id).clone();
           count++;
@@ -264,10 +265,12 @@ $(function(){
           })
 
           console.log(pgroups);
+          console.log(e.options);
+          console.log(ele.options);
 
-
-          e.options.forEach(function(i){
-            console.log(i)
+          e.options.forEach(function(e,i){
+            console.log(e);
+            console.log(i);
             newdom.find('.checkbox input').each(function(){
               if($(this).val() == i.id){
                 console.log(111);
