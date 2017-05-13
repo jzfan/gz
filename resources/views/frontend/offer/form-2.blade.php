@@ -246,7 +246,7 @@ $(function(){
       for(var i=0;i<n;i++){
           console.log(5555);
           newdom = $(e.id).clone();
-          conut++;
+          count++;
           var url = '#panel-'+Math.random();
           newdom.find('.p-group').prepend('<p>'+'<a contenteditable="true" data-toggle="tab" href='+url+'>'+e.name+'</a>'+count+'<span class="fa fa-remove "></span></p>');
           newdom.attr('id', url);
