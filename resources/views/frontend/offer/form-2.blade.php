@@ -235,11 +235,13 @@ $(function(){
     arrId.push(e.id);
   });
 
+  console.log(arrId);
+
   if(items){
-    console.log(items);
     items.forEach(function(e){
       //判断当前e.id 出现次数n。。。code 循环次数依据这个次数
       var n = arrCheck(arrId, e.id);
+      console.log(n);
       var count = 0;
       for(var i=0;i<n.length;i++){
           newdom = $(e.id).clone();
@@ -247,6 +249,7 @@ $(function(){
           var url = '#panel-'+Math.random();
           newdom.find('.p-group').prepend('<p>'+'<a contenteditable="true" data-toggle="tab" href='+url+'>'+e.name+'</a>'+count+'<span class="fa fa-remove "></span></p>');
           newdom.attr('id', url);
+          $('.tab-content').append(newdom);
 
           var pgroups = newdom.find('.p-group').html();
           var original = newdom.attr('data-name');
@@ -257,10 +260,12 @@ $(function(){
               }
           })
 
-          $('.tab-content').append(newdom);
+
           e.options.forEach(function(i){
+            console.log(i)
             newdom.find('.checkbox input').each(function(){
               if($(this).val() == i.id){
+                console.log(111);
                 $(this).attr('checked', true);
                 $(this).parents('tr').find('.num').val(i.quantity);
                 $(this).parents('tr').find('.cumadd').text(i.total);
