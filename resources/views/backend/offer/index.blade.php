@@ -41,7 +41,6 @@
                   <li><a href="/backend/offers/{{ $offer->id }}/status/done">完工</a></li>
                 </ul>
               </div>
-              <a class="btn btn-success btn-xs" href='/backend/galleries/create?type=offer&id={{ $offer->id }}'><i class="icon-picture"></i></a>
             </td>
           </tr>
           @endforeach
