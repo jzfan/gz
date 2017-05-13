@@ -533,8 +533,10 @@ $(function(){
 
 //首页card 第一个链接换模态框
 $(function(){
-    $('.card-link').find('a').eq(0).click(function(){
-        //$(this).attr('href','###');
+    $('.card-model').find('a').eq(0).click(function(){
+        $(this).attr('href','###');
+        // $(this).attr('data-toggle', 'model');
+        // $(this).attr('data-target', '#exampleModal');
         $('#exampleModal').modal('show')
     })
 })
@@ -548,4 +550,4 @@ $(function(){
     $('.history .pagination').find('li a').hover(function(){
         $(this).css('cursor','pointer');
     })
-});
+})
