@@ -207,20 +207,77 @@ $(function(){
 
 //修改数据前自动填充之前选中的数据
 $(function(){
+
+  function arrCheck(arr,c){
+    var newArr = [];
+    var temp = c;
+    for(var i=0;i<arr.length;i++){
+      var count=0;
+      for(var j=0;j<arr.length;j++){
+        if(arr[j]==temp){
+          count++;
+          arr[j]=-1;
+        }
+      }
+      if(temp != -1){
+        newArr.push(temp+":"+count);
+        return count;
+      }
+    }
+  };
+
+
+
   var items = JSON.parse(localStorage.getItem('items'));
   console.log(items);
+  var arrId = [];
+  items.forEach(function(e){
+    arrId.push(e.id);
+  });
+
+  console.log(arrId);//正常
+
   if(items){
-    console.log(items);
     items.forEach(function(e){
-      e.options.forEach(function(i){
-        $('.checkbox input').each(function(){
-          if($(this).val() == i.id){
-            $(this).attr('checked', true);
-            $(this).parents('tr').find('.num').val(i.quantity);
-            $(this).parents('tr').find('.cumadd').text(i.total);
-          }
-        })
-      })
+      //判断当前e.id 出现次数n。。。code 循环次数依据这个次数
+      var n = arrCheck(arrId, e.id);
+      console.log(n);//正常
+      var count = 0;
+      for(var i=0;i<n;i++){
+          console.log(5555);
+          newdom = $(e.id).clone();
+          count++;
+          var url = '#panel-'+Math.random();
+          newdom.find('.p-group').prepend('<p>'+'<a contenteditable="true" data-toggle="tab" href='+url+'>'+e.name+'</a>'+count+'<span class="fa fa-remove "></span></p>');
+          newdom.attr('id', url);
+          $('.tab-content').append(newdom);
+
+          console.log(newdom);
+
+          var pgroups = newdom.find('.p-group').html();
+          var original = newdom.attr('data-name');
+          $('.tab-content').find('.tab-pane').each(function(){
+              if($(this).attr('data-name') == original){
+                  $(this).find('.p-group p').remove();
+                  $(this).find('.p-group').html(pgroups);
+              }
+          })
+
+          console.log(pgroups);
+
+
+          e.options.forEach(function(i){
+            console.log(i)
+            newdom.find('.checkbox input').each(function(){
+              if($(this).val() == i.id){
+                console.log(111);
+                $(this).attr('checked', true);
+                $(this).parents('tr').find('.num').val(i.quantity);
+                $(this).parents('tr').find('.cumadd').text(i.total);
+              }
+            })
+          })
+      }
     })
   }
 })
