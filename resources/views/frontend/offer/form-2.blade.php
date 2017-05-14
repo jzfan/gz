@@ -241,11 +241,12 @@ $(function(){
     items.forEach(function(e){
       //判断当前e.id 出现次数n。。。code 循环次数依据这个次数
       var n = arrCheck(arrId, e.id);
-      //console.log(n);//正常
+      console.log(n);//正常
       var count = 0;
       for(var j=0;j<n;j++){
-          console.log(5555);
           newdom = $(e.id).clone();
+          console.log($(e.id));
+          console.log(e.name);
           count++;
           var url = '#panel-'+Math.random();
           newdom.find('.p-group').prepend('<p>'+'<a contenteditable="true" data-toggle="tab" href='+url+'>'+e.name+'</a>'+count+'<span class="fa fa-remove "></span></p>');
@@ -253,9 +254,11 @@ $(function(){
           $('.tab-content').append(newdom);
 
           console.log(newdom);
+          console.log(newdom.attr('id'));
 
-          var pgroups = newdom.find('.p-group').html();
+          var pgroups = $(url).find('.p-group').html();
           var original = newdom.attr('data-name');
+          console.log(original);
           $('.tab-content').find('.tab-pane').each(function(){
               if($(this).attr('data-name') == original){
                   $(this).find('.p-group p').remove();
@@ -266,6 +269,7 @@ $(function(){
           console.log(pgroups);
           console.log(e.options);
           var target = newdom.find('.checkbox input');
+          console.log(target)
           e.options.forEach(function(e,i){
             console.log(e);
             console.log(i);
@@ -275,6 +279,7 @@ $(function(){
             let targetT = e.total;
             target.each(function(){
               console.log(targetId);
+              console.log($(this).val());
               if($(this).val() == targetId){
                 console.log(111);
                 $(this).attr('checked', true);
