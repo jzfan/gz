@@ -229,23 +229,19 @@ $(function(){
 
 
   var items = JSON.parse(localStorage.getItem('items'));
-  //console.log(items);
   var arrId = [];
   items.forEach(function(e){
     arrId.push(e.id);
   });
 
-  //console.log(arrId);//正常
-
   if(items){
     items.forEach(function(e){
       //判断当前e.id 出现次数n。。。code 循环次数依据这个次数
       var n = arrCheck(arrId, e.id);
-      console.log(n);//正常
       var count = 0;
-      for(var j=0;j<n;j++){
-          newdom = $(e.id).clone();
-          console.log($(e.id));
+      for(var j=1;j<n;j++){
+          var newdom = $(e.id).clone();
+          console.log($(e.id));//正常
           console.log(e.name);
           count++;
           var url = '#panel-'+Math.random();
@@ -256,7 +252,7 @@ $(function(){
           console.log(newdom);
           console.log(newdom.attr('id'));
 
-          var pgroups = $(url).find('.p-group').html();
+          var pgroups = newdom.find('.p-group').html();
           var original = newdom.attr('data-name');
           console.log(original);
           $('.tab-content').find('.tab-pane').each(function(){
@@ -270,6 +266,7 @@ $(function(){
           console.log(e.options);
           var target = newdom.find('.checkbox input');
           console.log(target)
+          console.log(target.length)
           e.options.forEach(function(e,i){
             console.log(e);
             console.log(i);
@@ -277,7 +274,9 @@ $(function(){
             let targetId = e.id;
             let targetQ = e.quantity;
             let targetT = e.total;
-            target.each(function(){
+            console.log(targetId);
+            console.log(targetQ);
+            newdom.find('.checkbox input').each(function(){
               console.log(targetId);
               console.log($(this).val());
               if($(this).val() == targetId){
