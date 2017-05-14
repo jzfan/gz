@@ -241,10 +241,12 @@ $(function(){
       var count = 0;
 
       if(n==1){
-        e.options.forEach(function(e,i){
+        e.options.forEach(function(element){
+          console.log(element.id);
+          let idOne = element.id;
           $(e.id).find('.checkbox input').each(function(){
-            console.log(e.id);
-            if($(this).val() == e.id){
+            console.log(idOne);
+            if($(this).val() == idOne){
               console.log(e.id);
               $(this).attr('checked', true);
               $(this).parents('tr').find('.num').val(e.quantity);
@@ -252,9 +254,11 @@ $(function(){
             }
           });
         });
-      }
+      } 
+      else{
 
-      for(var j=1;j<n;j++){
+
+          for(var j=1;j<n;j++){
           var newdom = $(e.id).clone();
           console.log($(e.id));//正常
           console.log(e.name);
@@ -303,6 +307,13 @@ $(function(){
             })
           })
       }
+
+
+
+
+      }
+
+      
     })
   }
 })
