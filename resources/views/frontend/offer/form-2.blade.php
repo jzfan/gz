@@ -243,7 +243,6 @@ $(function(){
       var n = arrCheck(arrId, e.id);
       //console.log(n);//正常
       var count = 0;
-      var ele = e;
       for(var j=0;j<n;j++){
           console.log(5555);
           newdom = $(e.id).clone();
@@ -266,17 +265,21 @@ $(function(){
 
           console.log(pgroups);
           console.log(e.options);
-          console.log(ele.options);
-          var target = newdom;
+          var target = newdom.find('.checkbox input');
           e.options.forEach(function(e,i){
             console.log(e);
             console.log(i);
-            target.find('.checkbox input').each(function(){
-              if($(this).val() == i.id){
+            console.log(i.id);
+            let targetId = i.id;
+            let targetQ = i.quantity;
+            let targetT = i.total;
+            target.each(function(){
+              console.log(targetId);
+              if($(this).val() == targetId){
                 console.log(111);
                 $(this).attr('checked', true);
-                $(this).parents('tr').find('.num').val(i.quantity);
-                $(this).parents('tr').find('.cumadd').text(i.total);
+                $(this).parents('tr').find('.num').val(targetQ);
+                $(this).parents('tr').find('.cumadd').text(targetT);
               }
             })
           })
