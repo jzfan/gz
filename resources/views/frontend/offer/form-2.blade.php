@@ -269,10 +269,10 @@ $(function(){
           e.options.forEach(function(e,i){
             console.log(e);
             console.log(i);
-            console.log(i.id);
-            let targetId = i.id;
-            let targetQ = i.quantity;
-            let targetT = i.total;
+            console.log(e.id);
+            let targetId = e.id;
+            let targetQ = e.quantity;
+            let targetT = e.total;
             target.each(function(){
               console.log(targetId);
               if($(this).val() == targetId){
