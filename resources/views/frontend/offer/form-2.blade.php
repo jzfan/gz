@@ -229,19 +229,19 @@ $(function(){
 
 
   var items = JSON.parse(localStorage.getItem('items'));
-  console.log(items);
+  //console.log(items);
   var arrId = [];
   items.forEach(function(e){
     arrId.push(e.id);
   });
 
-  console.log(arrId);//正常
+  //console.log(arrId);//正常
 
   if(items){
     items.forEach(function(e){
       //判断当前e.id 出现次数n。。。code 循环次数依据这个次数
       var n = arrCheck(arrId, e.id);
-      console.log(n);//正常
+      //console.log(n);//正常
       var count = 0;
       var ele = e;
       for(var j=0;j<n;j++){
@@ -267,11 +267,11 @@ $(function(){
           console.log(pgroups);
           console.log(e.options);
           console.log(ele.options);
-
+          var target = newdom;
           e.options.forEach(function(e,i){
             console.log(e);
             console.log(i);
-            newdom.find('.checkbox input').each(function(){
+            target.find('.checkbox input').each(function(){
               if($(this).val() == i.id){
                 console.log(111);
                 $(this).attr('checked', true);
