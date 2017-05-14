@@ -239,6 +239,21 @@ $(function(){
       //判断当前e.id 出现次数n。。。code 循环次数依据这个次数
       var n = arrCheck(arrId, e.id);
       var count = 0;
+
+      if(n==1){
+        e.options.forEach(function(e,i){
+          $(e.id).find('.checkbox input').each(function(){
+            console.log(e.id);
+            if($(this).val() == e.id){
+              console.log(e.id);
+              $(this).attr('checked', true);
+              $(this).parents('tr').find('.num').val(e.quantity);
+              $(this).parents('tr').find('.cumadd').text(e.total);
+            }
+          });
+        });
+      }
+
       for(var j=1;j<n;j++){
           var newdom = $(e.id).clone();
           console.log($(e.id));//正常
