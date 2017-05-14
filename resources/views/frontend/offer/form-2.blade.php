@@ -208,6 +208,7 @@ $(function(){
 //修改数据前自动填充之前选中的数据
 $(function(){
 
+  //根据指定元素返回改元素在数组中出现的次数
   function arrCheck(arr,c){
     var newArr = [];
     var temp = c;
@@ -236,18 +237,18 @@ $(function(){
 
   if(items){
     items.forEach(function(e){
-      //判断当前e.id 出现次数n。。。code 循环次数依据这个次数
       var n = arrCheck(arrId, e.id);
       var count = 0;
-
+      console.log(n);
       if(n==1){
+        console.log('n==1');
         e.options.forEach(function(element){
-          console.log(element.id);
           let idOne = element.id;
+          console.log(e.id);
           $(e.id).find('.checkbox input').each(function(){
             console.log(idOne);
+            console.log(element.item_id);
             if($(this).val() == idOne){
-              console.log(e.id);
               $(this).attr('checked', true);
               $(this).parents('tr').find('.num').val(e.quantity);
               $(this).parents('tr').find('.cumadd').text(e.total);
@@ -255,6 +256,8 @@ $(function(){
           });
         });
       } 
+
+
       else{
 
 
