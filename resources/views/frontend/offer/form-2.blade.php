@@ -120,7 +120,7 @@
 
 @section('js')
 <script>
-let data = JSON.parse(window.localStorage.getItem('offer'))
+let data = JSON.parse(window.localStorage.getItem('offer'));
   $(function () {
     initForm()
   })
@@ -190,7 +190,7 @@ $(function(){
           $('#view').attr('disabled', false);
           $('#view a').attr('href', '/offers/'+m);
         });
-        console.log(object);
+        console.log(apply,items,materials);
     })
 })
 
@@ -208,6 +208,7 @@ $(function(){
 //修改数据前自动填充之前选中的数据
 $(function(){
 
+  //根据指定元素返回改元素在数组中出现的次数
   function arrCheck(arr,c){
     var newArr = [];
     var temp = c;
@@ -229,23 +230,41 @@ $(function(){
 
 
   var items = JSON.parse(localStorage.getItem('items'));
-  console.log(items);
   var arrId = [];
   items.forEach(function(e){
     arrId.push(e.id);
   });
 
-  console.log(arrId);//正常
-
   if(items){
     items.forEach(function(e){
-      //判断当前e.id 出现次数n。。。code 循环次数依据这个次数
       var n = arrCheck(arrId, e.id);
-      console.log(n);//正常
       var count = 0;
-      for(var i=0;i<n;i++){
-          console.log(5555);
-          newdom = $(e.id).clone();
+      console.log(n);
+      if(n==1){
+        console.log('n==1');
+        e.options.forEach(function(element){
+          let idOne = element.id;
+          console.log(e.id);
+          $(e.id).find('.checkbox input').each(function(){
+            console.log(idOne);
+            console.log(element.item_id);
+            if($(this).val() == idOne){
+              $(this).attr('checked', true);
+              $(this).parents('tr').find('.num').val(e.quantity);
+              $(this).parents('tr').find('.cumadd').text(e.total);
+            }
+          });
+        });
+      } 
+
+
+      else{
+
+
+          for(var j=1;j<n;j++){
+          var newdom = $(e.id).clone();
+          console.log($(e.id));//正常
+          console.log(e.name);
           count++;
           var url = '#panel-'+Math.random();
           newdom.find('.p-group').prepend('<p>'+'<a contenteditable="true" data-toggle="tab" href='+url+'>'+e.name+'</a>'+count+'<span class="fa fa-remove "></span></p>');
@@ -253,9 +272,11 @@ $(function(){
           $('.tab-content').append(newdom);
 
           console.log(newdom);
+          console.log(newdom.attr('id'));
 
           var pgroups = newdom.find('.p-group').html();
           var original = newdom.attr('data-name');
+          console.log(original);
           $('.tab-content').find('.tab-pane').each(function(){
               if($(this).attr('data-name') == original){
                   $(this).find('.p-group p').remove();
@@ -264,20 +285,38 @@ $(function(){
           })
 
           console.log(pgroups);
-
-
-          e.options.forEach(function(i){
-            console.log(i)
+          console.log(e.options);
+          var target = newdom.find('.checkbox input');
+          console.log(target)
+          console.log(target.length)
+          e.options.forEach(function(e,i){
+            console.log(e);
+            console.log(i);
+            console.log(e.id);
+            let targetId = e.id;
+            let targetQ = e.quantity;
+            let targetT = e.total;
+            console.log(targetId);
+            console.log(targetQ);
             newdom.find('.checkbox input').each(function(){
-              if($(this).val() == i.id){
+              console.log(targetId);
+              console.log($(this).val());
+              if($(this).val() == targetId){
                 console.log(111);
                 $(this).attr('checked', true);
-                $(this).parents('tr').find('.num').val(i.quantity);
-                $(this).parents('tr').find('.cumadd').text(i.total);
+                $(this).parents('tr').find('.num').val(targetQ);
+                $(this).parents('tr').find('.cumadd').text(targetT);
               }
             })
           })
       }
+
+
+
+
+      }
+
+      
     })
   }
 })
