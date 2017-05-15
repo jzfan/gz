@@ -57,13 +57,15 @@
                                 <!-- Single Input Area Start -->
                                 <div class="col-sm-6 col-xs-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="验证码">
+                                        <input type="text" class="form-control" name="captcha" id="subject" placeholder="验证码">
                                     </div>
                                 </div>
                                 <!-- Single Input Area Start -->
                                 <div class="col-sm-6 col-xs-12">
                                     <div class="form-group">
-                                        <button class="form-control">获取验证码</button>
+                                        <?php $builder = new \Gregwar\Captcha\CaptchaBuilder; ?>
+                                        <img src="<?php echo $builder->build()->inline(); ?>" />
+                                        <?php session(['phrase' => $builder->getPhrase()]) ; ?>
                                     </div>
                                 </div>
                                 <div class="col-xs-12">
