@@ -120,7 +120,7 @@
 
 @section('js')
 <script>
-let data = JSON.parse(window.localStorage.getItem('offer'))
+let data = JSON.parse(window.localStorage.getItem('offer'));
   $(function () {
     initForm()
   })
@@ -190,7 +190,7 @@ $(function(){
           $('#view').attr('disabled', false);
           $('#view a').attr('href', '/offers/'+m);
         });
-        console.log(object);
+        console.log(apply,items,materials);
     })
 })
 
