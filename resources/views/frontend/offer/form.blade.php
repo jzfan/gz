@@ -45,7 +45,7 @@
         </li>
         @endforeach
 </ul>
-        <a href='/offers/create-2' class="btn btn-success btn-lg btn-block" id='forward-link'>下一步，填写报价详细</a>
+        <a href='###' class="btn btn-success btn-lg btn-block" id='forward-link'>下一步，填写报价详细</a>
       </div>
     </div>
   </div>
@@ -59,24 +59,34 @@ $('#forward-link').click( function (e) {
   let apply = {}
 
   var link = window.location.pathname;
+  console.log(link);
+  console.log(link.indexOf('person'));
    if(link.indexOf('person')){
       apply.from = '个人';
+   }else{
+      delete apply.form;
    }
 
   $('.list-group .list-group-item').each(function(){
       var _brand = [];
       var str = String;
+      var bool = Boolean;
       $(this).find('input').each(function(){
         if($(this).is(':checked')){
           _brand.push($(this).attr('data-brand'));
+          bool = true;
         }
       })
+
       str = _brand.join('|');  
-      materials.push({
-        id: $(this).find('input').eq(0).value,
-        name: $(this).find('input').eq(0).attr('data-name'),
-        brand: str
-      })
+      
+      if(bool){
+        materials.push({
+          id: $(this).find('input').eq(0).value,
+          name: $(this).find('input').eq(0).attr('data-name'),
+          brand: str
+        })
+      }
   })
 
   $('.group-t input').each(function(){
