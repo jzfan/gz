@@ -89,10 +89,9 @@ $('#forward-link').click( function (e) {
 
   var link = window.location.href;
   console.log(link);
-  var isFrom = link.indexOf('person')?true:false;
-  console.log(isFrom);
-  if(isFrom){
-      apply.from = '个人';
+  var isFrom = false;
+  if(link.indexOf('person') != -1){
+    apply.from = '个人';
   }
 
   console.log({materials, apply});
