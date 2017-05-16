@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Route::namespace('Api')->get('offers/{id}', 'OfferController@getOne');
 Route::group(['namespace'=>'Api'], function(){
 	Route::get('offers/{id}', 'OfferController@getOne');
+	Route::get('captchas/imgsrc', 'CaptchaController@imgsrc');
 });
