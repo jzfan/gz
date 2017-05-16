@@ -45,7 +45,7 @@
         </li>
         @endforeach
 </ul>
-        <a href='###' class="btn btn-success btn-lg btn-block" id='forward-link'>下一步，填写报价详细</a>
+        <a href='/offers/create-2' class="btn btn-success btn-lg btn-block" id='forward-link'>下一步，填写报价详细</a>
       </div>
     </div>
   </div>
