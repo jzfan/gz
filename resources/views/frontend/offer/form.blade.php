@@ -87,14 +87,12 @@ $('#forward-link').click( function (e) {
      console.log($(this).val());
   });
 
-  var link = window.location.pathname;
+  var link = window.location.href;
   console.log(link);
-  console.log(link.indexOf('person'));
-  if(link.indexOf('person')){
+  var isFrom = link.indexOf('person')?true:false;
+  console.log(isFrom);
+  if(isFrom){
       apply.from = '个人';
-  }else{
-      console.log('非个人');
-      delete apply.from;
   }
 
   console.log({materials, apply});
