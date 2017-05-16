@@ -88,8 +88,7 @@ $('#forward-link').click( function (e) {
   });
 
   var link = window.location.href;
-  console.log(link);
-  var isFrom = false;
+  console.log(link.indexOf('person'));
   if(link.indexOf('person') != -1){
     apply.from = '个人';
   }
