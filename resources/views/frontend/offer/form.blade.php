@@ -58,25 +58,18 @@ $('#forward-link').click( function (e) {
   let materials = []
   let apply = {}
 
-  var link = window.location.pathname;
-  console.log(link);
-  console.log(link.indexOf('person'));
-   if(link.indexOf('person')){
-      apply.from = '个人';
-   }else{
-      delete apply.from;
-   }
-
   $('.list-group .list-group-item').each(function(){
       var _brand = [];
       var str = String;
-      var bool = Boolean;
+      var bool = false;
       $(this).find('input').each(function(){
         if($(this).is(':checked')){
           _brand.push($(this).attr('data-brand'));
           bool = true;
         }
       })
+
+      console.log(bool);
 
       str = _brand.join('|');  
       
@@ -93,6 +86,16 @@ $('#forward-link').click( function (e) {
      apply[this.name] = this.value;
      console.log($(this).val());
   });
+
+  var link = window.location.pathname;
+  console.log(link);
+  console.log(link.indexOf('person'));
+  if(link.indexOf('person')){
+      apply.from = '个人';
+  }else{
+      console.log('非个人');
+      delete apply.from;
+  }
 
   console.log({materials, apply});
   window.localStorage.setItem('offer', JSON.stringify({materials, apply}));
