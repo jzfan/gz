@@ -64,7 +64,7 @@ $('#forward-link').click( function (e) {
    if(link.indexOf('person')){
       apply.from = '个人';
    }else{
-      delete apply.form;
+      delete apply.from;
    }
 
   $('.list-group .list-group-item').each(function(){
@@ -114,17 +114,17 @@ $(function(){
   }
   localStorage.removeItem('cinfo');
 
-  $('#forward-link').click(function(){
-    var applyInfo = {};
-    var info = $('.group-t').find('input');
-    applyInfo = {
-      'name':info[0].val(),
-      'phone':info[1].val(),
-      'block':info[2].val(),
-      'square':info[3].val()
-    }
-    localStorage.setItem('applyInfo', JSON.stringify(applyInfo));
-  })
+  // $('#forward-link').click(function(){
+  //   var applyInfo = {};
+  //   var info = $('.group-t').find('input');
+  //   applyInfo = {
+  //     'name':info[0].val(),
+  //     'phone':info[1].val(),
+  //     'block':info[2].val(),
+  //     'square':info[3].val()
+  //   }
+  //   localStorage.setItem('applyInfo', JSON.stringify(applyInfo));
+  // })
 
 })
 
